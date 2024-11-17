@@ -1,0 +1,292 @@
+\documentclass[a4paper, 11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsxtra}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage[portuguese]{babel}
+
+\usepackage[dvipsnames]{xcolor}
+
+% \usepackage{cmbright}
+
+\usepackage{tabularray}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\usepackage{caption} 
+\captionsetup{justification=centering} 
+
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\usepackage{tikz}
+\usetikzlibrary{intersections, angles, calc, positioning}
+\usetikzlibrary{shapes.geometric, arrows.meta}
+\usetikzlibrary{decorations.pathmorphing, decorations.pathreplacing}
+
+\usepackage[explicit]{titlesec}
+\usepackage[letterspace=100]{microtype}
+\usepackage{fmtcount}
+
+\titleformat{\chapter}[display]
+{\bfseries\large\sf\lsstyle}
+{\huge\filleft\mbox{\MakeUppercase{\chaptertitlename} \NUMBERstring{chapter}}}
+{1.5ex}
+{\titlerule
+\vspace*{1.1ex}%
+\MakeUppercase{#1}}
+[\vspace*{1.5ex}%
+\titlerule]
+\titlespacing*{\chapter}{0pt}{-10pt}{25pt}
+
+\titleformat{\section}{\Large\bfseries\sffamily\centering}{\thesection}{0.5em}{#1}
+
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em, 
+innertopmargin=10pt, innerbottommargin=8pt,
+innerleftmargin=8pt, innerrightmargin=8pt}
+
+\renewcommand{\qedsymbol}{$\Box$}
+
+\theoremstyle{definition}
+
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak, backgroundcolor=orange!10, linecolor=orange!40!black}]{thmbox}
+\declaretheorem[style=thmbox, name=Definição]{dbox}
+\declaretheorem[style=thmbox, name=Teorema]{tbox}
+\declaretheorem[style=thmbox, name=Proposição]{pbox}
+\declaretheorem[style=thmbox, name=Corolário]{cbox}
+\declaretheorem[style=thmbox, name=Lema]{lbox}
+
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{exp}
+\declaretheorem[style=exp, name=Exemplo]{ex}
+
+\declaretheoremstyle[headfont=\sffamily\itshape, bodyfont=\normalfont]{pr}
+\declaretheorem[numbered=no, style=pr, name=Demonstração, qed=\qedsymbol]{prf}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newcommand{\medcup}{\mathsf{U}}
+
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bK}{\mathbb{K}}
+
+\newcommand{\bz}{\mathbf{0}}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cB}{\mathcal{B}}
+
+\begin{document}
+\setcounter{chapter}{1}
+\setcounter{section}{2}
+\section{Integral de Lebesgue}
+
+\textbf{Notações:}
+\begin{itemize}[leftmargin=*, label=--]
+    \item $(X, \eth, \mu)$: espaço de medida
+    \item $M = M(X, \eth)$: espaço das funções $f : X \to \overline\bR$ mensuráveis
+    \item $M^+ = M^+(X, \eth)$: espaço das funções $f : X \to \overline\bR$ mensuráveis \textcolor{orange}{não negativas}
+\end{itemize}
+
+\begin{dbox}
+    Uma função $\varphi : X \to \bR$ é simples se assume apenas um número finito de valores em sua imagem ($\# \varphi(X) < \infty$)
+\end{dbox}
+
+Uma função $\varphi$ simples e mensurável pode ser representada da seguinte forma
+\begin{equation} \label{eq:representacaopadrao}
+    \varphi = \sum_{j = 1}^n a_j \chi_{E_j}
+\end{equation}
+onde $a_j \in \bR$ e $\chi_{E_j}$ é a função caracteristica do conjunto $E_j \in \eth$. Essa representação é única pelo fato de todos $a_j$ serem distintos, os conjuntos $E_j$ serem disjuntos com $j = 1,\dots,n$ e $X = \bigcup_{j=1}^n E_j$.    
+
+\begin{dbox}
+    Seja $\varphi \in M^+$ uma função simples com a representação (\ref{eq:representacaopadrao}). Definimos a integral de $\varphi$ em relação a $\mu$ por
+    \begin{equation*}
+        \int \varphi \, d\mu = \sum_{j=1}^n a_j \mu(E_j)
+    \end{equation*}
+\end{dbox}
+
+\textbf{Observação:} Adotamos a convenção $0 \cdot \infty = 0$. Dessa forma a integral da função identicamente nula é $0$ indepdendente se o conjunto tem medida finita ou ifinita.
+
+\begin{lbox}
+    Dadas funções simples $\varphi, \psi \in M^+$ e $c \geqslant 0$ tem-se
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item $\displaystyle \int c \varphi \, d\mu = c \int \varphi \, d\mu$
+        \item $\displaystyle \int (\varphi + \psi) \, d\mu = \int \varphi \,d\mu + \int \psi \, d\mu$
+        \item A aplicação
+        $\displaystyle \lambda(E) = \int \varphi \chi_E \, d\mu$
+        para todo $E \in \eth$ é uma medida em $\eth$.
+    \end{enumerate}
+\end{lbox}
+\begin{prf}
+    ~
+
+    \textbf{(a)} Mostremos que
+    \[
+        \int c \varphi \, d\mu = c \int \varphi \, d\mu.
+    \]
+    Com efeito, para $c = 0$,
+    \[
+        \int c \varphi \, d\mu = 0 = c \int \varphi \, d\mu.
+    \]
+    por outro lado, para $c > 0$, podemos escrever $c\varphi$ da seguinte forma
+    \[
+        c\varphi = \sum_{j = 1}^{n} ca_j \chi_{E_j}
+    \]
+    Dito isso,
+    \[
+        \int c \varphi \, d\mu = \sum_{j = 1}^{n} ca_j \mu(E_j) = c\sum_{j = 1}^{n} a_j \mu(E_j) = c\int \varphi \, d\mu
+    \]
+
+    \textbf{(b)} Agora, mostremos que 
+    \[
+        \int (\varphi + \psi) \, d\mu = \int \varphi \,d\mu + \int \psi \, d\mu
+    \]
+    Para isso, podemos considerar as representações padrões das funções simples $\varphi, \psi \in M^+$
+    \[
+        \varphi = \sum_{j = 1}^{n} a_j \chi_{E_j} \quad \text{ e } \quad \psi = \sum_{k = 1}^{m} b_k \chi_{F_k},
+    \]
+    dessa forma, obtemos uma representaçao para $\varphi + \psi$ dada por
+    \[
+        \varphi + \psi = \sum_{j = 1}^{n} a_j \chi_{E_j} + \sum_{k = 1}^{m} b_k \chi_{F_k}.
+    \]
+    No entanto, essa representação não necessáriamente é a representação padrão, pois é possível que existam $j_0, j_1 \in \{1,\dots,n\}$ e $k_0, k_1 \in \{1,\dots,m\}$, tais que $a_{j_0} + b_{k_0} = a_{j_1} + b_{k_1}$.
+
+    Considere os elementos distintos do conjunto
+    \[
+        H = \{a_j + b_k \,; j \in \{1,\dots,n\}, k \in \{1,\dots,m\}\}
+    \]
+    e denominamos os elementos por $c_h$ com $h = 1,\dots,\# H$, e $G_h$ a união de todos os conjuntos $E_j \cap F_k$ tais que $a_j + b_k = c_h$
+
+    Afirmamos que os conjuntos $G_h$ são dois-a-dois disjuntos. De fato
+    \[
+        G_h \cap G_H = (E_j \cap F_k) \cap (E_J \cap F_K) = E_j \cap E_J \cap F_k \cap F_K = \emptyset \cap \emptyset = \emptyset,
+    \]
+    sendo assim
+    \[
+        \mu(G_h) = \overline{\sum} \mu(E_j \cap F_k)
+    \]
+    onde o somatório $\overline{\Sigma}$ está relacionado aos indices $1 \leqslant j \leqslant n$ e $1 \leqslant k \leqslant m$ tais que $a_j + b_k = c_h$
+
+    Portanto definimos a representação padrão de $\varphi + \psi$ por
+    \[
+        \varphi + \psi = \sum_{h = 1}^{\# H} c_h \chi_{G_h},
+    \]
+    deste modo
+    \[
+        \begin{aligned}
+            \int (\varphi + \psi) \, d\mu &= \sum_{h = 1}^{\# H} c_h \textcolor{orange}{\mu(G_h)}\\
+            &= \sum_{h = 1}^{\# H} \textcolor{orange}{\overline{\sum}} c_h \textcolor{orange}{\mu (E_j \cap F_k)}\\
+            &= \sum_{j = 1}^{n} \sum_{k = 1}^{m} (a_j + b_k) \mu(E_j \cap F_k)\\
+            &= \sum_{j = 1}^{n} \sum_{k = 1}^{m} a_j \mu(E_j \cap F_k) + \sum_{j = 1}^{n} \sum_{k = 1}^{m} b_k \mu(E_j \cap F_k)
+        \end{aligned}
+    \]
+    como $X$ é a união das famílias $\{E_j\}$ e $\{F_k\}$, temos que
+    \[
+        \mu(E_j) = \sum_{k = 1}^{m} \mu(E_j \cap F_k) \quad{ e } \quad \mu(F_k) = \sum_{j = 1}^{n} \mu(E_j \cap F_k).
+    \]
+    Portanto
+    \[
+        \int (\varphi + \psi) \, d\mu = \sum_{j = 1}^{n}  a_j \mu(E_j) + \sum_{k = 1}^{m}  b_k \mu(F_k) = \int \varphi \, d\mu + \int \psi \, d\mu.
+    \]
+
+    \textbf{(c)} Por fim, queremos mostrar que
+    \[
+        \lambda(E) = \int \varphi \chi_E \, d\mu
+    \]
+    é uma medida em $\eth$. Com efeito,
+    \begin{enumerate}
+        \item $\displaystyle \lambda (\emptyset) = \int \varphi \chi_{\emptyset} \, d\mu = \int 0 \, d\mu = 0$
+        \item Note que como $\varphi \in M^+$ os elementos $a_j$ na representação padrão são não negativos. Com efeito, sabemos que $0 \leqslant \varphi(x)$ para todo $x \in X$, daí
+        \[
+            0 \leqslant \varphi(x) = \sum_{j=1}^{n} a_j \chi_{E_j}(x),
+        \]
+        porem, como os conjuntos $E_j$ são disjuntos, existe um único $1 \leqslant j_0 \leqslant n$ tal que $x \in E_{j_0}$. 
+        Dessa forma, para todo $j \neq j_0$, $\chi_{E_j}(x) = 0$, então
+        \[
+            0 \leqslant \varphi(x) = \sum_{j=1}^{n} a_j \chi_{E_j}(x) = a_{j_0}
+        \]
+        Daí,
+        \[
+            \lambda(E) = \int \varphi \chi_{E} \, d\mu = \sum_{j=1}^{n} a_j \mu(E \cap E_j) \geqslant 0
+        \]
+        pois mostramos que $a_j > 0$ para todo $1 \leqslant j \leqslant n$ e $\mu$ é uma medida.
+        \item Considere $(F_k) \subseteq \eth $ uma sequência disjunta de conjuntos
+        \[
+            \begin{aligned}
+                \lambda \left( \bigcup_{k=1}^\infty F_k \right) &= \int \varphi \chi_{\medcup F_k}\\ 
+                &= \sum_{j = 1}^{n} a_j \mu \left( \left( \bigcup_{k = 1}^\infty F_k \right) \cap E_j \right)\\
+                &= \sum_{j = 1}^{n} a_j \mu \left( \bigcup_{k=1}^\infty (F_k \cap E_j) \right)\\
+                &= \sum_{j=1}^{n} a_j \sum_{k=1}^{\infty} \mu(F_k \cap E_j)\\
+                &= \sum_{j=1}^{n}\sum_{k=1}^{\infty} a_j  \mu(F_k \cap E_j)\\
+                &= \sum_{k=1}^{\infty}\sum_{j=1}^{n} a_j  \mu(F_k \cap E_j)\\
+                &= \sum_{k=1}^{\infty} \int \varphi \chi_{F_k} \, d\mu\\
+                &= \sum_{k=1}^{\infty} \lambda(F_k)
+            \end{aligned}
+        \]
+    \end{enumerate}
+\end{prf}
+
+\begin{dbox}
+    A integral de uma função $f \in M^+$ em relação a $\mu$ é definida por
+    \[
+        \int f \, d\mu = \sup_\varphi \int \varphi \, d\mu
+    \]
+    onde $\varphi$ são funções simples em $M^+$ tais que $0 \leqslant \varphi(x) \leqslant f(x)$ para todo $x \in X$.
+\end{dbox}
+
+Além disso, definimos a integral da função $f$ sobre um conjunto mensurável
+
+\begin{dbox}
+    A integral de $f \in M^+$ sobre um conjunto $E \in \eth$ é dada por
+    \[
+        \int_E f \, d\mu = \int f \chi_E \, d\mu
+    \]
+\end{dbox}
+
+\begin{lbox}
+    Sejam $f, g \in M^+$ e $E, F \in \eth$.
+    Então são válidas as afirmações abaixo
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item se $f \leqslant g$ tem-se
+        \[
+            \int f \, d\mu \leqslant \int g \, d\mu
+        \]
+        \item se $E \subseteq F$ tem-se
+        \[
+            \int_E f \, d\mu \leqslant \int_F f \, d\mu
+        \]
+    \end{enumerate}
+\end{lbox}
+\begin{prf}
+    ~
+
+    \textbf{(a)} Seja $\varphi$ uma função simples em $M^+$, então
+    \[
+        \int f \, d\mu = \!\!\sup_{\substack{0 \leqslant \varphi \leqslant f \\ \varphi \text{ simples} \\ \varphi \in M^+}} \int \varphi \, d \mu \leqslant \!\! \sup_{\substack{0 \leqslant \varphi \leqslant g \\ \varphi \text{ simples} \\ \varphi \in M^+}} \int \varphi \, d \mu = \int g \, d\mu
+    \]
+
+    \textbf{(b)} Como $f \chi_E \leqslant f \chi_F$, segue do item anterior que
+    \[
+        \int f \chi_E \, d\mu \leqslant \int f \chi_F \, d\mu,
+    \]
+    dito isso
+    \[
+        \int_E F \, d \mu \leqslant \int_F f \, d\mu.
+    \]
+\end{prf}
+% songs feel longer and i notice instruments i never did before, very chill, quando bate and pedestal
+
+\end{document}

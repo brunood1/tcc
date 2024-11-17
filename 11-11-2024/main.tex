@@ -1,0 +1,357 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsxtra}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage[portuguese]{babel}
+
+\usepackage[dvipsnames]{xcolor}
+
+% \usepackage{cmbright}
+
+\usepackage{tabularray}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\usepackage{caption} 
+\captionsetup{justification=centering} 
+
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\usepackage{tikz}
+\usetikzlibrary{intersections, angles, calc, positioning}
+\usetikzlibrary{shapes.geometric, arrows.meta}
+\usetikzlibrary{decorations.pathmorphing, decorations.pathreplacing}
+
+\usepackage[explicit]{titlesec}
+\usepackage[letterspace=100]{microtype}
+\usepackage{fmtcount}
+
+\titleformat{\chapter}[display]
+{\bfseries\large\sf\lsstyle}
+{\huge\filleft\mbox{\MakeUppercase{\chaptertitlename} \NUMBERstring{chapter}}}
+{1.5ex}
+{\titlerule
+\vspace*{1.1ex}%
+\MakeUppercase{#1}}
+[\vspace*{1.5ex}%
+\titlerule]
+\titlespacing*{\chapter}{0pt}{-10pt}{25pt}
+
+\titleformat{\section}{\Large\bfseries\sffamily\centering}{\thesection}{0.5em}{#1}
+
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em, 
+innertopmargin=10pt, innerbottommargin=8pt,
+innerleftmargin=8pt, innerrightmargin=8pt}
+
+\renewcommand{\qedsymbol}{$\Box$}
+
+\theoremstyle{definition}
+
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak, backgroundcolor=orange!10, linecolor=orange!40!black}]{thmbox}
+\declaretheorem[style=thmbox, name=Definição]{dbox}
+\declaretheorem[style=thmbox, name=Teorema]{tbox}
+\declaretheorem[style=thmbox, name=Proposição]{pbox}
+\declaretheorem[style=thmbox, name=Corolário]{cbox}
+\declaretheorem[style=thmbox, name=Lema]{lbox}
+
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{exp}
+\declaretheorem[style=exp, name=Exemplo]{ex}
+
+\declaretheoremstyle[headfont=\sffamily\itshape, bodyfont=\normalfont]{pr}
+\declaretheorem[numbered=no, style=pr, name=Demonstração, qed=\qedsymbol]{prf}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newcommand{\medcup}{\mathsf{U}}
+
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bK}{\mathbb{K}}
+
+\newcommand{\bz}{\mathbf{0}}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+
+\begin{document}
+
+\section*{Espaços $\cL^p$ (continuação)}
+
+Agora, vmos provar que $(\cL^p, \Vert \cdot \Vert_p)$ é um espaço vetorial normado para $1 \leqslant p < \infty$.
+\begin{pbox}
+    A aplicação $\Vert \cdot \Vert_p : \cL^p \to \bR$ dada por
+    \[
+        \Vert f \Vert_p = \left( \int |f|^p \, d\mu \right)^{\frac{1}{p}}
+    \]
+    é uma norma
+\end{pbox}
+\begin{prf}
+    Note que
+    \begin{enumerate}
+        \item $\displaystyle  \Vert f \Vert_p = \left(\int |f|^p \, d\mu \right)^{\frac{1}{p}} \geqslant 0$ pois $|f| \geqslant 0$.
+        \item $\displaystyle \Vert \lambda f \Vert_p = \left( \int |\lambda f|^p \,d\mu \right)^{\frac{1}{p}} = \left( \int |\lambda|^p |f|^p \,d\mu \right)^{\frac{1}{p}} = \left(|\lambda|^p \int |f|^p \,d\mu \right)^{\frac{1}{p}} = |\lambda| \left( \int |f|^p \,d\mu \right)^{\frac{1}{p}} = |\lambda| \Vert f \Vert_p$
+        \item $\Vert f + g \Vert_p \leqslant \Vert f \Vert_p + \Vert g \Vert_p$ pela Desigualdade de Minkowski.
+    \end{enumerate}
+    Portanto $\Vert \cdot \Vert_p$ é uma norma.
+\end{prf}
+
+Agora, nosso objetivo é mostrar que $\cL^p$ com $1 \leqslant p < \infty$ é um espaço de Banach, isto é, um espaço vetorial normado completo.
+Para isso precisamos das seguintes definições
+
+\begin{dbox}
+    Seja $(f_n)$ uma sequência em $\cL^p$ com $1 \leqslant p < \infty$. Dizemos que $(f_n)$ é de Cauchy se dado $\varepsilon > 0$ existe $n_0 \in \bN$ tal que
+    \[
+        \Vert f_n - f_m \Vert < \varepsilon
+    \]
+    para todo $n,m \geqslant n_0$
+\end{dbox}
+
+\begin{dbox}
+    Sejam $(f_n)$ uma sequência em $\cL^p$ e $f \in \cL^p$ com $1 \leqslant p < \infty$. Dizemos que $(f_n)$ é convergente e converge para $f$ se dado $\varepsilon > 0$, existe $n_0 \in \bN$ tal que
+    \[
+        \Vert f_n - f \Vert_p \leqslant \varepsilon
+    \]
+    para todo $n \geqslant n_0$. Equivalentemente
+    \[
+        \lim \Vert f_n - f \Vert_p = 0
+    \]
+\end{dbox}
+
+\begin{dbox}
+    Um espaço métrico $(X,d)$ é completo se toda sequência de Cauchy é convergente.
+\end{dbox}
+
+\begin{tbox}[Teorema de Riesz-Fischer]
+    $\cL^p$ com $1 \leqslant p < \infty$ é um espaço de Banach.
+\end{tbox}
+\begin{prf}
+    Seja $(f_n)$ uma sequência de Cauchy em $\cL^p$.
+    Mostremos que $(f_n)$ é convergente. 
+    Com efeito, sabemos que dado $\varepsilon > 0$, existe $n_0 \in \bN$ tal que
+    \[
+        \Vert f_n - f_m \Vert < \varepsilon
+    \]
+    para todo $n, m \geqslant n_0$.
+    Esscolhendo $\varepsilon$ de forma adequada e passando a uma subsequência se necessário, temos que
+    \begin{equation} \label{eq:1}
+        \Vert f_{n+1} - f_n \Vert < 2^{=n}
+    \end{equation}
+    Defina $g : X \to \overline\bR$ por
+    \[
+        g(x) = |f_1(x)| + \sum_{n=1}^{\infty} |f_{n+1} (x) - f_n(x)|.
+    \]
+    Observe que $g \in \cM^+(X,\eth)$, pois $g \geqslant 0$ e
+    \[
+        g = |f_1| + \lim_{k\to\infty} \sum_{n=1}^{k} |f_{n+1} - f_n|
+    \]
+    isto é, $g$ é formado pela soma e pelo limite de funções mensuráveis ($f_n$ é integrável, em particular, mensurável).
+    Queremos mostrar que $g \in \cL^p$. De fato
+    \[
+        \begin{aligned}
+            \int |g|^p \,d\mu 
+            &= \int \left( |f_1| + \lim_{k\to\infty} \sum_{n=1}^{k} |f_{n+1} - f_n| \right)^p \, d\mu\\
+            &= \int \liminf_{k\to\infty} \left( |f_1| +  \sum_{n=1}^{k} |f_{n+1} - f_n| \right)^p \, d\mu\\
+            &\leqslant \liminf_{k\to\infty} \textcolor{orange}{\int  \left( |f_1| +  \sum_{n=1}^{k} |f_{n+1} - f_n| \right)^p \, d\mu}\\
+            &= \liminf_{k\to\infty} \textcolor{orange}{\left\Vert |f_1| + \sum_{n=1}^k |f_{n+1} - f_n| \right\Vert _p^p}\\
+            &\leqslant \liminf_{k\to\infty} \left( \left\Vert f_1 \right\Vert + \sum_{n=1}^k\left\Vert  f_{n+1} - f_n \right\Vert _p \right)^p\\
+            &\leqslant \left( \left\Vert f_1 \right\Vert _p + \sum_{n=1}^k\left\Vert  f_{n+1} - f_n \right\Vert _p \right)^p\\
+            &\leqslant \left( \Vert f_1 \Vert_p + \sum_{n=1}^{\infty} 2^{-n}\right)\\
+            &< \infty.
+        \end{aligned}
+    \]
+    Portanto, $g \in \cL^p$.
+    Agora seja, $E = \{x \in X \,; g(x) < \infty\} \in \eth$. Dito isso, $N = X \smallsetminus E = \{x \in X \,; g(x) = \infty\} \in \eth$. Mostremos que $N$ tem medida nula.
+    Com efeito, suponha que $\mu(N) > 0$, dessa forma
+    \[
+        \int_X |g|^p \geqslant \int_{N} |g|^p = \infty \int d\mu = \infty \mu(N) = \infty,
+    \]
+    o que implicaria em
+    \[
+        \int |g|^p = \infty
+    \]
+    que é uma contradição pois $g \in \cL^p$.
+    Dessa forma $\mu(N) = 0$, isto é, $g < \infty$ em quase toda parte em $X$.
+    Sendo assim, defina $f : X \to \bR$ por
+    \[
+        f(x) = 
+        \begin{cases}
+            f_1(x) + \sum_{n=1}^{\infty} (f_{n+1}(x) - f_n(x)) &\text{se } x \in X\\
+            0 &\text{se } x \not\in X.
+        \end{cases}
+    \]
+    Mostremos que $f \in \cL^p$.
+    Note que
+    \[
+        f(x) = \left( f_1(x) + \sum_{n=1}^{\infty} (f_{n+1}(x) - f_n(x)) \right) \chi_E.
+    \]
+    Daí
+    \[
+        |f| = \left| f_1 + \sum_{n=1}^{\infty} (f_{n+1} - f_n) \right| |\chi_E| \leqslant |f_1| + \sum_{n=1}^{\infty}|f_{n+1} - f_n| = g.
+    \]
+    Consequentemente, $|f|^p < g^p$.
+    Logo
+    \[
+        \int |f|^p \,d\mu \leqslant \int g^p \,d\mu < \infty.
+    \]
+    Portanto, $f \in \cL^p$.
+    Por outro lado, para todo $x \in E$
+    \[
+        \begin{aligned}
+            f(x) &= f_1(x) + \sum_{n=1}^{\infty} (f_{n+1}(x) - f_n(x))\\
+            &= f_1(x) + \lim_{k\to \infty}\sum_{n=1}^{k} (f_{n+1}(x) - f_n(x))\\
+            &= \lim_{k\to \infty} \left( f_1(x) + f_2(x) - f_1(x) + f_3(x) - f_2(x) + \cdots + f_{k+1}(x) - f_k(x)\right)\\[5pt]
+            &= \lim_{k\to \infty} f_{k+1}(x) = \lim _{k\to \infty} f_{k}(x).
+        \end{aligned}
+    \]
+    Como $\mu(N) = 0$, então $\lim f_n = f$ em quase toda parte em $X$.
+    É fácil ver que
+    \begin{equation}
+        |f_k| = \left| f_1 + \sum_{n=1}^{k-1} (f_{n+1} - f_n) \right| \leqslant |f_1| + \sum_{n=1}^{k-1} |f_{n+1} - f_n| \leqslant \sum_{n=1}^{\infty} |f_{n+1} - f_n| = g.
+    \end{equation}
+    Por isso
+    \[
+        |f_n - f|^p \leqslant (|f_n| + |f|)^p \leqslant (2g)^p = 2^p g^p
+    \]
+    para todo $n \in \bN$.
+    Como $g \in \cL^p$, então $2^p g^p \in \cL^1$.
+    Dessa forma, pelo Teorema da Convergência Dominada, chegamos a
+    \[
+        \lim \Vert f_n - f \Vert_p = \lim \left( \int |f_n - f|^p \, d\mu \right)^\frac{1}{p} = \int \lim |f_n - f|^p \, d\mu = 0
+    \]
+    Isto prova que $\cL^p$ é completo.
+\end{prf}
+
+\begin{dbox}
+    Seja $(X,\eth,\mu)$ um espaço de medida. O espaço
+    \[
+        \cL^\infty = \cL^\infty(X,\eth,\mu) = \{f : X\to \bR \,; f \text{ é mensurável e limitada qtp em } X\}
+    \]
+    é chamado Espaço de Lebesgue $\cL^\infty$.
+    Para cada $f \in \cL^\infty$, definimos
+    \[
+        \Vert f \Vert_\infty = \inf \{M \geqslant 0 \,; |f(x)| \leqslant M \text{ qtp em } X\}
+    \]
+    Por fim, dizemos que $f$ é uma função essencialmente limitada.
+\end{dbox}
+
+\textbf{\sffamily Observação:} Note que
+\[
+    \Vert f \Vert_\infty = \inf \{M \geqslant 0 \,; \mu(\{x \in X \,; |f(x)| > M\} = 0)\}.
+\]
+Isto segue da seguinte equivalência
+
+\[
+    |f(x)| \leqslant M \text{ qtp em } X \iff \mu(\{x \in X \,; |f(x)| > M\}) = 0.
+\]
+De fato, $|f(x)| \leqslant M$ em quase toda parte em $X$ se, e somente se, existe $N \in \eth$ tal que $\mu(N) = 0$ e $|f(x)| \leqslant M$ para todo $x \in N^\cC$.
+Note que $\{ x \in X \,; |f(x)| > M\} \subseteq N$, dessa forma
+\[
+    \mu(\{x \in X\,; |f(x)| > M\}) \leqslant \mu(N) = 0
+\]
+Portanto, $\mu(\{x \in X\,; |f(x)| > M\}) = 0$.
+
+Reciprocamente, se $\mu(\{x \in X\,; |f(x)| > M\}) = 0$, então $|f(x)| \leqslant M$ para todo $x \in \{x \in X\,; |f(x)| > M\}$, isto é, $|f(x)| \leqslant M$ em quase toda parte em $X$.
+
+\begin{pbox}
+    Seja $(X,\eth,\mu)$ um espaço de medida.
+    Então
+    \[
+        |f(x)| \leqslant \Vert f \Vert_\infty \text{ qtp em } X
+    \]
+    para todo $f \in \cL^\infty$
+\end{pbox}
+\begin{prf}
+    Se $f \in \cL^\infty$, então existe $M \geqslant 0$ tal que $|f(x)| \leqslant M$ em quase toda parte em $X$.
+    Daí, como $\Vert f \Vert_\infty = \inf \{ M_0 \geqslant 0 \,; |f(x)| \leqslant M_0 \text{ qtp em } X\}$, temos que dado $\varepsilon > 0$ conseguimos encontrar $M_\varepsilon \geqslant 0$ tal que $|f(x)| \leqslant M_\varepsilon$ em quase toda parte em $X$,
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[-stealth] (0,0) to (4,0);
+    
+            \draw (1,0.1) to (1,-0.1) node[below, font=\small] {$\Vert f \Vert_\infty$};
+            \draw (3,0.1) to (3,-0.1) node[below, font=\small] {$\Vert f \Vert_\infty + \varepsilon$};
+            \draw (2,0.1) node[above, font=\small] {$M_\varepsilon$} to (2,-0.1);
+        \end{tikzpicture}
+    \end{center}
+    como $M_\varepsilon < \Vert f \Vert_\infty + \varepsilon$, então
+    \[
+        |f(x)| \leqslant M_\varepsilon < \Vert f \Vert_\infty +  \varepsilon.
+    \]
+    Fazendo $\varepsilon \to 0$ chegamos a
+    \[
+        |f(x)| \leqslant \Vert f \Vert_\infty \text{ qtp em } X
+    \]
+\end{prf}
+
+Agora mostremos que $\cL^\infty$ é um espaço vetorial normado
+
+\begin{pbox}
+    A aplicação $\Vert \cdot \Vert_\infty : \cL^\infty \to \bR$ dada por
+    \[
+        \Vert f \Vert_\infty = \inf \{M \geqslant 0 \,; |f(x)|\leqslant M \text{ qtp em } X\}
+    \]
+    é uma norma
+\end{pbox}
+\begin{prf}
+    Note que
+    \begin{enumerate}
+        \item $\Vert f \Vert_\infty \geqslant 0$ pois $0$ é cota inferior de $\{M \geqslant 0 \,; |f(x)|\leqslant M \text{ qtp em } X\}$.
+        \item $\Vert f \Vert_\infty = 0$, assim dado $\varepsilon > 0$ existe $M_\varepsilon \geqslant 0$ tal que $|f(x)| \leqslant M_\varepsilon$ em quase toda parte em $X$, com $M_\varepsilon < \varepsilon$.
+        Daí, $|f(x)| < \varepsilon$ em quase toda parte em $X$.
+        Fazendo $\varepsilon \to 0$, encontramos
+        \[
+            |f(x)| \leqslant 0 \text{ qtp em } X
+        \]
+        Dessa forma, $f(x) = 0$ em quase toda parte em $X$.
+
+        Reciprocamente, $\Vert 0 \Vert_\infty = \inf \{M \geqslant 0 \,; 0 \leqslant M \text{ qtp em } X\} = \inf[0,\infty) = 0$
+
+        \item (Desigualdade de Minkowski em $\cL^\infty$) Se $f, g \in \cL^\infty$ então as funções são limitadas em quase toda parte em $X$, dito isso, $f + g$ também é limitada em quase toda parte em $X$.
+        Logo $f + g \in \cL^\infty$.
+
+        Por outro lado, como $f, g \in \cL^\infty$, então existem $M,\hat M \in \eth$ tais que $\mu(M) = \mu(\hat M) = 0$ e $|f(x)| \leqslant \Vert f \Vert_\infty$ para todo $x \not\in M$ e $|g(x)| \leqslant \Vert g \Vert_\infty$ para todo $x \not\in \hat M$.
+        Seja $N = M \cup \hat M \in \eth$.
+        Daí $\mu(N) = \mu(M \cup \hat M) \leqslant \mu(M) + \mu(\hat M) = 0 + 0 = 0$.
+        Além disso
+        \[
+            f(x) + g(x) \leqslant |f(x)| + |g(x)| \leqslant \Vert f \Vert_\infty + \Vert g \Vert_\infty \text{ qtp em } X
+        \]
+        para todo $x \not\in N$, com $\mu(N) = 0$.
+        Dessa forma
+        \[
+            \Vert f + g \Vert_\infty \leqslant \Vert f \Vert_\infty + \Vert g \Vert_\infty.
+        \]
+    \end{enumerate}
+    Portanto, $\Vert \cdot \Vert_\infty$ é uma norma.
+\end{prf}
+
+\begin{pbox}[Desigualdade de Hölder em $\cL^\infty$]
+    Seja $(X,\eth,\mu)$ um espaço de medida. Se $f \in \cL^1$ e $g \in \cL^\infty$, então $fg \in \cL^1$ e
+    \[
+        \Vert fg \Vert_1 \leqslant \Vert f \Vert_1 \Vert g \Vert_\infty
+    \]
+\end{pbox}
+\begin{prf}
+    Note que se $g \in \cL^\infty$ então $|g| \leqslant \Vert g \Vert_\infty$ em quase toda parte em $X$.
+    Consequentemente
+    \[
+        \Vert fg \Vert_1 = \int |fg| \,d\mu = \int |f|\,|g| \,d\mu \leqslant \int |f| \Vert g \Vert_\infty \,d\mu = \Vert g \Vert_\infty \int |f| \,d\mu = \Vert g \Vert_\infty \Vert f \Vert_1
+    \]
+\end{prf}
+\end{document}
