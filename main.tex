@@ -1263,7 +1263,7 @@ Nosso intuito agora é mostrar que $\cL^p$ é um espaço vetorial normado, onde
 é sua norma.
 Mas antes, precisamos demonstrar algumas desigualdades importantes desses espaços que serão necessárias para mostrar que $\Vert \cdot \Vert_p$ é uma norma em $\cL^p$.
 
-\begin{tbox}[Desigualdade de Young]
+\begin{tbox}[Desigualdade de Young] \label{thm:desigualdade-de-young}
     Sejm $A,B \geqslant 0$, $1 \leqslant p < \infty$ e $q \in \bR$ tal que $p$ e $q$ são expoentes conjuntados\footnote{$p$ e $q$ são ditos expoentes conjugados se $\frac{1}{p} + \frac{1}{q} = 1$}. Então
     \[
         AB \leqslant \frac{A^p}{p} + \frac{B^q}{q}
@@ -1314,7 +1314,7 @@ Mas antes, precisamos demonstrar algumas desigualdades importantes desses espaç
     que é uma igualdade quando $A^p = B^q$.
 \end{prf}
 
-\begin{tbox}[Desigualdade de Hölder] \label{pr:desigualdade-de-holder}
+\begin{tbox}[Desigualdade de Hölder] \label{thm:desigualdade-de-holder}
     Sejam $f \in \cL^p$ e $g \in \cL^q$ onde $1 \leqslant p < \infty$ e $q \in \bR$ tal que $p$ e $q$ são expoentes conjugados.
     Então $fg \in \cL^1$ e
     \[
@@ -1322,10 +1322,56 @@ Mas antes, precisamos demonstrar algumas desigualdades importantes desses espaç
     \]
 \end{tbox}
 \begin{prf}
-    
+    Se $\Vert f \Vert_p = 0$ ou $\Vert g \Vert_q = 0$ então $f \equiv 0$ qtp em $X$ ou $g \equiv 0$ qtp em $X$. Dessa forma
+    \[
+        \Vert fg \Vert_1 = \int |fg| \,d\mu = 0.
+    \]
+    Com isso, a desigualdade de Holder é trivial.
+
+    Agora considere que $\Vert f \Vert_p \neq 0$ e $\Vert g \Vert_q \neq 0$. Sendo assim, utilizando a \nameref{thm:desigualdade-de-young} com
+    \[
+        A = \frac{|f|}{\Vert f \Vert_p} \;\text{ e }\; B = \frac{|g|}{\Vert g \Vert_q}
+    \]
+    obtemos
+    \begin{equation} \label{eq:holder-young}
+        \frac{|fg|}{\Vert f \Vert_p \Vert g \Vert_q}\leqslant \frac{|f|^p}{p \Vert f \Vert_p^p} + \frac{|g|^p}{q \Vert g \Vert_q^q}.
+    \end{equation}
+    Como $f \in \cL^p$ e $g \in \cL^q$, então $|f|^p$ e $|g|^q$ são integráveis.
+    Logo
+    \[
+        \left( \frac{1}{p \Vert f \Vert_p^p} \right) |f|^p + \left( \frac{1}{q \Vert g \Vert_q^q} \right) |g|^q
+    \]
+    é integrável.
+    Além disso, pelo Corolário \ref{cl:g-implica-f-integravel}
+    \[
+        \left( \frac{1}{\Vert f \Vert_p \Vert g \Vert_q} \right) |fg|
+    \]
+    é integrável e portanto $|fg|$ é integrável, isto é, $fg \in \cL^1$.
+
+    Por fim, integrando (\ref{eq:holder-young}) com respeito a $\mu$, chegamos a
+    \[
+        \int \frac{|fg|}{\Vert f \Vert_p \Vert g \Vert_q} \,d\mu \leqslant \int \left( \frac{|f|^p}{p \Vert f \Vert_p^p} + \frac{|g|^p}{q \Vert g \Vert_q^q}. \right) \, d\mu
+    \]
+    isto é
+    \[
+        \frac{1}{\Vert f \Vert_p \Vert g \Vert_q} \int |fg| \,d\mu \leqslant \frac{1}{p \Vert f \Vert_p^p} \int |f|^p \,d\mu + \frac{1}{q \Vert g \Vert_q^q}\int |g|^p \,d\mu.
+    \]
+    Pela definição da norma em $\cL^p$ segue que
+    \[
+        \frac{1}{\Vert f \Vert_p \Vert g \Vert_q} \Vert fg \Vert_1 \leqslant \frac{1}{p \Vert f \Vert_p^p} \Vert f \Vert_p^p + \frac{1}{q \Vert g \Vert_q^q} \Vert q \Vert_p^p.
+    \]
+    Daí,
+    \[
+        \frac{\Vert fg \Vert_1}{\Vert f \Vert_p \Vert g \Vert_q} \leqslant \frac{1}{p} + \frac{1}{q} = 1.
+    \]
+    Portanto
+    \[
+        \Vert fg \Vert_1 \leqslant \Vert f \Vert_p \Vert g \Vert_q.
+    \]
+    Como queriamos demonstrar.
 \end{prf}
 
-O corolário abaixo é um caso particular da \nameref{pr:desigualdade-de-holder} quando $p = q$, o que acontece apenas quando $p = q = 2$.
+O corolário abaixo é um caso particular da \nameref{thm:desigualdade-de-holder} quando $p = q$, o que acontece apenas quando $p = q = 2$.
 
 \begin{cbox}[Desigualdade de Cauchy-Schwarz]
     Se $f, g \in \cL^2$, então $fg \in \cL^1$ e
@@ -1334,7 +1380,7 @@ O corolário abaixo é um caso particular da \nameref{pr:desigualdade-de-holder}
     \]
 \end{cbox}
 \begin{prf}
-    A primeira desigualdade é o Teorema \ref{thm:modulo-funcao-integravel} e a segunda é uma aplicação direta da \nameref{pr:desigualdade-de-holder}.
+    A primeira desigualdade é o Teorema \ref{thm:modulo-funcao-integravel} e a segunda é uma aplicação direta da \nameref{thm:desigualdade-de-holder}.
 \end{prf}
 
 \begin{tbox}[Desigualdade de Minkowski]
@@ -1347,7 +1393,7 @@ O corolário abaixo é um caso particular da \nameref{pr:desigualdade-de-holder}
     
 \end{prf}
 
-Agora, vmos provar que $(\cL^p, \Vert \cdot \Vert_p)$ é um espaço vetorial normado para $1 \leqslant p < \infty$.
+Agora, vamos provar que $(\cL^p, \Vert \cdot \Vert_p)$ é um espaço vetorial normado para $1 \leqslant p < \infty$.
 \begin{pbox}
     A aplicação $\Vert \cdot \Vert_p : \cL^p \to \bR$ dada por
     \[
