@@ -1271,7 +1271,47 @@ Mas antes, precisamos demonstrar algumas desigualdades importantes desses espaç
     onde a igualdade é válida se, e somente se, $A^p = B^q$.
 \end{tbox}
 \begin{prf}
-    
+    Seja $\alpha \in (0,1)$ e defina $\varphi : [0,\infty) \to \bR$ por
+    \[
+        \varphi(t) = \alpha t - t^{\alpha}.
+    \]
+    Note que $\varphi'(t) = \alpha - \alpha t^{\alpha - 1} = \alpha(1 - t^{\alpha-1})$. Dessa forma
+    \begin{itemize}
+        \item[--] $t \in (0,1)$ então $\varphi'(t) < 0$ pois $t^{\alpha - 1} > 1$ e então $1 - t^{\alpha - 1} < 0$
+        \item[--] $t \in (1,\infty)$ então $\varphi'(t) > 0$ pois $t^{\alpha - 1} < 1$ e então $1 - t^{\alpha - 1} > 0$
+    \end{itemize}
+    Isto nos diz que $\varphi$ é decrescente em $(0,1)$ e crescente em $(1,\infty)$. 
+    Ou seja, como $\varphi$ é contínua, temos que $1$ é um ponto de mínimo.
+    Dito isso $\varphi(t) \geqslant \varphi(1)$ para todo $t \geqslant 0$ e $\varphi(t) = \varphi(1)$ se, e somente se, $t = 1$. Assim
+    \[
+        \varphi(t) \geqslant \varphi(t) \implies \alpha t - t^{\alpha} \geqslant \alpha - 1 \implies t^{\alpha} \leqslant \alpha t + (1 - \alpha).
+    \]
+    Sejam $a, b > 0$, então para $t = \frac{a}{b}$ temos
+    \[
+        \left( \frac{a}{b} \right)^\alpha \leqslant \alpha \frac{a}{b} + 1 - \alpha.
+    \]
+    Daí
+    \[
+        a^{\alpha} b^{-\alpha} \leqslant \alpha \frac{a}{b} + 1 - \alpha.
+    \]
+    Multiplicando a desigualdade acima por $b$, encontramos
+    \[
+        a^\alpha b^{1 - \alpha} \leqslant \alpha a + (1-\alpha)b.
+    \]
+    Além disso, note que a desigualdade é uma igualdade se, e somente se $t = 1$, isto é $a = b$.
+    Agora considere que $\alpha = \frac{1}{p} \in (0,1)$, ou seja, $1 < p < \infty$. Dessa forma obtemos
+    \[
+        a^{\frac{1}{p}}b^{1 - \frac{1}{p}} \leqslant \frac{a}{p}+ \left(1 - \frac{1}{p}\right)b,
+    \]
+    e por hipótese $\frac{1}{p} + \frac{1}{q} = 1$. Logo
+    \[
+        a^{\frac{1}{p}}b^{\frac{1}{q}} \leqslant \frac{a}{p} + \frac{b}{q}.
+    \]
+    Por fim, fazendo $a = A^p$ e $b = B^q$, temos o resultado desejado
+    \[
+        AB \leqslant \frac{A^p}{p} + \frac{B^q}{q},
+    \]
+    que é uma igualdade quando $A^p = B^q$.
 \end{prf}
 
 \begin{tbox}[Desigualdade de Hölder] \label{pr:desigualdade-de-holder}

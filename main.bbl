@@ -137,7 +137,7 @@
       \field{year}{1995}
       \true{nocite}
     \endentry
-    \entry{key}{book}{}
+    \entry{elon-espacos.metricos}{book}{}
       \name{author}{1}{}{%
         {{hash=94fad9a96637b87ca3d48630e846de5d}{%
            family={Lima},
@@ -161,6 +161,31 @@
       \field{edition}{sexta}
       \field{title}{Espaços Métricos}
       \field{year}{2020}
+      \true{nocite}
+    \endentry
+    \entry{axler-measure.theory}{book}{}
+      \name{author}{1}{}{%
+        {{hash=71493eec7caacea528ad39dbfb52773a}{%
+           family={Axler},
+           familyi={A\bibinitperiod},
+           given={Sheldon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{fullhash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{bibnamehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authorbibnamehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authornamehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authorfullhash}{71493eec7caacea528ad39dbfb52773a}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Measure, Integration and Real Analysis}
+      \field{year}{2024}
       \true{nocite}
     \endentry
   \enddatalist
