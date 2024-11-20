@@ -1358,11 +1358,7 @@ Mas antes, precisamos demonstrar algumas desigualdades importantes desses espaç
     \]
     Pela definição da norma em $\cL^p$ segue que
     \[
-        \frac{1}{\Vert f \Vert_p \Vert g \Vert_q} \Vert fg \Vert_1 \leqslant \frac{1}{p \Vert f \Vert_p^p} \Vert f \Vert_p^p + \frac{1}{q \Vert g \Vert_q^q} \Vert q \Vert_p^p.
-    \]
-    Daí,
-    \[
-        \frac{\Vert fg \Vert_1}{\Vert f \Vert_p \Vert g \Vert_q} \leqslant \frac{1}{p} + \frac{1}{q} = 1.
+        \frac{1}{\Vert f \Vert_p \Vert g \Vert_q} \Vert fg \Vert_1 \leqslant \frac{1}{p \Vert f \Vert_p^p} \Vert f \Vert_p^p + \frac{1}{q \Vert g \Vert_q^q} \Vert q \Vert_p^p = \frac{1}{p} + \frac{1}{q} = 1.
     \]
     Portanto
     \[
@@ -1390,7 +1386,74 @@ O corolário abaixo é um caso particular da \nameref{thm:desigualdade-de-holder
     \]
 \end{tbox}
 \begin{prf}
-    
+    Na Proposição \ref{pr:semi-norma} já mostramos que a Desigualdade de Minkowski é válida para $p = 1$.
+    Dito isso, seja $1 < p < \infty$.
+    Como $f,g \in \cL^p$, então $f$ e $g$ são mensuráveis.
+    Dessa forma, $f + g$ também é mensurável.
+    Mostremos agora que $f + g \in \cL^p$.
+    Com efeito,
+    \[
+        \begin{aligned}
+            | f + g |^p &\leqslant (|f| + |g|)^p\\
+            &\leqslant (\max\{|f|, |g|\} + \max\{|f|, |g|\})^p\\
+            &= 2^p\max\{|f|, |g|\}^p\\
+            &\leqslant 2^p (|f|^p + |g|^p).
+        \end{aligned}
+    \]
+    Daí
+    \[
+        \int |f+g|^p \, d\mu \leqslant 2^p\int (|f|^p + |g|^p) \,d\mu \leqslant 2^p \left(\int |f|^p \,d\mu + \int |g|^p \,d\mu\right)
+    \]
+    que é uma integral finita.
+    Portanto $f + g \in \cL^p$.
+
+    Também é fácil ver que
+    \[
+        |f+g|^p = |f + g| |f + g|^{p-1} \leqslant |f| |f + g|^{p-1} + |g| |f + g|^{p-1}.
+    \]
+    Agora, seja $q \in \bR$ tal que $\frac{1}{p} + \frac{1}{q} = 1$.
+    Daí $|f + g|^{p-1} \in \cL^q$. De fato,
+    \begin{equation} \label{eq:2}
+        \Vert |f+g|^{p-1} \Vert_q^q = \int |f + g|^{q(p-1)} \,d\mu = \int |f + g|^p < \infty
+    \end{equation}
+    pois $f + g \in \cL^p$.
+    Portanto pela \nameref{thm:desigualdade-de-holder} e por (\ref{eq:2}) temos que
+    \begin{equation} \label{eq:ffg}
+        \int |f| \, |f + g|^{p-1} \, d\mu = \Vert |f| + |f+g|^{p-1} \Vert_1 \leqslant \Vert |f| \Vert_p \Vert |f + g|^{p-1} \Vert_q = \Vert f \Vert_p \Vert f + g \Vert_p^{\frac{p}{q}}.
+    \end{equation}
+    Análogamente
+    \begin{equation} \label{eq:gfg}
+        \int |g| \, |f + g|^{p-1} \,d\mu \leqslant \Vert g \Vert_p \Vert f + g \Vert_p^{\frac{p}{q}}.
+    \end{equation}
+    Dito isso, chegamos a
+    \[
+        \begin{aligned}
+            \Vert f + g \Vert_p^p &= \int |f + g|^{p} \,d\mu\\
+            &\leqslant \int |f| |f + g|^{p-1} + |g| |f + g|^{p-1} \,d\mu\\
+            &= \int |f| |f + g|^{p-1} \,d\mu + \int |g| |f + g|^{p-1} \,d\mu\\
+            &\leqslant \Vert f \Vert_p \Vert f + g \Vert_p^\frac{p}{q} + \Vert g \Vert_p \Vert f + g \Vert_p^\frac{p}{q}\\
+            &= ( \Vert f \Vert_p + \Vert g \Vert_p) \, \Vert f + g \Vert_p^{\frac{p}{q}}.
+        \end{aligned}
+    \]
+    Se $\Vert f + g \Vert_p = 0$, então
+    \[
+        \Vert f + g \Vert_p = 0 \leqslant \Vert f \Vert_p + \Vert g \Vert_p
+    \]
+    Logo a desigualdade de Minkowski é válida.
+    Agora, considere que $\Vert f + g \Vert_p \neq 0$ para obter
+    \[
+        \frac{\Vert f + g \Vert_p^p}{\Vert f + g \Vert_p^{\frac{p}{q}}} \leqslant \Vert f \Vert_p + \Vert g \Vert_p
+    \]
+    Consequentemente
+    \[
+        \Vert f + g \Vert_p^{p - \frac{p}{q}} \leqslant \Vert f \Vert_p + \Vert g \Vert_p.
+    \]
+    Por fim, como $p e q$ são expoentes conjugados, segue que $p - \frac{p}{q} = 1$.
+    Portanto
+    \[
+        \Vert f + g \Vert_p \leqslant \Vert f \Vert_p + \Vert g \Vert_p.
+    \]
+    Assim, mostramos que a desigualdade de Minkowski é válida para $1 \leqslant p < \infty$.
 \end{prf}
 
 Agora, vamos provar que $(\cL^p, \Vert \cdot \Vert_p)$ é um espaço vetorial normado para $1 \leqslant p < \infty$.
@@ -1405,7 +1468,7 @@ Agora, vamos provar que $(\cL^p, \Vert \cdot \Vert_p)$ é um espaço vetorial no
     Note que
     \begin{enumerate}
         \item $\displaystyle  \Vert f \Vert_p = \left(\int |f|^p \, d\mu \right)^{\frac{1}{p}} \geqslant 0$ pois $|f| \geqslant 0$.
-        \item $\displaystyle \Vert f \Vert_p = 0 \iff \int |f|^p \, d\mu = 0 \iff f = 0$ (como classes de equivalência)
+        \item $\displaystyle \Vert f \Vert_p = 0 \iff \int |f|^p \, d\mu = 0 \iff f = 0$ ($f \sim_\mu 0$)
         \item $\displaystyle \Vert \lambda f \Vert_p = \left( \int |\lambda f|^p \,d\mu \right)^{\frac{1}{p}} \!\! = \left( \int |\lambda|^p |f|^p \,d\mu \right)^{\frac{1}{p}} \!\! = \left(|\lambda|^p \int |f|^p \,d\mu \right)^{\frac{1}{p}} \!\! = |\lambda| \left( \int |f|^p \,d\mu \right)^{\frac{1}{p}} \!\! = |\lambda| \Vert f \Vert_p$
         \item $\Vert f + g \Vert_p \leqslant \Vert f \Vert_p + \Vert g \Vert_p$ pela Desigualdade de Minkowski.
     \end{enumerate}
