@@ -86,10 +86,11 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 \newcommand{\bz}{\mathbf{0}}
 
 \newcommand{\cA}{\mathcal{A}}
-\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cB}{\mathfrak{B}}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cL}{\mathcal{L}}
+\newcommand{\cT}{\mathcal{T}}
 \newcommand{\cP}{\mathcal{P}}
 
 \newcommand{\NN}[1]{\left\Vert #1 \right\Vert}
@@ -110,6 +111,7 @@ innerleftmargin=8pt, innerrightmargin=8pt}
     column{1} = {leftsep=0pt, rightsep=15pt}
     }
     $\cB$               & Álgebra de Borel\\
+    $\widehat\cB$       & Álgebra de Borel em $\overline\bR$\\
     $\chi_E$            & Função caracteristica do conjunto $E$\\
     $\eth$              & $\sigma$-álgebra\\
     $f^+$               & Parte positiva da função $f$\\
@@ -222,9 +224,9 @@ Dado um conjunto cujos elementos são subconjuntos de $X$, o resultado abaixo no
 Agora definimos uma $\sigma$-álgebra bastante importante para o estudo da teoria da medida conhecida como álgebra de Borel
 
 \begin{dbox}
-    Seja $\bR$ o conjunto dos números reais. A álgebra de Borel é a $\sigma$-álgebra $\cB$ gerada por todos os intervalos abertos $(a,b)$ em $\bR$, ou seja, considerando o conjunto
+    Seja $\bR$ o conjunto dos números reais. A álgebra de Borel é a $\sigma$-álgebra $\cB$ gerada por todos os intervalos abertos $(x,y)$ em $\bR$, ou seja, considerando o conjunto
     \[
-        A = \{(a_\alpha, b_\alpha) \,; a_\alpha, b_\alpha \in \bR, a_\alpha < b_\alpha\}  
+        A = \{(x_\alpha, y_\alpha) \,; x_\alpha, y_\alpha \in \bR, x_\alpha < y_\alpha\}  
     \]
     temos que
     \[
@@ -233,25 +235,52 @@ Agora definimos uma $\sigma$-álgebra bastante importante para o estudo da teori
     onde cada $\eth_\alpha$ é uma $\sigma$-álgebra que contem $A$.
 \end{dbox}
 
+Equivalentemente, podemos dizer que $\cB$ é a $\sigma$-álgebra gerada por todos conjuntos abertos de $\bR$.
+É fácil ver que essa equivalência é válida pois qualquer conjunto aberto de $\bR$ pode ser expresso como união de intervalos abertos. 
+Ainda mais, expressndo $\cB$ dessa forma é possível ver que não precisamos que $\cB$ seja uma $\sigma$-álgebra de $\bR$ mas sim de qualquer espaço topólogico $(X,\cT)$, nesse caso dizemos que $\cB$ é a $\sigma$-álgebra gerada pela topólogia $\cT$.
+Nesse trabalho a notação $\cB$ será utilizada apenas para a álgebra de Borel em $\bR$.
+
 O resultado abaixo apresenta uma outra forma de definir a álgebra de Borel
 
-% \begin{pbox}
-%     [a,b]
-% \end{pbox}
-% \begin{prf}
-%     ~
-% \end{prf}
+\begin{pbox}
+    $\cB$ é a $\sigma$-álgebra gerada por todos intervalos fechados
+\end{pbox}
+\begin{prf}
+    ~
+\end{prf}
 
-% \begin{dbox}
-%     $\bar\bR$
-% \end{dbox}
+\begin{ex}
+    Alguns exemplos de conjuntos que estão em $\cB$ são
+    \begin{itemize}
+        \item Todo conjunto fechado é um conjunto em $\cB$ pois é o complementar de um conjunto aberto.
+        \item Todo conjunto enumerável está em $\cB$ pois se $B = \{x_1,x_2,\dots\}$, então $B = \bigcup_{n=1}^\infty \{x_n\}$ que é um conjunto em $\cB$ pois cada $\{x_n\}$ é um conjunto fechado.
+        \item Todo intervalo do tipo $[a,b)$ ou $(a,b]$ com $a,b \in \bR$ é um conjunto em $\cB$ pois $[a,b) = \bigcap_{n=1}^\infty (a- \frac{1}{k}, b)$ e $(a,b] = \bigcap_{n=1}^\infty (a, b + \frac{1}{n})$.
+    \end{itemize}
+\end{ex}
 
-% \begin{pbox}
-%     Seja $\bar\bR$ a reta estendida. Considere $E_1 = E \cup \{-\infty\}$, $E_2 = E \cup \{+\infty\}$, $E_3 = E \cup {-\infty, +\infty}$ e $\bar\cB = \{E_1, E_2, E_3, E\}$ com $E$ variando na álgebra de Borel $\cB$. Então $\bar\cB$ é uma $\sigma$-álgebra em $\bar\bR$ denominada álgebra estendida de Borel.
-% \end{pbox}
-% \begin{prf}
+A sensação é de que a álgebra de Borel contem todos os subconjuntos de $\bR$, isto é $\cB = \cP(\bR)$.
+Porem este não é o caso, pois existem subconjuntos de $\bR$ que são bastante dificeis de definir (vide [??]) que não estão em $\cB$.
+Mas se esses conjuntos são tão dificeis de definir por que precisamos de uma $\sigma$-álgebra que exclui eles.
+
+Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um exemplo veremos que ao tentar definir uma medida no espaço $(\bR,\cP(\bR))$ uma propiedade importante não é satisfeita, mas restrigindo para o espaço $(\bR,\cB)$ conseguimos definir a mesma medida de forma que todas propiedades são satisfeitas.
+
+% Every subset of $\bR$ which we meet in everyday use is an element of Borel $\sigma$-algebra $\cB$; and indeed it is difficult (but possible!) to find a subset of $\bR$ constructed explicitly (without the Axiom of Choice) which is not in $\cB$. (Ver referência)
+
+\begin{dbox}
+    O conjunto $\overline\bR$ é dita reta extendida e é definido por
+    \[
+        \overline\bR = \bR \cup \{-\infty, +\infty\} = [-\infty,+\infty]
+    \]
+\end{dbox}
+
+\obs Operações com $\infty$ em $\overline\bR$
+
+\begin{pbox}
+    Seja $\bar\bR$ a reta estendida. Considere $E_1 = E \cup \{-\infty\}$, $E_2 = E \cup \{+\infty\}$, $E_3 = E \cup \{-\infty, +\infty\}$ e $\widehat\cB = \{E_1, E_2, E_3, E\}$ com $E$ variando na álgebra de Borel $\cB$. Então $\widehat\cB$ é uma $\sigma$-álgebra em $\overline\bR$ denominada álgebra estendida de Borel.
+\end{pbox}
+\begin{prf}
     
-% \end{prf}
+\end{prf}
 
 % \dots
 
@@ -279,6 +308,16 @@ O resultado abaixo apresenta uma outra forma de definir a álgebra de Borel
 
 \begin{ex}
     A função caracteristica $\chi_S$ de um subconjunto $S \in \eth$ é mensurável
+\end{ex}
+
+\begin{ex}
+    Se $f : X \to \bR$ com $X \in \cB \subseteq \bR$ é contínua, então $f$ é mensurável. De fato, basta notar que
+    \[
+        \{ x \in X \,; f(x) > \alpha\} = f^{-1}((\alpha,\infty)).
+    \]
+    Pela contínuidade de $f$, o conjunto $f^{-1}((\alpha,\infty))$ é aberto para todo $\alpha \in \bR$.
+    Dessa forma $\{x \in X \,; f(x) > \alpha\} \in \cB$.
+    Portanto $f$ é mensurável.
 \end{ex}
 
 \begin{ex}
@@ -357,8 +396,112 @@ O resultado abaixo apresenta uma outra forma de definir a álgebra de Borel
     Com efeito,
     \begin{enumerate}[leftmargin=*]
         \item $\mu(\emptyset) = 0$ por vacuidade
+        \item $\mu(E) \geqslant 0$ por definição
+        \item .
     \end{enumerate}
 \end{ex}
+
+\subsection{Construindo uma medida para $\bR$}
+
+Nosso objetivo agora é construir uma medida para $\bR$ e mostrar o motivo de utlizar a algebra de Borel ao inves de $\cP(\bR)$.
+
+\begin{dbox}
+    O comprimento de um intervalo aberto $I$ é uma função $\ell$ dada por
+    \[
+        \ell(I) =
+        \left\{  
+            \begin{array}{ll}
+                b  - a & \text{se } I = (a,b) \text{ com } a,b \in \bR \text{ e } a < b\\
+                0 & \text{se } I = \emptyset\\
+                \infty & \text{se } I = (-\infty, a) \text{ ou } I = (a,\infty) \text{ com } a\in\bR \\
+                \infty & \text{se } I = (-\infty,\infty).
+            \end{array}
+        \right.
+    \]
+\end{dbox}
+
+Seja $A \in \cP(\bR)$. O tamanho de $A$ deve ser no máximo a soma dos comprimentos de uma sequência de intervalos abertos tais que a união contem $A$. A definição abaixo formaliza essa ideia
+
+\begin{dbox}
+    A medida exterior $m(\,\cdot\,)$ de um conjunto $A \in \cP(\bR)$ é definida por
+    \[
+        m(A) = \left\{\sum_{k=1}^{\infty} \ell(I_k) \,; I_1, I_2,\dots, \text{ são intervalos abertos tais que } A \subseteq \bigcup_{k=1}^\infty I_k \right\}.
+    \]
+\end{dbox}
+
+Essa definição envolve uma suoma infinita de uma sequência $t_1,t_2,\dots,$ de elementos de $[0,\infty]$, que é $\infty$ se pelo menos algum $t_k = \infty$, ou se a série definida pelas somas parciais de $t_k$ é divergente. Dito isso
+\[
+    \sum_{n=1}^{\infty} t_k = \lim_{n\to\infty} \sum_{k=1}^{n} t_k.
+\]
+
+\begin{ex}
+    Conjuntos finitos tem medida exterior nula.
+    Seja $A = \{a_1,\dots,a_n\} \in \cP(\bR)$ um conjunto finito.
+    Dado $\varepsilon > 0$ defina a sequência $I_k$ de intervalos abertos por
+    \[
+        I_k =
+        \left\{
+            \begin{array}{ll}
+                (a_k - \varepsilon, a_k + \varepsilon) &\text{se } k \leqslant n\\
+                \emptyset &\text{se } k > n
+            \end{array}
+        \right.
+    \]
+    Então $I_1, I_2,\dots,$ é uma sequência de intervalos abertos tais que a união contem $A$. Dito isso
+    \[
+        \sum_{n=1}^{\infty} \ell(I_k) = 2\varepsilon n.
+    \]
+    Logo, $m(A) \leqslant 2\varepsilon n$.
+    Como $\varepsilon$ é arbitrário, temos que $m(A) = 0$
+\end{ex}
+
+A proposição abaixo generaliza esse exemplo para conjuntos enumeráveis
+
+\begin{pbox}
+    Conjuntos enumeráveis tem medida exterior nula.
+\end{pbox}
+\begin{prf}
+    Seja $A = \{a_1,a_2,\dots\} \in \cP(\bR)$ um conjunto enumerável. Dado $\varepsilon > 0$, para todo $k \in \bN$ defina a sequência
+    \[
+        I_k = \left( a_k - \frac{\varepsilon}{2^k}, a_k + \frac{\varepsilon}{2^k} \right).
+    \]
+    Dessa forma, $I_1,I_2,\dots,$ é uma sequência de intervalos abertos tais que a união contem $A$.
+    Como
+    \[
+        \sum_{k=1}^{\infty} \ell(I_k) = 2\varepsilon
+    \]
+    temos que $m(A) < 2\varepsilon$.
+    Pelo fato de $\varepsilon$ ser arbitrário, temos que $m(A) = 0$.
+\end{prf}
+
+Uma outra propiedade da medida exterior é sua invariância a translação
+
+\begin{pbox}
+    Seja $t \in \bR$ e $A \in \cP(\bR)$.
+    Então
+    \[
+        m(A) = m(t + A),
+    \]
+    onde 
+    \[
+        t + A = \{t + a \,; a \in A\}
+    \]
+\end{pbox}
+\begin{prf}
+    Seja $I_1,I_2,\dots,$ uma sequência de intervalos abertos tais que a união contem $A$.
+    Dito isso $t + I_1, t+ I_2,...,$ é uma sequência de intervalos abertos tais que a união contem $t + A$.
+    Logo
+    \[
+        m(t + A) \leqslant \sum_{k=1}^{\infty} \ell(t + I_k) = \sum_{k=1}^{\infty} \ell(I_k).
+    \]
+    Fazendo o ínfimo do ultimo termo, temos que $m(t + A) \leqslant m(A)$.
+
+    Para verificar a desigualdade na outra direção note que $A = -t + (t + A)$, então utilizando a desigualdade que acabamos de provar temos
+    \[
+        m(A) = m(t - (t + A)) \leqslant (t + A).
+    \]
+    Portanto $m(A) = m(t + A)$
+\end{prf}
 
 \section{Integral de Lebesgue}
 
@@ -512,6 +655,27 @@ onde $a_j \in \bR$ e $\chi_{E_j}$ é a função caracteristica do conjunto $E_j 
         \]
     \end{enumerate}
 \end{prf}
+
+\begin{ex}
+    A função
+    \[
+        \chi_{\bQ} = 
+        \left\{  
+            \begin{array}{ll}
+                1 &\text{se } x \in \bQ\\
+                0 &\text{se } x \not\in \bQ
+            \end{array}
+        \right.
+    \]
+    é um exemplo clássico nos cursos de análise na reta de uma função que não é integrável. 
+    Porem essa afirmação é válida apenas quando estamos trabalhando com a integral de Riemann, pois utlizando a integral de Lebesgue, essa função tem integral com resultado bem definido
+    De fato, considere o espaço de medida $(\bR, \cB, \mu)$ onde $\cB$ é a álgebra de Borel e $\mu$ é medida exterior (de Lebesgue).
+    Dessa forma
+    \[
+        \int \chi_\bQ \,d\mu = \mu(\bQ) = 0.
+    \]
+    pois $\bQ$ é enumerável.
+\end{ex}
 
 Agora, podemos extender a definição da integral de Lebesgue para qualquer função mensurável não negatíva (não necessáriamente simples)
 
@@ -1636,8 +1800,6 @@ Para isso precisamos das seguintes definições
     Isto prova que $\cL^p$ é completo.
 \end{prf}
 
-\subsection{Espaços $\cL^\infty$}
-
 Agora introduzimos o espaço de Lebesgue, $\cL^\infty$ explorando suas características fundamentais e o papel que desempenha em diversos problemas da análise funcional.
 
 \begin{dbox}
@@ -1758,6 +1920,33 @@ Agora mostremos que $\cL^\infty$ é um espaço vetorial normado
         \Vert fg \Vert_1 = \int |fg| \,d\mu = \int |f|\,|g| \,d\mu \leqslant \int |f| \Vert g \Vert_\infty \,d\mu = \Vert g \Vert_\infty \int |f| \,d\mu = \Vert g \Vert_\infty \Vert f \Vert_1
     \]
 \end{prf}
+
+O próximo passo é mostrar que $\cL^\infty$ também é um espaço de Banach, como já mostramos que é um espaço vetorial normado, basta mostrar a completude
+
+\begin{tbox}[Teorema de Riesz-Fischer]
+    $\cL^\infty$ é um espaço completo
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+Agora vamos construir os espaços $\ell^p$ que são um caso particular dos espaços $\cL^p$
+
+\begin{ex}
+    Sejam $X = \bN$, $\eth = \cP(\bN)$ e $\mu : \cP(\bN) \to [0,\infty]$ dada por
+    \[
+        \mu(E) =
+        \begin{cases}
+            \# E &\text{ se } E \text{ é finito}\\
+            \infty &\text{ se } E \text{ é infinito}
+        \end{cases}
+    \]
+
+    Note que
+    \[
+        \cL^p(\bN, \cP(\bN), \mu) = \left\{(x_n) \subseteq \bR \,; \sum_{n=1}^\infty |x_n| < \infty\right\}
+    \]
+\end{ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 
