@@ -93,7 +93,7 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 \newcommand{\cT}{\mathcal{T}}
 \newcommand{\cP}{\mathcal{P}}
 
-\newcommand{\NN}[1]{\left\Vert #1 \right\Vert}
+\newcommand{\supp}{\mathrm{supp}\,}
 
 \usepackage{csquotes}
 \usepackage[backend=biber, maxbibnames=5, minbibnames=3, sorting=none, url=false, isbn=false, doi=false, defernumbers=true]{biblatex}
@@ -246,7 +246,93 @@ O resultado abaixo apresenta uma outra forma de definir a álgebra de Borel
     $\cB$ é a $\sigma$-álgebra gerada por todos intervalos fechados
 \end{pbox}
 \begin{prf}
-    ~
+    Sejam $\cB$ a álgebra de Borel e $A = \{(x_\alpha, y_\alpha) \,; x_\alpha, y_\alpha \in \bR, x_\alpha < y_\alpha\} \subseteq \cP(\bR)$ o conjunto que gera $\cB$.
+    Considere o conjunto $E = \{[x_\alpha, y_\alpha] \,; x_\alpha, y_\alpha \in \bR, x_\alpha < y_\alpha\} \subseteq \cP(\bR)$ e $\eth_E$ a $\sigma$-álgebra gerada por $E$.
+    Mostremos que $\eth_A = \cB = \eth_E$, para isso, primeiramente vamos verificar que $\cB \subseteq \eth_E$. 
+    Com efeito seja $(x_a,y_\alpha) \in A$. 
+    Afirmamos que
+    \[
+        (x_\alpha, y_\alpha) = \bigcup_{n=1}^{\infty} \left[ x_a + \frac{1}{n}, y_\alpha - \frac{1}{n} \right].
+    \]
+    De fato, se $c = (x_\alpha, y_\alpha)$ temos que
+    \[
+        x_\alpha < c < y_\alpha \iff c - x_\alpha > 0 \;\text{ e }\; b_\alpha - c > 0.
+    \]
+    Pela propiedade Arquimediana, existem $\bar n, \tilde n \in \bN$ tais que
+    \[
+        \frac{1}{c - x_\alpha} < \bar n \;\text{ e }\; \frac{1}{y_\alpha - c} < \tilde n,
+    \]
+    considerando $n_0 = \max\{\bar n, \tilde n\}$, temos
+    \[
+        \frac{1}{c - x_\alpha} < n_0 \;\text{ e }\; \frac{1}{y_\alpha - c} < n_0 \implies c \in \left(x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right).
+    \]
+    Como
+    \[
+        \left(x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right) \subseteq \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right] \subseteq \bigcup_{n=1}^{\infty} \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right] 
+    \]
+    segue que $x \in \bigcup_{n=1}^{\infty}\left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right] \in \eth_E$.
+    Logo
+    \[
+        (x_\alpha, y_\alpha) \subseteq \bigcup_{n=1}^{\infty}\left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right]. 
+    \]
+
+    Por outro lado, considere
+    \[
+        U_\alpha = \bigcup_{n=1}^{\infty} \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right].
+    \]
+    Seja $\alpha$ um elemento arbitrário e $c \in U_\alpha$ fixo.
+    Então, existe $n_0 \in \bN$ tal que $x \in \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right]$.
+    Assim
+    \[
+        x_\alpha < x_\alpha + \frac{1}{n_0} < c < y_\alpha - \frac{1}{n_0} < y_\alpha \implies x \in (x_\alpha, y_\alpha).
+    \]
+    Portanto
+    \[
+        (x_\alpha, y_\alpha) = \bigcup_{n=1}^\infty \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right]. 
+    \]
+
+    Assim, para cada $\alpha$ temos que $(x_\alpha, y_\alpha)$ é uma união enumerável de elementos de $\eth_E$. 
+    Consequentemente $(x_\alpha, y_\alpha) \in \eth_E$ para todo $\alpha$, implicando em $A \subseteq \eth_E$. 
+    Como $\cB$ é a menor $\sigma$-álgebra que contem $A$, temos que $\cB \subseteq \eth_E$.
+
+    Agora precisamos verificar que $\eth_E \subseteq \cB$. 
+    Com efeito.
+    Afirmamos que
+    \[
+        [x_\alpha, y_\alpha] = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n_0} \right).
+    \]
+    De fato, considere
+    \[
+        V_\alpha = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n} \right).
+    \]
+    Seja $c \in [x_\alpha, y_\alpha]$, então
+    \[
+        x_\alpha - \frac{1}{n} < x_\alpha \leqslant c \leqslant y_\alpha < b + \frac{1}{n} \implies c \in \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n} \right) \; \forall n \in \bN \implies c \in V_\alpha
+    \]
+
+    Por outro lado, se $x \in V_\alpha$ tem-se que
+    \[
+        x_\alpha - \frac{1}{n} < c < y_\alpha + \frac{1}{n}
+    \]
+    para todo $n \in \bN$.
+    Note que $x_\alpha < c < y_\alpha$.
+    Com efeito, suponha por contradição que $x_\alpha > c$, então $x_\alpha - c > 0$.
+    Pela propiedade Arquimediana, existe $n_0 \in \bN$ tal que
+    \[
+        \frac{1}{x_\alpha -c } < n_0 \implies c < x_\alpha - \frac{1}{n_0}
+    \]
+    que é uma contradição, então $x_\alpha < c$.
+    De forma análoga, mostramos que $c < y_\alpha$.
+    Assim, temos que $c \in (x_\alpha, y_\alpha)$.
+    Portanto
+    \[
+        [x_\alpha, y_\alpha] = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n_0} \right).
+    \]
+
+    Assim, cads $[x_\alpha, y_\alpha]$ pode ser escrito como interseção enumerável de elementos de $\cB$.
+    Consequentemente $[x_\alpha, y_\alpha]  \in \cB$ para todo $\alpha$. Desse modo, $E \subseteq \cB$. Como $\eth_E$ é a menor $\sigma$-álgebra que contém $E$ segue que $\eth_E \subseteq \cB$.
+
+    Portanto $\cB = \eth_E$.
 \end{prf}
 
 \begin{ex}
@@ -274,12 +360,71 @@ Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um e
 \end{dbox}
 
 \obs Operações com $\infty$ em $\overline\bR$
+\begin{multicols}{2}
+    \begin{enumerate}[leftmargin=*]
+        \item $\infty + \infty = \infty$
+        \item $-\infty -\infty = -\infty$
+        \item $x + \infty = \infty + x = \infty$
+        \item $x + (-\infty) = (-\infty) + x = - \infty$
+        \item $\infty \cdot \infty = \infty$
+        \item $x \cdot \infty = \infty \cdot x = \infty$ se $x > 0$
+        \item $x \cdot (-\infty) = (-\infty) \cdot x = \infty$ se $x < 0$
+        \item $x \cdot \infty = \infty \cdot x = -\infty$ se $x < 0$
+        \item $x \cdot (-\infty) = (-\infty) \cdot x = -\infty$ se $x > 0$
+        \item $0 \cdot \infty = \infty \cdot 0 = 0$.
+    \end{enumerate}
+\end{multicols}
 
 \begin{pbox}
     Seja $\bar\bR$ a reta estendida. Considere $E_1 = E \cup \{-\infty\}$, $E_2 = E \cup \{+\infty\}$, $E_3 = E \cup \{-\infty, +\infty\}$ e $\widehat\cB = \{E_1, E_2, E_3, E\}$ com $E$ variando na álgebra de Borel $\cB$. Então $\widehat\cB$ é uma $\sigma$-álgebra em $\overline\bR$ denominada álgebra estendida de Borel.
 \end{pbox}
 \begin{prf}
-    
+    ~
+
+    \begin{enumerate}
+        \item $\emptyset, \overline\bR \in \widehat\cB$ pois $\emptyset \in \cB$ e $\cB$ é uma $\sigma$-álgebra e em algum momento $E = \bR \in \cB$, logo $\overline\bR = \bR \cup \{-\infty, \infty\} \in \widehat\cB$
+        \item Seja $X \in \widehat\cB$ para mostrar que $X^\cC \in \widehat\cB$ iremos considerar os seguintes casos
+        
+        se $X$ é do tipo $E \cup \{+\infty\}$, com $E \in \cB$
+        \[
+            X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus (E \cup \{+\infty\}) = (\bR \smallsetminus E) \cup \{-\infty\} \in \widehat\cB
+        \]
+        pois $\bR \smallsetminus E \in \cB$.
+
+        se $X$ é do tipo $E \cup \{-\infty\}$, com $E \in \cB$
+        \[
+            X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus (E \cup \{-\infty\}) = (\bR \smallsetminus E) \cup \{+\infty\} \in \widehat\cB
+        \]
+
+        se $X$ é do tipo $E \cup \{-\infty,+\infty\}$, com $E \in \cB$
+        \[
+            X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus (E \cup \{-\infty,+\infty\}) = (\bR \smallsetminus E)  \in \widehat\cB
+        \]
+
+        se $X$ é do tipo $E$, com $E \in \cB$
+        \[
+            X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus E = (\bR \smallsetminus E) \cup \{-\infty,+\infty\} \in \widehat\cB
+        \]
+        \item Seja $(A_n)$ uma sequência de elementos de $\widehat\cB$.
+        Mostremos que
+        \[
+            \bigcup_{n=1}^{\infty} A_n \in \widehat\cB.
+        \]
+        Para isso, precisamos considerar alguns casos
+
+        se existem $A_k = E_k \cup \{-\infty,+\infty\}$ com $k = 1,\dots,j$ e $A_k = E_k$ com $k = j +1,j+2,\dots,$ então
+        \[
+            \begin{aligned}
+                \bigcup_{n=1}^{\infty} A_n &= \left[ \bigcup_{n=1}^{j} A_n \right] \cup \left[  \bigcup_{n=j+1}^{\infty} A_n \right]\\
+                &= \left[ \bigcup_{n=1}^{j} E_n \cup \{-\infty,+\infty\} \right] \cup \left[  \bigcup_{n=j+1}^{\infty} E_n \right]\\
+                &= \left[ \bigcup_{n=1}^{j} E_n  \right] \cup \left[  \bigcup_{n=j+1}^{\infty} E_n \right]\cup \{-\infty,+\infty\}\\
+                &= \left[ \bigcup_{n=1}^{\infty} E_n \right]\cup \{-\infty,+\infty\}\\
+            \end{aligned}
+        \]
+        que está em $\widehat\cB$ pois $\bigcup_{n=1}^{\infty} E_n \in \cB$
+
+        Os outros casos de possíveis combinações são análogos
+    \end{enumerate}
 \end{prf}
 
 % \dots
@@ -1385,7 +1530,7 @@ onde
 \[
     [f] = \{g \in \cL(X,\eth,\mu) \,; g \sim_\mu f\}
 \]
-é dito Espaço de Lebesgue $\cL^1$.
+é dito Espaço de Lebesgue $\cL^1$ ou espaço das funções somáveis.
 Esse espaço, munido das operações
 \begin{gather*}
     [f] + [g] = [f + g]\\
@@ -1946,7 +2091,531 @@ Agora vamos construir os espaços $\ell^p$ que são um caso particular dos espa�
     \[
         \cL^p(\bN, \cP(\bN), \mu) = \left\{(x_n) \subseteq \bR \,; \sum_{n=1}^\infty |x_n| < \infty\right\}
     \]
+    \dots
 \end{ex}
+
+\obs Denomatomos o espaço de Lebesgue $\cL^p(\bN, \cP(\bN), \mu)$ por $\ell^p$
+
+\begin{ex}
+    $\cL^\infty(\bN, \cP(\bN), \mu)$ $\dots$
+\end{ex}
+
+Vejamos mais alguma propiedades importantes dos espaços $\cL^p$
+
+\begin{pbox}
+    Sejam $(X,\eth,\mu)$ um espaço de medida e  $0 < p < q < r \leqslant \infty$.
+    Então
+    \[
+        \cL^q \subseteq \cL^p + \cL^r
+    \]
+\end{pbox}
+\begin{prf}
+    \dots
+\end{prf}
+
+\begin{tbox}[Desigualdade de Interpolação] \label{thm:desigualdade-de-inteporlacao}
+    Sejam $(X,\eth,\mu)$ um espaço de medida e $0 < p < q < r \leqslant \infty$.
+    Então $\cL^p \cap \cL^r \subseteq \cL^q$ e
+    \[
+        \Vert f \Vert_q \leqslant \Vert f \Vert_p^\lambda \Vert f \Vert_r^{1 - \lambda}
+    \]
+    onde $\lambda \in (0,1)$ e
+    \begin{equation} \label{eq:3}
+        \frac{1}{q} = \frac{\lambda}{p} + \frac{1 - \lambda}{r} \quad \left( \text{i.e., } \lambda = \frac{\frac{1}{q} - \frac{1}{r}}{\frac{1}{p} - \frac{1}{r}}\right)
+    \end{equation}
+\end{tbox}
+\begin{prf}
+    Consideremos dois casos
+    \begin{itemize}[leftmargin=*]
+        \item[--] $r = \infty$
+        Note que
+        \[
+            \lambda = \frac{\frac{1}{q} - \frac{1}{\infty}}{\frac{1}{p} - \frac{1}{\infty}} = \frac{\frac{1}{q}}{\frac{1}{p}} = \frac{p}{q} \in (0,1)
+        \]
+        Além disso, se $f \in \cL^p \cap \cL^r$, tem-se que
+        \[
+            \Vert f \Vert_q^q =  \int \vert f \vert^q \, d\mu = \int |f|^{q-p} |f|^p \, d\mu \leqslant \int \Vert f \Vert_\infty^{q-p} |f|^p = \Vert f \Vert_\infty^{q-p} \int |f|^p \,d\mu = \Vert f \Vert_p^p <\infty.
+        \]
+        Com isso $f \in \cL^q$ e ainda mais
+        \[
+            \Vert f \Vert^q_q \leqslant \Vert f \Vert_\infty^{q-p} \Vert f \Vert_p^p \iff \Vert f \Vert_q \leqslant \Vert f \Vert_\infty^{\frac{q-p}{q}} \Vert f \Vert_p^{\frac{p}{q}} \iff \Vert f \Vert_q \leqslant \Vert f \Vert_\infty^{1 - \frac{p}{q}} \Vert f \Vert_p^{\frac{p}{q}}
+        \]
+        e como $\lambda = \frac{p}{q}$, segue que
+        \[
+            \Vert f \Vert_q \leqslant \Vert f \Vert_p^\lambda \Vert f \Vert_r^{1 - \lambda}.
+        \]
+        \item[--] $r < \infty$
+        Note que multiplicando (\ref{eq:3}) por $q$, temos
+        \[
+            \frac{\lambda q}{p} + \frac{(1-\lambda)q}{r} = 1.
+        \]
+        Com isso, $\frac{p}{\lambda q}$ e $\frac{r}{(1-\lambda)q}$ são expoentes conjungados. Dito isso, aplicando a \nameref{thm:desigualdade-de-holder} com $f \in \cL^p \cap \cL^r$ temos que
+        \[
+            \begin{aligned}
+                \int |f|^q \, d\mu &= \int |f|^{\lambda q + (1-\lambda)q} \,d\mu \\
+                &= \int |f|^{\lambda q} |f|^{(1-\lambda)q}\\
+                &\leqslant \Vert |f|^{\lambda q} \Vert_{\frac{p}{\lambda q}} \Vert f^{(1-\lambda)q} \Vert_{\frac{r}{(1-\lambda)q}}\\
+                &= \left( \int |f|^{\lambda q \cdot \frac{p}{\lambda q}} \right)^{\frac{\lambda q}{p}} \left( \int |f|^{(1 - \lambda) q \cdot \frac{r}{(1-\lambda)q}} \right)^{\frac{(1-\lambda)q}{r}}\\
+                &= \left( \int |f|^{p} \right)^{\frac{\lambda q}{p}} \left( \int |f|^{q} \right)^{\frac{(1-\lambda)q}{r}}\\
+                &= \Vert f \Vert_p^{\lambda q} \Vert f \Vert^{(1-\lambda)q}_r\\
+                &< \infty
+            \end{aligned}
+        \]
+        Daí, $f \in \cL^q$. Além disso
+        \[
+            \Vert f \Vert_q^q \leqslant \Vert f \Vert_p^{\lambda q} \Vert f \Vert^{(1-\lambda)q} \iff \Vert f \Vert_q \leqslant \Vert f \Vert_p^\lambda \Vert f \Vert_r^{1 - \lambda}.
+        \]
+    \end{itemize}
+    Assim, mostrada a desiguldadde de interpolação. 
+\end{prf}
+
+\begin{pbox}
+    Sejam $(X,\eth,\mu)$ um espaço de medida com $\mu(X) < \infty$ e $0 < p < q \leqslant \infty$.
+    Então $\cL^q \subseteq \cL^p$ e 
+    \[
+        \Vert f \Vert_p \leqslant \mu(X)^{\frac{1}{p} - \frac{1}{q}} \Vert f \Vert_q
+    \]
+\end{pbox}
+\begin{prf}
+    \dots
+\end{prf}
+
+\begin{tbox}[Desigualdade de Chebyshev]
+    Sejam $(X,\eth,\mu)$ um espaço de medida e $f \in \cL^p$ com $1 \leqslant p < \infty$. 
+    Então
+    \[
+        \Vert f \Vert_p \geqslant \alpha [\, \mu\left( \left\{ x \in X \,; |f(x)| > \alpha \right\}\right) \,]^{\frac{1}{p}}
+    \]
+    para todo $\alpha > 0$.
+\end{tbox}
+\begin{prf}
+    \dots
+\end{prf}
+
+Agora vamos ver um resultado sobre os espaços $\ell^p$
+
+\begin{pbox}
+    Sejam $0 < p < q \leqslant \infty$.
+    Então $\ell^p \subseteq \ell^q$ e 
+    \[
+        \Vert x \Vert_q \leqslant \Vert x \Vert_p
+    \]
+\end{pbox}
+\begin{prf}
+    Consideremos dois casos
+    \begin{itemize}[leftmargin=*]
+        \item[--] $q = \infty$
+        
+        Seja $x \in \ell^p$.
+        Então $\sum_{n=1}^\infty |x_n|^p < \infty$.
+        É fácil ver que
+        \[
+            |x_n| \leqslant \left( \sum_{n=1}^\infty |x_n|^p < \infty \right)^{\frac{1}{p}} < \infty
+        \]
+        para todo $n \in \bN$. Isto é, $\sum_{n=1}^\infty |x_n|^p < \infty$ é cota superior de $x = (x_n)$. Dito isso
+        \[
+            \Vert x \Vert_q = \Vert x \Vert_\infty = \sup |x_n| \leqslant \left(\sum_{n=1}^\infty |x_n|^p \right)^{\frac{1}{p}} < \infty.
+        \]
+        Logo $x \in \ell^q$ e 
+        \[
+            \Vert x \Vert_q \leqslant \Vert x \Vert_p.
+        \]
+
+        \item[--] $q < \infty$
+        
+        Utilizando a \nameref{thm:desigualdade-de-inteporlacao} com $r = \infty$ e $\lambda = \frac{p}{q} \in (0,1)$ para obter que $\ell^p = \ell^p \cap \ell^r \subseteq \ell^q$ (pelo caso $q = \infty$) e
+        \[
+            \Vert x \Vert_q \leqslant \Vert x \Vert_p^{\frac{p}{q}} \Vert x \Vert_\infty^{1 - \frac{p}{q}} \leqslant \Vert x \Vert_p^{\frac{p}{q}} \Vert x \Vert_p^{1 - \frac{p}{q}} = \Vert x \Vert_p.
+        \]
+    \end{itemize}
+    Assim, demonstrada a proposição.
+\end{prf}
+
+Os proximos resultados estão relacionados a densidade das funções simples em $\cL^p$ e $\cL^\infty$
+
+\begin{dbox}
+    Seja $(X,d)$ um espaço métrico. Um conjunto $E \subseteq X$ é dito denso em $X$ se todo ponto de $X$ é aderente a $E$.
+    Isto é, dado $x \in X$ existe uma sequência $(x_n)$ de elementos de $E$ tal que $x_n \to x.$
+\end{dbox}
+
+\begin{tbox}
+    Seja $1 \leqslant p < \infty$.
+    O conjunto das funções simples $\sum_{j=1}^n a_j \chi_{E_j}$ com $\mu(E_j) < \infty$ para todo $j = 1,\dots,n$ é denso em $\cL^p$
+\end{tbox}
+\begin{prf}
+    Considere o conjunto
+    \[
+        Y = \left\{ f = \sum_{j=1}^{n} a_j \chi_{E_j} \,; \mu(E_j) < \infty \right\}.
+    \]
+    Note que dada uma função $f \in Y$ temos que
+    \[
+        \int |f|^p \,d\mu = \int \left| \sum_{j=1}^n a_j \chi_{E_j} \right| \,d\mu = \int \sum_{j=1}^n |a_j|^p \chi_{E_j} \,d\mu = \sum_{j=1}^n |a_j|^p \mu(E_j) < \infty.
+    \]
+    Isto é, $f \in \cL^p$.
+    Consequentemente $Y \subseteq \cL^p$.
+
+    Por outro lado, seja $f \in \cL^p$ sabemos que $f = f^+ - f^-$ onde $f^+, f^- \in \cM^+(X,\eth)$.
+    Além disso pelo Lema ?? temos que existem sequências $(\varphi^+_n), (\varphi^-_n)$ de funções simples em $\cM^+(X,\eth)$ tais que
+    \[
+        0 \leqslant \varphi^\pm_n \leqslant \varphi^\pm_{n+1} \,\text{ e }\, \varphi^\pm_n \to f^\pm.
+    \]
+    É fácil ver que $(\varphi^+_n - \varphi^-_n) \subseteq \cM(X,\eth)$ é uma sequência de funções simples tal que
+    \[
+        \lim (\varphi^+_n - \varphi^-_n) = \lim \varphi^+_n + \lim \varphi^-_n = f^+ -f^- = f.
+    \]
+    Seja $\varphi_n = \varphi^+_n - \varphi^-_n$ para todo $n \in \bN$, assim $(\varphi_n)$ é uma sequência de funções simples tal que $\varphi_n \to f$.
+    Perceba que
+    \[
+        |\varphi_n| = \varphi^+_n + \varphi^-_n \leqslant f^+ + f^- = |f|,
+    \]
+    para todo $n \in \bN$. Como $f \in \cL^p$, então
+    \[
+        \int |\varphi_n|^p \, d\mu \leqslant \int |f|^p \,d\mu < \infty,
+    \]
+    ou seja, $(\varphi_n) \subseteq \cL^p$.
+    Consequentemente, denotando $\varphi_n$ por
+    \[
+        \varphi_n = \sum_{j=1}^{m_n} a_{j} \chi_{E_j}
+    \]
+    segue que
+    \[
+        |a_j|^p \mu(E_j) \leqslant \sum_{j=1}^{m_n} |a_j|^p \mu(E_j) = \int \sum_{j=1}^{m_n} |a_j|^p \chi_{E_j} \,d\mu = \int |\varphi_n|^p \,d\mu < \infty.
+    \]
+    Isto nos diz que $\mu(E_j) < \infty$ para todo $j = 1,\dots,m_n$ e $n \in \bN$. Logo, $(\varphi_n) \subseteq Y$.
+    Por fim, aplicando o \nameref{thm:teorema-da-convergencia-dominada}, temos que
+    \[
+        \lim \Vert \varphi_n - f \Vert_p^p = \lim \int |\varphi_n - f|^p \,d\mu = \int \lim |\varphi_n - f|^p \,d\mu = 0
+    \]
+    pois
+    \[
+        \lim \varphi_n = f \,\text{ e }\, |\varphi_n - f|^p \leqslant 2^p |f|^p \in \cL^1.
+    \]
+    Portanto $Y$ é denso em $\cL^p$, já que dada uma função $f \in \cL^p$, encontramos uma sequência em $Y$ que converge para $f$.
+\end{prf}
+
+\begin{tbox}
+    O conjunto das funções simples é denso em $\cL^\infty$.
+\end{tbox}
+\begin{prf}
+    ~
+\end{prf}
+
+O proximos resultados são uma generalização da \nameref{thm:desigualdade-de-holder}
+
+\begin{lbox}
+    Sejam $0 < p, q \leqslant \infty$ tais que $\frac{1}{r} = \frac{1}{p} + \frac{1}{q}$, $f \in \cL^p$ e $g \in \cL^q$.
+    Então $fg \in \cL^r$ e
+    \[
+        \Vert fg \Vert_r \leqslant \Vert f \Vert_p \Vert g \Vert_q
+    \]
+\end{lbox}
+\begin{prf}
+    \dots
+\end{prf}
+
+\begin{pbox}[Desigualdade de Hölder Generalizada]
+    Sejam $0 < p_1,\dots,p_N \leqslant \infty$ tais que $\frac{1}{p} = \frac{1}{p_1} + \cdots + \frac{1}{p_N}$ e $f = f_1 f_2 \cdots f_N$ onde $f_j \in \cL^{p_j}$ para todo $j = 1,\dots,N$. 
+    Então $f \in \cL^p$ e 
+    \[
+        \Vert f \Vert_p \leqslant \Vert f_1 \Vert_{p_1} \cdots \Vert f_N \Vert_{p_N}
+    \] 
+\end{pbox}
+\begin{prf}
+    Segue por indução do lema anterior.
+\end{prf}
+
+\chapter{Espaços de Sobolev}
+
+Os espaços de Sobolev desempenham um papel fundamental na análise funcional e nas equações diferenciais parciais, oferecendo uma estrutura adequada para o estudo de problemas envolvendo funções que podem não ser diferenciáveis no sentido clássico. Introduzidos como uma extensão dos conceitos de derivada e integrabilidade, esses espaços permitem trabalhar com soluções generalizadas, chamadas de soluções fracas, ampliando o escopo de problemas que podem ser tratados matematicamente. Neste capítulo, serão apresentados os conceitos básicos dos espaços de Sobolev, suas principais propriedades e exemplos que ilustram sua aplicabilidade em problemas de fronteira e outros contextos relevantes da matemática aplicada.
+
+\section{Preliminares}
+
+Antes de começar de fato o estudo dos espaços de Sobolev precisamos de algumas definições que serão usadas extensivamente nesse capítulo
+
+\begin{dbox} \label{def:suporte}
+    Seja $\varphi : \Omega \subseteq \bR ^n \to \bR$ uma função qualquer. Definimos o suporte de $\varphi$ por
+    \[
+        \supp \varphi = \overline{\{x \in \Omega \,; \varphi(x) \neq 0\}}
+    \]
+    Além disso, se $\supp\varphi$ é compacto, dizemos que $\varphi$ tem suporte compacto.
+\end{dbox}
+
+Note que $\{x \in \Omega \,; \varphi(x) \neq 0\} \subseteq \supp \varphi$, então $(\supp \varphi)^\cC \subseteq \{x \in \Omega \,; \varphi(x) = 0\}$. Ou seja se $x \not\in \supp \varphi$, então $\varphi(x) = 0$.
+Além disso, se $\Omega$ é um aberto, então $\varphi$ se anula em $\partial\Omega$.
+
+\begin{dbox}
+    Seja $\Omega$ um aberto de $\bR^n$. Definimos o espaço das funções com a $k$-ésima derivada contínua por
+    \[
+        \cC^k(\Omega) = \{f : \Omega \to \bR \,; f \text{ é contínua, } f^{(k)} \text{ existe e é contínua}\}
+    \]
+\end{dbox}
+
+\obs O conjunto das funções infinitamente diferenciáveis é definido por
+\[
+    \cC^\infty(\Omega) = \bigcap_{k=0}^\infty \cC^k(\Omega)
+\]
+
+\begin{dbox}
+    O conjunto das funções $f \in \cL^p(\Omega)$ localmente somáveis, isto é, integráveis em todo conjunto compacto de $\Omega$ é denotado por $\cL^p_{\mathrm{loc}}(\Omega)$ 
+\end{dbox}
+
+A definição abaixo será âmplamente utilizada nesse capítulo
+
+\begin{dbox}
+    O conjunto das funções contínuas com suporte compacto em $\Omega$ é definido por
+    \[
+        \cC_c(\Omega) = \{f : \Omega \to \bR \,; \supp f \text{ é compacto}\}
+    \]
+    Além disso definimos
+    \[
+        \cC^k_c(\Omega) = \cC_c(\Omega) \cap \cC^k(\Omega)
+    \]
+    que é o conjunto das funções $f : \Omega \to \bR$ de classe $\cC^k$ com suporte compacto.
+\end{dbox}
+
+Os resultados abaixos são de extrema importância no estudo de espaços de Sobolev.
+
+\begin{tbox}[Integração por partes em $\bR ^n$] \label{thm:integracao-por-partes}
+    Seja $\Omega \subseteq \bR^n$ uma região regular e $u, v : \overline\Omega \to \bR$ de classe $\cC^1$. 
+    Então
+    \[
+        \int_\Omega u \dfrac{\partial v}{\partial x_i} \,dx = \int_{\partial\Omega} uv \nu_i \, dS- \int_\Omega v \dfrac{\partial u}{\partial x_i} \,dx
+    \]
+    onde $\nu = (\nu_1,\dots,\nu_n)$ é o vetor normal unitário que aponta pra dentro em $\partial\Omega$.   
+\end{tbox}
+\begin{prf}
+    \cite{evans-pde}
+\end{prf}
+
+\begin{tbox}
+    (coordenadas polares) \dots
+\end{tbox}
+
+\section{Motivação}
+
+\section{Espaços de Sobolev $\mathcal{W}^{1,p}(I)$}
+
+\begin{dbox}
+    Sejam $I$ um intervalo aberto, possívelmente ilimitado e $u,g \in \cL^1_{\mathrm{loc}}$.
+    Dizemos que $g$ é a derivada fraca de $u$, se
+    \[
+        \int_I u \phi' \, dx = -\int_I g \phi\,dx   
+    \]
+    para todo $\phi \in \cC^\infty_c(I)$.
+\end{dbox}
+
+Denotamos $u' = g$ e diremos $g$ é a derivada de $u$ no sentido fraco.
+
+\obs (sobre a notação $dx$ e $d\mu$)
+
+\obs (função teste)
+
+\begin{ex} \label{ex:derivada-fraca-R}
+    A função $u : I  =(0,2) \to \bR$ dada por
+    \[
+        u(x) = \left\{
+            \begin{array}{rl}
+                x & \text{se }\; 0 < x \leqslant 1\\
+                1 & \text{se }\; 1 < x < 2,\\
+            \end{array}
+        \right.
+    \]
+    não é derivavel no sentido usual. Já que
+    \[
+        \lim_{h\to0^-} \frac{u(1 + h)}{h} = 1 \neq 0 = \lim_{h\to0^+} \frac{u(1 + h)}{h}.
+    \]
+    Porem, possui derivada fraca dada pela função
+    \[
+        v(x) = \left\{
+            \begin{array}{rl}
+                1 & \text{se }\; 0 < x \leqslant 1\\
+                0 & \text{se }\; 1 < x < 2.\\
+            \end{array}
+        \right.
+    \]
+    Com efeito, note que, para toda $\phi \in \cC^\infty_c(I)$ temos
+    \[
+        \int_0^2 u \phi' \,dx = \int_0^1 x \phi' \,dx + \int_1^2 \phi' \,dx = x \phi \bigg|_0^1 - \int_0^1 \phi \,dx + \phi \bigg|_1^2.
+    \]
+    Como $\phi$ tem suporte compacto, $\phi(0) = \phi(2) = 0$. Assim
+    \[
+        \int_0^2 u \phi' \,dx = \phi(1) - \int_0^1 \phi \,dx - \phi(1) = -\int_0^1 \phi \,dx
+    \]
+    Por fim, basta escrever $0$ como uma integral.
+    \[
+        \int_0^2 u \phi' \,dx = - \left(  \int_0^1 1\phi \, dx - \int_1^2 0\phi \,dx  \right) = -\int_0^2 v \phi \,dx
+    \]
+    Portanto, $v$ é a derivada de $u$ no sentido fraco.
+\end{ex}
+
+\begin{ex}
+    A função $u : I  = (0,2) \to \bR$ dada por
+    \[
+        u(x) = \left\{
+            \begin{array}{rl}
+                x & \text{se }\; 0 < x \leqslant 1\\
+                2 & \text{se }\; 1 < x < 2,\\
+            \end{array}
+        \right.
+    \]
+    não possuí derivada fraca.
+    ... (continuar)
+\end{ex}
+
+Com a noção de derivada fraca, estamos prontos para definir os espaços de Sobolev $\mathcal{W}^{1,p}(I)$
+
+\begin{dbox}
+    Seja $I$ um intervalo aberto, possívelmente ilimitado.
+    Definimos o espaço de Sobolev $\mathcal{W}^{1,p}(I)$ por
+    \[
+        \mathcal{W}^{1,p} = \{u \in \cL^p \,; u' \in \cL^p\}
+    \]
+    onde $u'$ é a derivada de $u$ no sentido fraco
+\end{dbox}
+
+\section{Espaços de Sobolev $\mathcal{W}^{k,p}(\Omega)$}
+
+Nosso objetivo agora, é definir a derivada fraca de ordem superior, generalizar os espaços da seção anterior para funções definidas em um aberto $\Omega$ do $\bR^n$ e explorar algumas propiedades elementares.
+
+Seja $u \in \cC^1(\Omega)$, então se $\phi \in \cC^\infty_c(\Omega)$, utilizando integração por partes em $\bR^n$ temos que
+\[
+    \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \,dx = \int_{\partial\Omega} u\phi \nu_i \, dS- \int_\Omega \phi \dfrac{\partial u}{\partial x_i} \,dx. \qquad (i = 1,\dots,n)
+\]
+Como $\phi$ tem suporte compacto e $\Omega$ é um aberto, segue que $\phi$ se anula em $\partial\Omega$, como mostrado abaixo da definição de suporte. Portanto a expressão acima se torna
+\begin{equation} \label{eq:derivada-fraca-xi}
+    \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \,dx = - \int_\Omega \phi \dfrac{\partial u}{\partial x_i} \,dx. \qquad (i = 1,\dots,n)
+\end{equation}
+Além disso, se $u$ for de classe $\cC^k$ com $k \in \bN$ e $\alpha = (\alpha_1,\dots,\alpha_n)$ um multi-índice de ordem $|\alpha| = \alpha_1 + \cdots + \alpha_n = k$, então
+\begin{equation} \label{eq:derivada-fraca-dalpha}
+    \int_\Omega u D^\alpha \phi = (-1)^{|\alpha|} \int_\Omega D^\alpha u \phi.
+\end{equation}
+Essa expressão é válida, já que
+\[
+    D^\alpha \phi = \dfrac{\partial^{\alpha_1} }{\partial x_1^{\alpha_1}} \cdots \dfrac{\partial^{\alpha_n} }{\partial x_n^{\alpha_n}} = \dfrac{\partial^{|\alpha|} }{\partial x_1^{\alpha_1} \cdots \partial x_n^{\alpha_n}}
+\]
+e podemos aplicar (\ref{eq:derivada-fraca-xi}) $|\alpha|$ vezes.
+
+Queremos descobrir se existe uma classe de funções tal que (\ref{eq:derivada-fraca-dalpha}) ainda é válida, mesmo se $u$ não for de classe $\cC ^k$. Note que o lado esquerdo de (\ref{eq:derivada-fraca-xi}) está bem definido se $u \in \cL^1_{\mathrm{loc}}(\Omega)$.
+O problema é que se $u$ não é uma função de classe $\cC^k$ então o lado direito de (\ref{eq:derivada-fraca-xi}) não faz sentido. Para resolver isso perguntamos se existe uma função $v \in \cL^1_{\mathrm{loc}}(\Omega)$ tal que (\ref{eq:derivada-fraca-xi}) é válida quando substituimos $D^\alpha u$ por $v$.
+
+\begin{dbox}[Derivada fraca em $\Omega$]
+    Sejam $u,v \in \cL^1_{\mathrm{loc}}(\Omega)$ e $\alpha$ um multi-índice. Dizemos que $v$ é a $\alpha$-ésima derivada parcial fraca de $u$, denotada por
+    \[
+        D^\alpha u = v
+    \]
+    dado que
+    \begin{equation} \label{eq:derivada-fraca}
+        \int_\Omega u D^\alpha \phi \,d\mu = (-1)^{|\alpha|} \int_\Omega D^\alpha u \phi \,d\mu.
+    \end{equation}
+    para toda função de teste $\phi \in \cC ^\infty_c(\Omega)$
+\end{dbox}
+
+Isto é, se dado uma função $u$ e existe uma função $v$ que satisfaz (\ref{eq:derivada-fraca}) para toda $\phi$ função de teste, dizemos que $D^\alpha u = v$ no sentido fraco.
+Caso contrário, se não existir uma função $v$ que satisfaz (\ref{eq:derivada-fraca}), então $u$ não possui a $\alpha$-ésima derivada parcial fraca.
+
+\begin{lbox}
+    Seja $\alpha$ um multi-índice. Se $v$ e $\tilde v$ são ambas $\alpha$-ésimas derivadas parciais fracas de uma função $u$.
+    Então
+    \[
+        v = \tilde v \text{ qtp em } \Omega.
+    \]
+\end{lbox}
+\begin{prf}
+    Sejam $v, \tilde v \in \cL^1_{\mathrm{loc}}(\Omega)$ tais que
+    \[
+        \int_\Omega u D^\alpha \phi \,dx = (-1)^{|\alpha|} \int_\Omega v \phi \,dx \;\text{ e }\; \int_\Omega u D^\alpha \phi \, dx= (-1)^{|\alpha|}\int_\Omega \tilde v \phi \,dx
+    \]
+    para toda $\phi \in \cC^\infty_c(\Omega)$. Daí
+    \[
+        \int_\Omega (v - \tilde v) \phi \, dx = 0
+    \]
+    isto é
+    \[
+        v - \tilde v = 0 \text{ qtp em } \Omega.
+    \]
+    Portanto $v = \tilde v$ qtp em $\Omega$.
+\end{prf}
+
+\begin{ex}
+    Considere a função $u$ do exemplo \ref{ex:derivada-fraca-R}, vimos que
+    \[
+        v(x) = \left\{
+            \begin{array}{rl}
+                1 & \text{se }\; 0 < x \leqslant 1\\
+                0 & \text{se }\; 1 < x < 2.\\
+            \end{array}
+        \right.
+    \]
+    é a derivada de $u$ no sentido fraco.
+    Porem a função
+    \[
+        \tilde v(x) = \left\{
+            \begin{array}{rl}
+                1 & \text{se }\; 0 < x < 1\\
+                0 & \text{se }\; 1 \leqslant x < 2.\\
+            \end{array}
+        \right.
+    \]
+    também satisfaz a definição de derivada fraca.
+    A primeira vista, temos a sensação de que essa função é um contra-exemplo para unicidade da derivada fraca, porem $v$ e $\tilde v$ são iguais fora de um conjunto de medida nula.
+    De fato
+    \[
+        (v - \tilde v)(x) = \left\{
+            \begin{array}{rl}
+                1 & \text{se }\; x = 1\\
+                0 & \text{se }\; x \neq 1.\\
+            \end{array}
+        \right.
+    \]
+    Portanto
+    \[
+        v = \tilde v \text{ qtp em } (0,2).
+    \]
+    pois $\{1\}$ é finito, logo tem medida nula.
+\end{ex}
+
+(texto aqui)
+
+\begin{dbox}
+    Seja $\Omega \subseteq \bR^n$ um aberto. 
+    Definimos o espaço de Sobolev $\mathcal{W}^{1,p}(\Omega)$ por
+    \[
+        \mathcal{W}^{1,p}(\Omega) = \left\{u \in \cL^p(\Omega) \,; \text{existem } g_i : \Omega \to \bR \text{ em $\cL^p(\Omega)$ tais que} \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \, d\mu = -\!\!\int g_i \phi \,d\mu \right\}
+    \]
+\end{dbox}
+
+Existem duas formas de definir os espaços de Sobolev $\mathcal{W}^{k,p}(\Omega)$, indutivamente, e pela derivada fraca, veremos as duas e mostraremos que são equivalentes
+
+\begin{dbox}
+    Seja $\Omega \subseteq \bR ^n$ um aberto. Definimos o espaço de Sobolev $\mathcal{W}^{k,p}(\Omega)$ por
+    \[
+        \mathcal{W}^{k,p}(\Omega) = \left\{ u \in \cL^p \,; D^\alpha u \in \cL^p \text{ para todo multi-índice } \alpha \text{ com } |\alpha| \leqslant k\right\}
+    \]
+    com $\phi \in \cC^\infty_c(\Omega)$. 
+    Ou
+    \[
+        \mathcal{W}^{k,p}(\Omega) = \left\{ u \in \mathcal{W}^{k-1,p}(\Omega) \,; D^\alpha u \in \mathcal{W}^{k-1,p}(\Omega) , \forall \alpha \text{ com } |\alpha| = 1\right\}
+    \]
+    onde $D^\alpha u$ é a $\alpha$-ésima derivada parcial de $u$ no sentido fraco.
+\end{dbox}
+
+\obs (notação $H^k(\Omega)$)
+
+\begin{dbox}
+    O espaço $\mathcal{W}^{k,p}(\Omega)$ admite norma
+    \[
+        \Vert u \Vert_{\mathcal{W}^{k,p}(\Omega)} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}}
+    \]
+    para $1 \leqslant p < \infty$ e 
+    \[
+        \Vert u \Vert_{\mathcal{W}^{k,p}(\Omega)} = \sum_{|\alpha| \leqslant k} \mathrm{ess\,sup}_\Omega |D^\alpha u|
+    \]
+    para $p = \infty$.
+\end{dbox}
+
+\obs (norma equivalente)
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
 
