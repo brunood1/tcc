@@ -1955,7 +1955,7 @@ Agora introduzimos o espaço de Lebesgue, $\cL^\infty$ explorando suas caracter�
     é chamado Espaço de Lebesgue $\cL^\infty$.
     Para cada $f \in \cL^\infty$, definimos
     \[
-        \Vert f \Vert_\infty = \inf \{M \geqslant 0 \,; |f(x)| \leqslant M \text{ qtp em } X\}
+        \Vert f \Vert_\infty = \mathrm{ess\,sup} \{|f(x)|; x \in X\} =\inf \{M \geqslant 0 \,; |f(x)| \leqslant M \text{ qtp em } X\}
     \]
     Por fim, dizemos que $f$ é uma função essencialmente limitada.
 \end{dbox}
@@ -2396,15 +2396,15 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
 \section{Espaços de Sobolev $\mathcal{W}^{1,p}(I)$}
 
 \begin{dbox}
-    Sejam $I$ um intervalo aberto, possívelmente ilimitado e $u,g \in \cL^1_{\mathrm{loc}}$.
-    Dizemos que $g$ é a derivada fraca de $u$, se
+    Sejam $I$ um intervalo aberto, possívelmente ilimitado e $u,v \in \cL^1_{\mathrm{loc}}$.
+    Dizemos que $v$ é a derivada fraca de $u$, se
     \[
-        \int_I u \phi' \, dx = -\int_I g \phi\,dx   
+        \int_I u \phi' \, dx = -\int_I v \phi\,dx   
     \]
     para todo $\phi \in \cC^\infty_c(I)$.
 \end{dbox}
 
-Denotamos $u' = g$ e diremos $g$ é a derivada de $u$ no sentido fraco.
+Denotamos $u' = v$ e diremos $v$ é a derivada de $u$ no sentido fraco.
 
 \obs (sobre a notação $dx$ e $d\mu$)
 
@@ -2574,7 +2574,7 @@ Caso contrário, se não existir uma função $v$ que satisfaz (\ref{eq:derivada
     pois $\{1\}$ é finito, logo tem medida nula.
 \end{ex}
 
-(texto aqui)
+\dots
 
 \begin{dbox}
     Seja $\Omega \subseteq \bR^n$ um aberto. 
@@ -2594,7 +2594,7 @@ Existem duas formas de definir os espaços de Sobolev $\mathcal{W}^{k,p}(\Omega)
     com $\phi \in \cC^\infty_c(\Omega)$. 
     Ou
     \[
-        \mathcal{W}^{k,p}(\Omega) = \left\{ u \in \mathcal{W}^{k-1,p}(\Omega) \,; D^\alpha u \in \mathcal{W}^{k-1,p}(\Omega) , \forall \alpha \text{ com } |\alpha| = 1\right\}
+        \mathcal{W}^{k,p}(\Omega) = \left\{ u \in \mathcal{W}^{k-1,p}(\Omega) \,; D^\alpha u \in \mathcal{W}^{k-1,p}(\Omega) , \text{ para todo multi-índice } \alpha \text{ com } |\alpha| = 1\right\}
     \]
     onde $D^\alpha u$ é a $\alpha$-ésima derivada parcial de $u$ no sentido fraco.
 \end{dbox}
@@ -2614,6 +2614,96 @@ Existem duas formas de definir os espaços de Sobolev $\mathcal{W}^{k,p}(\Omega)
 \end{dbox}
 
 \obs (norma equivalente)
+
+\begin{ex}
+    Seja $\Omega = B(\mathbf{0},1) \subseteq \bR^n$ a bola aberta de raio 1 centrada na origem, e considere $u : \Omega \to \bR$ dada por
+    \[
+        x \mapsto |x|^{-\alpha}.
+    \]
+    Para quais valores de $\alpha > 0$, $n$ e $p$, $u \in \mathcal{W}^{1,p}(\Omega)$.
+    Primeiramente, note que $u$ é suave fora de $\mathbf{0}$ com
+    \[
+        \dfrac{\partial u}{\partial x_i} = \frac{-\alpha x_i}{|x|^{\alpha + 2}} \quad (x \neq \mathbf{0}),
+    \]
+    e daí, como
+    \[
+        Du(x) = \left(\frac{-\alpha x_1}{|x|^{\alpha + 2}},\dots,\frac{-\alpha x_n}{|x|^{\alpha + 2}}  \right) \quad (x \neq \mathbf{0}),
+    \]
+    segue que
+    \[
+        |Du(x)| = \frac{|\alpha|}{|x|^{\alpha + 1}} \quad (x \neq \mathbf{0}).
+    \]
+    Seja $\phi \in \cC^\infty_c(\Omega)$ e fixe $\varepsilon > 0$. Por integração por partes, temos
+    \[
+        \int_{\Omega \smallsetminus B[\mathbf{0}, \varepsilon]} u \dfrac{\partial \phi}{\partial x_i} \, dx = -\int_{\Omega \smallsetminus B[\mathbf{0}, \varepsilon]} \phi \dfrac{\partial u}{\partial x_i} \,dx + \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS
+    \]
+    onde $\nu = (\nu_1,\dots,\nu_n)$ denota o vetor normal que aponta para dentro em $\partial B[\mathbf{0},\varepsilon]$.
+    Agora se $\alpha + 1 < n$, $|Du(x)| \in \cL^1(\Omega)$.
+    De fato, integrando $Du$, temos
+    \[
+        \int_\Omega |Du| \,dx = |\alpha|\int_{B(\mathbf{0},1)} \frac{1}{|x|^{\alpha+1}} \,dx.
+    \]
+    Transformando em coordenadas polares, conseguimos simplificar essa integral da seguinte forma
+    \[
+        \int_{B(\mathbf{0},1)} \frac{1}{|x|^{\alpha+1}} \,dx =  \int_0^1 \int_{|x| = r} \frac{1}{|x|^{\alpha + 1}} \,dS dr = \int_0^1 \int_{|x|= r} \frac{1}{r^{\alpha + 1}} \, dS dr = \int_0^1 \frac{1}{r^{\alpha+1}}  \int_{|x| = r} dS dr.
+    \]
+    Onde a integral de superficie, é igual a area da esfera $n$-dimensional de raio $r$, dada por
+    \[
+        \frac{2\pi^{\frac{n}{2}}}{\Gamma(\frac{n}{2})}r^{n-1}
+    \]
+    que por simplicidade, vamos denotar por $\sigma(n) r^{n-1}$. Dessa forma
+    \[
+        \int \frac{1}{r^{\alpha+1}}  \int_{|x| = r} dS dr = \sigma(n)\int_0^1 r^{n-\alpha-2} \,dr = \sigma(n)\left(\frac{1^{n-\alpha-1}}{n-\alpha -1} - \frac{0^{n-\alpha-1}}{n-\alpha-1}\right).
+    \]
+    Note que se $n - \alpha - 1 < 0$ então $0^{n-\alpha-1} = \infty$. Sendo assim
+    \[
+        \int_\Omega |Du| \, dx = \infty \iff \alpha + 1 > n.
+    \]
+    Portanto $|Du(x)| \in \cL^1(\Omega)$ desde que $\alpha + 1 < n$.
+    Nesse caso
+    \[
+        \left| \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS \right| \leqslant 
+        % \int_{\partial B[\mathbf{0},\varepsilon]} |u \phi \nu_i| \,dS = 
+        \int_{\partial B[\mathbf{0},\varepsilon]} |u| |\phi| |\nu_i| \,dS \leqslant \Vert \phi \Vert_{\infty}\int_{\partial B[\mathbf{0},\varepsilon]} |u|dS \leqslant \int_{\partial B[\mathbf{0},\varepsilon]} \varepsilon^{-\alpha} \,dS,
+    \]
+    onde essa ultima integral pode ser calculada por meio de coordenadas polares de forma análoga ao que foi feito anteriormente, resultando em
+    \[
+        \left| \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS \right| \leqslant C \varepsilon^{n-1-\alpha} \overset{\varepsilon \to 0}{\longrightarrow} 0.
+    \]
+    Portanto
+    \[
+        \int_{\Omega} u \dfrac{\partial \phi}{\partial x_i} \, dx = -\int_{\Omega} \phi \dfrac{\partial u}{\partial x_i} \,dx,
+    \]
+    para toda $\phi \in \cC^\infty_c(\Omega)$, desde que $0 \leqslant \alpha < n-1$. 
+    Além disso, $|Du(x)| \in \cL^p(\Omega)$ se, e somente se, $(\alpha + 1)p < n$, esse cálculo é feito de forma análoga ao que foi feito para verificar quando $|Du(x)| \in \cL^1(\Omega)$. Consequentemente, $u \in \mathcal{W}^{1,p}(\Omega)$ se, e somente se $\alpha < \frac{n-p}{p}$.
+    Em particular $u \not\in \mathcal{W}^{1,p}(\Omega)$ quando $p \geqslant n$.
+\end{ex}
+
+\begin{tbox}[Propiedades da derivada fraca]
+    Seja $u, v \in \mathcal{W}^{k,p}(\Omega)$ e $\alpha$ um multi-índice com $1 \leqslant |\alpha| \leqslant k$.
+    Então 
+    \begin{enumerate}[leftmargin=*]
+        \item $D^\alpha u \in \mathcal{W}^{k - |\alpha|,p}(\Omega)$
+        \item $D^\beta(D^\alpha u) = D^\alpha (D^\beta u) = D^{\alpha + \beta} u$ para todos multi-índices $\alpha$ e $\beta$ com $|\alpha| + |\beta| \leqslant k.$
+        \item para todo $\gamma, \lambda \in \bR$, $\gamma u + \lambda v \in \mathcal{W}^{k,p}(\Omega)$ e
+        \[
+            D^{\alpha}(\gamma u + \lambda v) = \gamma D^\alpha u + \lambda D^\alpha v
+        \]
+        \item se $\Omega_0$ é um aberto de $\Omega$, então $u \in \mathcal{W}^{k,p}(\Omega_0)$
+        \item se $\eta \in \cC^\infty_c(\Omega)$, então $\eta u \in \mathcal{W}^{k,p}(\Omega)$ e
+        \[
+            D^\alpha (\eta u) = \sum_{\beta \leqslant \alpha} \binom{\alpha}{\beta} D^{\beta} \eta D^{\alpha - \beta} u
+        \]
+        onde
+        \[
+            \binom{\alpha}{\beta} = \frac{\alpha!}{\beta!(\alpha - \beta)!}, \quad \alpha! = \alpha_1!\cdots \alpha_n!
+        \]
+        e $\beta \leqslant \alpha$ significa $\beta_j \leqslant \alpha_j$, para todo $j = 1,\dots,n$.
+    \end{enumerate}
+\end{tbox}
+\begin{prf}
+    \dots
+\end{prf}
 
 
 
