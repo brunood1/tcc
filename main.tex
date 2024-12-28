@@ -92,8 +92,12 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 \newcommand{\cL}{\mathcal{L}}
 \newcommand{\cT}{\mathcal{T}}
 \newcommand{\cP}{\mathcal{P}}
+\newcommand{\cW}{\mathcal{W}}
 
 \newcommand{\supp}{\mathrm{supp}\,}
+\newcommand{\esssup}{\mathrm{ess\,sup}\,}
+\newcommand{\loc}{\mathrm{loc}}
+
 
 \usepackage{csquotes}
 \usepackage[backend=biber, maxbibnames=5, minbibnames=3, sorting=none, url=false, isbn=false, doi=false, defernumbers=true]{biblatex}
@@ -125,6 +129,7 @@ innerleftmargin=8pt, innerrightmargin=8pt}
     $N_\mu(\,\cdot\,)$  & Semi-norma em relação a medida $\mu$.\\
     $\cP(X)$            & Conjunto das partes do conjunto $X$\\
     $\overline\bR$      & Reta extendida i.e., $\bR \cup \{-\infty,+\infty\}$\\
+    $\cW^{k,p}(\Omega)$ & Espaço de Sobolev
 \end{tblr}
 
 \chapter{Introdução à Teoria da Medida}
@@ -246,93 +251,93 @@ O resultado abaixo apresenta uma outra forma de definir a álgebra de Borel
     $\cB$ é a $\sigma$-álgebra gerada por todos intervalos fechados
 \end{pbox}
 \begin{prf}
-    Sejam $\cB$ a álgebra de Borel e $A = \{(x_\alpha, y_\alpha) \,; x_\alpha, y_\alpha \in \bR, x_\alpha < y_\alpha\} \subseteq \cP(\bR)$ o conjunto que gera $\cB$.
-    Considere o conjunto $E = \{[x_\alpha, y_\alpha] \,; x_\alpha, y_\alpha \in \bR, x_\alpha < y_\alpha\} \subseteq \cP(\bR)$ e $\eth_E$ a $\sigma$-álgebra gerada por $E$.
-    Mostremos que $\eth_A = \cB = \eth_E$, para isso, primeiramente vamos verificar que $\cB \subseteq \eth_E$. 
-    Com efeito seja $(x_a,y_\alpha) \in A$. 
-    Afirmamos que
-    \[
-        (x_\alpha, y_\alpha) = \bigcup_{n=1}^{\infty} \left[ x_a + \frac{1}{n}, y_\alpha - \frac{1}{n} \right].
-    \]
-    De fato, se $c = (x_\alpha, y_\alpha)$ temos que
-    \[
-        x_\alpha < c < y_\alpha \iff c - x_\alpha > 0 \;\text{ e }\; b_\alpha - c > 0.
-    \]
-    Pela propiedade Arquimediana, existem $\bar n, \tilde n \in \bN$ tais que
-    \[
-        \frac{1}{c - x_\alpha} < \bar n \;\text{ e }\; \frac{1}{y_\alpha - c} < \tilde n,
-    \]
-    considerando $n_0 = \max\{\bar n, \tilde n\}$, temos
-    \[
-        \frac{1}{c - x_\alpha} < n_0 \;\text{ e }\; \frac{1}{y_\alpha - c} < n_0 \implies c \in \left(x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right).
-    \]
-    Como
-    \[
-        \left(x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right) \subseteq \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right] \subseteq \bigcup_{n=1}^{\infty} \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right] 
-    \]
-    segue que $x \in \bigcup_{n=1}^{\infty}\left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right] \in \eth_E$.
-    Logo
-    \[
-        (x_\alpha, y_\alpha) \subseteq \bigcup_{n=1}^{\infty}\left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right]. 
-    \]
+    % Sejam $\cB$ a álgebra de Borel e $A = \{(x_\alpha, y_\alpha) \,; x_\alpha, y_\alpha \in \bR, x_\alpha < y_\alpha\} \subseteq \cP(\bR)$ o conjunto que gera $\cB$.
+    % Considere o conjunto $E = \{[x_\alpha, y_\alpha] \,; x_\alpha, y_\alpha \in \bR, x_\alpha < y_\alpha\} \subseteq \cP(\bR)$ e $\eth_E$ a $\sigma$-álgebra gerada por $E$.
+    % Mostremos que $\eth_A = \cB = \eth_E$, para isso, primeiramente vamos verificar que $\cB \subseteq \eth_E$. 
+    % Com efeito seja $(x_a,y_\alpha) \in A$. 
+    % Afirmamos que
+    % \[
+    %     (x_\alpha, y_\alpha) = \bigcup_{n=1}^{\infty} \left[ x_a + \frac{1}{n}, y_\alpha - \frac{1}{n} \right].
+    % \]
+    % De fato, se $c = (x_\alpha, y_\alpha)$ temos que
+    % \[
+    %     x_\alpha < c < y_\alpha \iff c - x_\alpha > 0 \;\text{ e }\; b_\alpha - c > 0.
+    % \]
+    % Pela propiedade Arquimediana, existem $\bar n, \tilde n \in \bN$ tais que
+    % \[
+    %     \frac{1}{c - x_\alpha} < \bar n \;\text{ e }\; \frac{1}{y_\alpha - c} < \tilde n,
+    % \]
+    % considerando $n_0 = \max\{\bar n, \tilde n\}$, temos
+    % \[
+    %     \frac{1}{c - x_\alpha} < n_0 \;\text{ e }\; \frac{1}{y_\alpha - c} < n_0 \implies c \in \left(x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right).
+    % \]
+    % Como
+    % \[
+    %     \left(x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right) \subseteq \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right] \subseteq \bigcup_{n=1}^{\infty} \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right] 
+    % \]
+    % segue que $x \in \bigcup_{n=1}^{\infty}\left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right] \in \eth_E$.
+    % Logo
+    % \[
+    %     (x_\alpha, y_\alpha) \subseteq \bigcup_{n=1}^{\infty}\left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right]. 
+    % \]
 
-    Por outro lado, considere
-    \[
-        U_\alpha = \bigcup_{n=1}^{\infty} \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right].
-    \]
-    Seja $\alpha$ um elemento arbitrário e $c \in U_\alpha$ fixo.
-    Então, existe $n_0 \in \bN$ tal que $x \in \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right]$.
-    Assim
-    \[
-        x_\alpha < x_\alpha + \frac{1}{n_0} < c < y_\alpha - \frac{1}{n_0} < y_\alpha \implies x \in (x_\alpha, y_\alpha).
-    \]
-    Portanto
-    \[
-        (x_\alpha, y_\alpha) = \bigcup_{n=1}^\infty \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right]. 
-    \]
+    % Por outro lado, considere
+    % \[
+    %     U_\alpha = \bigcup_{n=1}^{\infty} \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right].
+    % \]
+    % Seja $\alpha$ um elemento arbitrário e $c \in U_\alpha$ fixo.
+    % Então, existe $n_0 \in \bN$ tal que $x \in \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right]$.
+    % Assim
+    % \[
+    %     x_\alpha < x_\alpha + \frac{1}{n_0} < c < y_\alpha - \frac{1}{n_0} < y_\alpha \implies x \in (x_\alpha, y_\alpha).
+    % \]
+    % Portanto
+    % \[
+    %     (x_\alpha, y_\alpha) = \bigcup_{n=1}^\infty \left[x_\alpha + \frac{1}{n_0}, y_\alpha - \frac{1}{n_0}\right]. 
+    % \]
 
-    Assim, para cada $\alpha$ temos que $(x_\alpha, y_\alpha)$ é uma união enumerável de elementos de $\eth_E$. 
-    Consequentemente $(x_\alpha, y_\alpha) \in \eth_E$ para todo $\alpha$, implicando em $A \subseteq \eth_E$. 
-    Como $\cB$ é a menor $\sigma$-álgebra que contem $A$, temos que $\cB \subseteq \eth_E$.
+    % Assim, para cada $\alpha$ temos que $(x_\alpha, y_\alpha)$ é uma união enumerável de elementos de $\eth_E$. 
+    % Consequentemente $(x_\alpha, y_\alpha) \in \eth_E$ para todo $\alpha$, implicando em $A \subseteq \eth_E$. 
+    % Como $\cB$ é a menor $\sigma$-álgebra que contem $A$, temos que $\cB \subseteq \eth_E$.
 
-    Agora precisamos verificar que $\eth_E \subseteq \cB$. 
-    Com efeito.
-    Afirmamos que
-    \[
-        [x_\alpha, y_\alpha] = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n_0} \right).
-    \]
-    De fato, considere
-    \[
-        V_\alpha = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n} \right).
-    \]
-    Seja $c \in [x_\alpha, y_\alpha]$, então
-    \[
-        x_\alpha - \frac{1}{n} < x_\alpha \leqslant c \leqslant y_\alpha < b + \frac{1}{n} \implies c \in \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n} \right) \; \forall n \in \bN \implies c \in V_\alpha
-    \]
+    % Agora precisamos verificar que $\eth_E \subseteq \cB$. 
+    % Com efeito.
+    % Afirmamos que
+    % \[
+    %     [x_\alpha, y_\alpha] = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n_0} \right).
+    % \]
+    % De fato, considere
+    % \[
+    %     V_\alpha = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n} \right).
+    % \]
+    % Seja $c \in [x_\alpha, y_\alpha]$, então
+    % \[
+    %     x_\alpha - \frac{1}{n} < x_\alpha \leqslant c \leqslant y_\alpha < b + \frac{1}{n} \implies c \in \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n} \right) \; \forall n \in \bN \implies c \in V_\alpha
+    % \]
 
-    Por outro lado, se $x \in V_\alpha$ tem-se que
-    \[
-        x_\alpha - \frac{1}{n} < c < y_\alpha + \frac{1}{n}
-    \]
-    para todo $n \in \bN$.
-    Note que $x_\alpha < c < y_\alpha$.
-    Com efeito, suponha por contradição que $x_\alpha > c$, então $x_\alpha - c > 0$.
-    Pela propiedade Arquimediana, existe $n_0 \in \bN$ tal que
-    \[
-        \frac{1}{x_\alpha -c } < n_0 \implies c < x_\alpha - \frac{1}{n_0}
-    \]
-    que é uma contradição, então $x_\alpha < c$.
-    De forma análoga, mostramos que $c < y_\alpha$.
-    Assim, temos que $c \in (x_\alpha, y_\alpha)$.
-    Portanto
-    \[
-        [x_\alpha, y_\alpha] = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n_0} \right).
-    \]
+    % Por outro lado, se $x \in V_\alpha$ tem-se que
+    % \[
+    %     x_\alpha - \frac{1}{n} < c < y_\alpha + \frac{1}{n}
+    % \]
+    % para todo $n \in \bN$.
+    % Note que $x_\alpha < c < y_\alpha$.
+    % Com efeito, suponha por contradição que $x_\alpha > c$, então $x_\alpha - c > 0$.
+    % Pela propiedade Arquimediana, existe $n_0 \in \bN$ tal que
+    % \[
+    %     \frac{1}{x_\alpha -c } < n_0 \implies c < x_\alpha - \frac{1}{n_0}
+    % \]
+    % que é uma contradição, então $x_\alpha < c$.
+    % De forma análoga, mostramos que $c < y_\alpha$.
+    % Assim, temos que $c \in (x_\alpha, y_\alpha)$.
+    % Portanto
+    % \[
+    %     [x_\alpha, y_\alpha] = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n_0} \right).
+    % \]
 
-    Assim, cads $[x_\alpha, y_\alpha]$ pode ser escrito como interseção enumerável de elementos de $\cB$.
-    Consequentemente $[x_\alpha, y_\alpha]  \in \cB$ para todo $\alpha$. Desse modo, $E \subseteq \cB$. Como $\eth_E$ é a menor $\sigma$-álgebra que contém $E$ segue que $\eth_E \subseteq \cB$.
+    % Assim, cads $[x_\alpha, y_\alpha]$ pode ser escrito como interseção enumerável de elementos de $\cB$.
+    % Consequentemente $[x_\alpha, y_\alpha]  \in \cB$ para todo $\alpha$. Desse modo, $E \subseteq \cB$. Como $\eth_E$ é a menor $\sigma$-álgebra que contém $E$ segue que $\eth_E \subseteq \cB$.
 
-    Portanto $\cB = \eth_E$.
+    % Portanto $\cB = \eth_E$.
 \end{prf}
 
 \begin{ex}
@@ -346,7 +351,7 @@ O resultado abaixo apresenta uma outra forma de definir a álgebra de Borel
 
 A sensação é de que a álgebra de Borel contem todos os subconjuntos de $\bR$, isto é $\cB = \cP(\bR)$.
 Porem este não é o caso, pois existem subconjuntos de $\bR$ que são bastante dificeis de definir (vide [??]) que não estão em $\cB$.
-Mas se esses conjuntos são tão dificeis de definir por que precisamos de uma $\sigma$-álgebra que exclui eles.
+Mas se esses conjuntos são tão dificeis de definir por que precisamos de uma $\sigma$-álgebra que exclui eles?
 
 Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um exemplo veremos que ao tentar definir uma medida no espaço $(\bR,\cP(\bR))$ uma propiedade importante não é satisfeita, mas restrigindo para o espaço $(\bR,\cB)$ conseguimos definir a mesma medida de forma que todas propiedades são satisfeitas.
 
@@ -570,11 +575,11 @@ Seja $A \in \cP(\bR)$. O tamanho de $A$ deve ser no máximo a soma dos comprimen
 \begin{dbox}
     A medida exterior $m(\,\cdot\,)$ de um conjunto $A \in \cP(\bR)$ é definida por
     \[
-        m(A) = \left\{\sum_{k=1}^{\infty} \ell(I_k) \,; I_1, I_2,\dots, \text{ são intervalos abertos tais que } A \subseteq \bigcup_{k=1}^\infty I_k \right\}.
+        m(A) = \inf\left\{\sum_{k=1}^{\infty} \ell(I_k) \,; I_1, I_2,\dots, \text{ são intervalos abertos tais que } A \subseteq \bigcup_{k=1}^\infty I_k \right\}.
     \]
 \end{dbox}
 
-Essa definição envolve uma suoma infinita de uma sequência $t_1,t_2,\dots,$ de elementos de $[0,\infty]$, que é $\infty$ se pelo menos algum $t_k = \infty$, ou se a série definida pelas somas parciais de $t_k$ é divergente. Dito isso
+Essa definição envolve uma soma infinita de uma sequência $t_1,t_2,\dots,$ de elementos de $[0,\infty]$, que é $\infty$ se pelo menos algum $t_k = \infty$, ou se a série definida pelas somas parciais de $t_k$ é divergente. Dito isso
 \[
     \sum_{n=1}^{\infty} t_k = \lim_{n\to\infty} \sum_{k=1}^{n} t_k.
 \]
@@ -814,10 +819,10 @@ onde $a_j \in \bR$ e $\chi_{E_j}$ é a função caracteristica do conjunto $E_j 
     \]
     é um exemplo clássico nos cursos de análise na reta de uma função que não é integrável. 
     Porem essa afirmação é válida apenas quando estamos trabalhando com a integral de Riemann, pois utlizando a integral de Lebesgue, essa função tem integral com resultado bem definido
-    De fato, considere o espaço de medida $(\bR, \cB, \mu)$ onde $\cB$ é a álgebra de Borel e $\mu$ é medida exterior (de Lebesgue).
+    De fato, considere o espaço de medida $(\bR, \cB, \mu^*)$ onde $\cB$ é a álgebra de Borel e $\mu^*$ é medida exterior (de Lebesgue).
     Dessa forma
     \[
-        \int \chi_\bQ \,d\mu = \mu(\bQ) = 0.
+        \int \chi_\bQ \,d\mu^* = \mu^*(\bQ) = 0.
     \]
     pois $\bQ$ é enumerável.
 \end{ex}
@@ -2384,7 +2389,7 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
     onde $\nu = (\nu_1,\dots,\nu_n)$ é o vetor normal unitário que aponta pra dentro em $\partial\Omega$.   
 \end{tbox}
 \begin{prf}
-    \cite{evans-pde}
+    \Cite{evans-pde}
 \end{prf}
 
 \begin{tbox}
@@ -2393,7 +2398,7 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
 
 \section{Motivação}
 
-\section{Espaços de Sobolev $\mathcal{W}^{1,p}(I)$}
+\section{Espaços de Sobolev $\cW^{1,p}(I)$}
 
 \begin{dbox}
     Sejam $I$ um intervalo aberto, possívelmente ilimitado e $u,v \in \cL^1_{\mathrm{loc}}$.
@@ -2462,18 +2467,18 @@ Denotamos $u' = v$ e diremos $v$ é a derivada de $u$ no sentido fraco.
     ... (continuar)
 \end{ex}
 
-Com a noção de derivada fraca, estamos prontos para definir os espaços de Sobolev $\mathcal{W}^{1,p}(I)$
+Com a noção de derivada fraca, estamos prontos para definir os espaços de Sobolev $\cW^{1,p}(I)$
 
 \begin{dbox}
     Seja $I$ um intervalo aberto, possívelmente ilimitado.
-    Definimos o espaço de Sobolev $\mathcal{W}^{1,p}(I)$ por
+    Definimos o espaço de Sobolev $\cW^{1,p}(I)$ por
     \[
-        \mathcal{W}^{1,p} = \{u \in \cL^p \,; u' \in \cL^p\}
+        \cW^{1,p} = \{u \in \cL^p \,; u' \in \cL^p\}
     \]
     onde $u'$ é a derivada de $u$ no sentido fraco
 \end{dbox}
 
-\section{Espaços de Sobolev $\mathcal{W}^{k,p}(\Omega)$}
+\section{Espaços de Sobolev $\cW^{k,p}(\Omega)$}
 
 Nosso objetivo agora, é definir a derivada fraca de ordem superior, generalizar os espaços da seção anterior para funções definidas em um aberto $\Omega$ do $\bR^n$ e explorar algumas propiedades elementares.
 
@@ -2574,44 +2579,50 @@ Caso contrário, se não existir uma função $v$ que satisfaz (\ref{eq:derivada
     pois $\{1\}$ é finito, logo tem medida nula.
 \end{ex}
 
-\dots
+Com a definição de derivada fraca estabelecida, podmos definir os espaços de Sobolev $\cW^{k,p}(\Omega)$.
 
 \begin{dbox}
     Seja $\Omega \subseteq \bR^n$ um aberto. 
-    Definimos o espaço de Sobolev $\mathcal{W}^{1,p}(\Omega)$ por
+    Definimos o espaço de Sobolev $\cW^{1,p}(\Omega)$ por
     \[
-        \mathcal{W}^{1,p}(\Omega) = \left\{u \in \cL^p(\Omega) \,; \text{existem } g_i : \Omega \to \bR \text{ em $\cL^p(\Omega)$ tais que} \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \, d\mu = -\!\!\int g_i \phi \,d\mu \right\}
+        \cW^{1,p}(\Omega) = \left\{u \in \cL^p(\Omega) \,; \text{existem } g_i : \Omega \to \bR \text{ em $\cL^p(\Omega)$ tais que} \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \, d\mu = -\!\!\int g_i \phi \,d\mu \right\}
     \]
 \end{dbox}
 
-Existem duas formas de definir os espaços de Sobolev $\mathcal{W}^{k,p}(\Omega)$, indutivamente, e pela derivada fraca, veremos as duas e mostraremos que são equivalentes
+Existem duas formas de definir os espaços de Sobolev $\cW^{k,p}(\Omega)$, indutivamente, e pela derivada fraca, veremos as duas e mostraremos que são equivalentes
 
 \begin{dbox}
-    Seja $\Omega \subseteq \bR ^n$ um aberto. Definimos o espaço de Sobolev $\mathcal{W}^{k,p}(\Omega)$ por
+    Seja $\Omega \subseteq \bR ^n$ um aberto. Definimos o espaço de Sobolev $\cW^{k,p}(\Omega)$ por
     \[
-        \mathcal{W}^{k,p}(\Omega) = \left\{ u \in \cL^p \,; D^\alpha u \in \cL^p \text{ para todo multi-índice } \alpha \text{ com } |\alpha| \leqslant k\right\}
+        \cW^{k,p}(\Omega) = \left\{ u \in \cL^p(\Omega) \,; D^\alpha u \in \cL^p(\Omega) \text{ para todo multi-índice } \alpha \text{ com } |\alpha| \leqslant k\right\}
     \]
     com $\phi \in \cC^\infty_c(\Omega)$. 
     Ou
     \[
-        \mathcal{W}^{k,p}(\Omega) = \left\{ u \in \mathcal{W}^{k-1,p}(\Omega) \,; D^\alpha u \in \mathcal{W}^{k-1,p}(\Omega) , \text{ para todo multi-índice } \alpha \text{ com } |\alpha| = 1\right\}
+        \cW^{k,p}(\Omega) = \left\{ u \in \cW^{k-1,p}(\Omega) \,; D^\alpha u \in \cW^{k-1,p}(\Omega) , \text{ para todo multi-índice } \alpha \text{ com } |\alpha| = 1\right\}
     \]
     onde $D^\alpha u$ é a $\alpha$-ésima derivada parcial de $u$ no sentido fraco.
 \end{dbox}
 
-\obs (notação $H^k(\Omega)$)
+\obs Quando $p = 2$, a notação $H^{k}(\Omega)$ é comumente utilizada para dar ênfase que o espaço $\cW^{k,2}(\Omega)$ é um espaço de Hilbert\footnote{espaço vetorial completo com produto interno}
 
 \begin{dbox}
-    O espaço $\mathcal{W}^{k,p}(\Omega)$ admite norma
+    O espaço $\cW^{k,p}(\Omega)$ admite norma
     \[
-        \Vert u \Vert_{\mathcal{W}^{k,p}(\Omega)} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}}
+        \Vert u \Vert_{\cW^{k,p}(\Omega)} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}}
     \]
     para $1 \leqslant p < \infty$ e 
     \[
-        \Vert u \Vert_{\mathcal{W}^{k,p}(\Omega)} = \sum_{|\alpha| \leqslant k} \mathrm{ess\,sup}_\Omega |D^\alpha u|
+        \Vert u \Vert_{\cW^{k,p}(\Omega)} 
+        % = \sum_{|\alpha| \leqslant k} \esssup\!_\Omega |D^\alpha u| 
+        = \sum_{|\alpha| \leqslant k} \Vert D^{\alpha}u \Vert_\infty
     \]
     para $p = \infty$.
 \end{dbox}
+
+\obs $\cW^{k,p}_{\loc}(\Omega)$
+
+\obs (ainda vamos verificar que é uma norma, precisamos de um teorema antes)
 
 \obs (norma equivalente)
 
@@ -2620,7 +2631,7 @@ Existem duas formas de definir os espaços de Sobolev $\mathcal{W}^{k,p}(\Omega)
     \[
         x \mapsto |x|^{-\alpha}.
     \]
-    Para quais valores de $\alpha > 0$, $n$ e $p$, $u \in \mathcal{W}^{1,p}(\Omega)$.
+    Para quais valores de $\alpha > 0$, $n$ e $p$, $u \in \cW^{1,p}(\Omega)$.
     Primeiramente, note que $u$ é suave fora de $\mathbf{0}$ com
     \[
         \dfrac{\partial u}{\partial x_i} = \frac{-\alpha x_i}{|x|^{\alpha + 2}} \quad (x \neq \mathbf{0}),
@@ -2664,7 +2675,7 @@ Existem duas formas de definir os espaços de Sobolev $\mathcal{W}^{k,p}(\Omega)
     \[
         \left| \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS \right| \leqslant 
         % \int_{\partial B[\mathbf{0},\varepsilon]} |u \phi \nu_i| \,dS = 
-        \int_{\partial B[\mathbf{0},\varepsilon]} |u| |\phi| |\nu_i| \,dS \leqslant \Vert \phi \Vert_{\infty}\int_{\partial B[\mathbf{0},\varepsilon]} |u|dS \leqslant \int_{\partial B[\mathbf{0},\varepsilon]} \varepsilon^{-\alpha} \,dS,
+        \int_{\partial B[\mathbf{0},\varepsilon]} |u| |\phi| |\nu_i| \,dS \leqslant \Vert \phi \Vert_{\infty}\int_{\partial B[\mathbf{0},\varepsilon]} |u|dS \leqslant \Vert \phi \Vert_{\infty}\int_{\partial B[\mathbf{0},\varepsilon]} \varepsilon^{-\alpha} \,dS,
     \]
     onde essa ultima integral pode ser calculada por meio de coordenadas polares de forma análoga ao que foi feito anteriormente, resultando em
     \[
@@ -2674,37 +2685,327 @@ Existem duas formas de definir os espaços de Sobolev $\mathcal{W}^{k,p}(\Omega)
     \[
         \int_{\Omega} u \dfrac{\partial \phi}{\partial x_i} \, dx = -\int_{\Omega} \phi \dfrac{\partial u}{\partial x_i} \,dx,
     \]
-    para toda $\phi \in \cC^\infty_c(\Omega)$, desde que $0 \leqslant \alpha < n-1$. 
-    Além disso, $|Du(x)| \in \cL^p(\Omega)$ se, e somente se, $(\alpha + 1)p < n$, esse cálculo é feito de forma análoga ao que foi feito para verificar quando $|Du(x)| \in \cL^1(\Omega)$. Consequentemente, $u \in \mathcal{W}^{1,p}(\Omega)$ se, e somente se $\alpha < \frac{n-p}{p}$.
-    Em particular $u \not\in \mathcal{W}^{1,p}(\Omega)$ quando $p \geqslant n$.
+    para toda $\phi \in \cC^\infty_c(\Omega)$, desde que $0 < \alpha < n-1$. 
+    Além disso, $|Du(x)| \in \cL^p(\Omega)$ se, e somente se, $(\alpha + 1)p < n$, esse cálculo é feito de forma análoga ao que foi feito para verificar quando $|Du(x)| \in \cL^1(\Omega)$. Consequentemente, $u \in \cW^{1,p}(\Omega)$ se, e somente se $\alpha < \frac{n-p}{p}$.
+    Em particular $u \not\in \cW^{1,p}(\Omega)$ quando $p \geqslant n$.
 \end{ex}
 
 \begin{tbox}[Propiedades da derivada fraca]
-    Seja $u, v \in \mathcal{W}^{k,p}(\Omega)$ e $\alpha$ um multi-índice com $1 \leqslant |\alpha| \leqslant k$.
+    Seja $u, v \in \cW^{k,p}(\Omega)$ e $\alpha$ um multi-índice com $1 \leqslant |\alpha| \leqslant k$.
     Então 
-    \begin{enumerate}[leftmargin=*]
-        \item $D^\alpha u \in \mathcal{W}^{k - |\alpha|,p}(\Omega)$
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
         \item $D^\beta(D^\alpha u) = D^\alpha (D^\beta u) = D^{\alpha + \beta} u$ para todos multi-índices $\alpha$ e $\beta$ com $|\alpha| + |\beta| \leqslant k.$
-        \item para todo $\gamma, \lambda \in \bR$, $\gamma u + \lambda v \in \mathcal{W}^{k,p}(\Omega)$ e
+        \item $D^\alpha u \in \cW^{k - |\alpha|,p}(\Omega)$
+        \item para todo $\gamma \in \bR$, $\gamma u + v \in \cW^{k,p}(\Omega)$ e
         \[
-            D^{\alpha}(\gamma u + \lambda v) = \gamma D^\alpha u + \lambda D^\alpha v
+            D^{\alpha}(\gamma u + v) = \gamma D^\alpha u + D^\alpha v
         \]
-        \item se $\Omega_0$ é um aberto de $\Omega$, então $u \in \mathcal{W}^{k,p}(\Omega_0)$
-        \item se $\eta \in \cC^\infty_c(\Omega)$, então $\eta u \in \mathcal{W}^{k,p}(\Omega)$ e
-        \[
-            D^\alpha (\eta u) = \sum_{\beta \leqslant \alpha} \binom{\alpha}{\beta} D^{\beta} \eta D^{\alpha - \beta} u
-        \]
+        \item se $\Omega_0$ é um aberto de $\Omega$, então $u \in \cW^{k,p}(\Omega_0)$
+        \item se $\eta \in \cC^\infty_c(\Omega)$, então $\eta u \in \cW^{k,p}(\Omega)$ e
+        \begin{equation} \label{eq:regra-de-leibniz}
+            D^\alpha (\eta u) = \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u
+        \end{equation}
         onde
         \[
-            \binom{\alpha}{\beta} = \frac{\alpha!}{\beta!(\alpha - \beta)!}, \quad \alpha! = \alpha_1!\cdots \alpha_n!
+            \binom{\alpha}{\sigma} = \frac{\alpha!}{\sigma!(\alpha - \sigma)!}, \quad \alpha! = \alpha_1!\cdots \alpha_n!
         \]
-        e $\beta \leqslant \alpha$ significa $\beta_j \leqslant \alpha_j$, para todo $j = 1,\dots,n$.
+        e $\sigma \leqslant \alpha$ significa $\sigma_j \leqslant \alpha_j$, para todo $j = 1,\dots,n$.
+    \end{enumerate}
+\end{tbox}
+\begin{prf}
+    ~
+
+    \textbf{(a)} Mostremos que $D^{\beta}D^{\alpha} u = D^{\alpha + \beta}u$.
+    A demonstração para $D^{\alpha}D^{\beta} u$ é análoga.
+    Com efeito
+    \[
+        \int_\Omega D^{\alpha} u D^{\beta} \phi \, dx = (-1)^{|\alpha|} \int_\Omega u D^{\alpha} D^{\beta} \phi \, dx = (-1)^{|\alpha|} \int_\Omega u D^{\alpha + \beta} \phi \,dx.
+    \]
+    Note que a ultima igualdade é válida pelo fato de $\phi$ ser uma função infinitamente diferenciável, então o operador $D^\alpha$ é a $\alpha$-ésima derivada parcial no sentido usual.
+    Dessa forma $D^{\beta}D^{\alpha} u = D^{\alpha + \beta} u$.
+    Dito isso, utilizando a definição de derivada fraca obtemos
+    \[
+        (-1)^{|\alpha|} \int_\Omega u D^{\alpha + \beta} \phi \,dx = (-1)^{|\alpha|}(-1)^{|\alpha| + |\beta|} \int_\Omega \phi D^{\alpha+\beta} u \,dx = (-1)^{|\beta|} \int_\Omega \phi D^{\alpha + \beta} u \,dx.
+    \]
+    Portanto $D^{\beta} D^{\alpha} u = D^{\alpha + \beta} u$ no sentido fraco.
+
+    \textbf{(b)} Suponha que $D^\alpha u \not\in \cW^{k-|\alpha|,p}(\Omega)$, então existe um multi-índice $\beta$ com $|\beta| \leqslant k - |\alpha|$ tal que $D^{\beta}(D^{\alpha}u) \not\in \cL^p$.
+    Pelo item anterior temos que $D^{\alpha+\beta}u \not\in \cL^p(\Omega)$, o que é uma contradição, pois por hipótese $D^{\gamma}u \in \cL^p$ para todo multi-índice $\gamma$ com $|\gamma| \leqslant k$. Em particular como $|\beta| \leqslant k - |\alpha|$, tem-se $|\gamma| = |\alpha| + |\beta| \leqslant k$.
+    Portanto $D^{\alpha}u \in \cW^{k-|\alpha|,p}(\Omega)$.
+
+    \textbf{(c)} Note que
+    \[
+        \int_\Omega (\gamma u + v) D^{\alpha}\phi \,dx = \int_\Omega \gamma u D^\alpha \phi \, dx + \int_\Omega v D^\alpha \phi \, dx = \gamma \int_\Omega u D^{\alpha} \phi \,dx + \int_\Omega v D^{\alpha} \phi \, dx.
+    \]
+    Utilizando a definição de derivada fraca nas duas integrais obtemos
+    {\small
+    \[
+        \gamma \int_\Omega u D^{\alpha} \phi \,dx + \int_\Omega v D^{\alpha} \phi \, dx = \gamma (-1)^{|\alpha|} \int_\Omega \phi D^{\alpha} u \, dx + (-1)^{|\alpha|}\int_\Omega \phi D^{\alpha} v \, dx = \int (\gamma D^{\alpha}u + D^{\alpha}v )\phi \,dx
+    \]}
+    Portanto $D^{\alpha}(\gamma u + v) = \gamma D^\alpha u + D^\alpha v$ no sentido fraco.
+
+    \textbf{(d)} Seja $\Omega_0 \subseteq \Omega$ um aberto, queremos verificar que $u \in \cW^{k,p}(\Omega_0)$.
+    De fato, basta verificar que as integrais
+    \[
+        \int_{\Omega_0} |u|^p \, dx \;\text{ e }\; \int_{\Omega_0} |D^{\alpha}u|^p \, dx \;\; (\forall \alpha \text{ multi-índice com }|\alpha| \leqslant k)
+    \]
+    são finitas. De fato
+    \[
+        \int_{\Omega_0} |u|^p \, dx \leqslant \int_{\Omega} |u|^p \,dx < \infty
+    \]
+    e
+    \[
+        \int_{\Omega_0} |D^\alpha u|^p \, dx \leqslant \int_{\Omega} |D^\alpha u|^p \,dx < \infty \;\; (\forall \alpha \text{ multi-índice com }|\alpha| \leqslant k),
+    \]
+    ambas pelo fato de $u \in \cW^{k,p}(\Omega)$.
+    Assim $u \in \cW^{k,p}(\Omega_0)$.
+
+    \textbf{(e)} Para mostrar que (\ref{eq:regra-de-leibniz}) é válida, utilizaremos indução sobre $|\alpha|$. Com efeito para $|\alpha|= 1$, como $\eta$ e $\varphi$ são funções infinitamente diferenciáveis no sentido usual, temos que $D^{\alpha} (\eta \varphi) = \phi D^{\alpha}\eta + \eta D^{\alpha} \phi$.
+    Dessa forma
+    \[
+        \int_\Omega \eta u D^{\alpha} \phi \, dx = \int_\Omega u D^{\alpha} (\eta \phi) - \int_\Omega u\phi D^{\alpha} \eta \, dx.
+    \]
+    Como $\eta$ e $\phi$ tem suporte compacto, então $D^{\alpha}(\eta \phi)$ também tem. 
+    Dito isso, utilizando a definição de derivada fraca apenas na primeira integral obtemos
+    \[
+        \int_\Omega \eta u D^{\alpha} \phi \, dx = -\int_\Omega \eta \phi D^{\alpha} u \, dx - \int_\Omega u\phi D^{\alpha} \eta \, dx = -\int_\Omega (\eta D^{\alpha}u + uD^{\alpha}\eta) \phi \,dx.
+    \]
+    Portanto $D^{\alpha}(\eta u) = \eta D^{\alpha}u + uD^{\alpha}\eta$ como queriamos mostrar.
+
+    Agora seja $m < k$ e suponha que $(\ref{eq:regra-de-leibniz})$ é válida para todo multi-índice $\alpha$ com $|\alpha| \leqslant l$ e toda função de teste $\eta$.
+    Considere um multi-índice $\alpha$ com $|\alpha| = m + 1$.
+    Então $\alpha$ é da forma $\alpha = \beta + \gamma$ com $|\beta| = m$ e $|\gamma| = 1$. 
+    Daí 
+    \[
+        \int_\Omega \eta u D^{\alpha}\phi \, dx = \int_\Omega \eta u D^{\beta + \gamma}\phi \, dx = \int_\Omega \eta u D^\beta(D^\gamma \phi) \, dx = (-1)^{|\beta|} \int_\Omega D^{\beta} (\eta u) D^{\gamma}\phi \,dx.
+    \]
+    Como $|\beta| = m$ podemos utilizar a hipótese de indução em $D^{\beta}(\eta u)$ e a $\gamma$-ésima derivada fraca. Assim
+    {\small
+    \[
+        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\beta|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\beta - \sigma} u\right] D^{\gamma}\phi \, dx = (-1)^{|\beta| + |\gamma|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\gamma}(D^{\sigma} \eta D^{\beta - \sigma} u)\right] \phi \, dx
+    \]}
+    Além disso, como $|\gamma| = 1$, podemos aplicar a regra de Leibniz novamente, obtendo
+    \begin{equation} \label{eq:integral-etau}
+        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\alpha|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} \left(D^{\rho}\eta D^{\alpha - \rho} u + D^{\sigma} \eta D^{\alpha - \sigma} u\right)\right] \phi \,dx
+    \end{equation}
+    onde $\rho = \sigma + \gamma$. 
+    Note que podemos escrever o somatório dentro da integral da seguinte forma
+    \begin{equation*} \label{eq:somatorio}
+        \sum_{\gamma \leqslant \rho \leqslant \alpha} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{0 \leqslant\sigma \leqslant \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u
+    \end{equation*}
+    que ainda pode ser expandido em quatro somatórios
+    % {\small
+    % \[
+    %     \sum_{\gamma \leqslant \rho \leqslant \beta} \binom{\beta}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{\beta < \rho \leqslant \alpha} \binom{\beta}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{0 \leqslant \sigma < \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u + \sum_{\gamma \leqslant \sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u.
+    % \]}
+    \begin{equation} \label{eq:somatorio-2}
+        \begin{aligned}
+            \sum_{\gamma \leqslant \rho \leqslant \beta} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u &+ \sum_{\beta < \rho \leqslant \alpha} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u \\
+            &+ \sum_{0 \leqslant \sigma < \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u + \sum_{\gamma \leqslant \sigma \leqslant \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u.
+           \end{aligned}
+    \end{equation}
+    Porem, note que $0 \leqslant \sigma < \gamma$ implica em $\sigma = 0$. Com efeito, $0 \leqslant \sigma$ significa que $0 \leqslant \sigma_i$ para todo $i = 1,\dots,n$ e $\sigma < \gamma$ significa que existe um $i = 1,\dots,n$ tal que $\sigma_i < \gamma_i$. Como $|\gamma| = 1$, suponha sem perda de generalidade que $\gamma = e_1$.
+    Dessa forma, para $i = 1$
+    \[
+        0 \leqslant \sigma_1 < 1
+    \]
+    como $\sigma_i \in \bN$ segue que $\sigma_1 = 0$. Por outro lado, para $i = 2,\dots,n$
+    \[
+        0 \leqslant \sigma_i < 0
+    \]
+    que implica em $\sigma_i = 0$. Portanto $\sigma = 0$.
+    Da mesma forma $\beta < \rho \leqslant \alpha$ implica em $\rho =\alpha$.
+    Assim, (\ref{eq:somatorio-2}) pode ser escrito da seguinte forma
+    \begin{equation} \label{eq:somatorio-3}
+        % \binom{\alpha - \gamma}{0}
+        \eta D^{\alpha} u + \sum_{\gamma \leqslant \rho \leqslant \beta} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{\gamma \leqslant \sigma \leqslant \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u + 
+        % \binom{\alpha - \gamma}{\alpha - \gamma}
+        u D^{\alpha}\eta.
+    \end{equation}
+    Por fim, ao menos de uma mudança de variaveis, escrevemos (\ref{eq:somatorio-3}) como
+    \[
+        \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u.
+    \]
+    Pois
+    \[
+        \binom{\alpha - \gamma}{\sigma} + \binom{\alpha - \gamma}{\sigma - \gamma} = \binom{\alpha}{\sigma}
+    \]
+    e
+    \[
+        \binom{\alpha}{0} = 1 = \binom{\alpha}{\alpha}.
+    \]
+    Sendo assim, voltando para a equação (\ref{eq:integral-etau}) temos que
+    \[
+        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\alpha|} \int_\Omega \left[\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u\right] \phi \,dx.
+    \]
+    Portanto
+    \[
+        D^\alpha (\eta u) = \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u
+    \]
+    como queriamos mostrar.
+\end{prf}
+
+Com os resultados obtidos, é possível verificar que os espaços de Sobolev $W^{k,p}(\Omega)$ formam um espaço de Banach.
+
+\begin{tbox}
+    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$ com $1 \leqslant p < \infty$ é um espaço vetorial normado.
+\end{tbox}
+% \begin{prf}
+    % Note que
+    % \begin{enumerate}[leftmargin=*]
+    %     \item $\Vert u \Vert_{\cW^{k,p}(\Omega)} = 0 \iff \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} = 0 \iff D^\alpha u = 0$ para todo $\alpha$ multi-índice.
+    %     Em particular, se $\alpha = (0,\dots,0)$ $u = D^\alpha u = 0$.
+
+    %     \item $\Vert \lambda u \Vert_{\cW^{k,p}(\Omega)} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha (\lambda u) \Vert_p^p \right)^{\frac{1}{p}} = \left( \sum_{|\alpha| \leqslant k} \Vert \lambda D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} = \left( \sum_{|\alpha| \leqslant k} |\lambda|^p\Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} = |\lambda|\left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} = |\lambda| \Vert u \Vert_{\cW^{k,p}(\Omega)}$
+        
+    %     \item $\Vert u + v \Vert_{\cW^{k,p}(\Omega)} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha(u + v) \Vert_p^p \right)^{\frac{1}{p}} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u + D^\alpha v \Vert_p^p \right)^{\frac{1}{p}}$
+        
+    %     $\leqslant \left( \sum_{|\alpha| \leqslant k} (\Vert D^\alpha u \Vert_p + \Vert D^\alpha v \Vert_p)^p \right)^{\frac{1}{p}} \leqslant \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} + \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha v \Vert_p^p \right)^{\frac{1}{p}}$
+        
+    %     $= \Vert u \Vert_{\cW^{k,p}(\Omega)} + \Vert v \Vert_{\cW^{k,p}(\Omega)}$
+    % \end{enumerate}
+    % Portanto $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ é uma norma.
+% \end{prf}
+
+\begin{tbox}
+    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$ com $1 \leqslant p < \infty$ é completo
+\end{tbox}
+% \begin{prf}
+%     Seja $(u_n)$ uma sequência de Cauchy em $\cW^{k,p}(\Omega)$.
+%     Então, dado $\varepsilon > 0$ existe $n_0 \in \bN$ tal que
+%     \[
+%         \Vert u_n - u_m \Vert_{\cW^{k,p}(\Omega)} < \varepsilon
+%     \]
+%     para todo $n,m \geqslant n_0$.
+% \end{prf}
+
+\section{Aproximações}
+
+Não é ideal ficar voltando o tempo todo à definição de derivadas fracas. Para explorar as propriedades mais profundas dos espaços de Sobolev, precisamos de métodos sistemáticos para aproximar funções nesses espaços por funções mais suaves. A técnica de molificação, que envolve a convolução de uma função com uma molificadora suave e com suporte compacto, oferece essa ferramenta. Esse processo resulta em uma sequência de funções suaves que convergem para a função original nas normas de Sobolev, permitindo a aproximação de funções com regularidade fraca por funções suaves. As molificadoras são essenciais na teoria dos espaços de Sobolev, possibilitando o estudo de soluções fracas para equações diferenciais parciais e estabelecendo resultados importantes de densidade.
+
+Um exemplo de função molificadora é
+\[
+    \eta(x) =
+    \left\{
+        \begin{array}{lr}
+            c \exp \left( \frac{1}{|x|^2 - 1} \right) & \text{se }\; |x| < 1\\
+            0 & \text{se }\; |x| \geqslant 1
+        \end{array}
+    \right.
+\]
+conhecida como molificador de Friedrich.
+Dada uma função molificadora, para cada $\varepsilon > 0$ definimos
+\[
+    \eta_\varepsilon(x) = \frac{1}{\varepsilon^n} \eta\left( \frac{x}{\varepsilon} \right)
+\]
+essa função $\eta_\varepsilon$ é a função que será utilizada para realizar as convoluções que aproximam as funções em $\cW^{k,p}(\Omega)$
+
+\begin{tbox}[Aproximação local por funções suaves]
+    Seja $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$ e defina
+    \[
+        u^{\varepsilon} = \eta_{\varepsilon} * u \;\text{ em } \Omega_\varepsilon
+    \]
+    onde
+    \[
+        \Omega_\varepsilon = \{ x \in \Omega \,; d(x,\partial\Omega) > \varepsilon\}.
+    \]
+    Então
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item $u^\varepsilon \in \cC^{\infty}(\Omega)$ para cada $\varepsilon > 0$
+        \item $u^\varepsilon \to u$ em $\cW^{k,p}_{\mathrm{loc}}(\Omega)$ quando $\varepsilon \to 0$
     \end{enumerate}
 \end{tbox}
 \begin{prf}
     \dots
 \end{prf}
 
+\begin{ex}
+    A função $u(x) = |x|$ definida no intervalo aberto $I = (-1,1)$ é um exemplo clássico de função que não é diferenciável. É fácil verificar que $u \in \cW^{1,p}(I)$ (caso análogo ao que foi feito no Exemplo \ref{ex:derivada-fraca-R}). 
+    Vamos utiizar a convolução para encontrar uma aproximação suave de $u$. 
+    Seja $\eta : \bR \to \bR$ dada por
+    \[
+        \eta(x) = \left\{ 
+            \begin{array}{lr}
+                c \exp\left( -\frac{1}{1 - x^2} \right) & \text{se }\; |x| \leqslant 1\\
+                0 & \text{se }\; |x| > 1
+            \end{array}
+        \right.
+    \]
+    onde $c$ é determinado de forma que
+    \[
+        \int_{\bR} \eta = 1
+    \]
+    isto é
+    \[
+        c = \left( \int_\bR \exp \left( -\frac{1}{1-x^2} \right) \, dx\right)^{-1}.
+    \]
+    Infelizmente, a função $\eta$ não tem primitiva que pode ser expressa por meio de funções elementares, então é necessário utilizar um método numérico, ou expansão em Taylor.
+    Daí definimos a função molificadora $\eta_\varepsilon : \bR \to \bR$ por
+    \[
+        \eta_\varepsilon(x) = \frac{1}{\varepsilon} \eta\left( \frac{x}{\varepsilon} \right).
+    \]
+    Note que
+    \[
+        \int_\bR \eta_\varepsilon \, dx = 1 \;\text{ e }\; \supp \eta = [-\varepsilon,\varepsilon].
+    \]
+    Portanto, podemos utilizar essa função para aproximar $u$. Com efeito
+    \[
+        u^\varepsilon(x) = \int_{[-\varepsilon,\varepsilon]} \eta_\varepsilon(x) u(x-y) \,dy
+    \]
+    A Figura \ref{fig:convolucao} foi feita utilizando um método numérico para resolver essa integral para diferentes valores de $\varepsilon$ 
+
+    \begin{figure}
+        \centering
+        \input{mollifiers/abs(x)-mollifiers.tex}
+        \caption{Aproximações suaves da função $|x|$ (em preto) por meio da convolução com uma função molificadora $\eta_\varepsilon$ com $\varepsilon = 1, 0.5, 0.25$\\Fonte: Autoral}
+        \label{fig:convolucao}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \begin{scope}[shift={(-4,0)}, scale=0.8]
+                \draw[black!30] (-4,-4) grid (4,4);
+                \draw[thick, black!60, -stealth] (-4,0) to (4,0); 
+                \draw[thick, black!60, -stealth] (0,-4) to (0,4); 
+                \draw[domain=-0.9999:0.9999, variable=\x, samples=50, smooth, very thick, ProcessBlue!90!black] plot ({\x}, {2.257 * exp(-1 / (1 - (\x * \x)))});
+                \draw[very thick, ProcessBlue!90!black] (-1,0) -- (-3,0);
+                \draw[very thick, ProcessBlue!90!black] (1,0) -- (3,0);
+            \end{scope}
+
+            \begin{scope}[shift={(4,0)}, scale=0.8]
+                \draw[black!30] (-4,-4) grid (4,4);
+                \draw[thick, black!60, -stealth] (-4,0) to (4,0); 
+                \draw[thick, black!60, -stealth] (0,-4) to (0,4); 
+                \draw[domain=-0.299:0.299, variable=\x, samples=50, smooth, very thick, ProcessBlue!90!black] plot ({\x}, {(1/0.3) * 2.257 * exp(-1 / (1 - ((\x / 0.3) * (\x / 0.3))))});
+                \draw[very thick, ProcessBlue!90!black] (-0.3,0) -- (-3,0);
+                \draw[very thick, ProcessBlue!90!black] (0.3,0) -- (3,0);
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Funções $\eta$ e $\eta_{\varepsilon}$ com $\varepsilon = 0.3$\\ Fonte: Autoral}
+    \end{figure}
+\end{ex}
+
+\obs (converge para a função delta de Dirac)
+
+\begin{ex}
+    Seja $\Omega = (-1,1) \times (-1,1) \subseteq \bR^2$. A função $u : \Omega \to \bR$ dada por
+    \[
+        u(x,y) = |x|^{\frac{1}{2}} + |y|^{\frac{1}{2}}
+    \]
+    não é diferenciável, mas possui derivada fraca em $\cW^{1,p}(\Omega)$ para $0 < p < 2$. Com efeito, note que
+    \[
+        \dots
+    \]
+    Por outro lado, $u$ possui derivadas parciais fracas em $\cL^p(\Omega)$ quando $0 < p < 2$ dada por
+    \[
+        D^{e_1}u(x,y) = \frac{1}{2}\mathrm{sgn}(x) |x|^{-\frac{1}{2}} \;\text{ e }\; D^{e_2}u(x,y) = \frac{1}{2}\mathrm{sgn}(y) |y|^{-\frac{1}{2}}.
+    \]
+    De fato
+    \[
+        \dots
+    \]
+\end{ex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%

@@ -212,6 +212,48 @@
       \field{year}{2024}
       \true{nocite}
     \endentry
+    \entry{burden-analise.numerica}{book}{}
+      \name{author}{3}{}{%
+        {{hash=9f6ff4ac1a39216b7bfcc4995946cce3}{%
+           family={Burden},
+           familyi={B\bibinitperiod},
+           given={A.M.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=fd1fdecbb7b3fc967e3a67f5e433d8c2}{%
+           family={Burden},
+           familyi={B\bibinitperiod},
+           given={R.L.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=0af125672e5aa844351a967edbc90ee5}{%
+           family={Faires},
+           familyi={F\bibinitperiod},
+           given={D.J.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CENGAGE DO BRASIL}%
+      }
+      \strng{namehash}{7f6735df87332460294af6b249cf8da1}
+      \strng{fullhash}{7f6735df87332460294af6b249cf8da1}
+      \strng{bibnamehash}{7f6735df87332460294af6b249cf8da1}
+      \strng{authorbibnamehash}{7f6735df87332460294af6b249cf8da1}
+      \strng{authornamehash}{7f6735df87332460294af6b249cf8da1}
+      \strng{authorfullhash}{7f6735df87332460294af6b249cf8da1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9788522123407}
+      \field{title}{Análise Numérica}
+      \field{year}{2016}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
