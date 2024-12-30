@@ -161,6 +161,43 @@
       \verb https://arxiv.org/abs/1604.02484
       \endverb
     \endentry
+    \entry{burden-analise.numerica}{book}{}
+      \name{author}{2}{}{%
+        {{hash=087f2271a0786e7c8db8fd33785aed18}{%
+           family={Burden},
+           familyi={B\bibinitperiod},
+           given={Richard\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=4204928ced965b41fb12c0ed6d636f41}{%
+           family={Faires},
+           familyi={F\bibinitperiod},
+           given={J.\bibnamedelimi Douglas},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CENGAGE DO BRASIL}%
+      }
+      \strng{namehash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{fullhash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{bibnamehash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{authorbibnamehash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{authornamehash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{authorfullhash}{30f50a4be86ef6852f9a742a7e344186}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9788522123407}
+      \field{title}{Análise Numérica}
+      \field{year}{2016}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
+      \endverb
+    \endentry
     \entry{bartle-measure.theory}{book}{}
       \name{author}{1}{}{%
         {{hash=421cdd5790e26e6ffad05f66854de4a5}{%
@@ -179,8 +216,8 @@
       \strng{authorbibnamehash}{421cdd5790e26e6ffad05f66854de4a5}
       \strng{authornamehash}{421cdd5790e26e6ffad05f66854de4a5}
       \strng{authorfullhash}{421cdd5790e26e6ffad05f66854de4a5}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{The Elements of Integration and Lebesgue Measure}
@@ -204,55 +241,13 @@
       \strng{authorbibnamehash}{71493eec7caacea528ad39dbfb52773a}
       \strng{authornamehash}{71493eec7caacea528ad39dbfb52773a}
       \strng{authorfullhash}{71493eec7caacea528ad39dbfb52773a}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Measure, Integration and Real Analysis}
       \field{year}{2024}
       \true{nocite}
-    \endentry
-    \entry{burden-analise.numerica}{book}{}
-      \name{author}{3}{}{%
-        {{hash=9f6ff4ac1a39216b7bfcc4995946cce3}{%
-           family={Burden},
-           familyi={B\bibinitperiod},
-           given={A.M.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=fd1fdecbb7b3fc967e3a67f5e433d8c2}{%
-           family={Burden},
-           familyi={B\bibinitperiod},
-           given={R.L.},
-           giveni={R\bibinitperiod}}}%
-        {{hash=0af125672e5aa844351a967edbc90ee5}{%
-           family={Faires},
-           familyi={F\bibinitperiod},
-           given={D.J.},
-           giveni={D\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {CENGAGE DO BRASIL}%
-      }
-      \strng{namehash}{7f6735df87332460294af6b249cf8da1}
-      \strng{fullhash}{7f6735df87332460294af6b249cf8da1}
-      \strng{bibnamehash}{7f6735df87332460294af6b249cf8da1}
-      \strng{authorbibnamehash}{7f6735df87332460294af6b249cf8da1}
-      \strng{authornamehash}{7f6735df87332460294af6b249cf8da1}
-      \strng{authorfullhash}{7f6735df87332460294af6b249cf8da1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9788522123407}
-      \field{title}{Análise Numérica}
-      \field{year}{2016}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
-      \endverb
-      \verb{url}
-      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
-      \endverb
     \endentry
   \enddatalist
 \endrefsection

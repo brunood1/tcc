@@ -97,6 +97,7 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 \newcommand{\supp}{\mathrm{supp}\,}
 \newcommand{\esssup}{\mathrm{ess\,sup}\,}
 \newcommand{\loc}{\mathrm{loc}}
+\newcommand{\sgn}{\mathrm{sgn}}
 
 
 \usepackage{csquotes}
@@ -171,9 +172,9 @@ Nesta seção trataremos especificamente dos conceitos de espaços e funções m
 \]
 Dessa forma, se $(S_n)$ é uma sequência de elementos de uma $\sigma$-álgebra, então $\bigcap_{n=1}^\infty S_n \in \eth$
 
-\obs
+\obs (união finita)
 
-\obs
+\obs (interseção finita)
 
 \begin{ex}
     Seja $X$ um conjunto não enumerável e considere
@@ -225,6 +226,8 @@ Dado um conjunto cujos elementos são subconjuntos de $X$, o resultado abaixo no
 \begin{prf}
     ~
 \end{prf}
+
+\obs ($\sigma$-álgebra gerada)
 
 Agora definimos uma $\sigma$-álgebra bastante importante para o estudo da teoria da medida conhecida como álgebra de Borel
 
@@ -334,7 +337,7 @@ O resultado abaixo apresenta uma outra forma de definir a álgebra de Borel
     %     [x_\alpha, y_\alpha] = \bigcap_{n=1}^{\infty} \left( x_\alpha - \frac{1}{n}, y_\alpha + \frac{1}{n_0} \right).
     % \]
 
-    % Assim, cads $[x_\alpha, y_\alpha]$ pode ser escrito como interseção enumerável de elementos de $\cB$.
+    % Assim, cads $[x_\alpha, y_\alpha]$ pode ser escrito como interseção enumerável de elementos de $\cB$. 
     % Consequentemente $[x_\alpha, y_\alpha]  \in \cB$ para todo $\alpha$. Desse modo, $E \subseteq \cB$. Como $\eth_E$ é a menor $\sigma$-álgebra que contém $E$ segue que $\eth_E \subseteq \cB$.
 
     % Portanto $\cB = \eth_E$.
@@ -384,56 +387,55 @@ Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um e
     Seja $\bar\bR$ a reta estendida. Considere $E_1 = E \cup \{-\infty\}$, $E_2 = E \cup \{+\infty\}$, $E_3 = E \cup \{-\infty, +\infty\}$ e $\widehat\cB = \{E_1, E_2, E_3, E\}$ com $E$ variando na álgebra de Borel $\cB$. Então $\widehat\cB$ é uma $\sigma$-álgebra em $\overline\bR$ denominada álgebra estendida de Borel.
 \end{pbox}
 \begin{prf}
-    ~
+    % ~
 
-    \begin{enumerate}
-        \item $\emptyset, \overline\bR \in \widehat\cB$ pois $\emptyset \in \cB$ e $\cB$ é uma $\sigma$-álgebra e em algum momento $E = \bR \in \cB$, logo $\overline\bR = \bR \cup \{-\infty, \infty\} \in \widehat\cB$
-        \item Seja $X \in \widehat\cB$ para mostrar que $X^\cC \in \widehat\cB$ iremos considerar os seguintes casos
+    % \begin{enumerate}
+    %     \item $\emptyset, \overline\bR \in \widehat\cB$ pois $\emptyset \in \cB$ e $\cB$ é uma $\sigma$-álgebra e em algum momento $E = \bR \in \cB$, logo $\overline\bR = \bR \cup \{-\infty, \infty\} \in \widehat\cB$
+    %     \item Seja $X \in \widehat\cB$ para mostrar que $X^\cC \in \widehat\cB$ iremos considerar os seguintes casos
         
-        se $X$ é do tipo $E \cup \{+\infty\}$, com $E \in \cB$
-        \[
-            X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus (E \cup \{+\infty\}) = (\bR \smallsetminus E) \cup \{-\infty\} \in \widehat\cB
-        \]
-        pois $\bR \smallsetminus E \in \cB$.
+    %     se $X$ é do tipo $E \cup \{+\infty\}$, com $E \in \cB$
+    %     \[
+    %         X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus (E \cup \{+\infty\}) = (\bR \smallsetminus E) \cup \{-\infty\} \in \widehat\cB
+    %     \]
+    %     pois $\bR \smallsetminus E \in \cB$.
 
-        se $X$ é do tipo $E \cup \{-\infty\}$, com $E \in \cB$
-        \[
-            X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus (E \cup \{-\infty\}) = (\bR \smallsetminus E) \cup \{+\infty\} \in \widehat\cB
-        \]
+    %     se $X$ é do tipo $E \cup \{-\infty\}$, com $E \in \cB$
+    %     \[
+    %         X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus (E \cup \{-\infty\}) = (\bR \smallsetminus E) \cup \{+\infty\} \in \widehat\cB
+    %     \]
 
-        se $X$ é do tipo $E \cup \{-\infty,+\infty\}$, com $E \in \cB$
-        \[
-            X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus (E \cup \{-\infty,+\infty\}) = (\bR \smallsetminus E)  \in \widehat\cB
-        \]
+    %     se $X$ é do tipo $E \cup \{-\infty,+\infty\}$, com $E \in \cB$
+    %     \[
+    %         X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus (E \cup \{-\infty,+\infty\}) = (\bR \smallsetminus E)  \in \widehat\cB
+    %     \]
 
-        se $X$ é do tipo $E$, com $E \in \cB$
-        \[
-            X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus E = (\bR \smallsetminus E) \cup \{-\infty,+\infty\} \in \widehat\cB
-        \]
-        \item Seja $(A_n)$ uma sequência de elementos de $\widehat\cB$.
-        Mostremos que
-        \[
-            \bigcup_{n=1}^{\infty} A_n \in \widehat\cB.
-        \]
-        Para isso, precisamos considerar alguns casos
+    %     se $X$ é do tipo $E$, com $E \in \cB$
+    %     \[
+    %         X^\cC = \overline\bR \smallsetminus X = (\bR \cup \{-\infty,+\infty\}) \smallsetminus E = (\bR \smallsetminus E) \cup \{-\infty,+\infty\} \in \widehat\cB
+    %     \]
+    %     \item Seja $(A_n)$ uma sequência de elementos de $\widehat\cB$.
+    %     Mostremos que
+    %     \[
+    %         \bigcup_{n=1}^{\infty} A_n \in \widehat\cB.
+    %     \]
+    %     Para isso, precisamos considerar alguns casos
 
-        se existem $A_k = E_k \cup \{-\infty,+\infty\}$ com $k = 1,\dots,j$ e $A_k = E_k$ com $k = j +1,j+2,\dots,$ então
-        \[
-            \begin{aligned}
-                \bigcup_{n=1}^{\infty} A_n &= \left[ \bigcup_{n=1}^{j} A_n \right] \cup \left[  \bigcup_{n=j+1}^{\infty} A_n \right]\\
-                &= \left[ \bigcup_{n=1}^{j} E_n \cup \{-\infty,+\infty\} \right] \cup \left[  \bigcup_{n=j+1}^{\infty} E_n \right]\\
-                &= \left[ \bigcup_{n=1}^{j} E_n  \right] \cup \left[  \bigcup_{n=j+1}^{\infty} E_n \right]\cup \{-\infty,+\infty\}\\
-                &= \left[ \bigcup_{n=1}^{\infty} E_n \right]\cup \{-\infty,+\infty\}\\
-            \end{aligned}
-        \]
-        que está em $\widehat\cB$ pois $\bigcup_{n=1}^{\infty} E_n \in \cB$
+    %     se existem $A_k = E_k \cup \{-\infty,+\infty\}$ com $k = 1,\dots,j$ e $A_k = E_k$ com $k = j +1,j+2,\dots,$ então
+    %     \[
+    %         \begin{aligned}
+    %             \bigcup_{n=1}^{\infty} A_n &= \left[ \bigcup_{n=1}^{j} A_n \right] \cup \left[  \bigcup_{n=j+1}^{\infty} A_n \right]\\
+    %             &= \left[ \bigcup_{n=1}^{j} E_n \cup \{-\infty,+\infty\} \right] \cup \left[  \bigcup_{n=j+1}^{\infty} E_n \right]\\
+    %             &= \left[ \bigcup_{n=1}^{j} E_n  \right] \cup \left[  \bigcup_{n=j+1}^{\infty} E_n \right]\cup \{-\infty,+\infty\}\\
+    %             &= \left[ \bigcup_{n=1}^{\infty} E_n \right]\cup \{-\infty,+\infty\}\\
+    %         \end{aligned}
+    %     \]
+    %     que está em $\widehat\cB$ pois $\bigcup_{n=1}^{\infty} E_n \in \cB$
 
-        Os outros casos de possíveis combinações são análogos
-    \end{enumerate}
+    %     Os outros casos de possíveis combinações são análogos
+    % \end{enumerate}
 \end{prf}
 
-% \dots
-
+Um conceito bastante importante na teoria da medida, é a ideia de funções mensuráveis
 
 \begin{dbox}
     Uma função $f : X \to \mathbb R$ é dita ser $\eth$-mensurável (ou simplesmente mensurável) se para cada $\alpha \in \mathbb{R}$, o conjunto
@@ -442,6 +444,19 @@ Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um e
     \]
     pertence a $\sigma$-álgebra.
 \end{dbox}
+
+\begin{lbox}
+    As afirmações a seguir são equivalentes para uma função $f : X \to \bR$
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item $A_\alpha = \{x \in X \,; f(x) > \alpha\} \in \eth$ para todo $\alpha \in \bR$
+        \item $B_\alpha = \{x \in X \,; f(x) \leqslant \alpha\} \in \eth$ para todo $\alpha \in \bR$
+        \item $C_\alpha = \{x \in X \,; f(x) \geqslant \alpha\} \in \eth$ para todo $\alpha \in \bR$
+        \item $D_\alpha = \{x \in X \,; f(x) > \alpha\} \in \eth$ para todo $\alpha \in \bR$
+    \end{enumerate}
+\end{lbox}
+\begin{prf}
+    ~
+\end{prf}
 
 \begin{ex}
     A função constante $x \mapsto c$ é mensurável.
@@ -454,10 +469,35 @@ Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um e
     \[
         \left\{ x \in X \,; f(x) > \alpha \right\} = X \in \eth
     \]
+    Portanto a função constante é mensurável
 \end{ex}
 
 \begin{ex}
-    A função caracteristica $\chi_S$ de um subconjunto $S \in \eth$ é mensurável
+    A função caracteristica $\chi_E$ de um subconjunto $E \in \eth$ é mensurável dada por
+    \[
+        \chi_E(x) = \left\{ 
+            \begin{aligned}
+                1 & \text{ se } x \in E\\
+                0 & \text{ se } x \not\in E.
+            \end{aligned}
+        \right.
+    \]
+    é mensurável.
+    Dito isso, seja $\alpha \in \bR$.
+    Se $\alpha \geqslant 1$, então
+    \[
+        \{x \in X \,; \chi_E(x) > \alpha\} = \emptyset \in \eth,
+    \]
+    pois a imagem de $\chi_E$ contem apenas os valores $0$ e $1$.
+    Se $0 \leqslant \alpha < 1$ então
+    \[
+        \{x \in X \,; \chi_E(x) > \alpha\} = E \in \eth.
+    \]
+    Por fim, se $\alpha < 0$, então
+    \[
+        \{x \in X \,; \chi_E(x) > \alpha\} = X \in \eth.
+    \]
+    Portanto $\chi_E$ é uma função mensurável, desde que $E$ tambem seja.
 \end{ex}
 
 \begin{ex}
@@ -477,7 +517,7 @@ Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um e
         f_n(x) =
         \left\{
             \begin{aligned}
-                f(x) &\; \text{ se } |f(x)| \leqslant n\\
+                f(x) &\; \text{ se } f(x) \leqslant n \text{ e } f(x) \geqslant -n\\
                 n &\; \text{ se } f(x) > n\\
                 -n &\; \text{ se } f(x) < -n
             \end{aligned}
@@ -525,6 +565,145 @@ Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um e
     \end{figure}
 \end{ex}
 
+Vamos estudar agora algumas propiedades elementares sobre funções mensuráveis
+
+\begin{pbox}
+    Sejam $X$ um espaço mensurável, $f, g : X \to \bR$ funções mensuráveis e $c \in \bR$. Então as funções
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item $cf$
+        \item $f^2 := f \cdot f$
+        \item $f + g$
+        \item $fg$
+        \item $|f|$
+    \end{enumerate}
+    são mensuráveis
+\end{pbox}
+\begin{prf}
+    
+\end{prf}
+
+Uma outra definição importante sobre funções mensuráveis e a de parte positiva e negativa de uma função
+\begin{dbox}
+    Seja $f : X \to \bR$ uma qualquer.
+    Definimos as partes positiva e negativa de $f$ respectivamente pelas funções não negativas $f^+ : X \to \bR$ e $f^- : X \to \bR$ dadas por
+    \[
+        f^+(x) = \max\{f(x), 0\} \;\text{ e } f^-(x) = \max\{-f(x), 0\}
+    \]
+\end{dbox}
+
+\begin{lbox}
+    Seja $f : X \to \bR$ uma funçao qualquer.
+    Então
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item $f = f^+ - f^-$
+        \item $|f| = f^+ + f^-$
+        \item $f^+ = \frac{1}{2} (|f| + f)$
+        \item $f^- = \frac{1}{2} (|f| - f)$
+    \end{enumerate}
+\end{lbox}
+
+O lema acima é importante para demonstrar a proposição abaixo
+
+\begin{pbox}
+    Seja $X$ um espaço mensurável. Então $f : X \to \bR$ é mensurável se, e somente se, $f^+$ e $f^-$ são mensuráveis
+\end{pbox}
+\begin{prf}
+    Segue direto do lema anterior.
+\end{prf}
+
+Agora, vamos passar a estudar funções mensuráveis na reta extendida.
+
+\begin{dbox}
+    Dizemos que uma função $f : X \to \overline\bR$ é $\eth$-mensurável (ou mensurável) se
+    \[
+        \{x \in X \,; f(x) > \alpha\} \in \eth
+    \]
+    para cada $\alpha \in \bR$.
+    Além disso, denotamos o conjunto de todas as funções $f : X \to \overline\bR$ por $\cM(X,\eth)$
+\end{dbox}
+
+Em nenhum momento da definição acima mencionamos os elementos $\pm \infty$. O motivo será mostrado abaixo
+
+\[
+    \dots
+\]
+
+\begin{lbox}
+    Uma funçao $f : X \to \overline\bR$ é mensurável se, e somente se
+    \[
+        A = \{x \in X \,; f(x) = \infty\} \in \eth \;\text{ e }\; B = \{x \in X \,; f(x) = -\infty\} \in \eth
+    \]
+    e a função $\tilde f : X \to \bR$ dada por
+    \[
+        \tilde f(x) = \left\{
+            \begin{array}{ll}
+                f(x) & \text{se }\, x \not\in A \cup B\\
+                0 & \text{se }\, x \in A \cup B
+            \end{array}
+        \right.
+    \]
+    é mensurável
+\end{lbox}
+\begin{prf}
+    
+\end{prf}
+
+\obs ($cf\dots \in \cM(X,\eth)$)
+
+\dots
+
+\begin{lbox}
+    Seja $(f_n)$ uma sequência em $\cM(X,\eth)$. Então as funções
+    \[
+        \begin{aligned}
+            f(x) &= \inf f_n(x) & F(x) &= \sup f_n(x)\\
+            f^*(x) &=\liminf f_n(x) & F^*(x) &= \limsup f_n(x) 
+        \end{aligned}
+    \]
+    pertencem a $\cM(X,\eth)$
+\end{lbox}
+\begin{prf}
+    
+\end{prf}
+
+\dots
+
+\begin{cbox}
+    Se $(f_n)$ é uma sequência em $\cM(X,\eth)$ que converge para $f$.
+    Então $f \in \cM(X,\eth)$
+\end{cbox}
+\begin{prf}
+    
+\end{prf}
+
+O resultado abaixo é ...
+
+\begin{pbox}
+    Seja $f$ uma função não negativa em $\cM(X,\eth)$.
+    Então existe uma sequência $(\varphi_n)$ em $\cM(X,\eth)$ tal que
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item $0 \leqslant \varphi_n(x) \leqslant \varphi_{n+1}(x)$ para todo $x \in X$ e $n \in \bN$.
+        \item cada $\varphi_n$ possui um número finito de valores reais em sua imagem.
+        \item $f(x) = \lim \varphi_n(x)$ para cada $x \in X$.
+    \end{enumerate}
+\end{pbox}
+\begin{prf}
+    
+\end{prf}
+
+Para terminar essa seção, vamos definir e ver um exemplo de funções mensuráveis entre espaços mensuráveis
+
+\begin{dbox}
+    Sejam $(X,\eth_X)$ e $(Y, \eth_Y)$ espaços mensuráveis. Dizemos que uma função $f : (X,\eth_X) \to (Y, \eth_Y)$ é mensurável quando
+    \[
+        f^{-1}(E) \in \eth_X
+    \]
+    para todo $E \in \eth_Y$
+\end{dbox}
+
+\begin{ex}
+    
+\end{ex}
 
 \section{Medida}
 
@@ -540,6 +719,10 @@ Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um e
     \end{enumerate}
 \end{dbox}
 
+\obs (espaço de medida)
+
+\obs (medida finita e $\sigma$-finita)
+
 \begin{ex}
     Seja $(\mathbb{N}, \eth)$ um espaço mensurável, onde $\eth = \mathcal P (\mathbb N)$.
     A função $\mu : \eth \to \bar{\mathbb R}$ definida por $\mu(E) = \# E$, se $E$ é finito, e $\mu(E) = \infty$ se $E$ é infinito, é uma medida em $\eth$.
@@ -550,6 +733,84 @@ Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um e
         \item .
     \end{enumerate}
 \end{ex}
+
+\begin{ex}
+    Sejam $\mu$ uma medida em $\eth$ e $A \in \eth$ um conjunto fixo.
+    Então a função $\lambda$ dada por
+    \[
+        \lambda(E) = \mu(A \cap E)
+    \]
+    é uma medida em $\eth$.
+    Com efeito\dots
+\end{ex}
+
+\begin{ex}
+    \[
+        \mu(E) = \sum_{j=1}^{n} a_j \mu_j(E)
+    \]
+\end{ex}
+
+\dots
+
+\begin{lbox}
+    Seja $\mu$ uma medida.
+    Se $E, F \in \eth$ com $E \subseteq F$, então $\mu(E) \leqslant \mu(F)$. 
+\end{lbox}
+\begin{prf}
+    
+\end{prf}
+
+\obs ($\mu(E \smallsetminus F)$)
+
+\begin{lbox}
+    Seja $\mu$ uma medida em $\eth$. Então
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item se $(E_n)$ é uma sequência crescente em $\eth$, então
+        \[
+            \mu\left( \bigcup_{n=1}^{\infty} E_n \right) = \lim \mu(E_n)
+        \]
+        \item se $(E_n)$ é uma sequência decrescente em $\eth$ e $\mu(F_1) < \infty$, então
+        \[
+            \mu\left( \bigcap_{n=1}^{\infty} E_n \right) = \lim \mu(E_n)
+        \]
+    \end{enumerate}
+\end{lbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{dbox}
+    Seja $(X,\eth,\mu)$ um espaço de medida. Dizemos que duas funções $f : X \to \bR$ são iguais em quase toda parte em $X$ e denotamos por $f = g$ qtp em $X$ se existe um conjunto $N \in \eth$ com $\mu(N) = 0$ tal que
+    \[
+        f(x) = g(x)
+    \]
+    para todo $x \not\in N$.
+\end{dbox}
+
+Um outro conceito importante é o conceito de convergência em quase toda parte
+
+\begin{dbox}
+    Seja $(X, \eth, \mu)$ um espaço de medida. Dizemos que uma sequência de funções $(f_n)$ converge para $f$ em quase toda parte, se existe um conjunto $N \in \eth$ com $\mu(N) = 0$ tal que
+    \[
+        \lim f_n(x) = f(x)
+    \]
+    para todo $x \not\in N$.
+\end{dbox}
+
+Por fim, para terminar essa seção, introduzimos o conceito de carga
+\begin{dbox}
+    Uma carga é uma função $\lambda : \eth \to \bR$ que satisfaz
+    \begin{enumerate}[leftmargin=*]
+        \item $\mu(\emptyset) = 0$
+        \item $\mu(S) \geqslant 0$ para todo $S \in \eth$
+        \item se $(S_n) \subseteq \eth$ é uma sequência de subconjuntos disjuntos em $\eth$, então
+        \[
+            \mu \left( \bigcup_{n=1}^{\infty} S_n \right) = \sum_{n=1}^{\infty} \mu(S_n)
+        \]
+    \end{enumerate}
+    isto é uma medida que não satisfaz a não-negatividade.
+\end{dbox}
+
 
 \subsection{Construindo uma medida para $\bR$}
 
@@ -652,6 +913,47 @@ Uma outra propiedade da medida exterior é sua invariância a translação
     \]
     Portanto $m(A) = m(t + A)$
 \end{prf}
+
+(texto motivador)
+
+\begin{pbox}
+    Seja $(A_n)$ uma sequência de subconjuntos de $\bR$. Então
+    \[
+        m\left( \bigcup_{n=1}^{\infty} A_n \right) \leqslant \sum_{n=1}^{\infty} m(A_n)
+    \]
+\end{pbox}
+\begin{prf}
+    
+\end{prf}
+
+(medida do intervalo fechado)
+(explicar teorema de Heine-Borel)
+
+\begin{pbox}
+    Seja $a, b \in \bR$ com $a < b$.
+    Então $m([a,b]) = b -a$
+\end{pbox}
+
+(o pulo do gato)
+
+\begin{pbox}
+    Existem subconjuntos disjuntos de $\bR$ $A$ e $B$ tais que
+    \[
+        m(A \cup B) \neq m(A) + m(B)
+    \]
+\end{pbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{tbox}
+    Não é possível definir uma medida $\mu$ que generaliza $\ell$ em $\cP(\bR)$.
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+(agora mostrar que em $\cB$ é uma medida)
 
 \section{Integral de Lebesgue}
 
@@ -809,7 +1111,7 @@ onde $a_j \in \bR$ e $\chi_{E_j}$ é a função caracteristica do conjunto $E_j 
 \begin{ex}
     A função
     \[
-        \chi_{\bQ} = 
+        \chi_{\bQ}(x) = 
         \left\{  
             \begin{array}{ll}
                 1 &\text{se } x \in \bQ\\
@@ -819,7 +1121,7 @@ onde $a_j \in \bR$ e $\chi_{E_j}$ é a função caracteristica do conjunto $E_j 
     \]
     é um exemplo clássico nos cursos de análise na reta de uma função que não é integrável. 
     Porem essa afirmação é válida apenas quando estamos trabalhando com a integral de Riemann, pois utlizando a integral de Lebesgue, essa função tem integral com resultado bem definido
-    De fato, considere o espaço de medida $(\bR, \cB, \mu^*)$ onde $\cB$ é a álgebra de Borel e $\mu^*$ é medida exterior (de Lebesgue).
+    Com efeito, considere o espaço de medida $(\bR, \cB, \mu^*)$ onde $\cB$ é a álgebra de Borel e $\mu^*$ é medida exterior (de Lebesgue).
     Dessa forma
     \[
         \int \chi_\bQ \,d\mu^* = \mu^*(\bQ) = 0.
@@ -2991,7 +3293,7 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
 \begin{ex}
     Seja $\Omega = (-1,1) \times (-1,1) \subseteq \bR^2$. A função $u : \Omega \to \bR$ dada por
     \[
-        u(x,y) = |x|^{\frac{1}{2}} + |y|^{\frac{1}{2}}
+        u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}
     \]
     não é diferenciável, mas possui derivada fraca em $\cW^{1,p}(\Omega)$ para $0 < p < 2$. Com efeito, note que
     \[
@@ -2999,13 +3301,80 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
     \]
     Por outro lado, $u$ possui derivadas parciais fracas em $\cL^p(\Omega)$ quando $0 < p < 2$ dada por
     \[
-        D^{e_1}u(x,y) = \frac{1}{2}\mathrm{sgn}(x) |x|^{-\frac{1}{2}} \;\text{ e }\; D^{e_2}u(x,y) = \frac{1}{2}\mathrm{sgn}(y) |y|^{-\frac{1}{2}}.
+        D^{e_i}u(x_1,x_2) = \frac{1}{2}\sgn(x_i) |x_i|^{-\frac{1}{2}}
     \]
-    De fato
+    onde
+    \[
+        \sgn(x) = 
+        \left\{ 
+            \begin{array}{rr}
+                1 & \text{se }\; x > 0\\
+                0 & \text{se }\; x = 0\\
+                -1& \text{se }\; x < 0
+            \end{array}
+        \right.
+    \]
+    Com efeito, note que
     \[
         \dots
     \]
+    Além disso
+    \[
+        \int_\Omega |D^{e_i} (x_1,x_2)|^p \, dx = \int_{\text{-}1}^1 \int_{\text{-}1}^1 \left| \frac{1}{2} \sgn(x_i) |x_i|^{-\frac{1}{2}} \right|^p \, dx_i dx_j = \frac{1}{2^p}\int_{\text{-}1}^1 \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i dx_j.
+    \]
+    Utilizando o Teorema de Fubini
+    \[
+        \frac{1}{2^p}\int_{\text{-}1}^1\int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i dx_j = \frac{1}{2^p}\int_{\text{-}1}^1 dx_j \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i
+    \]
+    \dots
+    \[
+        \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-2}}\int_0^1 x_i^{\frac{p}{2}+1} \,dx = \frac{1}{2^{p-2}} \left[ -\frac{1^{-\frac{p}{2}+1} - 0^{-\frac{p}{2}+1}}{\tfrac{p}{2} - 1} \right]
+    \]
+    $0^{-\frac{p}{2} + 1} < \infty$ quando $p < 2$. Portanto $u \in \cW^{1,p}(\Omega)$ desde que $0 < p < 2$.
+
+    Agora defina $\eta: \bR^2 \to \bR$ por
+    \[
+        \eta(x) = \dots
+    \]
+    e $\eta_\varepsilon$ da mesma forma que foi feita no exemplo anterior. Novamente utilizaremos a convolução para encontrar uma aproximação suave para $u$.
+    \[
+        u^{\varepsilon}(x_1,x_2) = \int_\Omega \eta(x_1,x_2) u(x_1 - y_1, x_2 - y_2) \,dy
+    \]
+
+    Utilizando um metodo numérico para integrais duplas, podemos encontrar uma solução aproximada para $u^\varepsilon$.
+    A figura \ref{fig:aproximacao-suave-R2} mostra o gráfico de $u$, onde é possível ver os pontos onde a função não é diferenciável, e a sua aproximação suave $u^\varepsilon$.
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.4\textwidth]{u.pdf}
+        \hspace{10mm}
+        \includegraphics[width=0.4\textwidth]{uε.pdf}
+        \caption{À esquerda, a função $u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}$} e à direita sua aproximação suave $u^\varepsilon$ com $\varepsilon = 0.5$\\Fonte: Autoral
+        \label{fig:aproximacao-suave-R2}
+    \end{figure}
 \end{ex}
+
+\begin{tbox}
+    Sejam $\Omega$ um aberto limitado e $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
+    Então existem funções $u_n \in \cC^{\infty} \cap \cW^{k,p}(\Omega)$ tais que
+    \[
+        u_n \to u \;\text{ em } \cW^{k,p}(\Omega).
+    \] 
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{tbox}
+    Sejam $\Omega$ um aberto limitado com $\partial \Omega$ de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
+    Então existem funções $u_n \in \cC^\infty(\overline\Omega)$ tais que
+    \[
+        u_n \to u \;\text{ em } \cW^{k,p}(\Omega).
+    \]
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
