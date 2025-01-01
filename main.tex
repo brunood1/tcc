@@ -711,56 +711,107 @@ Para terminar essa seção, vamos definir e ver um exemplo de funções mensurá
     Uma medida é uma função $\mu : \eth \to \bar{\mathbb{R}}$ que satisfaz
     \begin{enumerate}[leftmargin=*]
         \item $\mu(\emptyset) = 0$
-        \item $\mu(S) \geqslant 0$ para todo $S \in \eth$
-        \item se $(S_n) \subseteq \eth$ é uma sequência de subconjuntos disjuntos em $\eth$, então
+        \item $\mu(E) \geqslant 0$ para todo $S \in \eth$
+        \item se $(E_n)$ é uma sequência de subconjuntos disjuntos em $\eth$, então
         \[
             \mu \left( \bigcup_{n=1}^{\infty} S_n \right) = \sum_{n=1}^{\infty} \mu(S_n)
         \]
     \end{enumerate}
 \end{dbox}
 
-\obs (espaço de medida)
+\obs A tripla $(X,\eth,\mu)$ onde $X$ é um conjunto, $\eth$ é uma $\sigma$-álgebra em $X$ e $\mu$ uma medida em $\eth$ é chamada de espaço de medida.
 
 \obs (medida finita e $\sigma$-finita)
 
 \begin{ex}
     Seja $(\mathbb{N}, \eth)$ um espaço mensurável, onde $\eth = \mathcal P (\mathbb N)$.
-    A função $\mu : \eth \to \bar{\mathbb R}$ definida por $\mu(E) = \# E$, se $E$ é finito, e $\mu(E) = \infty$ se $E$ é infinito, é uma medida em $\eth$.
+    A função $\mu : \eth \to \bar{\mathbb R}$ dada por $\mu(E) = \# S$, se $S$ é finito, e $\mu(S) = \infty$ se $S$ é infinito, é uma medida em $\eth$.
     Com efeito,
     \begin{enumerate}[leftmargin=*]
         \item $\mu(\emptyset) = 0$ por vacuidade
-        \item $\mu(E) \geqslant 0$ por definição
-        \item .
+        \item $\mu(S) \geqslant 0$ por definição
+        \item Seja $(S_n)$ uma sequência disjunta de elementos de $\cP(\bN)$. 
+        Se existe um $k \in \bN$ tal que $\mu(S_k) = \infty$. Então a união é infinita pois contem pelo menos um conjunto infinito.
+        Logo
+        \[
+            \mu\left( \bigcup_{n=1}^{\infty} S_n \right) = \infty = \sum_{n=1}^{\infty} \mu(S_n)
+        \]
+        Por outro lado, se $\mu(S_n) < \infty$ para todo $n \in \bN$ temos que a união pode ser infinita.
+        Nesse caso
+        \[
+            \mu\left( \bigcup_{n=1}^{\infty} S_n \right) = \infty = \sum_{n=1}^{\infty} \mu(S_n)
+        \]
+        Por fim, se a união é finita, então existe $k \in \bN$ tal que $S_n = \emptyset$ para todo $n > k$. Assim
+        \[
+            \mu\left( \bigcup_{n=1}^{\infty} S_n \right) =\mu\left( \bigcup_{n=1}^{k} S_n \right) = \sum_{n=1}^{k} \mu(S_n) = \sum_{n=1}^{\infty} \mu(S_n).
+        \]
     \end{enumerate}
+    Portanto $\mu$ é uma medida.
 \end{ex}
 
 \begin{ex}
-    Sejam $\mu$ uma medida em $\eth$ e $A \in \eth$ um conjunto fixo.
+    Sejam $(X,\eth,\mu)$ um espaço de medida e $A \in \eth$ um conjunto fixo.
     Então a função $\lambda$ dada por
     \[
-        \lambda(E) = \mu(A \cap E)
+        \lambda(S) = \mu(A \cap S)
     \]
     é uma medida em $\eth$.
-    Com efeito\dots
+    Com efeito
+    \begin{enumerate}[leftmargin=*]
+        \item $\lambda(\emptyset) = \mu(A \cap \emptyset) = \mu(\emptyset) = 0$ pois $\mu$ é uma medida
+        \item $\lambda(S) \geqslant 0$ por definição
+        \item Seja $(S_n)$ uma sequência de conjuntos disjuntos em $\eth$. Então
+        \[
+            \lambda \left( \bigcup_{n=1}^{\infty} S_n \right) = \mu\left( A \cap \left( \bigcup_{n=1}^{\infty} S_n \right) \right) = \mu \left( \bigcup_{n=1}^{\infty} (A \cap S_n) \right) = \sum_{n=1}^{\infty} \mu(A \cap S_n) = \sum_{n=1}^{\infty} \lambda(S_n)
+        \]
+        pois $\mu$ é uma medida e a sequência $(A \cap S_n)$ é disjunta.
+    \end{enumerate}
+    Portanto $\lambda$ é uma medida
 \end{ex}
 
 \begin{ex}
+    Sejam $\mu_1,\mu_2,\dots,\mu_n$ medidas em uma $\sigma$-álgebra $\eth$ e $c_1,c_2,\dots,c_j > 0$ . Então
     \[
-        \mu(E) = \sum_{j=1}^{n} a_j \mu_j(E)
+        \mu(S) = \sum_{j=1}^{k} c_j \mu_j(E)
     \]
+    é uma medida em $\eth$.
+    De fato
+    \begin{enumerate}[leftmargin=*]
+        \item $\mu(\emptyset) = \sum_{j=1}^k c_j \mu_j(\emptyset) = 0$ pois $\mu_j(\emptyset) = 0$ para todo $j = 1,\dots,k$.
+        \item $\mu(S) = \sum_{j=1}^k c_j \mu_j(S) \geqslant 0$ pois $c_j\mu_j(S) \geqslant 0$ para todo $j = 1,\dots,k$.
+        \item Seja $(S_n)$ uma sequência de conjuntos disjuntos em $\eth$. Então
+        \[
+            \mu\left( \bigcup_{n=1}^{\infty} S_n \right) = \sum_{j=1}^{k} c_j \mu_j\left( \bigcup_{n=1}^{\infty} S_n \right) = \sum_{j=1}^{k} \sum_{n=1}^{\infty} c_j \mu_j(S_n) =\sum_{n=1}^{\infty}\sum_{j=1}^{k}  c_j \mu_j(S_n)  = \sum_{n=1}^{\infty} \mu(S_n).
+        \]
+    \end{enumerate}
+    Portanto $\mu$ é uma medida.
 \end{ex}
 
-\dots
+O próximo passo é estudar algumas propiedade elementares provenientes da definição de medida.
 
 \begin{lbox}
-    Seja $\mu$ uma medida.
-    Se $E, F \in \eth$ com $E \subseteq F$, então $\mu(E) \leqslant \mu(F)$. 
+    Seja $(X,\eth,\mu)$ um espaço de medida.
+    Se $E \subseteq F$ onde $E$ e $F$ são conjuntos mensuráveis.
+    Então $\mu(E) \leqslant \mu(F)$
 \end{lbox}
 \begin{prf}
-    
+    Note que
+    \[
+        F = E \cup F = E \cup (F \smallsetminus E),
+    \]
+    onde $E$ e $F \smallsetminus E$ são conjuntos mensuráveis disjuntos.
+    Dessa forma
+    \[
+        \mu(F) = \mu(E) + \mu(F \smallsetminus E).
+    \]
+    Portanto, como $\mu$ é uma função não-negativa $\mu(F) \leqslant \mu(E).$
 \end{prf}
 
-\obs ($\mu(E \smallsetminus F)$)
+\obs Da demonstração do lema anterior, conseguimos ver que se $E \subseteq F$
+\[
+    \mu(F \smallsetminus E) = \mu(F) - \mu(E)
+\]
+desde que $\mu(E) < \infty$.
 
 \begin{lbox}
     Seja $\mu$ uma medida em $\eth$. Então
@@ -2117,7 +2168,7 @@ Para isso precisamos das seguintes definições
     Um espaço métrico $(X,d)$ é completo se toda sequência de Cauchy é convergente.
 \end{dbox}
 
-\begin{tbox}[Teorema de Riesz-Fischer]
+\begin{tbox}[Teorema de Riesz-Fischer] \label{thm:lp-completo}
     $\cL^p$ com $1 \leqslant p < \infty$ é um espaço de Banach.
 \end{tbox}
 \begin{prf}
@@ -2375,7 +2426,7 @@ Agora mostremos que $\cL^\infty$ é um espaço vetorial normado
 
 O próximo passo é mostrar que $\cL^\infty$ também é um espaço de Banach, como já mostramos que é um espaço vetorial normado, basta mostrar a completude
 
-\begin{tbox}[Teorema de Riesz-Fischer]
+\begin{tbox}[Teorema de Riesz-Fischer] \label{thm:linf-completo}
     $\cL^\infty$ é um espaço completo
 \end{tbox}
 \begin{prf}
@@ -2703,7 +2754,7 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
 \section{Espaços de Sobolev $\cW^{1,p}(I)$}
 
 \begin{dbox}
-    Sejam $I$ um intervalo aberto, possívelmente ilimitado e $u,v \in \cL^1_{\mathrm{loc}}$.
+    Sejam $I$ um intervalo aberto, possívelmente ilimitado e $u,v \in \cL^1_{\mathrm{loc}}(I)$.
     Dizemos que $v$ é a derivada fraca de $u$, se
     \[
         \int_I u \phi' \, dx = -\int_I v \phi\,dx   
@@ -2713,7 +2764,8 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
 
 Denotamos $u' = v$ e diremos $v$ é a derivada de $u$ no sentido fraco.
 
-\obs (sobre a notação $dx$ e $d\mu$)
+\obs Aqui, utlizamos a notação $dx$ ao invés de $d\mu$ na integral de Lebesgue como convençao para dar ênfase que estamos utilizando a medida de Lebesgue (e não uma medida qualquer).
+Além disso, se uma função é integrável a Riemann e a Lebesgue, suas integrais se coincidem.
 
 \obs (função teste)
 
@@ -2766,7 +2818,26 @@ Denotamos $u' = v$ e diremos $v$ é a derivada de $u$ no sentido fraco.
         \right.
     \]
     não possuí derivada fraca.
-    ... (continuar)
+    Mostremos que $u'$ não existe no sentido fraco.
+    Isto é, mostrar que não existe uma função $v \in \cL^1_\loc(I)$ que satisfaz
+    \[
+        \int_I u \phi' \, dx = -\int_I v \phi \,dx.
+    \]
+    para toda função $\phi \in \cC_c^\infty(I)$. 
+    Com efeito, suponha o contrário
+    \[
+        -\int_0^2 v \phi \, dx = \int_0^2 u \phi' \,dx = \int_0^1 x \phi' \,dx + 2\int_1^2 \phi' \,dx = \int_0^1 \phi \,dx - \phi(1).
+    \]
+    Seja $(\phi_n)$ uma sequência de funções suaves satisfazendo
+    \[
+        0 \leqslant \phi_n \leqslant 1, \quad \phi_n(1) = 1, \quad \phi_n(x) \to 0 \text{ se } x \neq 1.
+    \]
+    Isolando $\phi(1)$, substituindo $\phi$ por $\phi_n$ e fazendo $n \to \infty$, obtemos
+    \[
+        1 = \lim \phi_n(1) = \lim \left[ \int_0^2 v \phi_n \, dx- \int_0^1 \phi_n \,dx \right] = 0
+    \]
+    pois pelo Teorema da Convergência Dominada, $\phi_n \to 0$ qtp em $I$
+    Portanto $u$ não possui derivada fraca.
 \end{ex}
 
 Com a noção de derivada fraca, estamos prontos para definir os espaços de Sobolev $\cW^{1,p}(I)$
@@ -2820,13 +2891,27 @@ O problema é que se $u$ não é uma função de classe $\cC^k$ então o lado di
 Isto é, se dado uma função $u$ e existe uma função $v$ que satisfaz (\ref{eq:derivada-fraca}) para toda $\phi$ função de teste, dizemos que $D^\alpha u = v$ no sentido fraco.
 Caso contrário, se não existir uma função $v$ que satisfaz (\ref{eq:derivada-fraca}), então $u$ não possui a $\alpha$-ésima derivada parcial fraca.
 
+O primeiro resultado sobre a derivada fraca que queremos mostrar é a sua unicidade, para isso precisamos antes do seguinte lema.
+
 \begin{lbox}
+    Sejam $u \in \cL^1_{\loc}(\Omega)$ e $\phi \in \cC^\infty(\Omega)$.
+    Então
+    \[
+        \int_\Omega u \phi = 0
+    \]
+    se, e somente se $u \equiv 0$ qtp em $\Omega$
+\end{lbox}
+\begin{prf}
+    ~
+\end{prf}
+
+\begin{pbox}
     Seja $\alpha$ um multi-índice. Se $v$ e $\tilde v$ são ambas $\alpha$-ésimas derivadas parciais fracas de uma função $u$.
     Então
     \[
         v = \tilde v \text{ qtp em } \Omega.
     \]
-\end{lbox}
+\end{pbox}
 \begin{prf}
     Sejam $v, \tilde v \in \cL^1_{\mathrm{loc}}(\Omega)$ tais que
     \[
@@ -2906,7 +2991,14 @@ Existem duas formas de definir os espaços de Sobolev $\cW^{k,p}(\Omega)$, indut
     onde $D^\alpha u$ é a $\alpha$-ésima derivada parcial de $u$ no sentido fraco.
 \end{dbox}
 
-\obs Quando $p = 2$, a notação $H^{k}(\Omega)$ é comumente utilizada para dar ênfase que o espaço $\cW^{k,2}(\Omega)$ é um espaço de Hilbert\footnote{espaço vetorial completo com produto interno}
+\obs Quando $p = 2$, a notação $H^{k}(\Omega)$ é comumente utilizada para dar ênfase que o espaço $\cW^{k,2}(\Omega)$ é um espaço de Hilbert, munido do produto interno
+\[
+    \left\langle u, v\right\rangle _{H^k(\Omega)} = \sum_{|\alpha| \leqslant k} \left\langle D^\alpha u, D^\alpha v\right\rangle _{\cL^2(\Omega)}
+\]
+onde
+\[
+    \left\langle D^\alpha u, D^\alpha v\right\rangle _{\cL^2(\Omega)} = \int_\Omega D^\alpha u D^\alpha v \,dx.
+\]
 
 \begin{dbox}
     O espaço $\cW^{k,p}(\Omega)$ admite norma
@@ -2922,9 +3014,14 @@ Existem duas formas de definir os espaços de Sobolev $\cW^{k,p}(\Omega)$, indut
     para $p = \infty$.
 \end{dbox}
 
-\obs $\cW^{k,p}_{\loc}(\Omega)$
+\obs Dizemos que uma sequência $(u_n)$ converge para $u$ em $\cW^{k,p}(\Omega)$ se
+\[
+    \lim \Vert u_n - u \Vert_{\cW^{k,p}(\Omega)} = 0,
+\]
+e denotamos por $u_n \to u \text{ em } \cW^{k,p}(\Omega)$.
+Além disso dizemos que $(u_n)$ converge para $u$ em $\cW^{k,p}_\loc(\Omega)$ se $u_n$ converge para $u$ em $\cW^{k,p}(\Omega')$ para todo conjunto aberto $\Omega'$ compactamente contido em $\Omega$, isto é $\Omega' \subseteq \Omega$ e $\overline{\Omega'}$ é compacto. Essa inclusão será denotada por $\Omega' \Subset \Omega$.
 
-\obs (ainda vamos verificar que é uma norma, precisamos de um teorema antes)
+Ainda não temos todas as ferramentas necessárias para provar que as normas da definição anterior são de fato normas em $\cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant \infty$. Isso será feito após o Teorema \ref{thm:propiedades-derivada-fraca} sobre as propiedades da derivada fraca necessárias para verificar que $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ satisfaz a definição de norma.
 
 \obs (norma equivalente)
 
@@ -2992,7 +3089,7 @@ Existem duas formas de definir os espaços de Sobolev $\cW^{k,p}(\Omega)$, indut
     Em particular $u \not\in \cW^{1,p}(\Omega)$ quando $p \geqslant n$.
 \end{ex}
 
-\begin{tbox}[Propiedades da derivada fraca]
+\begin{tbox}[Propiedades da derivada fraca] \label{thm:propiedades-derivada-fraca}
     Seja $u, v \in \cW^{k,p}(\Omega)$ e $\alpha$ um multi-índice com $1 \leqslant |\alpha| \leqslant k$.
     Então 
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
@@ -3084,7 +3181,7 @@ Existem duas formas de definir os espaços de Sobolev $\cW^{k,p}(\Omega)$, indut
     Como $|\beta| = m$ podemos utilizar a hipótese de indução em $D^{\beta}(\eta u)$ e a $\gamma$-ésima derivada fraca. Assim
     {\small
     \[
-        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\beta|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\beta - \sigma} u\right] D^{\gamma}\phi \, dx = (-1)^{|\beta| + |\gamma|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\gamma}(D^{\sigma} \eta D^{\beta - \sigma} u)\right] \phi \, dx
+        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\beta - \sigma} u D^{\gamma}\phi \, dx = (-1)^{|\beta| + |\gamma|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\gamma}(D^{\sigma} \eta D^{\beta - \sigma} u)\right] \phi \, dx
     \]}
     Além disso, como $|\gamma| = 1$, podemos aplicar a regra de Leibniz novamente, obtendo
     \begin{equation} \label{eq:integral-etau}
@@ -3096,10 +3193,6 @@ Existem duas formas de definir os espaços de Sobolev $\cW^{k,p}(\Omega)$, indut
         \sum_{\gamma \leqslant \rho \leqslant \alpha} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{0 \leqslant\sigma \leqslant \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u
     \end{equation*}
     que ainda pode ser expandido em quatro somatórios
-    % {\small
-    % \[
-    %     \sum_{\gamma \leqslant \rho \leqslant \beta} \binom{\beta}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{\beta < \rho \leqslant \alpha} \binom{\beta}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{0 \leqslant \sigma < \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u + \sum_{\gamma \leqslant \sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u.
-    % \]}
     \begin{equation} \label{eq:somatorio-2}
         \begin{aligned}
             \sum_{\gamma \leqslant \rho \leqslant \beta} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u &+ \sum_{\beta < \rho \leqslant \alpha} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u \\
@@ -3150,43 +3243,115 @@ Existem duas formas de definir os espaços de Sobolev $\cW^{k,p}(\Omega)$, indut
 Com os resultados obtidos, é possível verificar que os espaços de Sobolev $W^{k,p}(\Omega)$ formam um espaço de Banach.
 
 \begin{tbox}
-    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$ com $1 \leqslant p < \infty$ é um espaço vetorial normado.
+    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$ com $1 \leqslant p \leqslant \infty$ é um espaço vetorial normado.
 \end{tbox}
-% \begin{prf}
-    % Note que
-    % \begin{enumerate}[leftmargin=*]
-    %     \item $\Vert u \Vert_{\cW^{k,p}(\Omega)} = 0 \iff \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} = 0 \iff D^\alpha u = 0$ para todo $\alpha$ multi-índice.
-    %     Em particular, se $\alpha = (0,\dots,0)$ $u = D^\alpha u = 0$.
+\begin{prf}
+    ~
 
-    %     \item $\Vert \lambda u \Vert_{\cW^{k,p}(\Omega)} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha (\lambda u) \Vert_p^p \right)^{\frac{1}{p}} = \left( \sum_{|\alpha| \leqslant k} \Vert \lambda D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} = \left( \sum_{|\alpha| \leqslant k} |\lambda|^p\Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} = |\lambda|\left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} = |\lambda| \Vert u \Vert_{\cW^{k,p}(\Omega)}$
-        
-    %     \item $\Vert u + v \Vert_{\cW^{k,p}(\Omega)} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha(u + v) \Vert_p^p \right)^{\frac{1}{p}} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u + D^\alpha v \Vert_p^p \right)^{\frac{1}{p}}$
-        
-    %     $\leqslant \left( \sum_{|\alpha| \leqslant k} (\Vert D^\alpha u \Vert_p + \Vert D^\alpha v \Vert_p)^p \right)^{\frac{1}{p}} \leqslant \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}} + \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha v \Vert_p^p \right)^{\frac{1}{p}}$
-        
-    %     $= \Vert u \Vert_{\cW^{k,p}(\Omega)} + \Vert v \Vert_{\cW^{k,p}(\Omega)}$
-    % \end{enumerate}
-    % Portanto $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ é uma norma.
-% \end{prf}
+    ($1 \leqslant p < \infty$)
+    \begin{enumerate}[leftmargin=*]
+        % \item $\Vert u \Vert_{\cW^{k,p}(\Omega)} = 0 \iff \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff D^\alpha u = 0$ para todo mutli-índice $\alpha$ com $|\alpha| \leqslant k$.
+        \item Seja $u \in \cW^{k,p}(\Omega)$. Daí
+        \[
+            \Vert u \Vert_{\cW^{k,p}(\Omega)} = 0 \iff \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff D^\alpha u = 0
+        \]
+        para todo multi-índice $\alpha$ com $|\alpha| \leqslant k$.
+        Em particular se $\alpha = (0,\dots,0)$, $u = D^\alpha u = 0$.
+
+        Por outro lado, se $u = 0$, $D^\alpha u = 0$ para todo multi-índice $\alpha$. Sendo assim $\Vert u \Vert_{\cW^{k,p}(\Omega)} = 0$.
+
+        \item Seja $\lambda \in \bR$ e $u \in \cW^{k,p}(\Omega)$. Daí
+        \[
+            \begin{aligned}
+                \Vert \lambda u \Vert_{\cW^{k,p}(\Omega)}^p = \sum_{|\alpha| \leqslant k} \Vert D^\alpha (\lambda u) \Vert_{\cL^p(\Omega)}^p &= \sum_{|\alpha| \leqslant k} \Vert \lambda D^\alpha u \Vert_{\cL^p(\Omega)}^p\\ 
+                &= |\lambda|^p\sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = |\lambda|^p\Vert u \Vert_{\cW^{k,p}(\Omega)}^p.
+            \end{aligned}
+        \]
+        Portanto $\Vert \lambda u \Vert_{\cW^{k,p}(\Omega)} = \lambda|\Vert u \Vert_{\cW^{k,p}(\Omega)}$.
+
+        \item Sejam $u, v \in \cW^{k,p}(\Omega)$. Daí
+        \[
+            \Vert u + v \Vert_{\cW^{k,p}(\Omega)} = \left(\sum_{|\alpha| \leqslant k} \Vert D^\alpha u + D^\alpha v \Vert_{\cL^p(\Omega)}^p\right)^{\!\!\frac{1}{p}} \leqslant \left(\sum_{|\alpha| \leqslant k} \left(\Vert D^\alpha u \Vert_{\cL^p(\Omega)} + \Vert D^\alpha v \Vert_{\cL^p(\Omega)}\right)^p \right)^{\!\!\frac{1}{p}}
+        \]
+        Utilizando a desigualdade de Minkowski em $\ell^p$
+        \[
+            \left(\sum_{|\alpha| \leqslant k} \left(\Vert D^\alpha u \Vert_{\cL^p(\Omega)} + \Vert D^\alpha v \Vert_{\cL^p(\Omega)}\right)^p \right)^{\!\!\frac{1}{p}} \leqslant \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p \right)^{\!\!\frac{1}{p}} + \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha v \Vert_{\cL^p(\Omega)}^p \right)^{\!\!\frac{1}{p}}
+        \]
+        Ou seja,
+        \[
+            \Vert u + v \Vert_{\cW^{k,p}(\Omega)} \leqslant \Vert u \Vert_{\cW^{k,p}(\Omega)} + \Vert v \Vert_{\cW^{k,p}(\Omega)}.
+        \]
+    \end{enumerate}
+    Portanto, $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ é uma norma em $\cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
+
+    ($p = \infty$)
+
+    \noindent O caso $p = \infty$ é análogo ao caso $1 \leqslant p < \infty$.
+\end{prf}
 
 \begin{tbox}
-    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$ com $1 \leqslant p < \infty$ é completo
+    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$ com $1 \leqslant p \leqslant \infty$ é completo
 \end{tbox}
-% \begin{prf}
-%     Seja $(u_n)$ uma sequência de Cauchy em $\cW^{k,p}(\Omega)$.
-%     Então, dado $\varepsilon > 0$ existe $n_0 \in \bN$ tal que
-%     \[
-%         \Vert u_n - u_m \Vert_{\cW^{k,p}(\Omega)} < \varepsilon
-%     \]
-%     para todo $n,m \geqslant n_0$.
-% \end{prf}
+\begin{prf}
+    Seja $(u_n)$ uma sequência de Cauchy em $\cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$. Isto é, dado $\varepsilon > 0$ existe $n_0 \in \bN$ tal que
+    \[
+        \Vert u_n - u_m \Vert_{\cW^{k,p}(\Omega)} < \varepsilon
+    \]
+    para todo $n,m > n_0$.
+    Note que
+    % \[
+    % \begin{aligned}
+    %     \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^p(\Omega)}^p &\leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^p(\Omega)}^p\\ 
+    %     &= \sum_{|\alpha| \leqslant k} \Vert D^\alpha (u_n - u_m) \Vert_{\cL^p(\Omega)}^p = \Vert u_n - u_m \Vert_{\cW^{k,p}(\Omega)}^p < \varepsilon^p
+    % \end{aligned}
+    % \]
+    \[
+        \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^p(\Omega)}^p \leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^p(\Omega)}^p = \Vert u_n - u_m \Vert_{\cW^{k,p}(\Omega)}^p < \varepsilon^p
+    \]
+    para todo $n,m > n_0$. Ou seja, $(D^\alpha u_n)$ é uma sequência de Cauchy em $\cL^p(\Omega)$, que é um espaço completo (Teorema \ref{thm:lp-completo}). 
+    Dito isso
+    \[
+        D^\alpha u_n \to u_\alpha \text{ em } \cL^p(\Omega).
+    \]
+    Em particular, se $\alpha = (0,\dots,0)$ denotamos $D^\alpha u_n$ por $u_n$ e $u_\alpha$ por $u$.
+    Por fim, precisamos mostrar que
+    \[
+        D^\alpha u = u_\alpha.
+    \]
+    Com efeito, pelo \nameref{thm:teorema-da-convergencia-dominada} (e o teorema no livro do Brezis, ver pág e número) e utlizando a definição de derivada fraca, obtemos
+    \[
+        \begin{aligned}
+            \int_\Omega u D^\alpha \phi \, dx 
+            = \int_\Omega \lim u_n D^\alpha \phi 
+            = \lim\! \int_\Omega u_n D^\alpha \phi \,dx
+            &= \lim\, (-1)^{|\alpha|}\!\int_\Omega  D^\alpha u_n \phi\,dx \\
+            &= (-1)^{|\alpha|}\!\int_\Omega \lim D^\alpha u_n \phi \,dx 
+            = (-1)^{|\alpha|}\!\int_\Omega u_\alpha \phi \,dx.
+        \end{aligned}
+    \]
+    Portanto $D^\alpha u = u_\alpha$ e consequentemente $u_n \to u$ em $\cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
+
+    Por outro lado, considere $(u_n)$ uma sequência de Cauchy em $\cW^{k,\infty}(\Omega)$. Então, dado $\varepsilon > 0$, existe $n_0 \in \bN$ tal que
+    \[
+        \Vert u_n - u_m \Vert_{\cW^{k,\infty}(\Omega)} < \varepsilon
+    \]
+    para todo $n,m > n_0$. Além disso
+    \[
+        \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^\infty(\Omega)} \leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^\infty(\Omega)} = \Vert u_n - u_m \Vert_{\cW^{k,\infty}(\Omega)} < \varepsilon
+    \]
+    para todo $n,m > n_0$. Isto nos diz que $(D^\alpha u_n)$ é uma sequência de Cauchy em $\cL^\infty$ que é um espaço completo (Teorema \ref{thm:linf-completo}). Sendo assim
+    \[
+        D^{\alpha} u_n \to u_\alpha \text{ em } \cL^\infty(\Omega)
+    \]
+    De forma análoga ao caso $1 \leqslant p < \infty$, mostramos que $D^\alpha u = u_\alpha$ e portanto $u_n \to u$ em $\cW^{k,\infty}(\Omega)$.
+\end{prf}
 
 \section{Aproximações}
 
 Não é ideal ficar voltando o tempo todo à definição de derivadas fracas. Para explorar as propriedades mais profundas dos espaços de Sobolev, precisamos de métodos sistemáticos para aproximar funções nesses espaços por funções mais suaves. A técnica de molificação, que envolve a convolução de uma função com uma molificadora suave e com suporte compacto, oferece essa ferramenta. Esse processo resulta em uma sequência de funções suaves que convergem para a função original nas normas de Sobolev, permitindo a aproximação de funções com regularidade fraca por funções suaves. As molificadoras são essenciais na teoria dos espaços de Sobolev, possibilitando o estudo de soluções fracas para equações diferenciais parciais e estabelecendo resultados importantes de densidade.
 
 Um exemplo de função molificadora é
-\[
+\begin{equation} \label{eq:molificador-friedrich}
     \eta(x) =
     \left\{
         \begin{array}{lr}
@@ -3194,12 +3359,12 @@ Um exemplo de função molificadora é
             0 & \text{se }\; |x| \geqslant 1
         \end{array}
     \right.
-\]
+\end{equation}
 conhecida como molificador de Friedrich.
 Dada uma função molificadora, para cada $\varepsilon > 0$ definimos
-\[
+\begin{equation} \label{eq:eta-epsilon}
     \eta_\varepsilon(x) = \frac{1}{\varepsilon^n} \eta\left( \frac{x}{\varepsilon} \right)
-\]
+\end{equation}
 essa função $\eta_\varepsilon$ é a função que será utilizada para realizar as convoluções que aproximam as funções em $\cW^{k,p}(\Omega)$
 
 \begin{tbox}[Aproximação local por funções suaves]
@@ -3218,17 +3383,17 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
     \end{enumerate}
 \end{tbox}
 \begin{prf}
-    \dots
+    ~
 \end{prf}
 
 \begin{ex}
-    A função $u(x) = |x|$ definida no intervalo aberto $I = (-1,1)$ é um exemplo clássico de função que não é diferenciável. É fácil verificar que $u \in \cW^{1,p}(I)$ (caso análogo ao que foi feito no Exemplo \ref{ex:derivada-fraca-R}). 
+    A função $u(x) = |x|$ definida no intervalo aberto $\Omega = (-1,1) \subseteq \bR$ é um exemplo clássico de função que não é diferenciável. É fácil verificar que $u \in \cW^{1,p}(\Omega)$ (caso análogo ao que foi feito no Exemplo \ref{ex:derivada-fraca-R}). 
     Vamos utiizar a convolução para encontrar uma aproximação suave de $u$. 
     Seja $\eta : \bR \to \bR$ dada por
     \[
         \eta(x) = \left\{ 
             \begin{array}{lr}
-                c \exp\left( -\frac{1}{1 - x^2} \right) & \text{se }\; |x| \leqslant 1\\
+                c \exp\left(\frac{1}{x^2 - 1} \right) & \text{se }\; |x| \leqslant 1\\
                 0 & \text{se }\; |x| > 1
             \end{array}
         \right.
@@ -3239,7 +3404,7 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
     \]
     isto é
     \[
-        c = \left( \int_\bR \exp \left( -\frac{1}{1-x^2} \right) \, dx\right)^{-1}.
+        c = \left( \int_\bR \exp \left(\frac{1}{x^2 - 1} \right) \, dx\right)^{-1}.
     \]
     Infelizmente, a função $\eta$ não tem primitiva que pode ser expressa por meio de funções elementares, então é necessário utilizar um método numérico, ou expansão em Taylor.
     Daí definimos a função molificadora $\eta_\varepsilon : \bR \to \bR$ por
@@ -3334,9 +3499,15 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
 
     Agora defina $\eta: \bR^2 \to \bR$ por
     \[
-        \eta(x) = \dots
+        \eta(x) = 
+        \left\{ 
+            \begin{array}{lr}
+                c \exp\left(\frac{1}{|x|^2 - 1} \right) & \text{se } |x| < 1\\
+                0 & \text{se } |x| \geqslant 1
+            \end{array}
+        \right.
     \]
-    e $\eta_\varepsilon$ da mesma forma que foi feita no exemplo anterior. Novamente utilizaremos a convolução para encontrar uma aproximação suave para $u$.
+    (ver Figura \ref{fig:eta-R2}) e $\eta_\varepsilon$ da mesma forma que foi feita no exemplo anterior. Novamente utilizaremos a convolução para encontrar uma aproximação suave para $u$.
     \[
         u^{\varepsilon}(x_1,x_2) = \int_\Omega \eta(x_1,x_2) u(x_1 - y_1, x_2 - y_2) \,dy
     \]
@@ -3346,17 +3517,26 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
 
     \begin{figure}
         \centering
+        \includegraphics[width=0.4\textwidth]{2η.pdf}
+        \hspace{10mm}
+        \includegraphics[width=0.4\textwidth]{2ηε.pdf}
+        \caption{$\eta$ e $\eta_\varepsilon$ com $\varepsilon = 0.5$}
+        \label{fig:eta-R2}
+    \end{figure}
+
+    \begin{figure}
+        \centering
         \includegraphics[width=0.4\textwidth]{u.pdf}
         \hspace{10mm}
         \includegraphics[width=0.4\textwidth]{uε.pdf}
-        \caption{À esquerda, a função $u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}$} e à direita sua aproximação suave $u^\varepsilon$ com $\varepsilon = 0.5$\\Fonte: Autoral
+        \caption{À esquerda, a função $u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}$ e à direita sua aproximação\\suave $u^\varepsilon$ com $\varepsilon = 0.5$\\Fonte: Autoral}
         \label{fig:aproximacao-suave-R2}
     \end{figure}
 \end{ex}
 
 \begin{tbox}
     Sejam $\Omega$ um aberto limitado e $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
-    Então existem funções $u_n \in \cC^{\infty} \cap \cW^{k,p}(\Omega)$ tais que
+    Então existem funções $u_n \in \cC^{\infty}(\Omega) \cap \cW^{k,p}(\Omega)$ tais que
     \[
         u_n \to u \;\text{ em } \cW^{k,p}(\Omega).
     \] 
@@ -3365,12 +3545,37 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
     
 \end{prf}
 
+\begin{dbox}
+    Seja $\Omega \subseteq \bR^n$ um aberto limitado. 
+    Dizemos que $\partial \Omega$ é de classe $\cC^k$ se para cada ponto $x_0 \in \partial \Omega$ existe $r > 0$ e uma função de classe $\cC^k$ $\gamma : \bR^{n-1} \to \bR$ tal que, fazendo uma mudança de coordenadas se necessário, obtemos
+    \[
+        \Omega \cap B[x_0,r] = \{x \in B[x_0,r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}
+    \]
+    De forma análoga, $\partial\Omega$ é de classe $\cC^\infty$ se é de classe $\cC^k$ para todo $k \in \bN$.
+\end{dbox}
+
 \begin{tbox}
     Sejam $\Omega$ um aberto limitado com $\partial \Omega$ de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
     Então existem funções $u_n \in \cC^\infty(\overline\Omega)$ tais que
     \[
         u_n \to u \;\text{ em } \cW^{k,p}(\Omega).
     \]
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+\section{Extensões}
+
+(introdução)
+
+\begin{tbox}
+    Sejam $\Omega$ um aberto limitado com $\partial\Omega$ de classe $\cC^1$ e um $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$ tal que para cada $u \in \cW^{k,p}(\Omega)$
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item $Eu = u$ qtp em $\Omega$
+        \item $\supp Eu \subseteq \Omega'$
+        \item $\Vert Eu \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$, onde a constante $c$ depende apenas de $p$, $\Omega$ e $\Omega'$
+    \end{enumerate}
 \end{tbox}
 \begin{prf}
     
