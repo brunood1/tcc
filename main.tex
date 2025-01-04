@@ -3546,7 +3546,42 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
 \end{prf}
 
 \begin{ex}
-    A função $u(x) = |x|$ definida no intervalo aberto $\Omega = (-1,1) \subseteq \bR$ é um exemplo clássico de função que não é diferenciável. É fácil verificar que $u \in \cW^{1,p}(\Omega)$. (caso análogo ao que foi feito no exemplo \ref{ex:derivada-fraca-R})
+    A função $u(x) = |x|$ definida no intervalo aberto $\Omega = (-1,1) \subseteq \bR$ é um exemplo clássico de função que não é diferenciável. É fácil verificar que $u \in \cW^{1,p}(\Omega)$. Com efeito, dada uma função $\phi \in \cC^\infty_c(\Omega)$ temos que
+    \[
+        \int_\Omega u \phi' \,dx = \int_{\text{-}1}^1 u \phi' \,dx = \int_{\text{-}1}^0 u \phi' \,dx + \int_0^1 u \phi' \,dx.
+    \]
+    Utlizando integração por partes, obtemos
+    \[
+        \int_\Omega u \phi'\,dx = \bigg[ x\phi \bigg]_{\text{-}1}^0 - \int_{\text{-}1}^0 \phi \,dx + \bigg[ -x \phi \bigg]_0^1 - \int_0^1 -\phi \,dx.
+    \]
+    Como $\phi$ tem suporte compacto em $\Omega$, então
+    \[
+       \bigg[ x\phi \bigg]_{\text{-}1}^0 + \bigg[ -x \phi \bigg]_0^1 = 0
+    \]
+    Sendo assim
+    \[
+        \int_\Omega u \phi'\,dx = - \int_{\text{-}1}^0 \phi \,dx - \int_0^1 -\phi \,dx = -\int_\Omega \sgn(x)\phi \,dx.
+    \]
+    Portanto
+    \[
+        u'= \sgn(x)
+    \]
+    no sentido fraco, onde
+    \[
+        \sgn(x) = 
+        \left\{ 
+            \begin{array}{rr}
+                1 & \text{se }\; x > 0\\
+                0 & \text{se }\; x = 0\\
+                -1& \text{se }\; x < 0
+            \end{array}
+        \right.
+    \]
+    Além disso
+    \[
+        \int_\Omega |\sgn(x)|^p \,dx = \int_{\text{-}1}^1 1^p \,dx = \bigg[ x \bigg]^1_{\text{-}1} = 2 < \infty
+    \]
+    Assim $u'\in \cL^p(\Omega)$ e portanto $u \in \cW^{1,p}(\Omega)$ para para $0 \leqslant p < \infty$.
     Vamos utiizar a convolução para encontrar uma aproximação suave de $u$. 
     Seja $\eta : \bR \to \bR$ dada por
     \[
@@ -3635,17 +3670,6 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         D^{e_i}u(x_1,x_2) = \frac{1}{2}\sgn(x_i) |x_i|^{-\frac{1}{2}}
     \]
-    onde
-    \[
-        \sgn(x) = 
-        \left\{ 
-            \begin{array}{rr}
-                1 & \text{se }\; x > 0\\
-                0 & \text{se }\; x = 0\\
-                -1& \text{se }\; x < 0
-            \end{array}
-        \right.
-    \]
     Com efeito, vamos calcular a derivada parcial fraca em relação a $i$-ésima coordenada. Utilizando integração por partes obtemos
     \[
         \int_\Omega u D^{e_i} \phi = \int_{\partial\Omega} u \phi \nu^i \,ds - \int_\Omega \phi D^{e_i}u \,dx
@@ -3690,10 +3714,11 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
         \int_\Omega |D^{e_i} (x_1,x_2)|^p \, dx = \int_{\text{-}1}^1 \int_{\text{-}1}^1 \left| \frac{1}{2} \sgn(x_i) |x_i|^{-\frac{1}{2}} \right|^p \, dx_i dx_j = \frac{1}{2^p}\int_{\text{-}1}^1 \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i dx_j.
     \]
     Utilizando o Teorema de Fubini
+    {\small
     \[
-        \frac{1}{2^p}\int_{\text{-}1}^1\int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i dx_j = \frac{1}{2^p}\int_{\text{-}1}^1 dx_j \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i
-    \]
-    \dots
+        \frac{1}{2^p}\int_{\text{-}1}^1\int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i dx_j = \frac{1}{2^p}\int_{\text{-}1}^1 dx_j \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i.
+    \]}
+    Daí, precisamos ver para quais valores de $p$ essa integral é finita, sendo assim
     \[
         \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-2}}\int_0^1 x_i^{\frac{p}{2}+1} \,dx = \frac{1}{2^{p-2}} \left[ -\frac{1^{-\frac{p}{2}+1} - 0^{-\frac{p}{2}+1}}{\tfrac{p}{2} - 1} \right]
     \]
