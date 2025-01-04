@@ -3360,12 +3360,28 @@ Um exemplo de função molificadora é
         \end{array}
     \right.
 \end{equation}
-conhecida como molificador de Friedrich.
+conhecida como molificador de Friedrich, onde $c > 0$ é uma constante tal que
+\[
+    \int_{\bR^n} \eta \,dx = 1
+\]
+De forma geral, uma função molificadora é uma função de classe $\cC^\infty$ com suporte compacto satifazendo. 
+\[
+    \dots
+\]
 Dada uma função molificadora, para cada $\varepsilon > 0$ definimos
 \begin{equation} \label{eq:eta-epsilon}
     \eta_\varepsilon(x) = \frac{1}{\varepsilon^n} \eta\left( \frac{x}{\varepsilon} \right)
 \end{equation}
-essa função $\eta_\varepsilon$ é a função que será utilizada para realizar as convoluções que aproximam as funções em $\cW^{k,p}(\Omega)$
+essa função $\eta_\varepsilon$ é de classe $\cC^\infty$, $\supp \eta_\varepsilon \subseteq B[0,\varepsilon]$ e
+\[
+    \int_{\bR^n} \eta_\varepsilon \,dx = 1.
+\]
+Essa função será utilizada para realizar as convoluções que aproximam as funções em $\cW^{k,p}(\Omega)$. Se $u$ é uma função locamente integrável, definimos a molificação de $u$ por $u^\varepsilon = \eta_\varepsilon * u$, isto é
+\[
+    u^\varepsilon(x) = \int_\Omega \eta_\varepsilon(x-y) u(y) = \int_{B[0,\varepsilon]} \eta_\varepsilon(y) u(x-y) \,dy
+\]
+
+O primeiro teorema que vamos estudar demonstra algumas propiedades importantes sobre essas aproximações.
 
 \begin{tbox}[Aproximação local por funções suaves]
     Seja $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$ e defina
@@ -3378,16 +3394,159 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
     \]
     Então
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
-        \item $u^\varepsilon \in \cC^{\infty}(\Omega)$ para cada $\varepsilon > 0$
+        \item $u^\varepsilon \in \cC^{\infty}(\Omega_\varepsilon)$ para cada $\varepsilon > 0$
         \item $u^\varepsilon \to u$ em $\cW^{k,p}_{\mathrm{loc}}(\Omega)$ quando $\varepsilon \to 0$
     \end{enumerate}
 \end{tbox}
 \begin{prf}
     ~
+
+    % \textbf{(a)} Sejam $x \in \Omega_\varepsilon$, $i = 1,\dots,n$ e $h$ de forma que $x + he_i \in \Omega_\varepsilon$. Daí
+    % \[
+    %     \begin{aligned}
+    %         \frac{u^\varepsilon(x + he_i) - u^\varepsilon(x)}{h} 
+    %         &= \frac{1}{\varepsilon^n} \int_\Omega \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] u(y)\\
+    %         &= \frac{1}{\varepsilon^n} \int_V \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] u(y)\\
+    %     \end{aligned}
+    % \]
+    % para algum aberto $V \Subset \Omega$. Note que
+    % \[
+    %     \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] \to \frac{1}{\varepsilon}\dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right)
+    % \]
+    % quando $h \to 0$. Isto é
+    % \[
+    %     \dfrac{\partial u^\varepsilon}{\partial x_i} = \int_\Omega \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right) u(y) \,dy.
+    % \]
+    % Por outro lado, seja $g(x) = \frac{x -y }{\varepsilon} $, daí
+    % \[
+    %     \dfrac{\partial \eta_\varepsilon}{\partial x_i} (x-y) = \frac{1}{\varepsilon^n}\dfrac{\partial \eta}{\partial x}\left( \frac{x - y}{\varepsilon} \right) = \frac{1}{\varepsilon^n} \sum_{k =1}^n \dfrac{\partial \eta}{\partial x_k}\left( \frac{x - y}{\varepsilon} \right) \dfrac{\partial g_k}{\partial x_i}(x) = \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right).
+    % \]
+    % Portanto
+    % \[
+    %     \dfrac{\partial u^\varepsilon}{\partial x_i} = \int_\Omega \dfrac{\partial \eta_\varepsilon}{\partial x_i} (x-y) u(y) \,dy.
+    % \]
+    % Indutivamente, mostramos que $D^\alpha u^\varepsilon$ existe e
+    % \[
+    %     D^\alpha u^\varepsilon = D^\alpha\eta_\varepsilon * u.
+    % \]
+    % O fato de $u^\varepsilon$ ser de classe $\cC^\infty$ segue do fato de $\eta_\varepsilon$ ser de classe $\cC^\infty$ por definição.
+
+    \textbf{(a)} Seja $g(x) = (x-y)/\varepsilon $, daí, pela regra da cadeia
+    \[
+        \dfrac{\partial \eta_\varepsilon}{\partial x_i} (x-y) = \frac{1}{\varepsilon^n}\dfrac{\partial \eta}{\partial x}\left( \frac{x - y}{\varepsilon} \right) = \frac{1}{\varepsilon^n} \sum_{k =1}^n \dfrac{\partial \eta}{\partial x_k}\left( \frac{x - y}{\varepsilon} \right) \dfrac{\partial g_k}{\partial x_i}(x) = \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right).
+    \]
+    Por outro lado, sejam $x \in \Omega_\varepsilon$, $i = 1,\dots,n$ e $h$ de forma que $x + he_i \in \Omega_\varepsilon$. Daí
+    \[
+        \begin{aligned}
+            \frac{u^\varepsilon(x + he_i) - u^\varepsilon(x)}{h} 
+            &= \frac{1}{\varepsilon^n} \int_\Omega \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] u(y) \,dy\\
+            % &= \frac{1}{\varepsilon^n} \int_V \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] u(y) \,dy\\
+        \end{aligned}
+    \]
+    % para algum aberto $V \Subset \Omega$. 
+    Note que, novamente utilizando a regra da cadeia
+    \[
+        \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] \to \frac{1}{\varepsilon}\dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right)
+    \]
+    quando $h \to 0$. Isto é
+    \[
+        \dfrac{\partial u^\varepsilon}{\partial x_i} = \int_\Omega \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right) u(y) \,dy = \int_\Omega \dfrac{\partial \eta_\varepsilon}{\partial x_i} (x-y) u(y) \,dy.
+    \]
+    Indutivamente, mostramos que $D^\alpha u^\varepsilon$ existe e
+    \[
+        D^\alpha u^\varepsilon = D^\alpha\eta_\varepsilon * u.
+    \]
+    O fato de $u^\varepsilon$ ser de classe $\cC^\infty$ segue do fato de $\eta_\varepsilon$ ser de classe $\cC^\infty$ por definição e $u$ ser integrável.
+
+    \textbf{(b)} Afirmamos que a $\alpha$-ésima derivada parcial de $u^\varepsilon$ no sentido usual é igual a convulução de $\eta_\varepsilon$ com a $\alpha$-ésima derivada parcial fraca de $u$ para todo $\alpha$ com $|\alpha| \leqslant k$. 
+    Isto é
+    \[
+        D^\alpha u^\varepsilon = \eta_\varepsilon * D^\alpha u.
+    \]
+    Com efeito, no item \textbf{(a)} vimos que $D^\alpha u^\varepsilon = D^\alpha \eta_\varepsilon * u$. Primeiramente, se $g(x) = x - y$, temos
+    \[
+        D^{e_i}_x \eta_\varepsilon (x -y) = \dfrac{\partial}{\partial x_i} (\eta_\varepsilon \circ g)(x) = \sum_{k=1}^n \dfrac{\partial \eta_\varepsilon}{\partial x_k} (x - y) \dfrac{\partial g_k}{\partial x_i}(x) = \dfrac{\partial \eta_\varepsilon}{\partial x_i}(x-y).
+    \]
+    Por outro lado, se $h(y) = x - y$, obtemos
+    \[
+        D^{e_i}_y \eta_\varepsilon (x-y) = \dfrac{\partial}{\partial x_i} (\eta_\varepsilon \circ h)(x) = \sum_{k=1}^n \dfrac{\partial \eta_\varepsilon}{\partial y_k} (x - y) \dfrac{\partial h_k}{\partial y_i}(x) = -\dfrac{\partial \eta_\varepsilon}{\partial y_i}(x-y).
+    \]
+    Dessa forma, ao menos de uma mudança de notação
+    \[
+        D^{e_i}_x \eta_\varepsilon (x-y) = -D^{e_i}_y \eta_\varepsilon (x-y).
+    \]
+    Repetindo esse cálculo $|\alpha|$ vezes, obtemos
+    \[
+        D^\alpha_x \eta_\varepsilon (x-y) = (-1)^{|\alpha|} D^\alpha_y \eta_\varepsilon (x-y).
+    \]
+    Dessa forma
+    \[
+        D^{\alpha} u^\varepsilon (x) = \int_\Omega D^\alpha_x \eta_\varepsilon (x-y) u(y) \,dy = (-1)^{|\alpha|} \int_\Omega D^{\alpha}_y \eta_\varepsilon (x-y) u(y) \,dy.
+    \]
+    Fixando $x \in \Omega_\varepsilon$, a função $\phi_x(y) =\eta_\varepsilon(x-y)$ é suave e tem suporte compacto em $\Omega$.
+    Aplicando a definição de derivada fraca com função de teste $\eta_\varepsilon(x-y)$, segue que
+    \[
+        (-1)^{|\alpha|} \int_\Omega D^{\alpha}_y \eta_\varepsilon (x-y) u(y) \,dy. = (-1)^{|\alpha| + |\alpha|}  \int_\Omega \eta_\varepsilon(x-y) D^{\alpha} u(y) \,dy
+    \]
+    Portanto
+    \[
+        D^\alpha u^\varepsilon = \eta_\varepsilon * D^\alpha u.
+    \]
+
+    Além disso, afirmamos que dados abertos $V, W$ tais que $V \Subset W \Subset \Omega$, uma função $v \in \cL^P_\loc(\Omega)$ e $\varepsilon > 0$ suficientemente pequeno
+    \[
+        \Vert v^\varepsilon \Vert_{\cL^p(V)} \leqslant \Vert v \Vert_{\cL^p(W)}.
+    \]
+    Com efeito, note que se $1 < p < \infty$ e $x \in V$
+    \[
+        |v^\varepsilon(x)| = \left| \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) v (y) \,dy \right| \leqslant \int_{B[x,\varepsilon]} \left| \eta_\varepsilon^{1-\frac{1}{p}}(x-y) \eta_\varepsilon^{\frac{1}{p}}(x-y) v(y) \right| \,dy.
+    \]
+    Utilizando a desigualdade de Hölder na ultima integral, obtemos
+    \[
+        \int_{B[x,\varepsilon]} \left| \eta_\varepsilon^{1-\frac{1}{p}}(x-y) \eta_\varepsilon^{\frac{1}{p}}(x-y) v(y) \right|dy \leqslant \left( \int_{B[x,\varepsilon]} \eta_\varepsilon (x-y) \,dy\right)^{\!1-\frac{1}{p}} \left( \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)|^p \right)^{\frac{1}{p}}
+    \]
+    Como $\int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dy = 1$ e utilizando o Teorema de Fubini, segue que
+    \[
+        \int_V |v^\varepsilon(x)|^p \,dx = \int_V \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)| \,dy \,dx \leqslant \int_W |v(y)|^p \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dx \,dy.
+    \]
+    Isto é
+    \[
+        \Vert v^\varepsilon \Vert_{\cL^p(V)} \leqslant \Vert v \Vert_{\cL^p(W)}.
+    \]
+
+    Por fim, seja $V \Subset \Omega$ um aberto. Afirmamos que
+    \[
+        D ^\alpha u^\varepsilon \to D^\alpha u \text{ em } \cL^p(V)
+    \]
+    quando $\varepsilon \to 0$, para todo $\alpha$ com $|\alpha| \leqslant k$.
+    De fato, seja $W$ um aberto de forma que $V \Subset W \Subset \Omega$, $\delta > 0$, utilizando a afirmação anterior com $v ^\varepsilon = D^\alpha u^\varepsilon$ e $v = D^\alpha u$ escolhendo $w \in \cC(W)$ tal que
+    \[
+        \Vert D^\alpha u - w \Vert_{\cL^p(W)} < \delta.
+    \]
+    Temos
+    \[
+        \begin{aligned}
+            \Vert D^\alpha u^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} &\leqslant \Vert D^\alpha u^\varepsilon - w^\varepsilon \Vert_{\cL^p(V)} + \Vert w^\varepsilon - w \Vert_{\cL^p(V)} + \Vert w - D^\alpha u \Vert_{\cL^p(V)}\\
+            &\leqslant \Vert D^\alpha u - w \Vert_{\cL^p(W)} + \Vert w^\varepsilon - w \Vert_{\cL^p(V)} + \Vert w - D^\alpha u \Vert_{\cL^p(W)}\\
+            &\leqslant 2 \Vert D^\alpha u - w \Vert_{\cL^p(W)} + \Vert w^\varepsilon - w \Vert_{\cL^p(V)}\\
+            &\leqslant 2\delta + \Vert w^\varepsilon - w \Vert_{\cL^p(V)}
+        \end{aligned}
+    \]
+    Como $w \in \cC(W)$, então $w^\varepsilon \to w$ uniformemente em $V$. 
+    Portanto $D^\alpha u^\varepsilon \to D^\alpha u$ em $\cL^p(V)$.
+    Dessa forma
+    \[
+        \Vert u^\varepsilon - u \Vert^p_{\cW^{k,p}(V)} = \sum_{|\alpha| \leqslant k} \Vert D^\alpha u^\varepsilon - D^\alpha u \Vert^p_{\cL^p(V)} \to 0 
+    \]
+    quando $\varepsilon \to 0$. Portanto
+    \[
+        u^\varepsilon \to u \text{ em } \cW^{k,p}_\loc(\Omega)
+    \]
+    como queriamos mostrar
 \end{prf}
 
 \begin{ex}
-    A função $u(x) = |x|$ definida no intervalo aberto $\Omega = (-1,1) \subseteq \bR$ é um exemplo clássico de função que não é diferenciável. É fácil verificar que $u \in \cW^{1,p}(\Omega)$ (caso análogo ao que foi feito no Exemplo \ref{ex:derivada-fraca-R}). 
+    A função $u(x) = |x|$ definida no intervalo aberto $\Omega = (-1,1) \subseteq \bR$ é um exemplo clássico de função que não é diferenciável. É fácil verificar que $u \in \cW^{1,p}(\Omega)$. (caso análogo ao que foi feito no exemplo \ref{ex:derivada-fraca-R})
     Vamos utiizar a convolução para encontrar uma aproximação suave de $u$. 
     Seja $\eta : \bR \to \bR$ dada por
     \[
@@ -3460,9 +3619,17 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
     \[
         u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}
     \]
-    não é diferenciável, mas possui derivada fraca em $\cW^{1,p}(\Omega)$ para $0 < p < 2$. Com efeito, note que
+    não é diferenciável, mas possui derivada fraca em $\cW^{1,p}(\Omega)$ para $0 < p < 2$. Com efeito, note que a derivada no sentido usual de $u$ não existe em $\mathbf{0} = (0,0)$
     \[
-        \dots
+        \lim_{h \to 0} = \frac{u(\mathbf{0} + he_i) - u(\mathbf{0})}{h} = \lim_{h \to 0} \frac{|h|^{\frac{1}{2}}}{h}
+    \]
+    Esse limite não existe, pois
+    \[
+        \lim_{h \to 0^+} = \frac{|h|^{\frac{1}{2}}}{h} = \lim_{h\to 0^+}h^{-\frac{1}{2}} = \infty
+    \]
+    e
+    \[
+        \lim_{h \to 0^-} = \frac{|h|^{\frac{1}{2}}}{h} = \lim_{h\to 0^-}-h^{-\frac{1}{2}} = -\infty
     \]
     Por outro lado, $u$ possui derivadas parciais fracas em $\cL^p(\Omega)$ quando $0 < p < 2$ dada por
     \[
@@ -3479,10 +3646,45 @@ essa função $\eta_\varepsilon$ é a função que será utilizada para realizar
             \end{array}
         \right.
     \]
-    Com efeito, note que
+    Com efeito, vamos calcular a derivada parcial fraca em relação a $i$-ésima coordenada. Utilizando integração por partes obtemos
     \[
-        \dots
+        \int_\Omega u D^{e_i} \phi = \int_{\partial\Omega} u \phi \nu^i \,ds - \int_\Omega \phi D^{e_i}u \,dx
     \]
+    onde $\phi \in \cC^\infty_c(\Omega)$.
+    Para calcular $D^{e_i} u$ precisamos dividir o domínio $\Omega$ em $\Omega_1$, $\Omega_2$, $\Omega_3$ e $\Omega_4$, onde $\Omega_i$ é a restrição ao $i$-ésimo quadrante.
+    Note que em $\Omega_1 = (0,1) \times (0,1)$, $u(x_1,x_2) = x_1^{\frac{1}{2}} + x_2^{\frac{1}{2}}$. Logo, nesse conjunto $D^{e_i} u$ existe no sentido usual e é dada por
+    \[
+        D^{e_i} u = \frac{1}{2} x_i^{-\frac{1}{2}}.
+    \]
+    De forma análoga
+    \[
+        \begin{array}{ll}
+            D^{e_i} u(x_1,x_2) = \frac{1}{2} (-x_i)^{-\frac{1}{2}} &\text{ em } \Omega_2 \text{ e } \Omega_3 \\
+            D^{e_i} u(x_1,x_2) = \frac{1}{2} x_i^{-\frac{1}{2}} &\text{ em } \Omega_4.
+        \end{array}
+    \]
+    Dito isso
+    \[
+        \int_\Omega \phi D^{e_i}u \,dx = \int_{\Omega_1}  \frac{1}{2} x_i^{-\frac{1}{2}}\phi \,dx + \int_{\Omega_2} \frac{1}{2} (-x_i)^{-\frac{1}{2}} \phi \,dx + \int_{\Omega_3} \frac{1}{2} (-x_i)^{-\frac{1}{2}} \phi \,dx + \int_{\Omega_4} \frac{1}{2} x_i^{-\frac{1}{2}} \phi \,dx
+    \]
+    que podemos escrever como
+    \[
+        \int_\Omega \phi D^{e_i} u \,dx = \int_{\Omega_1 \cup \Omega_4}  \frac{1}{2} x_i^{-\frac{1}{2}}\phi \,dx + \int_{\Omega_2 \cup \Omega_3} \frac{1}{2} (-x_i)^{-\frac{1}{2}} \phi \,dx = \int_\Omega \sgn(x_i) |x_i|^{-\frac{1}{2}} \phi \,dx
+    \]
+    Por fim, como $\phi$ tem suporte compacto em $\Omega$, $\phi$ se anula em $\partial\Omega$.
+    Dessa forma
+    \[
+        \int_{\partial\Omega} u \phi \nu^i \,ds = 0.
+    \]
+    Portanto
+    \[
+        \int_\Omega  u D^{e_i} \phi \,dx = - \int_\Omega \sgn(x_i) |x_i|^{-\frac{1}{2}} \phi \,dx.
+    \]
+    Isto é
+    \[
+        D^{e_i} u(x_1,x_2) = \sgn(x_i) |x_i|^{-\frac{1}{2}} \phi \,dx
+    \]
+    como queriamos mostrar.
     Além disso
     \[
         \int_\Omega |D^{e_i} (x_1,x_2)|^p \, dx = \int_{\text{-}1}^1 \int_{\text{-}1}^1 \left| \frac{1}{2} \sgn(x_i) |x_i|^{-\frac{1}{2}} \right|^p \, dx_i dx_j = \frac{1}{2^p}\int_{\text{-}1}^1 \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i dx_j.
