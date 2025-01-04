@@ -3654,18 +3654,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}
     \]
-    não é diferenciável, mas possui derivada fraca em $\cW^{1,p}(\Omega)$ para $0 < p < 2$. Com efeito, note que a derivada no sentido usual de $u$ não existe em $\mathbf{0} = (0,0)$
-    \[
-        \lim_{h \to 0} = \frac{u(\mathbf{0} + he_i) - u(\mathbf{0})}{h} = \lim_{h \to 0} \frac{|h|^{\frac{1}{2}}}{h}
-    \]
-    Esse limite não existe, pois
-    \[
-        \lim_{h \to 0^+} = \frac{|h|^{\frac{1}{2}}}{h} = \lim_{h\to 0^+}h^{-\frac{1}{2}} = \infty
-    \]
-    e
-    \[
-        \lim_{h \to 0^-} = \frac{|h|^{\frac{1}{2}}}{h} = \lim_{h\to 0^-}-h^{-\frac{1}{2}} = -\infty
-    \]
+    não possui derivada no sentido usual pelo fato de $|\,\cdot\,|$ não ser diferenciável.
     Por outro lado, $u$ possui derivadas parciais fracas em $\cL^p(\Omega)$ quando $0 < p < 2$ dada por
     \[
         D^{e_i}u(x_1,x_2) = \frac{1}{2}\sgn(x_i) |x_i|^{-\frac{1}{2}}
@@ -3807,6 +3796,8 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
 \begin{prf}
     
 \end{prf}
+
+\section{Traços}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
