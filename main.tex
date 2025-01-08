@@ -3695,7 +3695,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \]
     Isto é
     \[
-        D^{e_i} u(x_1,x_2) = \sgn(x_i) |x_i|^{-\frac{1}{2}} \phi \,dx
+        D^{e_i} u(x_1,x_2) = \sgn(x_i) |x_i|^{-\frac{1}{2}} \,dx
     \]
     como queriamos mostrar.
     Além disso
@@ -3761,7 +3761,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     
 \end{prf}
 
-\begin{dbox}
+\begin{dbox} \label{def:fronteira-ck}
     Seja $\Omega \subseteq \bR^n$ um aberto limitado. 
     Dizemos que $\partial \Omega$ é de classe $\cC^k$ se para cada ponto $x_0 \in \partial \Omega$ existe $r > 0$ e uma função de classe $\cC^k$ $\gamma : \bR^{n-1} \to \bR$ tal que, fazendo uma mudança de coordenadas se necessário, obtemos
     \[
@@ -3794,10 +3794,195 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \end{enumerate}
 \end{tbox}
 \begin{prf}
+    Seja $x^0 \in \partial\Omega$ e suponha que $\partial\Omega$ esteja contido no plano $\{x_n = 0\}$ perto de $x^0$.
+    Dessa forma, podemos supor que existe uma bola $B = B(x^0, r)$ tal que
+    \[
+        \begin{aligned}
+            B^+ &= B \cap \{x_n = 0\} \subseteq \overline\Omega\\
+            B^- &= B \cap \{x_n = 0\} \subseteq \bR^n \smallsetminus \Omega.
+        \end{aligned}
+    \]
+    Além disso, suponha inicialmente que $u \in \cC^\infty(\overline\Omega)$ e defina
+    \[
+        \bar u(x) =
+        \left\{ 
+            \begin{array}{ll}
+                u(x) & \text{se } x\in B^+\\
+                -3u(x_1,\dots,x_{n-1}, -x_n) + 4u(x_1,\dots,x_{n-1},\frac{x_n}{2}) & \text{se } x \in B^-
+            \end{array}
+        \right.
+    \]
+    que chamamos de reflexão de ordem superior da função $u$ de $B^+$ a $B^-$.
+    Afirmamos que $\bar u \in \cC^1(B)$.
+    Com efeito, denotando $u^- = \bar u \big|_{B^-}$ e $u^+ = \bar u \big|_{B^+}$, podemos ver que
+    \[
+        \dfrac{\partial u^-}{\partial x_n} = \dfrac{\partial u^+}{\partial x_n} \;\text{ em }\; \{x_n = 0\}.
+    \]
+    De fato, pela regra da cadeia
+    \[
+        \dfrac{\partial u^-}{\partial x_n} = 3 u_{x_n}(x_1,\dots,x_{n-1}, -x_n)  - 2u_{x_n}(x_1,\dots,x_{n-1},\tfrac{x_n}{2})
+    \]
+    quando $x_n = 0$, obtemos
+    \[
+        \dfrac{\partial u^-}{\partial x_n} \Bigg|_{\{x_n = 0\}} = 3u_{x_n}(x_1,\dots,x_{n-1},0) - 2u_{x_n}(x_1,\dots,x_{n-1},0) = u_{x_n}(x_1,\dots,x_{n-1},0) = \dfrac{\partial u^+}{\partial x_n} \Bigg|_{\{x_n =0\}}
+    \]
+    Além disso
+    \[
+        u^+ = u^- \;\text{ e }\; \dfrac{\partial u^-}{\partial x_i} = \dfrac{\partial u^+}{\partial x_i}
+    \]
+    ambos em $\{x_n = 0\}$.
+    Portanto $D^\alpha u^- = D^\alpha u^+$ em $\{x_n = 0\}$ com $|\alpha| \leqslant 1$. Sendo assim, $u \in \cC^1 (B)$.
+
+    Agora, desejamos mostrar que
+    \begin{equation} \label{eq:desigualdade-B-Bmais}
+        \Vert \bar u \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u \Vert_{\cW^{1,p}(B^+)}
+    \end{equation}
+    onde $c$ é uma constante positiva que não depende de $u$.
+    De fato
+    \[
+        \Vert \bar u \Vert_{\cW^{1,p}(B)}^p = \sum_{|\alpha| \leqslant 1} \Vert D^\alpha\bar u \Vert_{\cL^P(B)}^p = \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right].
+    \]
+    Como $B = B^+ \cup B^-$, e denotando $(x_1,\dots,x_{n-1})$ por $x'$ podemos reescrever o ultimo somatório da seguinte forma
+    {\small
+    \[
+        \begin{aligned}
+            \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] &= \sum_{|\alpha| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + \int_{B^-} |4D^\alpha u(x',-\tfrac{x_n}{2}) - 3D^\alpha u(x',-x_n) |^p \,dx \right]\\
+            &\leqslant \sum_{|a| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + 3 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx + 4 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx   \right]
+        \end{aligned}
+    \]}
+    Porem, $-x_n, -\tfrac{x_n}{2} \geqslant 0$, então podemos considerar que as integrais em $B^-$ são integrais sobre $B^+$. Dito isso, ao menos de uma mudança de variáveis, obtemos
+    \[
+        \Vert \bar u \Vert_{\cW^{1,p}(B)}^p = \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] \leqslant c\sum_{|\alpha| \leqslant 1} \left[ \int_{B^+}|D^\alpha u|^p \,dx \right] = c \Vert u \Vert_{\cW^{1,p}(B^+)}^p
+    \]
+    Portanto
+    \[
+        \Vert \bar u \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u \Vert_{\cW^{1,p}(B^+)}
+    \]
+
+    Por outro lado, se $\partial\Omega$ está necessáriamente contido no plano $\{x_n = 0\}$ perto de $x^0$. Neste caso, existe um homeomorfismo $\Phi$ com inversa $\Psi$ que planifica $\partial \Omega$ perto de $x^0$. Utilizando a função $\gamma$ da Definição \ref{def:fronteira-ck}, definimos o homemorfismo $\Phi$ por
+    \[
+        \Phi(x) = (x_1,x_2,...,x_{n-1}, x_n - \gamma(x_1,\dots,x_{n-1})).
+    \]
+    De forma análoga definimos $\Psi$ por
+    \[
+        \Psi(y) = (y_1,y_2,\dots,y_{n-1},y_n + \gamma(y_1,\dots,y_{n-1})).
+    \]
+    Dessa forma $\Psi^{-1} = \Phi$. Sendo assim, seja $y = \Phi(x)$ (ou seja $x = \Psi(y)$) e definimos $u'(y) = u(\Psi(y))$, daí como foi feito anteriormente, podemos escolher uma bola $B = B(y_0, r)$ e definimos $\bar u'$ de forma que $\bar u' \in \cC^1(B)$ e
+    \begin{equation}
+        \Vert \bar u' \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u' \Vert_{\cW^{1,p}(B^+)}.
+    \end{equation}
+    Seja $W = \Psi(B)$, assim conseguimos obter uma extensão $\bar u$ de $u$ para $W$ com
+    \[
+        \Vert \bar u \Vert_{\cW^{1,p}(W)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+    \]
+    De fato, para $\bar u (w) = \bar u'(\Phi(w))$, obtemos, utilizando o Teorema de Mudança de Variáveis
+    \[
+        \Vert D^\alpha \bar u' \Vert_{\cL^p(B)} \int_B |D^\alpha \bar u'(y)|^p \,dy = \int_B |D^\alpha \bar u (\Psi (y))|^p \,dy = \int_W |D^\alpha \bar u (x)|^p \,dx = \Vert D^\alpha \bar u \Vert_{\cL^p(W)}.
+    \]
+    Dessa forma, passando o somatório
+    \begin{equation} \label{eq:normaBigualnormaW}
+        \Vert \bar u' \Vert_{\cW^{1,p}(B)} = \Vert  \bar u \Vert_{\cW^{1,p}(W)}.
+    \end{equation}
+    Além disso
+    \[
+        \begin{aligned}
+            \Vert D^\alpha u' \Vert_{\cL^p(B^+)} = \int_{B^+} |D^\alpha u'(y) |^p \,dy &= \int_{B^+} |D^\alpha u (\Psi(y))|^p \,dy\\ &= \int_{\Psi(B^+)} |D^\alpha u(x)|^p \,dx \leqslant \int_{\Omega} |D^\alpha u(x)|^p \,dx = \Vert D^\alpha u \Vert_{\cL^p(\Omega)}.
+        \end{aligned}
+    \]
+    Isto significa que
+    \begin{equation} \label{eq:normadesigualdadeBmais}
+        \Vert u' \Vert_{\cW^{1,p}(B^+)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)}
+    \end{equation}
+    Portanto, por (\ref{eq:normaBigualnormaW}) e (\ref{eq:normadesigualdadeBmais}) obtemos
+    \begin{equation} \label{eq:desigualdadeWO}
+        \Vert \bar u \Vert_{\cW^{1,p}(W)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+    \end{equation}
+    como queriamos mostrar.
+
+    Como $\partial\Omega$ é compacto, e $\partial \Omega \subseteq \bigcup_{x \in \partial\Omega} W_x$,
+    que é uma cobertura aberta, pois $W_x = \Psi(B(y_0, r))$ (?), e imagem de um conjunto aberto por um homeomorfismo também é aberto.Pelo Teorema de Heine-Borel, existe uma subcobertura finita de $\partial\Omega$,
+    sendo assim, existem uma quantidade finita de pontos $x^0_i \in \partial\Omega$, abertos $W_i$ e extensões $\bar u_i$ de $u$ em $W_i$ de forma que $\partial\Omega \subseteq \bigcup_{i=1}^N W_i$
+    e considere $W_0 \Subset \Omega$ tal que
+    \[
+        \Omega \subseteq \bigcup_{i=0}^N W_i.
+    \]
+    Seja $(\phi_i)_{i=0}^N$ uma partição da unidade suave subordinada aos abertos $(W_i)_{i=0}^N$ e defina
+    \[
+        \bar u = \sum_{i=0}^N \phi_i \bar u_i
+    \]
+    onde $\bar u_i$ está associada a $W_i$ e $\bar u_0 = u$. Daí obtemos a desigualdade
+    \[
+        \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+    \]
+    Com efeito
+    \[
+        \Vert \bar u \Vert^p_{\cW^{1,p}(\bR^n)} = \sum_{|\alpha| \leqslant 1} \Vert D^\alpha \bar u \Vert^p_{\cL^p(\bR^n)}
+        % = \sum_{|\alpha| \leqslant 1} \left\Vert \sum_{i=0}^N D^\alpha(\phi_i \bar u_i) \right\Vert _{\cL^p(\bR^n)}^p 
+        \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{n=1}^N \Vert D^\alpha (\phi_i \bar u_i) \Vert_{\cL^p(\bR)}^p
+    \]
+    onde $c$ é uma constante positiva que depende de $p$. Daí utuliziando a regra de Leibniz para derivada do produto em $\phi_i \bar u_i$ obtemos
+    \[
+        c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^N \Vert D^\alpha (\phi_i \bar u_i) \Vert_{\cL^p(\bR)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^\sigma \phi_i D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(\bR^n)}^p.
+    \]
+    Como $\supp D^\sigma \phi_i \subseteq \supp \phi_i \subseteq W_i$, então o suporte de $D^\sigma \phi_i$ também é compacto (pois $W_i$ é limitado), sendo assim $\max |D^\sigma \phi_i|$ existe.
+    Portanto
+    \[
+        c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^\sigma \phi_i D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(\bR^n)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(W_i)}^p
+    \]
+    onde agora a constante $c$ também depende de $W_i$. Além disso
+    \[
+        c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(W_i)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(W_i)}^p.
+    \]
+    Por fim, utilizando (\ref{eq:desigualdadeWO})
+    \[
+        c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(W_i)}^p \leqslant c\Vert \bar u_i \Vert_{\cW^{1,p}(\Omega)}
+    \]
+    onde $c$ depende de $W_i$, $p$ e $N$.
+    Portanto
+    \[
+        \Vert \bar u \Vert_{\cW^{1,p}(W)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+    \]
+
+    Defina $\Omega'$ de forma que $\bigcup_{i=0}^N W_i \subseteq \Omega'$ \dots
     
+    Defina $\tilde E: \cC^\infty(\overline\Omega) \to C^\infty(\bR^n)$ dada por $\bar E u = \bar u$.
+    Temos que $\bar E$ é linear e
+    \[
+        \Vert \bar E u \Vert_{\cW^{1,p}(\bR^n)} = \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+    \]
+    Sendo assim definimos $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR^n)$ por
+    \[
+        E u = 
+        \left\{ 
+            \begin{array}{ll}
+                \bar u & \text{se } u \in \cC^\infty(\overline \Omega)\\
+                \lim \overline {u_k} &\text{se } u \not\in \cC^\infty(\overline\Omega)
+            \end{array}
+        \right.
+    \]
+    onde $(u_k)$ é uma sequência de funções em $\cC^\infty(\overline\Omega)$ que converge para $u$, sabemos que essa sequência existe pois mostramos que $\cC^\infty(\overline\Omega)$ é denso em $\cW^{1,p}(\Omega)$.
+    Além disso
+    \[
+        \begin{aligned}
+            \Vert Eu - u \Vert_{\cW^{1,p}(\Omega)} &\leqslant \Vert Eu - \overline{u_k} \Vert_{\cW^{1,p}(\Omega)} + \Vert \overline{u_k} - u_k \Vert_{\cW^{1,p}(\Omega)} + \Vert u_k - u\Vert_{\cW^{1,p}(\Omega)}\\
+            &\leqslant \Vert Eu - \overline{u_k} \Vert_{\cW^{1,p}(\bR^n)} + \Vert u_k - u \Vert_{\cW^{1,p}(\Omega)} \to 0
+        \end{aligned}
+    \]
+    pois $u_k \to u$.
+    Portanto $Eu = u$ qtp em $\Omega$, provando o item \textbf{(a)}.
 \end{prf}
 
 \section{Traços}
+
+(introdução)
+
+\begin{tbox}
+    Seja $\Omega$ um aberto limitado e $\partial\Omega$ de classe $\cC^1$. Então existe um operador linear limitado $T : \cW^{1,p}(\Omega) \to \cL^P(\partial \Omega)$ tal que
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item $Tu = u \big|_{\partial \Omega}$ se $u \in \cW^{1,p}(\Omega) \cap \cC(\Omega)$
+        \item $\Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{W^{1,p}(\Omega)}$ onde $c$ depende apenas de $p$ e $\Omega$.
+    \end{enumerate}
+\end{tbox}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
