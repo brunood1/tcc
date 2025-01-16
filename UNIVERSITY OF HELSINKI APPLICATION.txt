@@ -40,14 +40,22 @@ For my classes I had to study many different areas of maths, including analysis,
 c. How do the studies of the Master's Programme in Mathematics and Statistics complement and broaden your previous studies?
 (500 character limit)
 
-(potentially mention research group here)
+The curriculum at the University of Helsinki stood out to me a lot, there are many courses that would complement my previous studies, the biggest example is the course on Sobolev spaces which I'm currently studying some properties for my thesis, but being able to take a course on it would mean I could go deeper in the theory and learn a lot more, to give an example, fractionary Sobolev spaces. Another example are the two functional analysis courses, which are very complete, and would be complement my studies a lot.
+The fact that these courses are offered would mean a potential opportunity to join a research group in that field, and that would be an incredible opportunity
+
+
+(over the character limit)
+
+The curriculum stood out to me a lot, there are many courses that would complement my previous studies, the biggest example is the course on Sobolev spaces which I'm currently studying some properties for my thesis, but being able to take a course on it would mean I could go deeper in the theory and learn a lot more, to give an example, fractional Sobolev spaces. Another example is the two functional analysis courses, which are very complete and would complement my studies a lot.
 
 --------------
 
 d. Specify how studying in the Master's Programme in Mathematics and Statistics relates to your career objectives and what you wish to achieve by completing your master's degree. 
 (500 character limit)
 
-After I finish my master's I would like to join a PhD programme to eventually pursue a career as a researcher and professor of mathematics. The University of Helsinki is the perfect environment for that, mathematical knowledge is always best to be shared and I would be surrounded by students who share the same desire of working in the field. And also there are many professors whose areas of research align with what I would like to continue studying.
+After completing my master's, I plan to join a PhD program and eventually pursue a career as a researcher and professor of mathematics. The University of Helsinki is the perfect environment for achieving this goal. I believe that mathematical knowledge is best shared, and I would benefit greatly from being surrounded by students who share the same passion for advancing in the field. Furthermore, many professors at the university specialize in research areas that align with my academic interests.
+
+After completing my master's, I hope to join a PhD program and eventually pursue a career as a researcher and professor of mathematics. The University of Helsinki is the perfect environment for achieving this goal. I believe that mathematical knowledge is best shared, and it would be very beneficial to be surrounded by other people who share a love for mathematics. Furthermore, many professors at the university specialize in research areas that align with my academic interests.
 
 (potentially mention research group here)
 
@@ -56,7 +64,7 @@ After I finish my master's I would like to join a PhD programme to eventually pu
 e. Outline your academic interests in the chosen field, i.e. indicate what you see as being the topic of your Master's thesis and how it relates to this Master's Programme.
 (500 character limit)
 
-My chosen area of study is analysis, for my bachelor's thesis, I'm currently studying Sobolev spaces and weak solutions to the Navier-Stokes equations. My current idea for my master's thesis is to continue studying (functional) analysis and possibly keep on studying the Navier-Stokes equations. Lately I have also been interested in Harmonic analysis, which is something that's not included in the curriculum of many universities, but it is something I can study at the University of Helsinki.
+My chosen area of study is analysis. For my bachelor's thesis, I'm currently studying Sobolev spaces and weak solutions to the Navier-Stokes equations. My current idea for my master's thesis is to continue studying (functional) analysis and possibly continue studying topics related to the Navier-Stokes equations. Lately, I have also been interested in harmonic analysis, which is something that's not included in the curriculum of many universities, but it is something I can study in Helsinki.
 
 (494 characters, can improve this answer)
 
@@ -81,16 +89,33 @@ Scholarship question
 How will your studies at the University of Helsinki contribute to the advancement of knowledge in your chosen field of study? Is the Master's Programme in Mathematics and Statistics at the University of Helsinki your first choice? If so, please explain why. How would the scholarship improve your commitment and contribution to the degree programme?
 (3000 character limit)
 
-(answer first question)
-The University of Helsinki is my first choice for a master's degree, its wide range of advanced courses in analysis, including, but not limited to, Sobolev spaces and harmonic analysis, which align with my research interests, incredible professors, and many possible research group opportunities in the field, those combined make the University of Helsinki a clear first choice for me. Not only that, Finland is an amazing country and it would be a great opportunity to be able to live and study there.
-The scholarship is a big necessity for me, affording the tuition fee is a big challenge for me and my family. So getting the scholarship would 
+The university of Helsinki is a perfect environment for research, there are many research group opportunities, I think being able to collaborate with other like minded people would be a great way of contributing to the knowledge in our field, of course doing new research during a master's program is very tough but in the right place and with the right people it could be possible.
+The University of Helsinki is my first choice for a master's degree, its wide range of advanced courses in analysis, including, but not limited to, Sobolev spaces and harmonic analysis, which align with my research interests, incredible professors, those combined make the University of Helsinki a clear first choice for me. Not only that, Finland is an amazing country and it would be a great opportunity to be able to live and study there.
+The scholarship is a big necessity for me, affording the tuition fee is a big challenge for me and my family.I would be able to fully dedicate myself to my studies and take advantage of all the resources the university offers, from advanced coursework to research opportunities. Additionally, it would allow me to participate in academic events, such as seminars and conferences, without financial concerns. Studying and living in Finland has long been a dream of mine, and with the scholarship, this dream could become a reality. I would be deeply committed to making the most of this opportunity by excelling academically and actively contributing to the university’s academic community.
+
+(i want to make this answer as long as possible)
 
 
 
+--------
+
+For one of my classes one of my friends asked me to teach her the subject after she did badly on the first exam, which I did, and eventually helping one person turned into me organizing revision classes over google meet for around 10 people. The idea of eventually getting a PhD and becoming a professor was already in my mind, but I was scared of not being able to teach well, when I saw that the people I had taught had improved since the first exam, it made me so happy that I was able to help them.
 
 
-(for one of the questions mention something like. i would love to join a research group if posible)
-(the groups have a strong national and international presence
-many senior researchers visit the university)
+The University of Helsinki is a perfect environment for research, offering many research group opportunities. I believe that being able to collaborate with like-minded people would be a great way to contribute to the knowledge in our field. Of course, conducting new research during a master's program is very challenging, but I am confident that, in the right environment, it is possible. By working closely with experienced professors and engaging with peers who share similar academic interests, I hope to contribute meaningfully through my thesis and participation in seminars and research discussions.
+The idea of pursuing a PhD and becoming a professor has always been on my mind, but I initially doubted my teaching abilities. That changed when a friend, after struggling with an exam, asked me for help. What started as one-on-one tutoring turned into regular revision sessions for about ten students. Seeing their improvement gave me confidence in my ability to teach and strengthened my commitment to an academic career.
+The University of Helsinki is my first choice for a master's degree. Its wide range of advanced courses in analysis, including Sobolev spaces and harmonic analysis, which align with my research interests, combined with the presence of incredible professors, makes it a clear first choice for me. Not only that, but Finland is an amazing country, and it would be a great opportunity to live and study there.
+The scholarship is a necessity for me, as affording the tuition fee is a significant challenge for my family and me. Receiving the scholarship would allow me to fully dedicate myself to my studies and take advantage of all the resources the university offers, from advanced coursework to research opportunities. Additionally, it would enable me to participate in academic events, such as seminars and conferences, without financial concerns. Studying and living in Finland has long been a dream of mine, and with the scholarship, this dream could become a reality. I would be deeply committed to making the most of this opportunity by excelling academically and actively contributing to the university’s academic community.
+
+The University of Helsinki is a perfect environment for research, offering many research group opportunities. I believe that being able to collaborate with like-minded people would be a great way to contribute to the knowledge in our field. Of course, conducting new research during a master's program is very challenging, but I am confident that, in the right environment, it is possible. By working closely with experienced professors and engaging with peers who share similar academic interests, I hope to contribute meaningfully through my thesis and participation in seminars and research discussions.
+The University of Helsinki is my first choice for a master's degree. Its wide range of advanced courses in analysis, including Sobolev spaces and harmonic analysis, which align with my research interests, combined with the presence of incredible professors, makes it a clear first choice for me. Not only that, but Finland is an amazing country, and it would be a great opportunity to live and study there.
+The scholarship is a necessity for me, as affording the tuition fee is a significant challenge for my family and me. Receiving the scholarship would allow me to fully dedicate myself to my studies and take advantage of all the resources the university offers, from advanced coursework to research opportunities. Additionally, it would enable me to participate in academic events, such as seminars and conferences, without financial concerns. Studying and living in Finland has long been a dream of mine, and with the scholarship, this dream could become a reality. I would be deeply committed to making the most of this opportunity by excelling academically and actively contributing to the university’s academic community.
+
+
+
+The University of Helsinki is the perfect for a master's in mathematics, one of the reasons being the many research group opportunities. I believe that being able to collaborate with like-minded people would be a great way to contribute to the knowledge in our field. Of course, doing new research during a master's program is very hard, but I believe that, in the right place, it is possible. By working closely with experienced professors and other students who have similar interests. I hope to contribute with my thesis and by taking part in seminars and other academic events.
+The University of Helsinki is my first choice for a master's degree. Its wide range of advanced courses in analysis, including Sobolev spaces and harmonic analysis, which align with my research interests, combined with the incredible professors who are experts in the field, make it a clear first choice for me. Not only that, but Finland is an amazing country, and it would be a great opportunity to live and study there.
+The scholarship is a must for me, since affording the tuition fee is a huge challenge for me and my family.
+Having the scholarship would let me fully focus on my studies and take full advantage of what the university offers, from advanced courses to research projects. It would also give me the chance to participate in events like seminars, lectures, and conferences. Studying and living in Finland has been a dream of mine for a really long time, and with the scholarship, that dream could finally come true. I’d be committed to making the most of this chance by excelling in my master’s and working on a thesis that might contribute to the university’s academic community.
 
 

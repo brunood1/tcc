@@ -2684,7 +2684,7 @@ O proximos resultados são uma generalização da \nameref{thm:desigualdade-de-h
 
 \chapter{Espaços de Sobolev}
 
-Os espaços de Sobolev desempenham um papel fundamental na análise funcional e nas equações diferenciais parciais, oferecendo uma estrutura adequada para o estudo de problemas envolvendo funções que podem não ser diferenciáveis no sentido clássico. Introduzidos como uma extensão dos conceitos de derivada e integrabilidade, esses espaços permitem trabalhar com soluções generalizadas, chamadas de soluções fracas, ampliando o escopo de problemas que podem ser tratados matematicamente. Neste capítulo, serão apresentados os conceitos básicos dos espaços de Sobolev, suas principais propriedades e exemplos que ilustram sua aplicabilidade em problemas de fronteira e outros contextos relevantes da matemática aplicada.
+Os espaços de Sobolev desempenham um papel fundamental na análise funcional e nas equações diferenciais parciais, oferecendo uma estrutura adequada para o estudo de problemas envolvendo funções que podem não ser diferenciáveis no sentido clássico. Introduzidos como uma extensão dos conceitos de derivada e integrabilidade, esses espaços permitem trabalhar com soluções generalizadas, chamadas de soluções fracas, ampliando o escopo de problemas que podem ser tratados matematicamente. Neste capítulo, serão apresentados os conceitos básicos dos espaços de Sobolev, suas principais propriedades.
 
 \section{Preliminares}
 
@@ -3003,13 +3003,13 @@ onde
 \begin{dbox}
     O espaço $\cW^{k,p}(\Omega)$ admite norma
     \[
-        \Vert u \Vert_{\cW^{k,p}(\Omega)} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_p^p \right)^{\frac{1}{p}}
+        \Vert u \Vert_{\cW^{k,p}(\Omega)} = \left( \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p \right)^{\frac{1}{p}}
     \]
     para $1 \leqslant p < \infty$ e 
     \[
         \Vert u \Vert_{\cW^{k,p}(\Omega)} 
         % = \sum_{|\alpha| \leqslant k} \esssup\!_\Omega |D^\alpha u| 
-        = \sum_{|\alpha| \leqslant k} \Vert D^{\alpha}u \Vert_\infty
+        = \sum_{|\alpha| \leqslant k} \Vert D^{\alpha}u \Vert_{\cL^\infty(\Omega)}
     \]
     para $p = \infty$.
 \end{dbox}
@@ -3023,7 +3023,14 @@ Além disso dizemos que $(u_n)$ converge para $u$ em $\cW^{k,p}_\loc(\Omega)$ se
 
 Ainda não temos todas as ferramentas necessárias para provar que as normas da definição anterior são de fato normas em $\cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant \infty$. Isso será feito após o Teorema \ref{thm:propiedades-derivada-fraca} sobre as propiedades da derivada fraca necessárias para verificar que $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ satisfaz a definição de norma.
 
-\obs (norma equivalente)
+\obs Essa não é a única forma de definir uma norma em $\cW^{k,p}(\Omega)$, a norma que definimos acima é equivalente, por exemplo a norma
+\[
+    \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}
+\]
+com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\infty}(\Omega)}$ é equivalente a
+\[
+    \max_{|\alpha|\leqslant k} \Vert D^\alpha \Vert_{\cL^\infty(\Omega)}.
+\]
 
 \begin{ex}
     Seja $\Omega = B(\mathbf{0},1) \subseteq \bR^n$ a bola aberta de raio 1 centrada na origem, e considere $u : \Omega \to \bR$ dada por
@@ -3581,7 +3588,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \int_\Omega |\sgn(x)|^p \,dx = \int_{\text{-}1}^1 1^p \,dx = \bigg[ x \bigg]^1_{\text{-}1} = 2 < \infty
     \]
-    Assim $u'\in \cL^p(\Omega)$ e portanto $u \in \cW^{1,p}(\Omega)$ para para $0 \leqslant p < \infty$.
+    Assim $u'\in \cL^p(\Omega)$ e portanto $u \in \cW^{1,p}(\Omega)$ para para $1 \leqslant p < \infty$.
     Vamos utiizar a convolução para encontrar uma aproximação suave de $u$. 
     Seja $\eta : \bR \to \bR$ dada por
     \[
@@ -3758,7 +3765,40 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \] 
 \end{tbox}
 \begin{prf}
-    
+    Primeiramente, temos que
+    \[
+        \Omega = \bigcup_{i=1}^\infty \Omega_i   
+    \]
+    onde $\Omega_i = \{x \in \Omega \,; d(x, \partial\Omega) > \tfrac{1}{i}\}$. Defina $V_i = \Omega_{i+3} \smallsetminus \overline{\Omega_{i+1}}$.
+    Além disso, escolha qualquer aberto $V_0 \Subset \Omega$ de forma que
+    \[
+        \Omega = \bigcup_{i=1}^\infty V_i
+    \]
+    e seja $(\phi_i)_{i=0}^\infty$ uma partição da unidade suave subordinada aos abertos $(V_i)_{i=0}^\infty$, isto é
+    \[
+       0 \leqslant \phi_i \leqslant 1 \text{ com } \phi_i \in \cC^\infty_c(V_i) \;\text{ e }\; \sum_{i=0}^\infty \phi_i = 1 \text{ em } \Omega.
+    \]
+    Agora escolha uma função $u \in \cW^{k,p}(\Omega)$, vimos que
+    \[
+        \phi_i u \in \cW^{k,p}(\Omega) \;\text{ e }\; \supp \phi_i u \subseteq V_i.
+    \]
+    Fixando $\delta > 0$, escolha um $\varepsilon_i > 0$ de forma que $u^i := \eta_{\varepsilon_i} * \phi_i u$ satisfaça
+    \[
+        \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \frac{\delta}{2^{i+1}} \;\text{ e }\; \supp u^i \subseteq W_i
+    \]
+    com $W_i = \Omega_{i+4} \smallsetminus \overline{\Omega_{i}} \supseteq V_i$.
+
+    Seja $v = \sum_{i=1}^\infty u^i$ (\dots ta confuso nas notas\dots).
+    Como $u = u \sum_{i=1}^\infty \phi_i = \sum_{i=1}^n \phi_i u$ para cada $V \Subset \Omega$ temos
+    \[
+        \Vert v - u \Vert_{\cW^{k,p}(V)} \leqslant \sum_{i=1}^\infty \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \sum_{i=1}^\infty \frac{\delta}{2^{i+1}} = \delta.
+    \]
+    Passando o supremo sobre os conjuntos $V \Subset \Omega$ obtemos
+    \[
+        \Vert v - u \Vert_{\cW^{k,p}(\Omega)} < \delta.
+    \]
+    Ou seja, podemos definir para cada $\delta > 0$
+
 \end{prf}
 
 \begin{dbox} \label{def:fronteira-ck}
@@ -3798,8 +3838,8 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     Dessa forma, podemos supor que existe uma bola $B = B(x^0, r)$ tal que
     \[
         \begin{aligned}
-            B^+ &= B \cap \{x_n = 0\} \subseteq \overline\Omega\\
-            B^- &= B \cap \{x_n = 0\} \subseteq \bR^n \smallsetminus \Omega.
+            B^+ &= B \cap \{x_n \geqslant 0\} \subseteq \overline\Omega\\
+            B^- &= B \cap \{x_n \leqslant 0\} \subseteq \bR^n \smallsetminus \Omega.
         \end{aligned}
     \]
     Além disso, suponha inicialmente que $u \in \cC^\infty(\overline\Omega)$ e defina
@@ -3877,7 +3917,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \]
     De fato, para $\bar u (w) = \bar u'(\Phi(w))$, obtemos, utilizando o Teorema de Mudança de Variáveis
     \[
-        \Vert D^\alpha \bar u' \Vert_{\cL^p(B)} \int_B |D^\alpha \bar u'(y)|^p \,dy = \int_B |D^\alpha \bar u (\Psi (y))|^p \,dy = \int_W |D^\alpha \bar u (x)|^p \,dx = \Vert D^\alpha \bar u \Vert_{\cL^p(W)}.
+        \Vert D^\alpha \bar u' \Vert_{\cL^p(B)} = \int_B |D^\alpha \bar u'(y)|^p \,dy = \int_B |D^\alpha \bar u (\Psi (y))|^p \,dy = \int_W |D^\alpha \bar u (x)|^p \,dx = \Vert D^\alpha \bar u \Vert_{\cL^p(W)}.
     \]
     Dessa forma, passando o somatório
     \begin{equation} \label{eq:normaBigualnormaW}
@@ -3935,7 +3975,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \]
     Por fim, utilizando (\ref{eq:desigualdadeWO})
     \[
-        c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(W_i)}^p \leqslant c\Vert \bar u_i \Vert_{\cW^{1,p}(\Omega)}
+         \Vert \bar u \Vert^p_{\cW^{1,p}(\bR^n)} \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(W_i)}^p \leqslant c\Vert \bar u_i \Vert_{\cW^{1,p}(\Omega)}
     \]
     onde $c$ depende de $W_i$, $p$ e $N$.
     Portanto
@@ -3943,14 +3983,16 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
         \Vert \bar u \Vert_{\cW^{1,p}(W)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
     \]
 
-    Defina $\Omega'$ de forma que $\bigcup_{i=0}^N W_i \subseteq \Omega'$ \dots
+    Defina $\Omega'$ de forma que $\bigcup_{i=0}^N W_i \subseteq \Omega'$.
+    Dessa forma $\supp \bar u \in \Omega'$.
     
     Defina $\tilde E: \cC^\infty(\overline\Omega) \to C^\infty(\bR^n)$ dada por $\bar E u = \bar u$.
-    Temos que $\bar E$ é linear e
+    Temos que $\bar E$ é linear,
     \[
         \Vert \bar E u \Vert_{\cW^{1,p}(\bR^n)} = \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
-    Sendo assim definimos $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR^n)$ por
+    e $\supp \bar E u \subseteq \Omega'$
+    Sendo assim definimos $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR^n)$ com $1 \leqslant p < \infty$ por
     \[
         E u = 
         \left\{ 
@@ -3970,6 +4012,21 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \]
     pois $u_k \to u$.
     Portanto $Eu = u$ qtp em $\Omega$, provando o item \textbf{(a)}.
+
+    Para verificar o ítem \textbf{(b)}, basta ver que por definição $\supp \overline{u_k} \subseteq \Omega'$.
+    Dessa forma $\supp Eu \subseteq \Omega'$
+
+    Por fim, para mostrar o item \textbf{(c)}.
+    Note que $E$ é um operador limitado, pois
+    \[
+        \Vert E \Vert = \Vert \bar E \Vert \leqslant c
+    \]
+    Portanto
+    \[
+        \Vert Eu \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+    \]
+
+    Para o caso em que $p = \infty$\dots (continuar)
 \end{prf}
 
 \section{Traços}
@@ -3983,6 +4040,24 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
         \item $\Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{W^{1,p}(\Omega)}$ onde $c$ depende apenas de $p$ e $\Omega$.
     \end{enumerate}
 \end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{tbox}[Funções traço zero em $\cW^{1,p}$]
+    Seja $\Omega$ um aberto limitado com $\partial \Omega$ de classe $\cC^1$ e $u \in \cW^{1,p}(\Omega)$
+    \[
+        u \in \cW_0^{1,p}(\Omega) \iff Tu = 0 \text{ em } \partial \Omega
+    \]
+    onde $\cW_0^{1,p}(\Omega)$ é o fecho de $\cC^{\infty}_c(\Omega)$ em $\cW^{1,p}(\Omega)$.
+\end{tbox}
+\begin{prf}
+    Suponha que $u \in \cW_0^{1,p}(\Omega)$\dots
+
+    Reciprocamente, suponha que $Tu = 0$ em $\partial \Omega$ \dots
+\end{prf}
+
+\section{Desigualdades de Sobolev}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
