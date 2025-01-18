@@ -4052,8 +4052,16 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     onde $\cW_0^{1,p}(\Omega)$ é o fecho de $\cC^{\infty}_c(\Omega)$ em $\cW^{1,p}(\Omega)$.
 \end{tbox}
 \begin{prf}
-    Suponha que $u \in \cW_0^{1,p}(\Omega)$\dots
-
+    Suponha que $u \in \cW_0^{1,p}(\Omega)$. Por definição existe uma sequência de funções $(u_k) \subseteq \cC^{\infty}_c(\Omega)$ tal que
+    \[
+        \Vert u_k - u \Vert_{\cW^{1,p}(\Omega)} \to 0.
+    \]
+    Como $u_k$ tem suporte compacto em $\Omega$ então $u_k$ se anula em $\partial \Omega$ para todo $k \in \bN$. Sendo assim $Tu_k = 0$ em $\partial\Omega$ para todo $k \in \bN$ e $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$ é um operador linear limitado.
+    Portanto
+    \[
+        Tu = T (\lim u_k) = \lim T u_k = 0 \text{ em } \partial\Omega.
+    \]
+    
     Reciprocamente, suponha que $Tu = 0$ em $\partial \Omega$ \dots
 \end{prf}
 
