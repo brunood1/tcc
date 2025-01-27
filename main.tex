@@ -75,6 +75,7 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 \setlength{\parskip}{5pt}
 
 \newcommand{\medcup}{\mathsf{U}}
+\newcommand{\m}{\text{-}}
 
 \newcommand{\bN}{\mathbb{N}}
 \newcommand{\bZ}{\mathbb{Z}}
@@ -3797,7 +3798,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \Vert v - u \Vert_{\cW^{k,p}(\Omega)} < \delta.
     \]
-    Ou seja, podemos definir para cada $\delta > 0$
+    Ou seja, podemos definir para cada $\delta > 0$ \dots
 
 \end{prf}
 
@@ -3826,7 +3827,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
 (introdução)
 
 \begin{tbox}
-    Sejam $\Omega$ um aberto limitado com $\partial\Omega$ de classe $\cC^1$ e um $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$ tal que para cada $u \in \cW^{k,p}(\Omega)$
+    Sejam $\Omega$ um aberto limitado com $\partial\Omega$ de classe $\cC^1$ e um $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$ com $1 \leqslant p < \infty$ tal que para cada $u \in \cW^{k,p}(\Omega)$
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
         \item $Eu = u$ qtp em $\Omega$
         \item $\supp Eu \subseteq \Omega'$
@@ -3854,7 +3855,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \]
     que chamamos de reflexão de ordem superior da função $u$ de $B^+$ a $B^-$.
     Afirmamos que $\bar u \in \cC^1(B)$.
-    Com efeito, denotando $u^- = \bar u \big|_{B^-}$ e $u^+ = \bar u \big|_{B^+}$, podemos ver que
+    Com efeito, denotando $u^- = \bar u \big|_{B^-}$, $u^+ = \bar u \big|_{B^+}$, podemos ver que
     \[
         \dfrac{\partial u^-}{\partial x_n} = \dfrac{\partial u^+}{\partial x_n} \;\text{ em }\; \{x_n = 0\}.
     \]
@@ -3871,7 +3872,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
         u^+ = u^- \;\text{ e }\; \dfrac{\partial u^-}{\partial x_i} = \dfrac{\partial u^+}{\partial x_i}
     \]
     ambos em $\{x_n = 0\}$.
-    Portanto $D^\alpha u^- = D^\alpha u^+$ em $\{x_n = 0\}$ com $|\alpha| \leqslant 1$. Sendo assim, $u \in \cC^1 (B)$.
+    Portanto $D^\alpha u^- = D^\alpha u^+$ em $\{x_n = 0\}$ com $|\alpha| \leqslant 1$. Sendo assim, $\bar u \in \cC^1 (B)$, pois fora de $\{x_n = 0\}$, as componentes de $\bar u$ já eram de classe $\cC^\infty$, então apenas restava verificar que em $B^+ \cap B^- = B \cap \{x_n = 0\}$ as componentes em $B^+$ e $B^-$ se igualavam, implicando a continuidade $\bar u$ e suas derivadas.
 
     Agora, desejamos mostrar que
     \begin{equation} \label{eq:desigualdade-B-Bmais}
@@ -3883,13 +3884,20 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
         \Vert \bar u \Vert_{\cW^{1,p}(B)}^p = \sum_{|\alpha| \leqslant 1} \Vert D^\alpha\bar u \Vert_{\cL^P(B)}^p = \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right].
     \]
     Como $B = B^+ \cup B^-$, e denotando $(x_1,\dots,x_{n-1})$ por $x'$ podemos reescrever o ultimo somatório da seguinte forma
-    {\small
+    % \small{
+    % \[
+    %     \begin{aligned}
+    %         \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] &= \sum_{|\alpha| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + \int_{B^-} |4D^\alpha u(x',-\tfrac{x_n}{2}) - 3D^\alpha u(x',-x_n) |^p \,dx \right]\\
+    %         &\leqslant \sum_{|a| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + 3 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx + 4 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx   \right]
+    %     \end{aligned}
+    % \]}
     \[
-        \begin{aligned}
-            \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] &= \sum_{|\alpha| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + \int_{B^-} |4D^\alpha u(x',-\tfrac{x_n}{2}) - 3D^\alpha u(x',-x_n) |^p \,dx \right]\\
-            &\leqslant \sum_{|a| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + 3 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx + 4 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx   \right]
-        \end{aligned}
-    \]}
+        \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] = \sum_{|\alpha| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + \int_{B^-} |4D^\alpha u(x',-\tfrac{x_n}{2}) - 3D^\alpha u(x',-x_n) |^p \,dx \right]
+    \]
+    que é menor ou igual a
+    \[
+        \sum_{|\alpha| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + 3 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx + 4 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx   \right] 
+    \]
     Porem, $-x_n, -\tfrac{x_n}{2} \geqslant 0$, então podemos considerar que as integrais em $B^-$ são integrais sobre $B^+$. Dito isso, ao menos de uma mudança de variáveis, obtemos
     \[
         \Vert \bar u \Vert_{\cW^{1,p}(B)}^p = \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] \leqslant c\sum_{|\alpha| \leqslant 1} \left[ \int_{B^+}|D^\alpha u|^p \,dx \right] = c \Vert u \Vert_{\cW^{1,p}(B^+)}^p
@@ -4025,8 +4033,6 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \Vert Eu \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
-
-    Para o caso em que $p = \infty$\dots (continuar)
 \end{prf}
 
 \section{Traços}
@@ -4066,6 +4072,158 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
 \end{prf}
 
 \section{Desigualdades de Sobolev}
+
+Nosso objetivo nessa seção é descobrir formas de incorporar espaços de Sobolev em outros espaços ...
+
+\subsection{Desigualdade de Gagliardo-Nirenberg-Sobolev}
+
+Seja $1 \leqslant p < n$.
+Queremos saber se é possível obter uma desigualdade do tipo
+\begin{equation} \label{eq:quase-gns}
+    \Vert u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}
+\end{equation}
+onde $c$ é uma constante positiva, $1 \leqslant q < \infty$ e $u \in \cC^\infty_c(\bR^n)$, de forma que $c$ e $q$ não dependam de $u$.
+
+Primeiramente vamos mostrar que se uma desigualdade do tipo (\ref{eq:quase-gns}) existe, o valor de $q$ não é arbitrário, mas sim admite uma forma especifica.
+Para isso seja $u \in \cC^\infty_c(\bR^n)$ não-nula e $\lambda > 0$.
+Sendo assim, definimos
+\[
+    u_\lambda(x) := u(\lambda x).
+\]
+Aplicando (\ref{eq:quase-gns}) a $u_\lambda$, obtemos
+\begin{equation} \label{eq:ulgns}
+    \Vert u_\lambda \Vert_{\cL^q(\bR^n)} \leqslant c \Vert Du_\lambda \Vert_{\cL^p(\bR^n)}.
+\end{equation}
+Note que
+\[
+    \Vert u_\lambda^q \Vert_{\cL^q(\bR^n)} = \int_{\bR^n} |u_\lambda|^q \,dx = \int_{\bR^n} |u(\lambda x)|^p \,dx = \frac{1}{\lambda^n} \int_{\bR^n} |u(y)|^q \,dx = \frac{1}{\lambda^n}\Vert u \Vert_{\cL^q(\bR^n)}
+\]
+e
+\[
+    \begin{aligned}
+        \Vert Du_\lambda \Vert_{\cL^p(\bR^n)}^p = \int_{\bR^n} |Du_\lambda|^p \,dx &= \int_{\bR^n} |D(u(\lambda x))|^p \,dx \\
+        &= \int_{\bR^n} |\lambda Du(\lambda x)|^p \,dx = \frac{\lambda^p}{\lambda^n} \int_{\bR^n} |Du(y)|^p \,dy = \frac{\lambda^p}{\lambda^n}\Vert Du \Vert_{\cL^p(\bR^n)}
+    \end{aligned}
+\]
+Utilizando essas igualdades em (\ref{eq:ulgns}), observamos que
+\[
+    \frac{1}{\lambda^{\frac{n}{q}}} \Vert u \Vert_{\cL^q(\bR^n)} \leqslant c \frac{\lambda}{\lambda^{\frac{n}{p}}}\Vert Du \Vert_{\cL^p(\bR^n)}
+\]
+que podemos reescrever como
+\begin{equation}
+    \Vert u \Vert_{\cL^q(\bR^n)} \leqslant c\lambda^{1 - \frac{n}{p}  + \frac{n}{q}}\Vert Du \Vert_{\cL^p(\bR^n)}
+\end{equation}
+Observe que se $1 - \frac{n}{p} + \frac{n}{q} > 0$, obtemos uma contradição quando $\lambda \to 0$, pois isso implicaria em $\Vert u \Vert_{\cL^q(\bR^n)} = 0$,
+que só acontece se $u = 0$ que é uma contradição.
+De forma análoga se $1 - \frac{n}{p} + \frac{n}{q} < 0$ obtemos uma contradição quando $\lambda \to \infty$.
+Sendo assim, para que a igualdade (\ref{eq:quase-gns}) seja válida, precisamos que
+\[
+    1 - \frac{n}{p} + \frac{n}{q} = 0
+\]
+ou seja
+\[
+    q = \frac{np}{n - p}
+\]
+
+Isso motiva a definição abaixo
+\begin{dbox}
+    Se $1 \leqslant p < n$ o expoente conjugado de Sobolev de $p$ é dado por
+    \[
+        p^* = \frac{np}{n - p}
+    \]
+\end{dbox}
+
+Os calculos no início da seção mostram que a desigualdade (\ref{eq:quase-gns}) somente é válida quando $q = p^*$. O resultado abaixo mostra que de fato a desigualdade é veridica
+
+\begin{tbox}[Desigualdade de Gagliardo-Nirenberg-Sobolev] Seja $1 \leqslant p < n$. Então existe uma constante $c$ que depende apenas de $p$ e $n$, tal que
+\begin{equation}
+    \Vert u \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}
+\end{equation}
+para toda função $u \in \cC^1_c(\bR^n)$.
+\end{tbox}
+\begin{prf}
+    Consideremos dois casos
+
+    ($p = 1$)\\
+    Como por hipótese, $u$ tem suporte compacto, temos que
+    \[
+        u(x) = \int_{\m\infty}^{x_i} \dfrac{\partial u}{\partial x_i}(x_1,\dots,y_i,\dots,x_n) \, dy_i
+    \]
+    e daí
+    \[
+        |u(x)| \leqslant \int_{\m\infty}^{x_i} \left|\dfrac{\partial u}{\partial x_i}(x_1,\dots,y_i,\dots,x_n)\right| \, dy_i  \leqslant \int_{\m\infty}^{\infty} \left| Du(x_1,\dots,y_i,\dots,x_n) \right| \,dy_i
+    \]
+    e elevando ambos os lados a $\frac{1}{n-1}$ e passando ao produtório de $i = 1$ até $n$ obtemos
+    \[
+        |u(x)|^{\frac{n}{n-1}} \leqslant \prod_{i=1}^n \left( \int_{\m\infty}^{\infty} |Du(x_1,\dots,y_i,\dots,x_n)| \,dy_i \right)^{\frac{1}{n-1}}.
+    \]
+    Denotando $(x_1,\dots,y_i,\dots,x_n)$ por $X_i$ e  Integrando ambos os lados em relação a $x_1$ de $-\infty$ a $\infty$.
+    \[
+        \begin{aligned}
+            \int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1 &\leqslant \int_{\m\infty}^{\infty} \prod_{i=1}^n \left( \int_{\m\infty}^{\infty} |Du(X_i)| \,dy_i \right)^{\frac{1}{n-1}}  dx_1\\ 
+            &= \int_{\m\infty}^{\infty} \left( \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \right)^{\frac{1}{n-1}}  \prod_{i=2}^n \left(\int_{\m\infty}^{\infty} |Du(X_i)| \, dy_i\right)^{\frac{1}{n-1}} dx_1.
+        \end{aligned}
+    \]
+    Porém, $Du(X_1)$ não depende de $x_1$, então a sua integral é constante em relação a $x_1$ e pode ``sair'' da integral, sendo assim
+    \[
+        \int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1 \leqslant \left( \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \right)^{\frac{1}{n-1}}\int_{\m\infty}^{\infty}   \prod_{i=2}^n \left(\int_{\m\infty}^{\infty} |Du(X_i)| \, dy_i\right)^{\frac{1}{n-1}} dx_1.
+    \]
+    Por fim, utilizando a Desigualdade de Hölder Generalizada e o Teorema de Fubini, a desigualdade se torna
+    \[
+        \int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1 \leqslant \left( \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \right)^{\frac{1}{n-1}}\prod_{i=2}^n \left(\int_{\m\infty}^{\infty}   \int_{\m\infty}^{\infty} |Du(X_i)| \, dx_1dy_i\right)^{\frac{1}{n-1}}.
+    \]
+    Agora integrando a desigualdade acima em relação a $x_2$ de $-\infty$ a $\infty$ obtemos
+    \[
+        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1dx_2 \leqslant \int_{\infty}^{\infty}\!\!\left( \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \right)^{\frac{1}{n-1}}\prod_{i=2}^n \left(\int_{\m\infty}^{\infty} \!\int_{\m\infty}^{\infty} |Du(X_i)| \, dx_1dy_i\right)^{\frac{1}{n-1}} \!dx_2.
+    \]
+    que podemos reescrever da seguinte forma
+    \[
+        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1dx_2 \leqslant \int_{\infty}^{\infty} I_1^{\frac{1}{n-1}}I_2^{\frac{1}{n-1}}\prod_{i=3}^n I_i^{\frac{1}{n-1}} \!dx_2
+    \]
+    onde
+    \[
+        I_1 = \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \text{ e } I_i = \int_{\m\infty}^{\infty} \!\int_{\m\infty}^{\infty} |Du(X_i)| \, dx_1dy_i \quad(i = 2,\dots,n).
+    \]
+    Porem, $I_2$ é constante em relação a $x_2$ então
+    \[
+        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1dx_2 \leqslant I_2^{\frac{1}{n-1}}\int_{\infty}^{\infty} I_1^{\frac{1}{n-1}}\prod_{i=3}^n I_i^{\frac{1}{n-1}} \!dx_2
+    \]
+    Novamente, utilizando a Desigualdade de Hölder Generalizada e o Teorema de Fubini, obtemos
+    \[
+        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{n}{n-1}} \,dx_1dx_2 \leqslant \left( \int_{\m\infty}^{\infty} \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 dx_2 \right)^{\frac{1}{n-1}} \left( \int_{\m\infty}^{\infty} \int_{\m\infty}^{\infty} |Du(X_2)| \,dx_1 dy_2 \right)^{\frac{1}{n-1}} \prod_{i=3}^n \left( \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |Du(X_i)| \,dx_1dx_2dy_i \right)^{\frac{1}{n-1}}
+    \]
+    Indutivamente, repetindo esse processo de integração, temos
+    \[
+        \Vert u \Vert_{\cL^{p^*}(\bR^n)}^{p^*} \int_{\bR^n} |u|^{\frac{n}{n-1}} \, dx \leqslant \prod_{i=1}^n \left( \int_{\m\infty}^{\infty} \cdots \int_{\m\infty}^\infty |Du| dx_1\dots dy_i \dots dx_n \right)^{\frac{1}{n-1}} = \left(\int_{\bR^n} |Du|\,dx\right)^{\frac{n}{n-1}} = \Vert Du \Vert_{\cL^1(\bR^n)}^{p^*}
+    \]
+    Ou seja
+    \begin{equation} \label{eq:desigualdadegnss}
+        \Vert u \Vert_{\cL^{p^*}(\bR^n)} \leqslant\Vert Du \Vert_{\cL^1(\bR^n)}
+    \end{equation}
+    como queriamos mostrar.
+
+    ($1 < p < n$)
+    
+    Considere a função $|u|^\gamma$ com $\gamma > 1$ a ser decidido. Utilizando a desigualdade no caso $p = 1$ temos
+    \[
+        \left( \int_{\bR^n} |u|^{\frac{\gamma n}{n - 1}}  \, dx\right)^{\frac{n-1}{n}} \leqslant \int_{\bR^n} |D(|u|^{\gamma})| \,dx = \gamma \int_{\bR^n} |u|^{\gamma-1} |Du| \,dx
+    \]
+    utilizando a desigualdade de Hölder na ultima integral obtemos
+    \[
+        \left( \int_{\bR^n} |u|^{\frac{\gamma n}{n - 1}}  \, dx\right)^{\frac{n-1}{n}} \leqslant \gamma\left( \int_{\bR^n} |u|^{(\gamma-1)\frac{p}{p-1}} \,dx \right)^{\frac{p-1}{p}} \left( \int_{\bR^n} |Du|^p \,dx \right)^{\frac{1}{p}}.
+    \]
+    Escolhendo $\gamma$ de forma que $\frac{\gamma n}{n - 1} = (\gamma -1)\frac{p}{p-1}$. Isto é
+    \[
+        \gamma = \frac{p(n-1)}{n-p}
+    \]
+    nesse caso, $\frac{\gamma n}{n-1} = p^*$. Sendo assim
+    \[
+        \Vert u \Vert_{\cL^{p^*}(\bR^n)} = \left( \int_{\bR^n} |u|^{p^*} \,dx \right)^{\frac{1}{p^*}} \leqslant c \left( \int_{\bR^n} |Du|^p \,dx\right)^{\frac{1}{p}} = \Vert Du \Vert_{\cL^p(\bR^n)}.
+    \]
+    Finalizando a demonstração
+\end{prf}
+
+\obs (suporte compacto é necessário)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
