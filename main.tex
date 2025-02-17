@@ -4424,20 +4424,19 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
 \begin{prf}
     \dots
 \end{prf}
+
+\textcolor{red}{(definir $\cC^{k,\gamma}(\overline\Omega)$)}
+
 \begin{tbox}
     Sejam $\Omega$ um aberto limitado com fronteira $\partial\Omega$ de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$. 
-    Se $kp > n$, então $u \in \cC^{K,\gamma}(\overline\Omega)$, onde
-    \[
-        K = k - \left\lfloor \frac{n}{p} \right\rfloor - 1
-    \]
-    e
+    Se $kp > n$, então $u \in \cC^{k - l - 1,\gamma}(\overline\Omega)$, onde $l = \left\lfloor \frac{n}{p} \right\rfloor$ e
     \[
         \gamma = \left\lfloor \frac{n}{p} \right\rfloor + 1 - \frac{n}{p}
     \]
-    se ${}^{n\!}/_{\!p}$ não é um inteiro e $\gamma \in (0,1)$ se ${}^{n\!}/_{\!p}$ é um inteiro.
+    se $\frac{n}{p}$ não é um inteiro e $\gamma \in (0,1)$ se $\frac{n}{p}$ é um inteiro.
     Além disso a desigualdade
     \[
-        \Vert u \Vert_{\cC^{K,\gamma}(\overline\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}
+        \Vert u \Vert_{\cC^{k - l - 1,\gamma}(\overline\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}
     \]
     é valida com $c$ dependendo apenas de $k, p, n, \gamma$ e $\Omega$.
 \end{tbox}
@@ -4459,6 +4458,32 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
 \end{dbox}
 
 \obs Se um mergulho satisfaz apenas a primeira propiedade, dizemos que $X$ está continuamente mergulhado em $Y$ e denotamos por $X \hookrightarrow Y$.
+
+\begin{tbox}[Teorema de Compacidade de Rellich-Kondrachov]
+    Seja $\Omega \subseteq \bR^n$ um aberto limitado com $\partial \Omega$ de classe $\cC^1$.
+    Então
+    \[
+        \cW^{1,p}(\Omega) \doublehookrightarrow \cL^q(\Omega)
+    \]
+    com $1 \leqslant p < n$ e $1 \leqslant q < p^*$
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+\chapter{Derivando das equações de Navier-Stokes}
+
+Nesse capítulo visamos derivar as equações de Navier-Stokes partindo do principio de conservação de energia \textcolor{red}{(?)} e ressaltar alguns fatos importantes sobre essas equações e suas soluções.
+
+\chapter{Soluções fracas das equações de Navier-Stokes}
+
+\section{Introdução}
+
+\section{Preliminares}
+
+Alguns resultados que vamos utilizar já foram apresentados em outras partes do texto, então aqui vamos apresentar novos preliminares
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
