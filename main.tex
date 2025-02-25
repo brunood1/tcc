@@ -2685,6 +2685,14 @@ O proximos resultados são uma generalização da \nameref{thm:desigualdade-de-h
     Segue por indução do lema anterior.
 \end{prf}
 
+\chapter{Introdução à análise funcional}
+
+\section{Espaços de Banach}
+
+\subsection{Operadores lineares limitados}
+
+\section{Espaços de Hilbert}
+
 \chapter{Espaços de Sobolev}
 
 Os espaços de Sobolev desempenham um papel fundamental na análise funcional e nas equações diferenciais parciais, oferecendo uma estrutura adequada para o estudo de problemas envolvendo funções que podem não ser diferenciáveis no sentido clássico. Introduzidos como uma extensão dos conceitos de derivada e integrabilidade, esses espaços permitem trabalhar com soluções generalizadas, chamadas de soluções fracas, ampliando o escopo de problemas que podem ser tratados matematicamente. Neste capítulo, serão apresentados os conceitos básicos dos espaços de Sobolev, suas principais propriedades.
@@ -2748,8 +2756,11 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
     \Cite{evans-pde}
 \end{prf}
 
-\begin{tbox}
-    (coordenadas polares) \dots
+\begin{tbox}[Coordenadas Polares em $\bR^n$]
+    Seja $u : B(x_0,r) \subseteq \bR^n \to \bR$ uma função contínua, então
+    \[
+        \int_{B(x_0,s)} f \,dx = \int_0^s\int_{\partial B(x_0,r)} f \,dS dr
+    \]
 \end{tbox}
 
 \section{Motivação}
@@ -3374,10 +3385,11 @@ conhecida como molificador de Friedrich, onde $c > 0$ é uma constante tal que
 \[
     \int_{\bR^n} \eta \,dx = 1
 \]
-De forma geral, uma função molificadora é uma função de classe $\cC^\infty$ com suporte compacto satifazendo. 
-\[
-    \dots
-\]
+De forma geral, uma função molificadora é uma função $\eta$ de classe $\cC^\infty$ com suporte compacto satifazendo. 
+\begin{itemize}
+    \item $\displaystyle \int_{\bR^n} \eta \,dx = 1$
+    \item $\displaystyle \lim_{\varepsilon \to 0} \varepsilon^{-n}\eta(x/\varepsilon) = \delta(x)$ onde $\delta$ é a função delta de Dirac.
+\end{itemize}
 Dada uma função molificadora, para cada $\varepsilon > 0$ definimos
 \begin{equation} \label{eq:eta-epsilon}
     \eta_\varepsilon(x) = \frac{1}{\varepsilon^n} \eta\left( \frac{x}{\varepsilon} \right)
@@ -3800,7 +3812,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \Vert v - u \Vert_{\cW^{k,p}(\Omega)} < \delta.
     \]
-    Ou seja, podemos definir para cada $\delta > 0$ \dots
+    Ou seja, podemos definir para cada $\delta > 0$ \dots (usar o $\delta$ para definir uma sequência, )
 
 \end{prf}
 
@@ -3821,7 +3833,65 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \]
 \end{tbox}
 \begin{prf}
-    
+    Seja $x_0 \in \partial \Omega$, como $\partial \Omega$ é de classe $\cC^1$, existe $r > 0$ e uma função $\gamma : \bR^{n-1} \to \bR$ tal que
+    \[
+        \Omega \cap B[x_0, r] = \{x \in B[x_0, r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}.
+    \]
+    Definimos $V = \Omega \cap B[x_0, r/2]$.
+    Além dissø, definimos para cada $\varepsilon > 0$, $\lambda > 0$ e $x \in V$
+    \[
+        x_\varepsilon = x + \lambda \varepsilon e_n = (x_1,\dots,x_{n-1}, x_n + \lambda\varepsilon).
+    \]
+    Para um $\lambda$ suficientemente grande e $\varepsilon$ suficientemente pequeno, a bola $B_\varepsilon[x_\varepsilon]$ está contída em $\Omega \cap B[x,0,r]$ para todo $x \in V$.
+    De fato, por definição, dado $x \in V$ temos que $x \in \Omega$ e $\Vert x - x_0 \Vert \leqslant r/2$.
+    Note que $x_\varepsilon \in \Omega \cap B[x_0, r]$ para todo $\varepsilon > 0$ suficientemente pequeno e $\lambda > 0$ suficientemente grande.
+    Com efeito, como $x \in V$ em particular $x \in \Omega \cap B[x_0, r]$.
+    Dessa forma, temos que $x_n > \gamma(x_1,\dots,x_{n-1})$, daí
+    \[
+        x^\varepsilon_n = x_n + \lambda \varepsilon > x_n >  \gamma(x_{1},\dots,x_{n-1}).
+    \]
+    Além disso
+    \[
+        \Vert x_\varepsilon - x_0 \Vert = \Vert x + \lambda \varepsilon e_n - x_0 \Vert \leqslant \Vert x - x_0 \Vert + \Vert \lambda \varepsilon e_n  \Vert \leqslant \frac{r}{2} + \lambda\varepsilon < r
+    \]
+    desde que $0 <\varepsilon < \frac{r}{2\lambda}$.
+    Logo $x_\varepsilon \in \Omega \cap B[x_0, r]$ para todo $\varepsilon$ pequeno.
+    Pelo mesmo motivo
+    $B[x_\varepsilon, \varepsilon] \subseteq \Omega \cap B[x_0,r]$.
+
+    Agora, definimos $u_\varepsilon(x) = u(x_\varepsilon)$ para todo $x \in V$ e $v^\varepsilon = \eta_\varepsilon * u_\varepsilon$. Assim, $v^\varepsilon \in \cC^{\infty}(\overline V)$.
+    Afirmamos que
+    \[
+        \Vert v^\varepsilon - u \Vert_{\cW^{k,p}(V)} \to 0
+    \]
+    De fato, seja $\alpha $ um multi-índice com $|\alpha| \leqslant k$, então
+    \[
+        \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \leqslant \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} + \Vert D^\alpha u_\varepsilon - D^\alpha u \Vert_{\cL^p(V)}.
+    \]
+    O segundo termo do lado direito da equação a cima vaí a $0$ quando $\varepsilon \to 0$ pois a translação é contínua na norma $\cL^p$ e
+    \[
+        \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} = \Vert D^\alpha (\eta_\varepsilon * u_\varepsilon) - u_\varepsilon \Vert_{\cL^p(V)} \to 0
+    \]
+    quando $\varepsilon \to 0$. Ou seja
+    \[
+        \Vert v^\varepsilon - u \Vert_{\cW^{k,p}(V)} = \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} + \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \to 0
+    \]
+
+    Agora seja $\delta > 0$, como $\partial \Omega$ é compacto podemos encontrar uma quantidade finita de pontos $x^0_i \in \partial \Omega$, $r_i > 0$, conjuntos $V_i = \Omega \cap B[x^0_i,r_i / 2]$ e funções $v_i$ ($i = 1,\dots, N$) tal que
+    \[
+        \partial\Omega \subseteq \bigcup_{i=1}^N B(x_i^0, r_i/2) \;\text{ e }\; \Vert v_i - u \Vert_{\cW^{k,p}(V_i)}.
+    \]
+    Seja $\{\phi_i\}_{i=0}^N$ uma partição da unidade subordinada aos conjuntos $\{V_i\}_{i=0}^N$ em $\Omega$.
+    Defina
+    \[
+        v = \sum_{i=0}^N \phi_i v_i \in \cC^{\infty}(\overline\Omega)
+    \]
+    Daí
+    \[
+        \Vert D^\alpha v - D^\alpha u \Vert_{\cL^p(\Omega)} \leqslant \sum \Vert D^\alpha (\phi_i v_i) - D^\alpha(\phi_i u) \Vert_{\cL^p} \leqslant \sum \Vert v_i - u \Vert_{\cW^{k,p}(\Omega)} = cN\delta
+    \]
+
+    (finalizar)
 \end{prf}
 
 \section{Extensões}
@@ -4389,7 +4459,7 @@ Para estudar essa próxima classe de desigualdades, precisamos de algumas defini
 
 Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdade de Morrey
 
-\begin{tbox}
+\begin{tbox} \label{thm:holdersobolev1}
     Seja $u \in \cC^1(\bR^n)$ e $n < p \leqslant \infty$. Então
     \[
         \Vert u \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}
@@ -4407,6 +4477,58 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     \]
 \end{dbox}
 
+\begin{tbox}
+    Seja $\Omega$ um aberto limitado com $\partial\Omega$ de classe $\cC^1$.
+    Considere $u \in \cW^{1,p}(\Omega)$ com $n < p \leqslant \infty$.
+    Então $u$ tem uma versão contínua $u^* \in \cC^{0,\gamma}(\overline\Omega)$ com $\gamma = 1 - \frac{n}{p}$ e
+    \[
+        \Vert u^*  \Vert_{\cC^{0,\gamma}(\overline\Omega)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)}
+    \]
+    onde $c$ é um constnte que depende de $n$, $p$ e $\Omega$
+\end{tbox}
+\begin{prf}
+    Utilizando o Teorema \ref{thm:extensao}, podemos considerar a extensão de $u$ $Eu = \bar u$ tal que
+    \[
+        \begin{aligned}
+            &\bar u = u \text{ qtp em } \Omega\\
+            &\bar u \text{ tem suporte compacto}\\
+            &\Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+        \end{aligned}
+    \]
+    Além disso, como $\supp \bar u$ é compcto, temos pelo Teorema \textcolor{red}{(aproximaçõa)} que existem funções $(u_k) \subseteq \cC^\infty_c(\bR^n) \subseteq \cC^1(\bR^n)$ tal que
+    \[
+        \Vert u_k - \bar u \Vert_{\cW^{1,p}(\bR^n)} \to 0.
+    \]
+    Além disso, pelo Teorema \ref{thm:holdersobolev1}
+    \[
+        \Vert u_k -u_l \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u_k - u_l \Vert_{\cW^{1,p}(\bR^n)}.
+    \]
+    Isto nos diz que $(u_k)$ é de Cauchy em $\cC^{0,\gamma}(\bR^n)$, já que $(u_k)$ é convergente em ds $\cW^{1,p}(\bR^n)$.
+    Como $\cC^{0,\gamma}(\bR^n)$ é commpleto \textcolor{red}{verificar}, existe uma função $u^* \in \cC^{0,\gamma}(\bR^n)$ tal que
+    \[
+        \Vert u_k - u^* \Vert_{\cC^{0,\gamma}(\bR^n)} \to 0.
+    \]
+    Note que $u^* = \bar u$ qtp em $\bR^n$ e $u = \bar u$ qtp em $\Omega$.
+    Logo $u = u^*$ qtp em $\Omega$, ou seja $u^*$ é uma versão de $u$.
+    O Teorema \ref{thm:holdersobolev1} também implica em
+    \[
+        \Vert u_k \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u_k \Vert_{\cW^{1,p}(\bR^n)}.
+    \]
+    Isto nos leva a
+    \[
+        \Vert u^* \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)}.
+    \]
+    Por fim
+    \[
+        \Vert u^* \Vert_{\cC^{0,\gamma}(\overline \Omega)} \leqslant \Vert u^* \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+    \]
+    Portanto
+    \[
+        \Vert u^* \Vert_{\cC^{0,\gamma}(\overline\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+    \]
+    como era desejado.
+\end{prf}
+
 \subsection{Desigualdades gerais de Sobolev}
 
 \begin{tbox}
@@ -4422,7 +4544,22 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     é valida, onde $c$ depende apenas de $k, p, n$ e $\Omega$.
 \end{tbox}
 \begin{prf}
-    \dots
+    Como $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant kp < n$ temos que $D^\alpha u \in \cL^p(\Omega)$ para todo multi-índice $\alpha$ com $|\alpha| \leqslant k$.
+    Utilizando a Desigualdade de Gagliardo-Nirenberg-Sobolev obtemos
+    \[
+        \Vert D^\beta u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}
+    \]
+    com $|\beta| = k-1$.
+    Dessa forma $u \in \cW^{k-1,p^*}(\Omega)$.
+    De forma análoga temos que $u \in \cW^{k-2,p^{**}}(\Omega)$ onde
+    \[
+        \frac{1}{p^{**}} = \frac{1}{p^*} - \frac{1}{n} = \frac{1}{p} - \frac{1}{n} - \frac{1}{n} = \frac{1}{p} - \frac{2}{n}.
+    \]
+    Indutivamente, chegamos a $u \in \cW^{0,q}(\Omega) = \cL^q(\Omega)$ com $\frac{1}{q} = \frac{1}{p} - \frac{k}{n}$ e
+    \[
+        \Vert u \Vert_{\cL^q(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}.
+    \]
+    como queriamos mostrar.
 \end{prf}
 
 \textcolor{red}{(definir $\cC^{k,\gamma}(\overline\Omega)$)}
@@ -4475,6 +4612,13 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
 
 Nesse capítulo visamos derivar as equações de Navier-Stokes partindo do principio de conservação de energia \textcolor{red}{(?)} e ressaltar alguns fatos importantes sobre essas equações e suas soluções.
 
+Equação de Navier-Stokes linearizada
+\[
+    \mu \Delta u(x,t) - \dfrac{\partial u}{\partial t}(x,t) - \frac{1}{\rho} \nabla p(x,t)  = X(x,t)
+\]
+\[
+    \nabla u(x,t) = 0
+\]
 \chapter{Soluções fracas das equações de Navier-Stokes}
 
 \section{Introdução}
@@ -4483,25 +4627,18 @@ Nesse capítulo visamos derivar as equações de Navier-Stokes partindo do princ
 
 Alguns resultados que vamos utilizar já foram apresentados em outras partes do texto, então aqui vamos apresentar novos preliminares
 
+\begin{pbox}[Desigualdade de Young para Convoluções]
+    Sejam $f \in \cL^p(\bR^n)$ e $g \in \cL^q(\bR^n)$, então $f * g \in \cL^r$ com $1 + \frac{1}{r} = \frac{1}{p} + \frac{1}{q}$ e
+    \[
+        \Vert f * g \Vert_{\cL^r(\bR^n)} \leqslant \Vert f \Vert_{\cL^p(\bR^n)} \Vert g \Vert_{\cL^q(\bR^n)}.
+    \]
+\end{pbox}
 
+\section{Movimento infinitamente lento}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{center}
-%     \begin{tikzpicture}
-%         \draw[black!30] (-2,0) grid[step=0.5] (2,4);
-
-%         % \draw[thick, ForestGreen] (-1.681,0) -- (-1.60085,0);
-%         % \draw[thick, ForestGreen] (-1.60085,0.5) -- (-1.50518,0.5);
-%         % \draw[thick, ForestGreen] (-1.50518,1) -- (0.44596,1);
-%         % \draw[thick, ForestGreen] (0.44596,0.5) -- (1.31631,0.5);
-%         % \draw[thick, ForestGreen] (1.31631,0) -- (1.87474,0);
-
-
-%         \draw[very thick, ProcessBlue!90!black] plot[domain=-1.683:1.87474, variable=\x, samples=50, smooth] ({\x}, {(-(0.76*\x - 0.65)^4 - (0.76*\x - 0.65)^3 + (0.76*\x - 0.65)^2 - (0.76*\x - 0.65) + 1) * 0.7});
-%     \end{tikzpicture}
-% \end{center}
+\[
+    \tilde u_i(x,t) = \frac{1}{(2\sqrt{\pi})^3} \int_{\bR^3} \frac{e^{-\frac{r}{4\nu t}}}{(\nu t)^{\frac{3}{2}}} u_i(y,0) \,dy
+\]
 
 \nocite{*}
 \printbibliography
