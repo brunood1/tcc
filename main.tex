@@ -87,7 +87,7 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 \newcommand{\bz}{\mathbf{0}}
 
 \newcommand{\cA}{\mathcal{A}}
-\newcommand{\cB}{\mathfrak{B}}
+\newcommand{\cB}{\mathcal{B}}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cL}{\mathcal{L}}
@@ -2687,11 +2687,76 @@ O proximos resultados são uma generalização da \nameref{thm:desigualdade-de-h
 
 \chapter{Introdução à análise funcional}
 
+\textcolor{red}{(introdução)}
+
 \section{Espaços de Banach}
 
-\subsection{Operadores lineares limitados}
+\textcolor{red}{(introdução)}
 
-\section{Espaços de Hilbert}
+\begin{dbox}
+    Seja $X$ um espaço vetorial sobre um corpo $\bK$. Uma função $\Vert \cdot \Vert : X \to \bR$ é dita ser uma norma se satisfaz
+    \begin{itemize}[leftmargin=*]
+        \item $\Vert x \Vert \geqslant 0$ para todo $x \in X$
+        \item $\Vert x \Vert = 0 \iff x = 0$
+        \item $\Vert \lambda x \Vert = |\lambda| \Vert x \Vert$ para todo $x \in X$ e $\lambda \in \bK$
+        \item $\Vert x + y \Vert \leqslant \Vert x \Vert + \Vert y \Vert$ para todo $x,y \in X$
+    \end{itemize}
+\end{dbox}
+
+\textcolor{red}{(definições iniciais)}
+
+\begin{ex}
+    O espaço euclidiano $\bR^n$ munido da norma
+    \[
+        \Vert x \Vert = \sqrt{x_1^2 + \cdots + x_n^2}
+    \]
+    onde $x = (x_1,\dots,x_n)$ é um espaço de Banach
+\end{ex}
+
+\begin{ex}
+    O espaço
+    \[
+        \ell^p \equiv \ell^p(\bR) = \left\{ x = (x_n) \,; \sum_{i=1}^{\infty} |x_i|^p < \infty \right\}
+    \]
+    com $1 \leqslant p < \infty$ munido da norma
+    \[
+        \Vert x \Vert_p = \left( \sum_{i=1}^{\infty} |x_i|^p \right)^{\frac{1}{p}}
+    \]
+    é um espaço de Banach.
+\end{ex}
+
+\begin{ex}
+    O espaço
+    \[
+        \ell^\infty \equiv \ell^\infty(\bR) = \left\{ x = (x_n) \,; \sup_{n \in \bN} |x_n| < \infty \right\}
+    \]
+    munido da norma
+    \[
+        \Vert x \Vert_\infty = \sup_{n \in \bN} |x_n|
+    \]
+    é um espaço de Banach.
+\end{ex}
+
+\begin{ex}
+    O espaço
+    \[
+        \cC([a,b], \bK) = \{f : [a,b] \to \bK \,; f \text{ é contínua}\}
+    \]
+    munido da norma
+    \[
+        \Vert f \Vert_{\max} = \max_{t \in [a,b]} \{|f(t)|\}
+    \]
+    é um espaço de Banach
+\end{ex}
+
+\begin{ex}
+    O espaço $\cC([0,1], \bR)$ munido da métrica
+    \[
+        d(f,g) = \int_0^1 |f(t) - g(t)| \, dt
+    \]
+    não é um espaço completo
+\end{ex}
+
 
 \chapter{Espaços de Sobolev}
 
@@ -4618,26 +4683,6 @@ Equação de Navier-Stokes linearizada
 \]
 \[
     \nabla u(x,t) = 0
-\]
-\chapter{Soluções fracas das equações de Navier-Stokes}
-
-\section{Introdução}
-
-\section{Preliminares}
-
-Alguns resultados que vamos utilizar já foram apresentados em outras partes do texto, então aqui vamos apresentar novos preliminares
-
-\begin{pbox}[Desigualdade de Young para Convoluções]
-    Sejam $f \in \cL^p(\bR^n)$ e $g \in \cL^q(\bR^n)$, então $f * g \in \cL^r$ com $1 + \frac{1}{r} = \frac{1}{p} + \frac{1}{q}$ e
-    \[
-        \Vert f * g \Vert_{\cL^r(\bR^n)} \leqslant \Vert f \Vert_{\cL^p(\bR^n)} \Vert g \Vert_{\cL^q(\bR^n)}.
-    \]
-\end{pbox}
-
-\section{Movimento infinitamente lento}
-
-\[
-    \tilde u_i(x,t) = \frac{1}{(2\sqrt{\pi})^3} \int_{\bR^3} \frac{e^{-\frac{r}{4\nu t}}}{(\nu t)^{\frac{3}{2}}} u_i(y,0) \,dy
 \]
 
 \nocite{*}
