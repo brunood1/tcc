@@ -102,6 +102,8 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 
 \newcommand{\doublehookrightarrow}{\;\substack{\hookrightarrow \\ \hookrightarrow}\;}
 
+\newcommand{\sfrac}[2]{{}^{#1}\!\!/\!_{#2}}
+
 
 \usepackage{csquotes}
 \usepackage[backend=biber, maxbibnames=5, minbibnames=3, sorting=none, url=false, isbn=false, doi=false, defernumbers=true]{biblatex}
@@ -3038,7 +3040,7 @@ Com a definição de derivada fraca estabelecida, podmos definir os espaços de 
     \]
 \end{dbox}
 
-Existem duas formas de definir os espaços de Sobolev $\cW^{k,p}(\Omega)$, indutivamente, e pela derivada fraca, veremos as duas e mostraremos que são equivalentes
+Existem duas formas de definir os espaços de Sobolev $\cW^{k,p}(\Omega)$, indutivamente, e pela derivada fraca.
 
 \begin{dbox}
     Seja $\Omega \subseteq \bR ^n$ um aberto. Definimos o espaço de Sobolev $\cW^{k,p}(\Omega)$ por
@@ -3099,7 +3101,7 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     \[
         x \mapsto |x|^{-\alpha}.
     \]
-    Para quais valores de $\alpha > 0$, $n$ e $p$, $u \in \cW^{1,p}(\Omega)$.
+    Queremos verificar para quais valores de $\alpha > 0$, $n$ e $p$, $u \in \cW^{1,p}(\Omega)$.
     Primeiramente, note que $u$ é suave fora de $\mathbf{0}$ com
     \[
         \dfrac{\partial u}{\partial x_i} = \frac{-\alpha x_i}{|x|^{\alpha + 2}} \quad (x \neq \mathbf{0}),
@@ -3147,7 +3149,7 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     \]
     onde essa ultima integral pode ser calculada por meio de coordenadas polares de forma análoga ao que foi feito anteriormente, resultando em
     \[
-        \left| \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS \right| \leqslant C \varepsilon^{n-1-\alpha} \overset{\varepsilon \to 0}{\longrightarrow} 0.
+        \left| \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS \right| \leqslant c \varepsilon^{n-1-\alpha} \overset{\varepsilon \to 0}{\longrightarrow} 0.
     \]
     Portanto
     \[
@@ -3309,7 +3311,7 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     como queriamos mostrar.
 \end{prf}
 
-Com os resultados obtidos, é possível verificar que os espaços de Sobolev $W^{k,p}(\Omega)$ formam um espaço de Banach.
+Com os resultados obtidos, agora é possível verificar que os espaços de Sobolev $W^{k,p}(\Omega)$ são espaços de Banach.
 
 \begin{tbox}
     $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$ com $1 \leqslant p \leqslant \infty$ é um espaço vetorial normado.
@@ -3387,7 +3389,7 @@ Com os resultados obtidos, é possível verificar que os espaços de Sobolev $W^
     \[
         D^\alpha u = u_\alpha.
     \]
-    Com efeito, pelo \nameref{thm:teorema-da-convergencia-dominada} (e o teorema no livro do Brezis, ver pág e número) e utlizando a definição de derivada fraca, obtemos
+    Com efeito, pelo \nameref{thm:teorema-da-convergencia-dominada} \textcolor{red}{(e o teorema no livro do Brezis, ver pág e número)} e utlizando a definição de derivada fraca, obtemos
     \[
         \begin{aligned}
             \int_\Omega u D^\alpha \phi \, dx 
@@ -3417,7 +3419,7 @@ Com os resultados obtidos, é possível verificar que os espaços de Sobolev $W^
 
 \section{Aproximações}
 
-Não é ideal ficar voltando o tempo todo à definição de derivadas fracas. Para explorar as propriedades mais profundas dos espaços de Sobolev, precisamos de métodos sistemáticos para aproximar funções nesses espaços por funções mais suaves. A técnica de molificação, que envolve a convolução de uma função com uma molificadora suave e com suporte compacto, oferece essa ferramenta. Esse processo resulta em uma sequência de funções suaves que convergem para a função original nas normas de Sobolev, permitindo a aproximação de funções com regularidade fraca por funções suaves. As molificadoras são essenciais na teoria dos espaços de Sobolev, possibilitando o estudo de soluções fracas para equações diferenciais parciais e estabelecendo resultados importantes de densidade.
+Não é ideal ficar voltando o tempo todo à definição de derivadas fracas. Para explorar as propriedades mais profundas dos espaços de Sobolev, precisamos de métodos sistemáticos para aproximar funções nesses espaços por funções suaves. A técnica de molificação, que envolve a convolução de uma função com uma função conhecida como função molificadora que é suave e tem suporte compacto, oferece essa ferramenta. Esse processo resulta em uma sequência de funções suaves que convergem para a função original no espaço de Sobolev, permitindo a aproximação de funções sem derivada bem definida por funções suaves. As funções molificadoras são essenciais na teoria dos espaços de Sobolev, possibilitando o estudo de soluções fracas para equações diferenciais parciais e estabelecendo resultados importantes de densidade.
 
 Um exemplo de função molificadora é
 \begin{equation} \label{eq:molificador-friedrich}
@@ -3434,7 +3436,7 @@ conhecida como molificador de Friedrich, onde $c > 0$ é uma constante tal que
     \int_{\bR^n} \eta \,dx = 1
 \]
 De forma geral, uma função molificadora é uma função $\eta$ de classe $\cC^\infty$ com suporte compacto satifazendo. 
-\begin{itemize}
+\begin{itemize}[leftmargin=*, label=\textbf{--}]
     \item $\displaystyle \int_{\bR^n} \eta \,dx = 1$
     \item $\displaystyle \lim_{\varepsilon \to 0} \varepsilon^{-n}\eta(x/\varepsilon) = \delta(x)$ onde $\delta$ é a função delta de Dirac.
 \end{itemize}
@@ -3453,7 +3455,7 @@ Essa função será utilizada para realizar as convoluções que aproximam as fu
 
 O primeiro teorema que vamos estudar demonstra algumas propiedades importantes sobre essas aproximações.
 
-\begin{tbox}[Aproximação local por funções suaves]
+\begin{tbox}[Aproximação local por funções suaves] \label{thm:aprox1}
     Seja $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$ e defina
     \[
         u^{\varepsilon} = \eta_{\varepsilon} * u \;\text{ em } \Omega_\varepsilon
@@ -3563,7 +3565,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
         D^\alpha u^\varepsilon = \eta_\varepsilon * D^\alpha u.
     \]
 
-    Além disso, afirmamos que dados abertos $V, W$ tais que $V \Subset W \Subset \Omega$, uma função $v \in \cL^P_\loc(\Omega)$ e $\varepsilon > 0$ suficientemente pequeno
+    Além disso, afirmamos que dados abertos $V, W$ tais que $V \Subset W \Subset \Omega$, uma função $v \in \cL^p_\loc(\Omega)$ e $\varepsilon > 0$ suficientemente pequeno
     \[
         \Vert v^\varepsilon \Vert_{\cL^p(V)} \leqslant \Vert v \Vert_{\cL^p(W)}.
     \]
@@ -3575,9 +3577,9 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \int_{B[x,\varepsilon]} \left| \eta_\varepsilon^{1-\frac{1}{p}}(x-y) \eta_\varepsilon^{\frac{1}{p}}(x-y) v(y) \right|dy \leqslant \left( \int_{B[x,\varepsilon]} \eta_\varepsilon (x-y) \,dy\right)^{\!1-\frac{1}{p}} \left( \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)|^p \right)^{\frac{1}{p}}
     \]
-    Como $\int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dy = 1$ e utilizando o Teorema de Fubini, segue que
+    Como $\displaystyle\int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dy = 1$ e utilizando o Teorema de Fubini, segue que
     \[
-        \int_V |v^\varepsilon(x)|^p \,dx = \int_V \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)| \,dy \,dx \leqslant \int_W |v(y)|^p \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dx \,dy.
+        \int_V |v^\varepsilon(x)|^p \,dx = \int_V \int_{B(x,\varepsilon)} \eta_\varepsilon(x-y) |v(y)|^p \,dy \,dx \leqslant \int_W |v(y)|^p \int_{B(y,\varepsilon)} \eta_\varepsilon(x-y) \,dx \,dy.
     \]
     Isto é
     \[
@@ -3596,9 +3598,10 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     Temos
     \[
         \begin{aligned}
-            \Vert D^\alpha u^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} &\leqslant \Vert D^\alpha u^\varepsilon - w^\varepsilon \Vert_{\cL^p(V)} + \Vert w^\varepsilon - w \Vert_{\cL^p(V)} + \Vert w - D^\alpha u \Vert_{\cL^p(V)}\\
-            &\leqslant \Vert D^\alpha u - w \Vert_{\cL^p(W)} + \Vert w^\varepsilon - w \Vert_{\cL^p(V)} + \Vert w - D^\alpha u \Vert_{\cL^p(W)}\\
-            &\leqslant 2 \Vert D^\alpha u - w \Vert_{\cL^p(W)} + \Vert w^\varepsilon - w \Vert_{\cL^p(V)}\\
+            \Vert D^\alpha u^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} 
+            % &\leqslant \Vert D^\alpha u^\varepsilon - w^\varepsilon \Vert_{\cL^p(V)} + \Vert w^\varepsilon - w \Vert_{\cL^p(V)} + \Vert w - D^\alpha u \Vert_{\cL^p(V)}\\
+            % &\leqslant \Vert D^\alpha u - w \Vert_{\cL^p(W)} + \Vert w^\varepsilon - w \Vert_{\cL^p(V)} + \Vert w - D^\alpha u \Vert_{\cL^p(W)}\\
+            % &\leqslant 2 \Vert D^\alpha u - w \Vert_{\cL^p(W)} + \Vert w^\varepsilon - w \Vert_{\cL^p(V)}\\
             &\leqslant 2\delta + \Vert w^\varepsilon - w \Vert_{\cL^p(V)}
         \end{aligned}
     \]
@@ -3624,7 +3627,8 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \int_\Omega u \phi'\,dx = \bigg[ x\phi \bigg]_{\text{-}1}^0 - \int_{\text{-}1}^0 \phi \,dx + \bigg[ -x \phi \bigg]_0^1 - \int_0^1 -\phi \,dx.
     \]
-    Como $\phi$ tem suporte compacto em $\Omega$, então
+    Porém
+    % Como $\phi$ tem suporte compacto em $\Omega$, então
     \[
        \bigg[ x\phi \bigg]_{\text{-}1}^0 + \bigg[ -x \phi \bigg]_0^1 = 0
     \]
@@ -3717,8 +3721,6 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \end{figure}
 \end{ex}
 
-\obs (converge para a função delta de Dirac)
-
 \begin{ex}
     Seja $\Omega = (-1,1) \times (-1,1) \subseteq \bR^2$. A função $u : \Omega \to \bR$ dada por
     \[
@@ -3793,9 +3795,9 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
             \end{array}
         \right.
     \]
-    (ver Figura \ref{fig:eta-R2}) e $\eta_\varepsilon$ da mesma forma que foi feita no exemplo anterior. Novamente utilizaremos a convolução para encontrar uma aproximação suave para $u$.
+    (ver Figura \ref{fig:eta-R2}) e $\eta_\varepsilon$ da mesma forma que foi feita no exemplo anterior. Novamente utilizaremos a convolução para encontrar uma aproximação suave para $u$, dada por
     \[
-        u^{\varepsilon}(x_1,x_2) = \int_\Omega \eta(x_1,x_2) u(x_1 - y_1, x_2 - y_2) \,dy
+        u^{\varepsilon}(x_1,x_2) = \int_\Omega \eta(x_1,x_2) u(x_1 - y_1, x_2 - y_2) \,dy.
     \]
 
     Utilizando um metodo numérico para integrais duplas, podemos encontrar uma solução aproximada para $u^\varepsilon$.
@@ -3832,83 +3834,82 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \Omega = \bigcup_{i=1}^\infty \Omega_i   
     \]
-    onde $\Omega_i = \{x \in \Omega \,; d(x, \partial\Omega) > \tfrac{1}{i}\}$. Defina $V_i = \Omega_{i+3} \smallsetminus \overline{\Omega_{i+1}}$.
-    Além disso, escolha qualquer aberto $V_0 \Subset \Omega$ de forma que
+    onde $\Omega_i = \{x \in \Omega \,; d(x, \partial\Omega) > \tfrac{1}{i}\}$. Defina $\Omega'_i = \Omega_{i+3} \smallsetminus \overline{\Omega_{i+1}}$.
+    Além disso, escolha qualquer aberto $\Omega'_0 \Subset \Omega$ de forma que
     \[
-        \Omega = \bigcup_{i=1}^\infty V_i
+        \Omega = \bigcup_{i=0}^\infty \Omega'_i
     \]
-    e seja $(\phi_i)_{i=0}^\infty$ uma partição da unidade suave subordinada aos abertos $(V_i)_{i=0}^\infty$, isto é
+    e seja $(\phi_i)_{i=0}^\infty$ uma partição da unidade suave subordinada aos abertos $(\Omega'_i)_{i=0}^\infty$, isto é
     \[
-       0 \leqslant \phi_i \leqslant 1 \text{ com } \phi_i \in \cC^\infty_c(V_i) \;\text{ e }\; \sum_{i=0}^\infty \phi_i = 1 \text{ em } \Omega.
+       0 \leqslant \phi_i \leqslant 1 \text{ com } \phi_i \in \cC^\infty_c(\Omega'_i) \;\text{ e }\; \sum_{i=0}^\infty \phi_i = 1 \text{ em } \Omega.
     \]
     Agora escolha uma função $u \in \cW^{k,p}(\Omega)$, vimos que
     \[
-        \phi_i u \in \cW^{k,p}(\Omega) \;\text{ e }\; \supp \phi_i u \subseteq V_i.
+        \phi_i u \in \cW^{k,p}(\Omega) \;\text{ e }\; \supp \phi_i u \subseteq \Omega'_i.
     \]
-    Fixando $\delta > 0$, escolha um $\varepsilon_i > 0$ de forma que $u^i := \eta_{\varepsilon_i} * \phi_i u$ satisfaça
+    Fixando $\delta > 0$, escolha um $\varepsilon_i > 0$ de forma que $u^i := \eta_{\varepsilon_i} * \phi_i u \in \cC^{\infty}(\Omega)$ satisfaça
     \[
-        \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \frac{\delta}{2^{i+1}} \;\text{ e }\; \supp u^i \subseteq W_i
+        \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \frac{\delta}{2^{i+1}} \;\text{ e }\; \supp u^i \subseteq \Omega''_i
     \]
-    com $W_i = \Omega_{i+4} \smallsetminus \overline{\Omega_{i}} \supseteq V_i$.
+    com $\Omega''_i = \Omega_{i+4} \smallsetminus \overline{\Omega_{i}} \supseteq \Omega'_i$.
 
-    Seja $v = \sum_{i=1}^\infty u^i$ (\dots ta confuso nas notas\dots).
-    Como $u = u \sum_{i=1}^\infty \phi_i = \sum_{i=1}^n \phi_i u$ para cada $V \Subset \Omega$ temos
+    Seja $v = \sum_{i=1}^\infty u^i \in \cC^{\infty}(\Omega) \cap \cW^{k,p}(\Omega)$.
+    Como $u = u \sum_{i=1}^\infty \phi_i = \sum_{i=1}^n \phi_i u$ para cada $\Omega' \Subset \Omega$ temos
     \[
         \Vert v - u \Vert_{\cW^{k,p}(V)} \leqslant \sum_{i=1}^\infty \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \sum_{i=1}^\infty \frac{\delta}{2^{i+1}} = \delta.
     \]
-    Passando o supremo sobre os conjuntos $V \Subset \Omega$ obtemos
+    Passando o supremo sobre os conjuntos $\Omega' \Subset \Omega$ obtemos
     \[
         \Vert v - u \Vert_{\cW^{k,p}(\Omega)} < \delta.
     \]
-    Ou seja, podemos definir para cada $\delta > 0$ \dots (usar o $\delta$ para definir uma sequência, )
-
+    Isto mostra que $u$ pertence ao fecho de $\cC^\infty(\Omega) \cap \cW^{k,p}(\Omega)$ em $\cW^{k,p}(\Omega)$. Logo é equivalente dizer que existe uma sequência $(u_n) \subseteq \cC^\infty(\Omega) \cap \cW^{k,p}(\Omega)$ tal que $u_n \to u$ em $\cW^{k,p}(\Omega)$
 \end{prf}
 
 \begin{dbox} \label{def:fronteira-ck}
     Seja $\Omega \subseteq \bR^n$ um aberto limitado. 
-    Dizemos que $\partial \Omega$ é de classe $\cC^k$ se para cada ponto $x_0 \in \partial \Omega$ existe $r > 0$ e uma função de classe $\cC^k$ $\gamma : \bR^{n-1} \to \bR$ tal que, fazendo uma mudança de coordenadas se necessário, obtemos
+    Dizemos que $\partial \Omega$ é de classe $\cC^k$ se para cada ponto $\tilde x \in \partial \Omega$ existe um raio $r > 0$ e uma função de classe $\cC^k$ $\gamma : \bR^{n-1} \to \bR$ tal que, fazendo uma mudança de coordenadas se necessário, obtemos
     \[
-        \Omega \cap B[x_0,r] = \{x \in B[x_0,r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}
+        \Omega \cap B_r[\tilde x] = \{x \in B_r[\tilde x] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}
     \]
     De forma análoga, $\partial\Omega$ é de classe $\cC^\infty$ se é de classe $\cC^k$ para todo $k \in \bN$.
 \end{dbox}
 
 \begin{tbox}
-    Sejam $\Omega$ um aberto limitado com $\partial \Omega$ de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
+    Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
     Então existem funções $u_n \in \cC^\infty(\overline\Omega)$ tais que
     \[
         u_n \to u \;\text{ em } \cW^{k,p}(\Omega).
     \]
 \end{tbox}
 \begin{prf}
-    Seja $x_0 \in \partial \Omega$, como $\partial \Omega$ é de classe $\cC^1$, existe $r > 0$ e uma função $\gamma : \bR^{n-1} \to \bR$ tal que
+    Seja $\tilde x \in \partial \Omega$, como $\Omega$ tem fronteira de classe $\cC^1$, existe um raio $r > 0$ e uma função $\gamma : \bR^{n-1} \to \bR$ tal que
     \[
-        \Omega \cap B[x_0, r] = \{x \in B[x_0, r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}.
+        \Omega \cap B[\tilde x, r] = \{x \in B[\tilde x, r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}.
     \]
-    Definimos $V = \Omega \cap B[x_0, r/2]$.
-    Além dissø, definimos para cada $\varepsilon > 0$, $\lambda > 0$ e $x \in V$
+    Definimos $\Omega' = \Omega \cap B[\tilde x, \sfrac{r}{2}]$.
+    Além disso, definimos para cada $\varepsilon > 0$, $\lambda > 0$ e $x \in \Omega'$
     \[
-        x_\varepsilon = x + \lambda \varepsilon e_n = (x_1,\dots,x_{n-1}, x_n + \lambda\varepsilon).
+        x^\varepsilon = x + \lambda \varepsilon e_n = (x_1,\dots,x_{n-1}, x_n + \lambda\varepsilon).
     \]
-    Para um $\lambda$ suficientemente grande e $\varepsilon$ suficientemente pequeno, a bola $B_\varepsilon[x_\varepsilon]$ está contída em $\Omega \cap B[x,0,r]$ para todo $x \in V$.
-    De fato, por definição, dado $x \in V$ temos que $x \in \Omega$ e $\Vert x - x_0 \Vert \leqslant r/2$.
-    Note que $x_\varepsilon \in \Omega \cap B[x_0, r]$ para todo $\varepsilon > 0$ suficientemente pequeno e $\lambda > 0$ suficientemente grande.
-    Com efeito, como $x \in V$ em particular $x \in \Omega \cap B[x_0, r]$.
-    Dessa forma, temos que $x_n > \gamma(x_1,\dots,x_{n-1})$, daí
+    Observe que, para um $\lambda > 0$ suficientemente grande e $\varepsilon > 0$ suficientemente pequeno, a bola $B_\varepsilon[x^\varepsilon]$ está contída em $\Omega \cap B[x,0,r]$ para todo $x \in V$.
+    De fato, por definição, dado $x \in \Omega'$ temos que $x \in \Omega$ e $\Vert x - \tilde x \Vert \leqslant \sfrac{r}{2}$.
+    Note que $x^\varepsilon \in \Omega \cap B[\tilde x, r]$ para todo $\varepsilon > 0$ suficientemente pequeno e $\lambda > 0$ suficientemente grande.
+    Com efeito, como $x \in \Omega'$, em particular $x \in \Omega \cap B[\tilde x, r]$.
+    Como $\Omega$ tem fronteira de classe $\cC^1$, temos que $x_n > \gamma(x_1,\dots,x_{n-1})$, daí
     \[
         x^\varepsilon_n = x_n + \lambda \varepsilon > x_n >  \gamma(x_{1},\dots,x_{n-1}).
     \]
     Além disso
     \[
-        \Vert x_\varepsilon - x_0 \Vert = \Vert x + \lambda \varepsilon e_n - x_0 \Vert \leqslant \Vert x - x_0 \Vert + \Vert \lambda \varepsilon e_n  \Vert \leqslant \frac{r}{2} + \lambda\varepsilon < r
+        \Vert x^\varepsilon - \tilde x \Vert = \Vert x + \lambda \varepsilon e_n - \tilde x \Vert \leqslant \Vert x - \tilde x \Vert + \Vert \lambda \varepsilon e_n  \Vert \leqslant \frac{r}{2} + \lambda\varepsilon < r
     \]
-    desde que $0 <\varepsilon < \frac{r}{2\lambda}$.
-    Logo $x_\varepsilon \in \Omega \cap B[x_0, r]$ para todo $\varepsilon$ pequeno.
-    Pelo mesmo motivo
-    $B[x_\varepsilon, \varepsilon] \subseteq \Omega \cap B[x_0,r]$.
+    desde que $0 <\varepsilon < \sfrac{r}{2\lambda}$.
+    Logo $x^\varepsilon \in \Omega \cap B[\tilde x, r]$ para todo $\varepsilon > 0$ pequeno.
+    De forma análoga, verificamos que
+    $B[x_\varepsilon, \varepsilon] \subseteq \Omega \cap B[\tilde x,r]$.
 
-    Agora, definimos $u_\varepsilon(x) = u(x_\varepsilon)$ para todo $x \in V$ e $v^\varepsilon = \eta_\varepsilon * u_\varepsilon$. Assim, $v^\varepsilon \in \cC^{\infty}(\overline V)$.
-    Afirmamos que
+    Agora, definimos $u_\varepsilon(x) = u(x^\varepsilon)$ para todo $x \in \Omega'$ e $v^\varepsilon = \eta_\varepsilon * u_\varepsilon$. Assim, pelo Teorema \ref{thm:aprox1} $v^\varepsilon \in \cC^{\infty}(\overline{\Omega'})$. 
+    Dito isso, afirmamos que
     \[
         \Vert v^\varepsilon - u \Vert_{\cW^{k,p}(V)} \to 0
     \]
@@ -3916,30 +3917,40 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \leqslant \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} + \Vert D^\alpha u_\varepsilon - D^\alpha u \Vert_{\cL^p(V)}.
     \]
-    O segundo termo do lado direito da equação a cima vaí a $0$ quando $\varepsilon \to 0$ pois a translação é contínua na norma $\cL^p$ e
+    O segundo termo do lado direito da equação a cima vaí a $0$ quando $\varepsilon \to 0$ pois a translação é contínua na norma do espaço $\cL^p$ e
     \[
         \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} = \Vert D^\alpha (\eta_\varepsilon * u_\varepsilon) - u_\varepsilon \Vert_{\cL^p(V)} \to 0
     \]
     quando $\varepsilon \to 0$. Ou seja
     \[
-        \Vert v^\varepsilon - u \Vert_{\cW^{k,p}(V)} = \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} + \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \to 0
+        \begin{aligned}
+            \Vert v^\varepsilon - u \Vert_{\cW^{k,p}(V)} &= \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \\
+            &\leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} + \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \to 0
+        \end{aligned}
     \]
 
-    Agora seja $\delta > 0$, como $\partial \Omega$ é compacto podemos encontrar uma quantidade finita de pontos $x^0_i \in \partial \Omega$, $r_i > 0$, conjuntos $V_i = \Omega \cap B[x^0_i,r_i / 2]$ e funções $v_i$ ($i = 1,\dots, N$) tal que
+    Note que todos os cálculos form feitos em uma vizinhança de um ponto $\tilde x \in \partial\Omega$. Dito isso, considere $\delta > 0$, como $\partial \Omega$ é compacto, pelo Teorema de Heine-Borel, podemos encontrar uma quantidade finita de pontos $\tilde x_i \in \partial \Omega$, raios $r_i > 0$, conjuntos $\Omega'_i = \Omega \cap B[\tilde x_i,\sfrac{r_i}{2}]$ e funções $v_i^\varepsilon$ com $i = 1,\dots,N$ tal que $\Vert v_i - u \Vert_{\cW^{k,p}(\Omega'_i)} \to 0$ e 
     \[
-        \partial\Omega \subseteq \bigcup_{i=1}^N B(x_i^0, r_i/2) \;\text{ e }\; \Vert v_i - u \Vert_{\cW^{k,p}(V_i)}.
+        \partial\Omega \subseteq \bigcup_{i=1}^N B(\tilde x_i, \sfrac{r_i}{2}).
     \]
-    Seja $\{\phi_i\}_{i=0}^N$ uma partição da unidade subordinada aos conjuntos $\{V_i\}_{i=0}^N$ em $\Omega$.
+    Além disso, considere um aberto $\Omega'_0$ da forma $\Omega \cap B(\tilde \tilde x, \sfrac{r_0}{2})$ e uma função $v^\varepsilon_0$ com $\Vert v^\varepsilon_0 - u \Vert_{\cW^{k,p}(\Omega'_0)} \to 0$ e
+    \[
+        \Omega \subseteq \bigcup_{i=0}^N \Omega'_i
+    \]
+    Seja $\{\phi_i\}_{i=0}^N$ uma partição da unidade subordinada aos conjuntos $\{\Omega'_i\}_{i=0}^N$ em $\Omega$.
     Defina
     \[
-        v = \sum_{i=0}^N \phi_i v_i \in \cC^{\infty}(\overline\Omega)
+        v^\varepsilon = \sum_{i=0}^N \phi_i v_i^\varepsilon \in \cC^{\infty}(\overline\Omega)
     \]
     Daí
     \[
-        \Vert D^\alpha v - D^\alpha u \Vert_{\cL^p(\Omega)} \leqslant \sum \Vert D^\alpha (\phi_i v_i) - D^\alpha(\phi_i u) \Vert_{\cL^p} \leqslant \sum \Vert v_i - u \Vert_{\cW^{k,p}(\Omega)} = cN\delta
+        \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(\Omega)} \leqslant \sum_{i=0}^N \Vert D^\alpha (\phi_i v_i^\varepsilon) - D^\alpha(\phi_i u) \Vert_{\cL^p(\Omega)} \leqslant \sum_{i=0}^N \Vert v_i^\varepsilon - u \Vert_{\cW^{k,p}(\Omega)} = cN\delta
     \]
-
-    (finalizar)
+    Por fim, definindo $u_n := v^{\frac{1}{n}}$ temos que
+    \[
+        \Vert u_n - u \Vert_{\cW^{k,p}(\Omega)} \to 0
+    \]
+    como era desejado.
 \end{prf}
 
 \section{Extensões}
