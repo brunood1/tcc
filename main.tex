@@ -2827,29 +2827,61 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
         \int_{B(x_0,s)} f \,dx = \int_0^s\int_{\partial B(x_0,r)} f \,dS dr
     \]
 \end{tbox}
+\begin{prf}
+    \cite{evans-pde}
+\end{prf}
 
 \section{Motivação}
 
-\section{Espaços de Sobolev $\cW^{1,p}(I)$}
+\section{Espaços de Sobolev $\cW^{k,p}(\Omega)$}
 
-\begin{dbox}
-    Sejam $I$ um intervalo aberto, possívelmente ilimitado e $u,v \in \cL^1_{\mathrm{loc}}(I)$.
-    Dizemos que $v$ é a derivada fraca de $u$, se
+Nosso objetivo agora, é generalizar a noção de derivada para funções que não são diferenciáveis em um aberto $\Omega$ do $\bR^n$ e explorar algumas propriedades elementares.
+
+Seja $u \in \cC^1(\Omega)$, então se $\phi \in \cC^\infty_c(\Omega)$, utilizando integração por partes em $\bR^n$ temos que
+\[
+    \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \,dx = \int_{\partial\Omega} u\phi \nu_i \, dS- \int_\Omega \phi \dfrac{\partial u}{\partial x_i} \,dx. \qquad (i = 1,\dots,n)
+\]
+Como $\phi$ tem suporte compacto e $\Omega$ é um aberto, segue que $\phi$ se anula em $\partial\Omega$, como mostrado abaixo da definição de suporte. Portanto a expressão acima se torna
+\begin{equation} \label{eq:derivada-fraca-xi}
+    \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \,dx = - \int_\Omega \phi \dfrac{\partial u}{\partial x_i} \,dx. \qquad (i = 1,\dots,n)
+\end{equation}
+Além disso, se $u$ for de classe $\cC^k$ em $\Omega$ com $k \in \bN$ e $\alpha = (\alpha_1,\dots,\alpha_n)$ um multi-índice de ordem $|\alpha| = \alpha_1 + \cdots + \alpha_n = k$, então
+\begin{equation} \label{eq:derivada-fraca-dalpha}
+    \int_\Omega u D^\alpha \phi = (-1)^{|\alpha|} \int_\Omega D^\alpha u \phi.
+\end{equation}
+Essa expressão é válida, já que
+\[
+    D^\alpha \phi = \dfrac{\partial^{\alpha_1} }{\partial x_1^{\alpha_1}} \cdots \dfrac{\partial^{\alpha_n} }{\partial x_n^{\alpha_n}} = \dfrac{\partial^{|\alpha|} }{\partial x_1^{\alpha_1} \cdots \partial x_n^{\alpha_n}}
+\]
+e podemos aplicar (\ref{eq:derivada-fraca-xi}) $|\alpha|$ vezes.
+
+Queremos descobrir se existe uma classe de funções tal que (\ref{eq:derivada-fraca-dalpha}) ainda é válida, mesmo se $u$ não for de classe $\cC ^k$. Note que o lado esquerdo de (\ref{eq:derivada-fraca-xi}) está bem definido se $u \in \cL^1_{\mathrm{loc}}(\Omega)$.
+O problema é que se $u$ não é necessáriamente uma função de classe $\cC^k$ então o lado direito de (\ref{eq:derivada-fraca-xi}) não está bem definido. Para resolver isso perguntamos se existe uma função $v \in \cL^1_{\mathrm{loc}}(\Omega)$ tal que (\ref{eq:derivada-fraca-xi}) é válida quando substituimos $D^\alpha u$ por $v$.
+
+Essa pergunta motiva a definição abaixo.
+
+\begin{dbox}[Derivada fraca em $\Omega$]
+    Sejam $u,v \in \cL^1_{\mathrm{loc}}(\Omega)$ e $\alpha$ um multi-índice. Dizemos que $v$ é a $\alpha$-ésima derivada parcial fraca de $u$, denotada por
     \[
-        \int_I u \phi' \, dx = -\int_I v \phi\,dx   
+        D^\alpha u = v
     \]
-    para todo $\phi \in \cC^\infty_c(I)$.
+    dado que
+    \begin{equation} \label{eq:derivada-fraca}
+        \int_\Omega u D^\alpha \phi \,dx = (-1)^{|\alpha|} \int_\Omega D^\alpha u \phi \,dx.
+    \end{equation}
+    para toda função de teste $\phi \in \cC ^\infty_c(\Omega)$
 \end{dbox}
 
-Denotamos $u' = v$ e diremos $v$ é a derivada de $u$ no sentido fraco.
+Isto é, se dado uma função $u$ e existe uma função $v$ que satisfaz (\ref{eq:derivada-fraca}) para toda $\phi$ função de teste, dizemos que $D^\alpha u = v$ no sentido fraco.
+Caso contrário, se não existir uma função $v$ que satisfaz (\ref{eq:derivada-fraca}), então $u$ não possui a $\alpha$-ésima derivada parcial fraca.
 
 \obs Aqui, utlizamos a notação $dx$ ao invés de $d\mu$ na integral de Lebesgue como convençao para dar ênfase que estamos utilizando a medida de Lebesgue (e não uma medida qualquer).
-Além disso, se uma função é integrável a Riemann e a Lebesgue, suas integrais se coincidem.
+Além disso, se uma função é integrável a Riemann e a Lebesgue (utlizando a medida de Lebesgue), suas integrais se coincidem.
 
 \obs (função teste)
 
 \begin{ex} \label{ex:derivada-fraca-R}
-    A função $u : I  =(0,2) \to \bR$ dada por
+    A função $u : \Omega  =(0,2) \to \bR$ dada por
     \[
         u(x) = \left\{
             \begin{array}{rl}
@@ -2871,7 +2903,7 @@ Além disso, se uma função é integrável a Riemann e a Lebesgue, suas integra
             \end{array}
         \right.
     \]
-    Com efeito, note que, para toda $\phi \in \cC^\infty_c(I)$ temos
+    Com efeito, note que, para toda $\phi \in \cC^\infty_c(\Omega)$ temos
     \[
         \int_0^2 u \phi' \,dx = \int_0^1 x \phi' \,dx + \int_1^2 \phi' \,dx = x \phi \bigg|_0^1 - \int_0^1 \phi \,dx + \phi \bigg|_1^2.
     \]
@@ -2887,7 +2919,7 @@ Além disso, se uma função é integrável a Riemann e a Lebesgue, suas integra
 \end{ex}
 
 \begin{ex}
-    A função $u : I  = (0,2) \to \bR$ dada por
+    A função $u : \Omega  = (0,2) \to \bR$ dada por
     \[
         u(x) = \left\{
             \begin{array}{rl}
@@ -2898,11 +2930,11 @@ Além disso, se uma função é integrável a Riemann e a Lebesgue, suas integra
     \]
     não possuí derivada fraca.
     Mostremos que $u'$ não existe no sentido fraco.
-    Isto é, mostrar que não existe uma função $v \in \cL^1_\loc(I)$ que satisfaz
+    Isto é, mostrar que não existe uma função $v \in \cL^1_\loc(\Omega)$ que satisfaz
     \[
         \int_I u \phi' \, dx = -\int_I v \phi \,dx.
     \]
-    para toda função $\phi \in \cC_c^\infty(I)$. 
+    para toda função $\phi \in \cC_c^\infty(\Omega)$. 
     Com efeito, suponha o contrário
     \[
         -\int_0^2 v \phi \, dx = \int_0^2 u \phi' \,dx = \int_0^1 x \phi' \,dx + 2\int_1^2 \phi' \,dx = \int_0^1 \phi \,dx - \phi(1).
@@ -2919,57 +2951,6 @@ Além disso, se uma função é integrável a Riemann e a Lebesgue, suas integra
     Portanto $u$ não possui derivada fraca.
 \end{ex}
 
-Com a noção de derivada fraca, estamos prontos para definir os espaços de Sobolev $\cW^{1,p}(I)$
-
-\begin{dbox}
-    Seja $I$ um intervalo aberto, possívelmente ilimitado.
-    Definimos o espaço de Sobolev $\cW^{1,p}(I)$ por
-    \[
-        \cW^{1,p} = \{u \in \cL^p \,; u' \in \cL^p\}
-    \]
-    onde $u'$ é a derivada de $u$ no sentido fraco
-\end{dbox}
-
-\section{Espaços de Sobolev $\cW^{k,p}(\Omega)$}
-
-Nosso objetivo agora, é definir a derivada fraca de ordem superior, generalizar os espaços da seção anterior para funções definidas em um aberto $\Omega$ do $\bR^n$ e explorar algumas propiedades elementares.
-
-Seja $u \in \cC^1(\Omega)$, então se $\phi \in \cC^\infty_c(\Omega)$, utilizando integração por partes em $\bR^n$ temos que
-\[
-    \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \,dx = \int_{\partial\Omega} u\phi \nu_i \, dS- \int_\Omega \phi \dfrac{\partial u}{\partial x_i} \,dx. \qquad (i = 1,\dots,n)
-\]
-Como $\phi$ tem suporte compacto e $\Omega$ é um aberto, segue que $\phi$ se anula em $\partial\Omega$, como mostrado abaixo da definição de suporte. Portanto a expressão acima se torna
-\begin{equation} \label{eq:derivada-fraca-xi}
-    \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \,dx = - \int_\Omega \phi \dfrac{\partial u}{\partial x_i} \,dx. \qquad (i = 1,\dots,n)
-\end{equation}
-Além disso, se $u$ for de classe $\cC^k$ com $k \in \bN$ e $\alpha = (\alpha_1,\dots,\alpha_n)$ um multi-índice de ordem $|\alpha| = \alpha_1 + \cdots + \alpha_n = k$, então
-\begin{equation} \label{eq:derivada-fraca-dalpha}
-    \int_\Omega u D^\alpha \phi = (-1)^{|\alpha|} \int_\Omega D^\alpha u \phi.
-\end{equation}
-Essa expressão é válida, já que
-\[
-    D^\alpha \phi = \dfrac{\partial^{\alpha_1} }{\partial x_1^{\alpha_1}} \cdots \dfrac{\partial^{\alpha_n} }{\partial x_n^{\alpha_n}} = \dfrac{\partial^{|\alpha|} }{\partial x_1^{\alpha_1} \cdots \partial x_n^{\alpha_n}}
-\]
-e podemos aplicar (\ref{eq:derivada-fraca-xi}) $|\alpha|$ vezes.
-
-Queremos descobrir se existe uma classe de funções tal que (\ref{eq:derivada-fraca-dalpha}) ainda é válida, mesmo se $u$ não for de classe $\cC ^k$. Note que o lado esquerdo de (\ref{eq:derivada-fraca-xi}) está bem definido se $u \in \cL^1_{\mathrm{loc}}(\Omega)$.
-O problema é que se $u$ não é uma função de classe $\cC^k$ então o lado direito de (\ref{eq:derivada-fraca-xi}) não faz sentido. Para resolver isso perguntamos se existe uma função $v \in \cL^1_{\mathrm{loc}}(\Omega)$ tal que (\ref{eq:derivada-fraca-xi}) é válida quando substituimos $D^\alpha u$ por $v$.
-
-\begin{dbox}[Derivada fraca em $\Omega$]
-    Sejam $u,v \in \cL^1_{\mathrm{loc}}(\Omega)$ e $\alpha$ um multi-índice. Dizemos que $v$ é a $\alpha$-ésima derivada parcial fraca de $u$, denotada por
-    \[
-        D^\alpha u = v
-    \]
-    dado que
-    \begin{equation} \label{eq:derivada-fraca}
-        \int_\Omega u D^\alpha \phi \,d\mu = (-1)^{|\alpha|} \int_\Omega D^\alpha u \phi \,d\mu.
-    \end{equation}
-    para toda função de teste $\phi \in \cC ^\infty_c(\Omega)$
-\end{dbox}
-
-Isto é, se dado uma função $u$ e existe uma função $v$ que satisfaz (\ref{eq:derivada-fraca}) para toda $\phi$ função de teste, dizemos que $D^\alpha u = v$ no sentido fraco.
-Caso contrário, se não existir uma função $v$ que satisfaz (\ref{eq:derivada-fraca}), então $u$ não possui a $\alpha$-ésima derivada parcial fraca.
-
 O primeiro resultado sobre a derivada fraca que queremos mostrar é a sua unicidade, para isso precisamos antes do seguinte lema.
 
 \begin{lbox}
@@ -2981,8 +2962,10 @@ O primeiro resultado sobre a derivada fraca que queremos mostrar é a sua unicid
     se, e somente se $u \equiv 0$ qtp em $\Omega$
 \end{lbox}
 \begin{prf}
-    ~
+    \cite{brezis-functional.analysis} \textcolor{red}{(digitar depois)}
 \end{prf}
+
+Com o lema acima em mente, temos todas as ferramentas para mostrar a unicidade da derivda fraca.
 
 \begin{pbox}
     Seja $\alpha$ um multi-índice. Se $v$ e $\tilde v$ são ambas $\alpha$-ésimas derivadas parciais fracas de uma função $u$.
@@ -3008,7 +2991,7 @@ O primeiro resultado sobre a derivada fraca que queremos mostrar é a sua unicid
 \end{prf}
 
 \begin{ex}
-    Considere a função $u$ do exemplo \ref{ex:derivada-fraca-R}, vimos que
+    Considere a função $u$ do Exemplo \ref{ex:derivada-fraca-R}, vimos que
     \[
         v(x) = \left\{
             \begin{array}{rl}
