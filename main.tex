@@ -103,6 +103,7 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 \newcommand{\doublehookrightarrow}{\;\substack{\hookrightarrow \\ \hookrightarrow}\;}
 
 \newcommand{\sfrac}[2]{{}^{#1}\!\!/\!_{#2}}
+\newcommand{\sint}{-\!\!\!\!\!\!\int}
 
 
 \usepackage{csquotes}
@@ -3955,7 +3956,10 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
 
 \section{Extensões}
 
-(introdução)
+O objetivo dessa seção é entender como extender funções no espaço $\cW^{1,p}(\Omega)$ para que sejam funções em $\cW^{1,p}(\bR^n)$. 
+Vale ressaltar que isso é algo sutíl, não é um simples ``defina a funçao de forma que seja nula em $\bR^n \smallsetminus \Omega$'' pois isso pode fazer com que a função não tenha mais derivada fraca.
+
+O teorema de extensão é enunciado de forma que as derivadas fracas são preservadas na fronteira. \textcolor{red}{escrever de forma mais clara}
 
 \begin{tbox} \label{thm:extensao}
     Sejam $\Omega$ um aberto limitado com $\partial\Omega$ de classe $\cC^1$ e um $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$ com $1 \leqslant p < \infty$ tal que para cada $u \in \cW^{k,p}(\Omega)$
