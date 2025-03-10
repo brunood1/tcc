@@ -1,6 +1,6 @@
 \documentclass[a4paper, 11pt]{book}
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath, amsfonts, amsthm, amssymb, amsxtra}
@@ -85,6 +85,8 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 \newcommand{\bK}{\mathbb{K}}
 
 \newcommand{\bz}{\mathbf{0}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bX}{\mathbf{X}}
 
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cB}{\mathcal{B}}
@@ -114,30 +116,6 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 \begin{document}
 
 \tableofcontents
-
-\addcontentsline{toc}{chapter}{Lista de Símbolos}
-\chapter*{Lista de Símbolos}
-\begin{tblr}{
-    colspec={ll},
-    column{1} = {leftsep=0pt, rightsep=15pt}
-    }
-    $\cB$               & Álgebra de Borel\\
-    $\widehat\cB$       & Álgebra de Borel em $\overline\bR$\\
-    $\chi_E$            & Função caracteristica do conjunto $E$\\
-    $\eth$              & $\sigma$-álgebra\\
-    $f^+$               & Parte positiva da função $f$\\
-    $f^-$               & Parte negativa da função $f$\\
-    $f \sim_\mu g$      & $f$ e $g$ são $\mu$-equivalentes i.e., $f = g$ em quase toda parte em $X$.\\
-    $\cL(X,\eth,\mu)$   & Espaço das funções integraveis em relação a medida $\mu$.\\
-    $\cL^p(X,\eth,\mu)$ & Espaço de Lebesgue $\cL^p$.\\
-    $\cM(X,\eth)$       & Espaço das funções $f: X \to \overline\bR$ mensuráveis\\
-    $\cM^+(X,\eth)$     & Espaço das funções $f: X \to \overline\bR$ mensuráveis não negativas\\
-    $\mu(E)$            & Medida do conjunto $E$\\
-    $N_\mu(\,\cdot\,)$  & Semi-norma em relação a medida $\mu$.\\
-    $\cP(X)$            & Conjunto das partes do conjunto $X$\\
-    $\overline\bR$      & Reta extendida i.e., $\bR \cup \{-\infty,+\infty\}$\\
-    $\cW^{k,p}(\Omega)$ & Espaço de Sobolev
-\end{tblr}
 
 \chapter{Introdução à Teoria da Medida}
 
@@ -3958,11 +3936,10 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
 
 O objetivo dessa seção é entender como extender funções no espaço $\cW^{1,p}(\Omega)$ para que sejam funções em $\cW^{1,p}(\bR^n)$. 
 Vale ressaltar que isso é algo sutíl, não é um simples ``defina a funçao de forma que seja nula em $\bR^n \smallsetminus \Omega$'' pois isso pode fazer com que a função não tenha mais derivada fraca.
-
 O teorema de extensão é enunciado de forma que as derivadas fracas são preservadas na fronteira. \textcolor{red}{escrever de forma mais clara}
 
 \begin{tbox} \label{thm:extensao}
-    Sejam $\Omega$ um aberto limitado com $\partial\Omega$ de classe $\cC^1$ e um $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$ com $1 \leqslant p < \infty$ tal que para cada $u \in \cW^{k,p}(\Omega)$
+    Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e um $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$ com $1 \leqslant p < \infty$ tal que para cada $u \in \cW^{k,p}(\Omega)$
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
         \item $Eu = u$ qtp em $\Omega$
         \item $\supp Eu \subseteq \Omega'$
@@ -3970,8 +3947,8 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \end{enumerate}
 \end{tbox}
 \begin{prf}
-    Seja $x^0 \in \partial\Omega$ e suponha que $\partial\Omega$ esteja contido no plano $\{x_n = 0\}$ perto de $x^0$.
-    Dessa forma, podemos supor que existe uma bola $B = B(x^0, r)$ tal que
+    Seja $\tilde x \in \partial\Omega$ e suponha que $\partial\Omega$ esteja contido no plano $\{x_n = 0\}$ perto de $\tilde x$.
+    Dessa forma, podemos supor que existe uma bola $B = B(\tilde x, r)$ tal que
     \[
         \begin{aligned}
             B^+ &= B \cap \{x_n \geqslant 0\} \subseteq \overline\Omega\\
@@ -4006,7 +3983,7 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \[
         u^+ = u^- \;\text{ e }\; \dfrac{\partial u^-}{\partial x_i} = \dfrac{\partial u^+}{\partial x_i}
     \]
-    ambos em $\{x_n = 0\}$.
+    quando $x_n = 0$.
     Portanto $D^\alpha u^- = D^\alpha u^+$ em $\{x_n = 0\}$ com $|\alpha| \leqslant 1$. Sendo assim, $\bar u \in \cC^1 (B)$, pois fora de $\{x_n = 0\}$, as componentes de $\bar u$ já eram de classe $\cC^\infty$, então apenas restava verificar que em $B^+ \cap B^- = B \cap \{x_n = 0\}$ as componentes em $B^+$ e $B^-$ se igualavam, implicando a continuidade $\bar u$ e suas derivadas.
 
     Agora, desejamos mostrar que
@@ -4042,7 +4019,7 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
         \Vert \bar u \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u \Vert_{\cW^{1,p}(B^+)}
     \]
 
-    Por outro lado, se $\partial\Omega$ está necessáriamente contido no plano $\{x_n = 0\}$ perto de $x^0$. Neste caso, existe um homeomorfismo $\Phi$ com inversa $\Psi$ que planifica $\partial \Omega$ perto de $x^0$. Utilizando a função $\gamma$ da Definição \ref{def:fronteira-ck}, definimos o homemorfismo $\Phi$ por
+    Por outro lado, se $\partial\Omega$ não está necessáriamente contido no plano $\{x_n = 0\}$ perto de $\tilde x$, temos que existe um homeomorfismo $\Phi$ com inversa $\Psi$ que planifica $\partial \Omega$ perto de $\tilde x$. Utilizando a função $\gamma$ da Definição \ref{def:fronteira-ck}, definimos o homemorfismo $\Phi$ por
     \[
         \Phi(x) = (x_1,x_2,...,x_{n-1}, x_n - \gamma(x_1,\dots,x_{n-1})).
     \]
@@ -4050,26 +4027,31 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \[
         \Psi(y) = (y_1,y_2,\dots,y_{n-1},y_n + \gamma(y_1,\dots,y_{n-1})).
     \]
-    Dessa forma $\Psi^{-1} = \Phi$. Sendo assim, seja $y = \Phi(x)$ (ou seja $x = \Psi(y)$) e definimos $u'(y) = u(\Psi(y))$, daí como foi feito anteriormente, podemos escolher uma bola $B = B(y_0, r)$ e definimos $\bar u'$ de forma que $\bar u' \in \cC^1(B)$ e
+    \begin{figure}
+        \centering
+        \textcolor{red}{FIGURA DO HOMEOMORFISMO $\Phi$}
+        \caption{~}
+    \end{figure}
+    Dessa forma $\Psi^{-1} = \Phi$. Sendo assim, seja $y = \Phi(x)$ (ou seja $x = \Psi(y)$) e definimos $u'(y) = u(\Psi(y))$, daí como foi feito anteriormente, podemos escolher uma bola $B = B(\tilde y, r)$ e definimos $\bar u'$ de forma que $\bar u' \in \cC^1(B)$ e
     \begin{equation}
         \Vert \bar u' \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u' \Vert_{\cW^{1,p}(B^+)}.
     \end{equation}
-    Seja $W = \Psi(B)$, assim conseguimos obter uma extensão $\bar u$ de $u$ para $W$ com
+    Seja $B' = \Psi(B)$, assim conseguimos obter uma extensão $\bar u$ de $u$ para $B'$ com
     \[
-        \Vert \bar u \Vert_{\cW^{1,p}(W)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+        \Vert \bar u \Vert_{\cW^{1,p}(B')} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
     De fato, para $\bar u (w) = \bar u'(\Phi(w))$, obtemos, utilizando o Teorema de Mudança de Variáveis
     \[
-        \Vert D^\alpha \bar u' \Vert_{\cL^p(B)} = \int_B |D^\alpha \bar u'(y)|^p \,dy = \int_B |D^\alpha \bar u (\Psi (y))|^p \,dy = \int_W |D^\alpha \bar u (x)|^p \,dx = \Vert D^\alpha \bar u \Vert_{\cL^p(W)}.
+        \Vert D^\alpha \bar u' \Vert_{\cL^p(B)}^p = \int_B |D^\alpha \bar u'(y)|^p \,dy = \int_B |D^\alpha \bar u (\Psi (y))|^p \,dy = \int_W |D^\alpha \bar u (x)|^p \,dx = \Vert D^\alpha \bar u \Vert_{\cL^p(B')}^p.
     \]
     Dessa forma, passando o somatório
     \begin{equation} \label{eq:normaBigualnormaW}
-        \Vert \bar u' \Vert_{\cW^{1,p}(B)} = \Vert  \bar u \Vert_{\cW^{1,p}(W)}.
+        \Vert \bar u' \Vert_{\cW^{1,p}(B)} = \Vert  \bar u \Vert_{\cW^{1,p}(B')}.
     \end{equation}
     Além disso
     \[
         \begin{aligned}
-            \Vert D^\alpha u' \Vert_{\cL^p(B^+)} = \int_{B^+} |D^\alpha u'(y) |^p \,dy &= \int_{B^+} |D^\alpha u (\Psi(y))|^p \,dy\\ &= \int_{\Psi(B^+)} |D^\alpha u(x)|^p \,dx \leqslant \int_{\Omega} |D^\alpha u(x)|^p \,dx = \Vert D^\alpha u \Vert_{\cL^p(\Omega)}.
+            \Vert D^\alpha u' \Vert_{\cL^p(B^+)}^p = \int_{B^+} |D^\alpha u'(y) |^p \,dy &= \int_{B^+} |D^\alpha u (\Psi(y))|^p \,dy\\ &= \int_{\Psi(B^+)} |D^\alpha u(x)|^p \,dx \leqslant \int_{\Omega} |D^\alpha u(x)|^p \,dx = \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p.
         \end{aligned}
     \]
     Isto significa que
@@ -4078,22 +4060,22 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \end{equation}
     Portanto, por (\ref{eq:normaBigualnormaW}) e (\ref{eq:normadesigualdadeBmais}) obtemos
     \begin{equation} \label{eq:desigualdadeWO}
-        \Vert \bar u \Vert_{\cW^{1,p}(W)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+        \Vert \bar u \Vert_{\cW^{1,p}(B')} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
     \end{equation}
     como queriamos mostrar.
 
-    Como $\partial\Omega$ é compacto, e $\partial \Omega \subseteq \bigcup_{x \in \partial\Omega} W_x$,
-    que é uma cobertura aberta, pois $W_x = \Psi(B(y_0, r))$ (?), e imagem de um conjunto aberto por um homeomorfismo também é aberto.Pelo Teorema de Heine-Borel, existe uma subcobertura finita de $\partial\Omega$,
-    sendo assim, existem uma quantidade finita de pontos $x^0_i \in \partial\Omega$, abertos $W_i$ e extensões $\bar u_i$ de $u$ em $W_i$ de forma que $\partial\Omega \subseteq \bigcup_{i=1}^N W_i$
-    e considere $W_0 \Subset \Omega$ tal que
+    Como $\partial\Omega$ é compacto, e $\partial \Omega \subseteq \bigcup_{x \in \partial\Omega} B'_x$,
+    que é uma cobertura aberta, pois $B'_x = \Psi(B(\tilde y, r))$, e imagem de um conjunto aberto por um homeomorfismo também é aberto.Pelo Teorema de Heine-Borel, existe uma subcobertura finita de $\partial\Omega$,
+    sendo assim, existem uma quantidade finita de pontos $\tilde x_i \in \partial\Omega$, abertos $B'_i$ e extensões $\bar u_i$ de $u$ em $B'_i$ de forma que $\partial\Omega \subseteq \bigcup_{i=1}^N B'_i$
+    daí considere um aberto $B'_0 \Subset \Omega$ tal que
     \[
-        \Omega \subseteq \bigcup_{i=0}^N W_i.
+        \Omega \subseteq \bigcup_{i=0}^N B'_i.
     \]
-    Seja $(\phi_i)_{i=0}^N$ uma partição da unidade suave subordinada aos abertos $(W_i)_{i=0}^N$ e defina
+    Seja $\{\phi_i\}_{i=0}^N$ uma partição da unidade suave subordinada aos abertos $\{B'_i\}_{i=0}^N$ e defina
     \[
         \bar u = \sum_{i=0}^N \phi_i \bar u_i
     \]
-    onde $\bar u_i$ está associada a $W_i$ e $\bar u_0 = u$. Daí obtemos a desigualdade
+    onde $\bar u_i$ está associada a $B'_i$ e $\bar u_0 = u$. Daí obtemos a desigualdade
     \[
         \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
@@ -4107,29 +4089,29 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \[
         c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^N \Vert D^\alpha (\phi_i \bar u_i) \Vert_{\cL^p(\bR)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^\sigma \phi_i D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(\bR^n)}^p.
     \]
-    Como $\supp D^\sigma \phi_i \subseteq \supp \phi_i \subseteq W_i$, então o suporte de $D^\sigma \phi_i$ também é compacto (pois $W_i$ é limitado), sendo assim $\max |D^\sigma \phi_i|$ existe.
+    Como $\supp D^\sigma \phi_i \subseteq \supp \phi_i \subseteq B'_i$, então o suporte de $D^\sigma \phi_i$ também é compacto (pois $B'_i$ é limitado), sendo assim $\max |D^\sigma \phi_i|$ existe.
     Portanto
     \[
-        c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^\sigma \phi_i D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(\bR^n)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(W_i)}^p
+        c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^\sigma \phi_i D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(\bR^n)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(B'_i)}^p
     \]
-    onde agora a constante $c$ também depende de $W_i$. Além disso
+    onde agora a constante $c$ também depende de $B'_i$. Além disso
     \[
-        c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(W_i)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(W_i)}^p.
+        c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(B'_i)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(B'_i)}^p.
     \]
     Por fim, utilizando (\ref{eq:desigualdadeWO})
     \[
-         \Vert \bar u \Vert^p_{\cW^{1,p}(\bR^n)} \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(W_i)}^p \leqslant c\Vert \bar u_i \Vert_{\cW^{1,p}(\Omega)}
+         \Vert \bar u \Vert^p_{\cW^{1,p}(\bR^n)} \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(B'_i)}^p \leqslant c\Vert \bar u_i \Vert_{\cW^{1,p}(\Omega)}
     \]
-    onde $c$ depende de $W_i$, $p$ e $N$.
+    onde $c$ depende de $B'_i$, $p$ e $N$.
     Portanto
     \[
         \Vert \bar u \Vert_{\cW^{1,p}(W)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
     \]
 
-    Defina $\Omega'$ de forma que $\bigcup_{i=0}^N W_i \subseteq \Omega'$.
+    Defina $\Omega'$ de forma que $\bigcup_{i=0}^N B'_i \subseteq \Omega'$.
     Dessa forma $\supp \bar u \in \Omega'$.
     
-    Defina $\tilde E: \cC^\infty(\overline\Omega) \to C^\infty(\bR^n)$ dada por $\bar E u = \bar u$.
+    Defina $\bar E: \cC^\infty(\overline\Omega) \to C^\infty(\bR^n)$ dada por $\bar E u = \bar u$.
     Temos que $\bar E$ é linear,
     \[
         \Vert \bar E u \Vert_{\cW^{1,p}(\bR^n)} = \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
@@ -4168,8 +4150,6 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \[
         \Vert Eu \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
-
-    \textcolor{red}{o caso $p = \infty$ não foi feito ainda} 
 \end{prf}
 
 \section{Traços}
@@ -4182,9 +4162,9 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
         \item $Tu = u \big|_{\partial \Omega}$ se $u \in \cW^{1,p}(\Omega) \cap \cC(\Omega)$
         \item $\Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{W^{1,p}(\Omega)}$ onde $c$ depende apenas de $p$ e $\Omega$.
     \end{enumerate}
-\end{tbox}
+\end{tbox} 
 \begin{prf}
-    
+    \dots
 \end{prf}
 
 \begin{tbox}[Funções traço zero em $\cW^{1,p}$]
@@ -4205,7 +4185,111 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
         Tu = T (\lim u_k) = \lim T u_k = 0 \text{ em } \partial\Omega.
     \]
     
-    Reciprocamente, suponha que $Tu = 0$ em $\partial \Omega$ \dots
+    Reciprocamente, suponha que $Tu = 0$ em $\partial \Omega$. Utilizando partições da unidade e o homeomorfismo $\Phi$ que planifica $\partial \Omega$ como foi feito anteriormente, podemos supor que
+    \[
+        \begin{aligned}
+            &u \in \cW^{1,p}(\bR^n)\\
+            &u \text{ tem suporte compacto em } \overline{\bR^n_+}\\
+            &Tu = 0 \text{ em } \partial \bR^n_+ = \bR^{n-1}
+        \end{aligned}
+    \]
+    onde $\bR^n_+$ denota o semiplano superior de $\bR^n$.
+    Como $Tu = 0$ em $\bR^{n-1}$ então existe um sequência de funções $(u_k) \in \cC^1(\overline{\bR^n_+})$ tal que $u_k \to u$ em $\cW^{1,p}(\bR^n_+)$ e $Tu_k = u_k |_{\bR^{n-1}} \to 0$ em $\cL^p(\bR^{n-1})$. 
+    
+    Seja $x' \in \bR^{n-1}$ e $x_n \geqslant 0$.
+    Pelo teorema fundamental do cálculo
+    \[
+        u_k(x',x_n) = u_k(x',0) + \int_0^{x_n} \dfrac{\partial u_k}{\partial x_n} (x',t) \,dt
+    \]
+    e daí
+    \[
+        |u_k(x',x_n)|^p \leqslant c \left[  |u_k(x',0)|^p + \left(  \int_0^{x_n} \left|\dfrac{\partial u_k}{\partial x_n} (x',t)\right| \,dt\right)^{\!p\,} \right]
+    \]
+    onde aqui a constante $c$ depende de $p$. Integrando ambos os lados sobre $\bR^{n-1}$ obtemos
+    \[
+        \int_{\bR^{n-1}} |u_k(x',x_n)|^p \,dx' \leqslant c \left[ \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left(  \int_0^{x_n} \Vert Du_k(x',t) \Vert \,dt\right)^{\!p\,} dx' \right]
+    \]
+    Utlizando a Desigualdade de Hölder na ultima integral, temos que o lado direito da equação acima é menor igual a
+    \[
+        c \left[ \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left( \int_0^{x_n} \Vert Du_k (x',t) \Vert^p \,dt \right)\left( \int_0^{x_n} 1^{p'} \,dt \right)^{p/p'} dx'\right].
+    \]
+    Porem $p/p' = p-1$, sendo assim, resolvendo a ultima integral e utlizando o Teorema de Fubini, obtemos que o lado direito da equação acima é igual a
+    \[
+        c \left[ \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + x_n^{p-1} \int_{0}^{x_n} \int_{\bR^{n-1}} \Vert Du_k (x',t) \Vert^p  \,dx'dt \right].
+    \]
+    Utlizando o Teorema da Convergência Dominada quando $k \to \infty$.
+    \begin{equation} \label{eq:uuuuu}
+        \int_{\bR^{n-1}} |u(x',x_n)|^p \,dx' \leqslant  c x_n^{p-1}\int_0^{x_n} \Vert Du(x',t) \Vert^p \,dx'dt
+    \end{equation}
+    
+    Seja $\xi \in \cC^{\infty}_c(\bR_+)$ tal que
+    \[
+        \begin{aligned}
+            &\xi \equiv 1 \text{ em } [0,1]\\
+            &\xi \equiv 0 \text{ em } \bR_+ \setminus [0,2]\\
+            &0 \leqslant \xi \leqslant 1
+        \end{aligned}
+    \]
+    e defina $\xi_k = \xi(kx_n)$ e $w_k = u(x) (1 - \xi_k(x))$ para todo $x \in \bR^n_+$. Dessa forma
+    \[
+        \begin{aligned}
+            &\dfrac{\partial w_k}{\partial x_n} = (1 - \xi_k)\dfrac{\partial u}{\partial x_n} - ku\xi'\\
+            &\dfrac{\partial w_k}{\partial x'} = (1-\xi_k)\dfrac{\partial u}{\partial x'}.
+        \end{aligned}
+    \]
+    Consequentemente
+    \[
+        \begin{aligned}
+            \int_{\bR^n_+} \Vert Dw_k - Du \Vert^p \,dx &\leqslant c \int_{\bR^n_+} \left( \left\Vert \dfrac{\partial w_k}{\partial x'} - \dfrac{\partial u}{\partial x'} \right\Vert + \left| \dfrac{\partial w_k}{\partial x_n} - \dfrac{\partial u}{\partial x_n} \right| \right)^p dx\\
+            &\leqslant c  \int_{\bR^n_+} \left( \xi_k\left\Vert \dfrac{\partial u}{\partial x'} \right\Vert + \xi_k \left| \dfrac{\partial u}{\partial x_n}\right| + m |u| |\xi'|  \right)^p dx\\ 
+        \end{aligned}
+    \]
+    (explicar)
+    \[
+        \int_{\bR^n_+} \Vert Dw_k - Du \Vert^p \,dx \leqslant c \int_{\bR^n_+} \xi_k^p \Vert Du \Vert^p dx + cm^p \int_{\bR^n_+} |\xi_k'|^p |u|^p dx
+    \]
+    Observe que $\supp \xi' \subseteq \supp \xi \subseteq [0,2]$. Isto nos diz que $\xi'(x) = \xi'(kx_n) = 0$ quando $kx_n > 2$ ou $x_n > 2/k$.
+    Logo podemos escrever a ultima desigualdade como
+    \[
+        \int_{\bR^n_+} \Vert Dw_k - Du \Vert^p \,dx \leqslant c \int_{\bR^{n-1}} |\xi_k|^p \Vert Du \Vert^p \,dx + cm^p \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u|^p \,dx'dt.
+    \]
+    Note que
+    \[
+        \begin{aligned}
+            \int_{\bR^{n}_+} |\xi(kx_n)|^p \Vert Du \Vert^p \,dx &= \int_{0}^{\frac{2}{k}} |\xi(kx_n)|^p \int_{\bR^{n-1}} \Vert Du \Vert^p \,dx' dx_n\\
+            &\leqslant c \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} \Vert Du \Vert^p dx' dx_n \longrightarrow 0
+        \end{aligned}
+    \]
+    quando $k \to \infty$ pois $\xi$ tem suporte compacto e $2/k \to 0$.
+    Além disso, utlizando (\ref{eq:uuuuu})
+    \[
+        ck^p \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u|^p dx'dt \leqslant ck^p \int_{0}^{\frac{2}{k}} t^{p-1} \int_{0}^{t} \int_{\bR^{n-1}} \Vert Du \Vert^p dx'ds dt \leqslant c \int_0^{\frac{2}{k}} \int_{\bR^{n-1}} \Vert Du \Vert^p dx'ds \to 0
+    \]
+    quando $k \to \infty$.
+    Portanto
+    \[
+        \int_{\bR^n_+} \Vert Dw_k - Du \Vert^p \,dx \to 0
+    \]
+    isto é $\Vert Dw_k - Du \Vert_{\cL^p(\bR^n_+)} \to 0$ quando $k \to 0$.
+
+    Por fim
+    \[
+        \Vert w_k - u \Vert_{\cL^p(\bR^n_+)}^p = \int_{\bR^n_+} |w_m - u|^p \,dx = \int_{\bR^n_+} \xi_k|u|^p \,dx.
+    \]
+    De forma análoga ao que foi feito anteriormente
+    \[
+        \Vert w_k - u \Vert_{\cL^p(\bR^n_+)}^p = \int_{0}^{\frac{2}{k}} \xi(mx_n) \int_{\bR^{n-1}} |u(x)|^p \,dx'dx_n \leqslant c \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u(x)|^p \, dx'dx_n \to 0.
+    \]
+    Dessa forma
+    \[
+        \Vert w_n - u \Vert_{\cW^{1,p}(\bR^n_+)}^p \leqslant \Vert w_n - u \Vert_{\cL^{p}(\bR^n_+)}^p + \Vert Dw_n - Du \Vert_{\cL^{p}(\bR^n_+)}^p \to 0
+    \]
+
+    Defina $u_k = \eta_{\frac{1}{k}} * w_k$. Assim, para $k$ grande $u_k \in \cC^{\infty}_c(\bR^n_+)$ e 
+    \[
+        \Vert u_k - u \Vert_{\cW^{1,p}(\bR^n_+)} = \Vert u_k - w_k \Vert_{\cW^{1,p}(\bR^n_+)} + \Vert w_k - u \Vert_{\cW^{1,p}(\bR^n_+)} \to 0
+    \]
+    Portanto $u \in \cW^{1,p}_0(\bR^n_+)$.
 \end{prf}
 
 \section{Desigualdades de Sobolev}
@@ -4646,7 +4730,7 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
 
 \section{Compacidade}
 
-(introdução)
+(introdução) !
 
 \begin{dbox}
     Sejam $X, Y$ espaços de Banach com $X \subseteq Y$. Dizemos que $X$ está compactamente mergulhado em $Y$ e denotamos por $X \doublehookrightarrow Y$
@@ -4671,17 +4755,16 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     
 \end{prf}
 
-\chapter{Derivando das equações de Navier-Stokes}
+\chapter{Derivando as equações de Navier-Stokes}
 
-Nesse capítulo visamos derivar as equações de Navier-Stokes partindo do principio de conservação de energia \textcolor{red}{(?)} e ressaltar alguns fatos importantes sobre essas equações e suas soluções.
-
-Equação de Navier-Stokes linearizada
+Nesse capítulo visamos derivar as equações de Navier-Stokes 
 \[
-    \mu \Delta u(x,t) - \dfrac{\partial u}{\partial t}(x,t) - \frac{1}{\rho} \nabla p(x,t)  = X(x,t)
+    \begin{array}{c}
+        \bu_t + \bu \cdot \nabla \bu + \nabla p = \nu \Delta \bu + \bX\\
+        \nabla \cdot \bu = 0
+    \end{array}
 \]
-\[
-    \nabla u(x,t) = 0
-\]
+partindo do principio de conservação de energia \textcolor{red}{(?)} e ressaltar alguns fatos importantes sobre essas equações e suas soluções.
 
 \nocite{*}
 \printbibliography

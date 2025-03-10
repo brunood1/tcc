@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{none/global//global/global}
-    \entry{evans-pde}{book}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{evans-pde}{book}{}{}
       \name{author}{1}{}{%
         {{hash=0d72932a7775f85a51622d3af75ae26e}{%
            family={Evans},
@@ -32,10 +32,12 @@
       }
       \strng{namehash}{0d72932a7775f85a51622d3af75ae26e}
       \strng{fullhash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{fullhashraw}{0d72932a7775f85a51622d3af75ae26e}
       \strng{bibnamehash}{0d72932a7775f85a51622d3af75ae26e}
       \strng{authorbibnamehash}{0d72932a7775f85a51622d3af75ae26e}
       \strng{authornamehash}{0d72932a7775f85a51622d3af75ae26e}
       \strng{authorfullhash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authorfullhashraw}{0d72932a7775f85a51622d3af75ae26e}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -43,7 +45,7 @@
       \field{title}{Partial Differential Equations}
       \field{year}{2010}
     \endentry
-    \entry{brezis-functional.analysis}{book}{}
+    \entry{brezis-functional.analysis}{book}{}{}
       \name{author}{1}{}{%
         {{hash=31e0c25a6fb0297f0536bede27a04cd4}{%
            family={Brezis},
@@ -56,10 +58,12 @@
       }
       \strng{namehash}{31e0c25a6fb0297f0536bede27a04cd4}
       \strng{fullhash}{31e0c25a6fb0297f0536bede27a04cd4}
+      \strng{fullhashraw}{31e0c25a6fb0297f0536bede27a04cd4}
       \strng{bibnamehash}{31e0c25a6fb0297f0536bede27a04cd4}
       \strng{authorbibnamehash}{31e0c25a6fb0297f0536bede27a04cd4}
       \strng{authornamehash}{31e0c25a6fb0297f0536bede27a04cd4}
       \strng{authorfullhash}{31e0c25a6fb0297f0536bede27a04cd4}
+      \strng{authorfullhashraw}{31e0c25a6fb0297f0536bede27a04cd4}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -67,7 +71,7 @@
       \field{title}{Functional Analysis, Sobolev Spaces and Partial Differential Equations}
       \field{year}{2010}
     \endentry
-    \entry{oseen-hydrodynamik}{book}{}
+    \entry{oseen-hydrodynamik}{book}{}{}
       \name{author}{1}{}{%
         {{hash=b301872d87f37e159237a92c47853a7a}{%
            family={Oseen},
@@ -80,10 +84,12 @@
       }
       \strng{namehash}{b301872d87f37e159237a92c47853a7a}
       \strng{fullhash}{b301872d87f37e159237a92c47853a7a}
+      \strng{fullhashraw}{b301872d87f37e159237a92c47853a7a}
       \strng{bibnamehash}{b301872d87f37e159237a92c47853a7a}
       \strng{authorbibnamehash}{b301872d87f37e159237a92c47853a7a}
       \strng{authornamehash}{b301872d87f37e159237a92c47853a7a}
       \strng{authorfullhash}{b301872d87f37e159237a92c47853a7a}
+      \strng{authorfullhashraw}{b301872d87f37e159237a92c47853a7a}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
@@ -93,7 +99,7 @@
       \field{year}{1927}
       \true{nocite}
     \endentry
-    \entry{elon-espacos.metricos}{book}{}
+    \entry{elon-espacos.metricos}{book}{}{}
       \name{author}{1}{}{%
         {{hash=94fad9a96637b87ca3d48630e846de5d}{%
            family={Lima},
@@ -106,10 +112,12 @@
       }
       \strng{namehash}{94fad9a96637b87ca3d48630e846de5d}
       \strng{fullhash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{fullhashraw}{94fad9a96637b87ca3d48630e846de5d}
       \strng{bibnamehash}{94fad9a96637b87ca3d48630e846de5d}
       \strng{authorbibnamehash}{94fad9a96637b87ca3d48630e846de5d}
       \strng{authornamehash}{94fad9a96637b87ca3d48630e846de5d}
       \strng{authorfullhash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorfullhashraw}{94fad9a96637b87ca3d48630e846de5d}
       \field{sortinit}{6}
       \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
@@ -119,7 +127,7 @@
       \field{year}{2020}
       \true{nocite}
     \endentry
-    \entry{leray-fluid}{article}{}
+    \entry{leray-fluid}{article}{}{}
       \name{author}{1}{}{%
         {{hash=d1c85ad391835096e0ab05bb90e4a799}{%
            family={Leray},
@@ -132,10 +140,12 @@
       }
       \strng{namehash}{d1c85ad391835096e0ab05bb90e4a799}
       \strng{fullhash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{fullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
       \strng{bibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
       \strng{authorbibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
       \strng{authornamehash}{d1c85ad391835096e0ab05bb90e4a799}
       \strng{authorfullhash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{authorfullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
       \field{sortinit}{8}
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
@@ -148,7 +158,7 @@
       \field{pages}{193\bibrangedash 248}
       \range{pages}{56}
     \endentry
-    \entry{leray.robert-fluid}{misc}{}
+    \entry{leray.robert-fluid}{misc}{}{}
       \name{author}{2}{}{%
         {{hash=d1c85ad391835096e0ab05bb90e4a799}{%
            family={Leray},
@@ -163,10 +173,12 @@
       }
       \strng{namehash}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{fullhash}{df40f8bbb84888bd9bd6e5a21cd28dea}
+      \strng{fullhashraw}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{bibnamehash}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{authorbibnamehash}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{authornamehash}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{authorfullhash}{df40f8bbb84888bd9bd6e5a21cd28dea}
+      \strng{authorfullhashraw}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \field{sortinit}{9}
       \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
@@ -186,7 +198,7 @@
       \verb https://arxiv.org/abs/1604.02484
       \endverb
     \endentry
-    \entry{burden-analise.numerica}{book}{}
+    \entry{burden-analise.numerica}{book}{}{}
       \name{author}{2}{}{%
         {{hash=087f2271a0786e7c8db8fd33785aed18}{%
            family={Burden},
@@ -204,10 +216,12 @@
       }
       \strng{namehash}{30f50a4be86ef6852f9a742a7e344186}
       \strng{fullhash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{fullhashraw}{30f50a4be86ef6852f9a742a7e344186}
       \strng{bibnamehash}{30f50a4be86ef6852f9a742a7e344186}
       \strng{authorbibnamehash}{30f50a4be86ef6852f9a742a7e344186}
       \strng{authornamehash}{30f50a4be86ef6852f9a742a7e344186}
       \strng{authorfullhash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{authorfullhashraw}{30f50a4be86ef6852f9a742a7e344186}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -223,7 +237,7 @@
       \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
       \endverb
     \endentry
-    \entry{bartle-measure.theory}{book}{}
+    \entry{bartle-measure.theory}{book}{}{}
       \name{author}{1}{}{%
         {{hash=421cdd5790e26e6ffad05f66854de4a5}{%
            family={Bartle},
@@ -237,10 +251,12 @@
       }
       \strng{namehash}{421cdd5790e26e6ffad05f66854de4a5}
       \strng{fullhash}{421cdd5790e26e6ffad05f66854de4a5}
+      \strng{fullhashraw}{421cdd5790e26e6ffad05f66854de4a5}
       \strng{bibnamehash}{421cdd5790e26e6ffad05f66854de4a5}
       \strng{authorbibnamehash}{421cdd5790e26e6ffad05f66854de4a5}
       \strng{authornamehash}{421cdd5790e26e6ffad05f66854de4a5}
       \strng{authorfullhash}{421cdd5790e26e6ffad05f66854de4a5}
+      \strng{authorfullhashraw}{421cdd5790e26e6ffad05f66854de4a5}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -249,7 +265,7 @@
       \field{year}{1995}
       \true{nocite}
     \endentry
-    \entry{axler-measure.theory}{book}{}
+    \entry{axler-measure.theory}{book}{}{}
       \name{author}{1}{}{%
         {{hash=71493eec7caacea528ad39dbfb52773a}{%
            family={Axler},
@@ -262,10 +278,12 @@
       }
       \strng{namehash}{71493eec7caacea528ad39dbfb52773a}
       \strng{fullhash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{fullhashraw}{71493eec7caacea528ad39dbfb52773a}
       \strng{bibnamehash}{71493eec7caacea528ad39dbfb52773a}
       \strng{authorbibnamehash}{71493eec7caacea528ad39dbfb52773a}
       \strng{authornamehash}{71493eec7caacea528ad39dbfb52773a}
       \strng{authorfullhash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authorfullhashraw}{71493eec7caacea528ad39dbfb52773a}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
