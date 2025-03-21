@@ -2809,7 +2809,19 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
     \]
 \end{tbox}
 \begin{prf}
-    \cite{evans-pde}
+    \cite{folland-real.analysis} p.p. 78.
+\end{prf}
+
+\begin{tbox} \label{thm:teorema-do-brezis}
+    Seja $(u_n)$ uma sequência em $\cL^p(\Omega)$ tal que $\Vert u_n - u \Vert_{\cL^p(\Omega)} \to 0$ para alguma função $u \in \cL^p(\Omega)$.
+    Então existe uma subsequência $(u_{n_k})$ e uma função $v \in \cL^p(\Omega)$ tal que
+    \begin{enumerate}[label=\textbf{(\alph*)}, leftmargin=*]
+        \item $u_{n_k}(x) \to u(x)$ qtp em $\Omega$
+        \item $|u_{n_k}(x)| \leqslant v(x)$ para todo $k \in \bN$ qtp em $\Omega$
+    \end{enumerate}
+\end{tbox}
+\begin{prf}
+    \cite{brezis-functional.analysis} p.p. 94.
 \end{prf}
 
 \section{Motivação}
@@ -3368,7 +3380,7 @@ Com os resultados obtidos, agora é possível verificar que os espaços de Sobol
     \[
         D^\alpha u = u_\alpha.
     \]
-    Com efeito, pelo \nameref{thm:teorema-da-convergencia-dominada} \textcolor{red}{(e o teorema no livro do Brezis, ver pág e número)} e utlizando a definição de derivada fraca, obtemos
+Com efeito, pelo Teorema \ref{thm:teorema-do-brezis}, o \nameref{thm:teorema-da-convergencia-dominada} e utlizando a definição de derivada fraca, obtemos \textcolor{red}{(precisa falar ``passando a uma subseq se necessário?'')}
     \[
         \begin{aligned}
             \int_\Omega u D^\alpha \phi \, dx 
@@ -4164,7 +4176,80 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \end{enumerate}
 \end{tbox} 
 \begin{prf}
-    \dots
+    Incialmente suponha que $u \in \cC^1(\overline{\Omega})$. Da mesma forma que foi feito no Teorema \ref{thm:extensao} considere $\tilde x \in \partial\Omega$ e suponhamos que $\partial\Omega$ está contido no plano $\{x_n = 0\}$ perto de $\tilde x$.
+    Sendo assim, seja $B = B(\tilde x, r)$ (e defina $B^+$ e $B^-$ como na demonstração anterior) e $\widehat B = B(\tilde x, \sfrac{r}{2})$.
+    Além disso, considere $\xi \in \cC^{\infty}_c(B)$ de forma que $\xi \geqslant 0$ em $B$ e $\xi \equiv 1$ em $\widehat B$ e denote $\Gamma = \partial \Omega \cap \widehat B$ e $x' = (x_1,\dots,x_{n-1}) \in \bR^{n-1}$.
+    Note que utilizando integração por partes
+    \[
+        \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n}\,dx = \int_{\partial B^+} \xi |u|^p \, \nu_n dS
+    \]
+    onde $\nu$ é o vetor unitário que aponta para baixo em (?), isto é $\nu = (0,\dots,0,-1)$. Sendo assim, $\nu_n = -1$ e 
+    \[
+        \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx = -\int_{\partial B^+} \xi(x') |u(x')|^p \,dx'.
+    \]
+    Dessa forma
+    \[
+        \int_{\Gamma} |u|^p \,dx' \leqslant \int_{\partial B^+} \xi|u|^p \,dx' = -\int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx.
+    \]
+    Calculando a derivada, obtemos
+    \[
+        \int_\Gamma |u|^p \,dx' \leqslant - \int_{B^+} \dfrac{\partial \xi}{\partial x_n} |u|^p + p|u|^{p-1} \sgn\,u\,\dfrac{\partial u}{\partial x_n} \xi \,dx \leqslant c \int_{B^+} |u|^p + |u|^{p-1} \Vert Du \Vert \,dx
+    \]
+    onde utilizamos o fato de $\xi$ ter suporte compacto para a ultima desigualdade. Por fim utilizando a Desigualdade de Young
+    \begin{equation} \label{eq:umaisdu}
+        \int_\Gamma |u|^p \,dx' \leqslant c \int_{B^+} |u|^p + \frac{|u|^{(p-1)p'}}{p'} + \frac{\Vert Du \Vert^p}{p} \,dx \leqslant c \int_{B^+} |u|^p + \Vert Du \Vert^p \,dx
+    \end{equation}
+
+    Caso $\tilde x$ não esteja necessáriamente contido em $\{x_n =0 \}$, considere o homeomorfismo $\Phi$ com inversa $\Psi$ da demonstração do Teorema \ref{thm:extensao} e defina $u'(y) = u(\Psi(y))$, daí, utilizando o Teorema de Mudança de Variáveis
+    \[
+        \int_\Gamma |u'(y)|^p \,dy' = \int_{\Psi(\Gamma)} |u(x)|^p \,dx'
+    \]
+    e
+    \[
+        \int_{B^+} |u'(y)|^p + \Vert Du'(y) \Vert^p \,dy \leqslant c\int_{\Psi(B^+)} |u(x)|^p + \Vert Du(x) \Vert^p \,dx
+    \]
+    onde $c$ é uma constante que depende de $\gamma$. Dessa forma por (\ref{eq:umaisdu})
+    \[
+        \begin{aligned}
+            \Vert u \Vert^p_{\cL^p(\Psi(\Gamma))} = \int_{\Psi(\Gamma)} |u|^p \,dx' = \int_{\Gamma} |u'|^p \,dy' &\leqslant c\int_{B^+} |u'|^p + \Vert Du' \Vert^p \,dy\\ 
+            &\leqslant c \int_{\Psi(B^+)} |u|^p + \Vert Du \Vert^p \,dx = \Vert u \Vert_{\cW^{1,p}(\Psi(B^+))}^p
+        \end{aligned}
+    \]
+    como $\Psi(B^+) \subseteq \Omega$, obtemos 
+    \[
+        \Vert u \Vert_{\cL^p(\Psi(\Gamma))} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+    \]
+
+    Como $\partial\Omega$ é compacto, pelo Teorema de Heine-Borel, existe uma quantidade finita de abertos $\Psi(\Gamma_i)$ tal que
+    \[
+        \partial\Omega \subseteq \bigcup_{i=1}^N \Psi(\Gamma_i)
+    \]
+    e $\Vert u \Vert_{\cL^p(\Psi(\Gamma_i))} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$.
+    Seja $\{\phi_i\}_{i=1}^N$ uma partição da unidade subordinada a cobertura $\{\Psi(\Gamma_i)\}_{i=1}^N$. Sendo assim, $u = \sum_{i=1}^N \phi_i u$.
+
+    Defina $\widetilde T : \cC^1(\overline \Omega) \to \cL^p(\partial\Omega)$ por $\widetilde T u = u |_{\partial \Omega}$.
+    Dessa forma
+    \[
+        \begin{aligned}
+            \Vert \widetilde Tu \Vert_{\cL^p(\partial \Omega)}^p = \int_{\partial\Omega} | \widetilde T u|^p \,dx = \int_{\partial\Omega} |u|^p \,dx &\leqslant c \sum_{i=1}^{N} \int_{\partial \Omega} \phi_i^p |u|^p \,dx\\ 
+            &= c \sum_{i=1}^N \int_{\Psi(\Gamma_i)} |u|^p \leqslant c\Vert u \Vert_{\cW^{1,p}(\Omega)}^p
+        \end{aligned}
+    \]
+    isto mostra que $\widetilde T$ é um operador limitado.
+    Por fim, defina $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$ por
+    \[
+        T u = \left\{  
+            \begin{array}{ll}
+                \widetilde Tu &\text{se } u \in \cC^{\infty}(\overline\Omega)\\
+                \lim \widetilde Tu_k &\text{se } u \not \in \cC^{\infty}(\overline\Omega)
+            \end{array}
+        \right.
+    \]
+    onde $(u_k)$ é uma sequência de funções em $\cC^{\infty}(\overline\Omega)$ que converge para $u \in \cW^{1,p}(\Omega)$. Sendo assim
+    \[
+        \Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+    \]
+    (finalizar, preciso refazer o final e o pedacinho de $D(u \circ \Psi)$)
 \end{prf}
 
 \begin{tbox}[Funções traço zero em $\cW^{1,p}$]
@@ -4614,7 +4699,110 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     onde $c$ é uma constante que depende apenas de $p$ e $n$ e $\gamma = 1 - \frac{n}{p}$.
 \end{tbox}
 \begin{prf}
-    
+    Primeiramente, escolha uma bola $B(x,r) \subseteq \bR^n$.
+    Afirmamos que existe uma constante $c$ dependendo apenas de $n$ tal que
+    \begin{equation} \label{eq:desigualdade-uyux}
+        \sint_{B(x,r)} |u(y) - u(x)| \,dy \leqslant c \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|y-x|^{n-1}} \,dy.
+    \end{equation}
+    Com efeito, fixe $w \in \partial B(\bz,1)$, assim, se $0 < s < r$ segue que
+    \[
+        |u(x + sw) - u(x)| = \left| \int_0^s u'(x + tw) \,dt \right| = \left|\int_0^s Du(x + tw) \cdot w \,dt \right| \leqslant \int_0^s |Du(x + tw)| \,dt.
+    \]
+    Daí
+    \[
+        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{\partial B(\bz,1)} |Du(x + tw)| \,dSdt = \int_0^s \int_{\partial B(\bz,1)} |Du(x + tw)| \frac{t^{n-1}}{t^{n-1}} \,dSdt.
+    \]
+    Seja $y = x + tw$, de forma que $t = \Vert x - y \Vert$. Assim, obtemos
+    \[
+        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{B(x,t)} \frac{Du(y)}{|x-y|^{n-1}} \,dSdt =  \int_{B(x,s)} \frac{|Du(y)|}{|x-y|^{n-1}} \,dy
+    \]
+    e como $s < r$
+    \[
+        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant   \int_{B(x,r)} \frac{|Du(y)|}{|x-y|^{n-1}} \,dy.
+    \]
+    Multiplicando a equação acima por $s^{n-1}$ e integrando de $0$ a $r$ com respeito a $s$
+    \[
+        \int_0^r s^{n-1} \int_{\partial B(\bz,1)} |u(x + sw) - u(x)| \,dSds \leqslant \int_0^r s^{n-1} \int_{B(x,r)} \frac{|Du(y)|}{|x-y|^{n-1}} \,dyds.
+    \]
+    Fazendo $y = x + sw$, obtemos
+    \[
+        \int_0^r \int_{\partial B(x,s)} |u(y) - u(x)|\, dSds \leqslant \left( \int_{B(x,r)} \frac{|Du(y)|}{|x-y|^{n-1}} \,dy \right) \left( \int_0^r s^{n-1} ds \right)
+    \]
+    Utilizando coordenadas polares no lado esquerdo e resolvendo a última integral do lado direito, segue que
+    \[
+        \int_{B(x,r)} |u(y) - u(x)| \leqslant \frac{r^n}{n} \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy
+    \]
+    Por fim dividindo ambos os lados por $\sigma(n) r^n$ (volume da $n$-esfera de raio $r$)
+    \[
+        \sint_{B(x,r)} |u(y) - u(x)| \,dy \leqslant \frac{1}{n\sigma(n)} \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{\Vert x-y \Vert^{n-1}} \,dy.
+    \]
+    como era desejado.
+
+    Agora, fixe $x \in \bR^n$. Note que
+    \[
+        |u(x)| = \frac{|u(x)|}{\sigma(n)}\int_{B(x,1)} dy = \sint_{B(x,1)} |u(x)| \,dy.
+    \]
+    Dito isso
+    \[
+        |u(x)| \leqslant \sint_{B(x,1)} |u(x) - u(y)| \,dy + \sint_{B(x,1)} |u(y)|\,dy.
+    \]
+    Observe que
+    \[
+        \sint_{B(x,1)} |u(y)| \,dy = \frac{1}{\sigma(n)} \int_{B(x,1)} |u(y)| \,dy \leqslant c \left( \int_{B(x,1)} |u(y)|^p\,dy \right)^{\frac{1}{p}} \left( \int_{B(x,1)} 1^{p'} \,dy \right)^{\frac{1}{p'}} \leqslant c \Vert u \Vert_{\cL^p(\bR^n)}
+    \]
+    Além disso
+    \[
+        \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant \left( \int_{B(x,1)} |Du|^p \right)^{\frac{1}{p}} \left( \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} \right)^{\frac{1}{p'}}
+    \]
+    onde a ultima integral é finita.
+    De fato
+    \[
+        \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} = \int_0^1 \int_{\partial B(x,r)} \frac{1}{r^{(n-1)p'}} dSdr
+    \]
+    (...)
+    Dito isso
+    \[
+        \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant c\Vert Du \Vert_{\cL^p(\bR^n)}.
+    \]
+    Dessa forma, por () e ()
+    \[
+        |u(x)| \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}.
+    \]
+    Como $x$ é arbitrário, também obtemos
+    \begin{equation}
+        \Vert u \Vert_{\cC(\bR^n)} = \sup_{x \in \bR^n} |u(x)| \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}
+    \end{equation}
+
+    Agora, considere $x, y \in \bR^n$ e denote $r = \Vert x - y \Vert$. Daí, seja $B = B(x,r) \cap B(y,r)$, sendo assim
+    \[
+        |u(x) - u(y)| \leqslant \sint_{B} |u(x) - u(z)| \,dz + \sint_B |u(y) - u(z)| \,dz.
+    \]
+    Calculando a primeira integral obtemos
+    \[
+        \sint_B |u(x) - u(z)| \,dz \leqslant \sint_{B(x,r)} |u(x) - u(z)| \,dz \leqslant c \int_{B(x,r)} \frac{|Du(z)|}{|z-x|^{n-1}} \,dz
+    \]
+    onde utilizando a Desigualdade de Hölder, como foi feito anteriormente obtemos
+    \[
+        \sint_B |u(x) - u(z)| \,dz \leqslant cr^{1 - \frac{n}{p}} \Vert Du \Vert_{\cL^p(\bR^n)}.
+    \]
+    De forma análoga
+    \[
+        \sint_B |u(y) - u(z)| \,dz \leqslant cr^{1 - \frac{n}{p}} \Vert Du \Vert_{\cL^p(\bR^n)}.
+    \]
+
+    Sendo assim
+    \[
+        |u(x) - u(y)| \leqslant c \Vert x - y \Vert^{1 - \frac{n}{p}} \Vert Du \Vert_{\cL^p(\bR^n)}.
+    \]
+    Isso mostra que
+    \[
+        [u]_{\cC^{0,\gamma}(\bR^n)} = \sup \left\{ \frac{|u(x) - u(y)|}{\Vert x - y \Vert^{\gamma}} \right\} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}
+    \]
+    Portanto por () e ()
+    \[
+        \Vert u \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}.
+    \]
+    Assim, demonstrada a Desigualdade de Morrey.
 \end{prf}
 
 \begin{dbox}
