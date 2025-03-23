@@ -3408,7 +3408,7 @@ Com efeito, pelo Teorema \ref{thm:teorema-do-brezis}, o \nameref{thm:teorema-da-
     De forma análoga ao caso $1 \leqslant p < \infty$, mostramos que $D^\alpha u = u_\alpha$ e portanto $u_n \to u$ em $\cW^{k,\infty}(\Omega)$.
 \end{prf}
 
-\section{Aproximações}
+\section{Aproximações} \label{sec:aproximacoes}
 
 Não é ideal ficar voltando o tempo todo à definição de derivadas fracas. Para explorar as propriedades mais profundas dos espaços de Sobolev, precisamos de métodos sistemáticos para aproximar funções nesses espaços por funções suaves. A técnica de molificação, que envolve a convolução de uma função com uma função conhecida como função molificadora que é suave e tem suporte compacto, oferece essa ferramenta. Esse processo resulta em uma sequência de funções suaves que convergem para a função original no espaço de Sobolev, permitindo a aproximação de funções sem derivada bem definida por funções suaves. As funções molificadoras são essenciais na teoria dos espaços de Sobolev, possibilitando o estudo de soluções fracas para equações diferenciais parciais e estabelecendo resultados importantes de densidade.
 
@@ -4541,8 +4541,8 @@ para toda função $u \in \cC^1_c(\bR^n)$.
 \]
 que é uma contradição.
 
-\begin{tbox}
-    Seja $\Omega$ um aberto limitado com $\partial\Omega$ de classe $\cC^1$ e $u \in \cW^{1,p}(\Omega)$ então $u \in \cL^{p^*}(\Omega)$ e
+\begin{tbox} \label{thm:desigualdade-teorema-2}
+    Seja $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{1,p}(\Omega)$ então $u \in \cL^{p^*}(\Omega)$ e
     \[
         \Vert u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
     \]
@@ -4743,33 +4743,36 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
         |u(x)| = \frac{|u(x)|}{\sigma(n)}\int_{B(x,1)} dy = \sint_{B(x,1)} |u(x)| \,dy.
     \]
     Dito isso
-    \[
+    \begin{equation} \label{eq:ux}
         |u(x)| \leqslant \sint_{B(x,1)} |u(x) - u(y)| \,dy + \sint_{B(x,1)} |u(y)|\,dy.
-    \]
+    \end{equation}
     Observe que
-    \[
-        \sint_{B(x,1)} |u(y)| \,dy = \frac{1}{\sigma(n)} \int_{B(x,1)} |u(y)| \,dy \leqslant c \left( \int_{B(x,1)} |u(y)|^p\,dy \right)^{\frac{1}{p}} \left( \int_{B(x,1)} 1^{p'} \,dy \right)^{\frac{1}{p'}} \leqslant c \Vert u \Vert_{\cL^p(\bR^n)}
-    \]
+    \begin{equation} \label{eq:uylp}
+        \begin{aligned}
+            \sint_{B(x,1)} |u(y)| \,dy &= \frac{1}{\sigma(n)} \int_{B(x,1)} |u(y)| \,dy\\ 
+            &\leqslant \frac{1}{\sigma(n)} \left( \int_{B(x,1)} |u(y)|^p\,dy \right)^{\frac{1}{p}} \left( \int_{B(x,1)} 1^{p'} \,dy \right)^{\frac{1}{p'}} \leqslant c \Vert u \Vert_{\cL^p(\bR^n)}
+        \end{aligned}
+    \end{equation}
     Além disso
     \[
         \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant \left( \int_{B(x,1)} |Du|^p \right)^{\frac{1}{p}} \left( \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} \right)^{\frac{1}{p'}}
     \]
     onde a ultima integral é finita.
-    De fato
+    De fato, utliizando coordenadas polares
     \[
-        \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} = \int_0^1 \int_{\partial B(x,r)} \frac{1}{r^{(n-1)p'}} dSdr
+        \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} = \int_0^1 \int_{\partial B(x,r)} \frac{1}{r^{(n-1)p'}} dSdr = n\sigma(n)\int_0^1 r^{(n-1)(1-p')} \,dr = n \sigma(n)  \frac{p-1}{p-n}
     \]
-    (...)
+    que é finito pois $n < p$.
     Dito isso
-    \[
+    \begin{equation} \label{eq:duxy}
         \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant c\Vert Du \Vert_{\cL^p(\bR^n)}.
-    \]
-    Dessa forma, por () e ()
+    \end{equation}
+    Dessa forma, por (\ref{eq:desigualdade-uyux}), (\ref{eq:ux}), (\ref{eq:uylp}) e (\ref{eq:duxy})
     \[
         |u(x)| \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}.
     \]
     Como $x$ é arbitrário, também obtemos
-    \begin{equation}
+    \begin{equation} \label{eq:normac}
         \Vert u \Vert_{\cC(\bR^n)} = \sup_{x \in \bR^n} |u(x)| \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}
     \end{equation}
 
@@ -4795,12 +4798,12 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
         |u(x) - u(y)| \leqslant c \Vert x - y \Vert^{1 - \frac{n}{p}} \Vert Du \Vert_{\cL^p(\bR^n)}.
     \]
     Isso mostra que
-    \[
+    \begin{equation} \label{eq:seminormau}
         [u]_{\cC^{0,\gamma}(\bR^n)} = \sup \left\{ \frac{|u(x) - u(y)|}{\Vert x - y \Vert^{\gamma}} \right\} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}
-    \]
-    Portanto por () e ()
+    \end{equation}
+    Portanto por (\ref{eq:normac}) e (\ref{eq:seminormau})
     \[
-        \Vert u \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}.
+        \Vert u \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}
     \]
     Assim, demonstrada a Desigualdade de Morrey.
 \end{prf}
@@ -4913,7 +4916,34 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     é valida com $c$ dependendo apenas de $k, p, n, \gamma$ e $\Omega$.
 \end{tbox}
 \begin{prf}
-    \dots
+    Suponha que $\sfrac{n}{p}$ não é um inteiro. Então como visto na demonstração anterior temos que $u \in \cW^{k-l,r}(\Omega)$ quando
+    \[
+        \frac{1}{r} = \frac{1}{p} - \frac{l}{n}
+    \]
+    desde que $lp < n$. Além disso, $l$ é um inteiro tal que
+    \[
+        l \leqslant \frac{n}{p} < l + 1
+    \]
+    isto é $l = \left\lfloor \frac{n}{p} \right\rfloor$.
+    Consequentemente temos que
+    \[
+        r = \frac{pn}{n-pl} > n
+    \]
+    assim, pela Desigualdade de Morrey temos que $D^\alpha u \in \cC^{0,1-\frac{n}{r}}(\overline\Omega)$ para todo $|\alpha| \leqslant k - l - 1$. Observe também que $1 - \frac{n}{r} = l +1 - \frac{n}{p} = \gamma$.
+    Portanto $u \in \cC^{k-l-1,\gamma}(\overline\Omega)$ e
+    \[
+        \text{desigualdade}
+    \]
+
+    Por fim, suponha que $\sfrac{n}{p}$ é um inteiro. Denotando $l = \sfrac{n}{p} - 1$, temos de forma análoga ao caso anterior que $u \in \cW^{k-l,r}(\Omega)$ com $r = \frac{pn}{n-pl} = n$.
+    Assim, utilizando a Desigualdade de Gagliardo-Nirenberg-Sobolev temos que
+    $D^\alpha u \in \cL^q(\Omega)$ para todo $n \leqslant q < \infty$ e $|\alpha| \leqslant k - l - 1$.
+    Novamente utilizando a Desigualdadede Morrey, $D^\alpha u \in \cC^{0,1-\frac{n}{q}}(\overline\Omega)$ para todo $n < q < \infty$ e $|\alpha| \leqslant k - l - 1$.
+    Consequentemente $u \in \cC^{k-l-1,\gamma}(\overline\Omega)$ para todo $0 < \gamma < 1$ e
+    \[
+        \text{desigualdade}
+    \]
+    Finalizando a demonstração
 \end{prf}
 
 \section{Compacidade}
@@ -4932,7 +4962,7 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
 \obs Se um mergulho satisfaz apenas a primeira propiedade, dizemos que $X$ está continuamente mergulhado em $Y$ e denotamos por $X \hookrightarrow Y$.
 
 \begin{tbox}[Teorema de Compacidade de Rellich-Kondrachov]
-    Seja $\Omega \subseteq \bR^n$ um aberto limitado com $\partial \Omega$ de classe $\cC^1$.
+    Seja $\Omega \subseteq \bR^n$ um aberto limitado com fronteira de classe $\cC^1$.
     Então
     \[
         \cW^{1,p}(\Omega) \doublehookrightarrow \cL^q(\Omega)
@@ -4940,19 +4970,109 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     com $1 \leqslant p < n$ e $1 \leqslant q < p^*$
 \end{tbox}
 \begin{prf}
-    
+    Seja $1 \leqslant q < p^*$ fixo.
+    Como $\Omega$ é limitado temos pelo Teorema \ref{thm:desigualdade-teorema-2} temos que $\cW^{1,p}(\Omega) \subseteq \cL^q(\Omega)$ e $\Vert u \Vert_{\cL^q(\Omega)} \leqslant c \Vert u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$.
+    Resta mostrar que se $(u_k)_{k = 1}^\infty$ é uma sequência limitada em $\cW^{1,p}(\Omega)$, então existe uma subsequência $(u_{k_j})_{j=1}^\infty$.
+
+    Pelo Teorema de Extensão, podemos supor sem perda de generalidade que $\Omega = \bR^n$ e que para todo $k \in \bN$, $u_k$ tem suporte compacto em algum aberto limitado $\Omega' \subseteq \bR^n$. 
+    Também podemos supor que
+    \begin{equation} \label{eq:supfinito}
+        \sup_k \Vert u_k \Vert_{\cW^{1,p}(\Omega')} < \infty
+    \end{equation}
+
+    Primeiramente vamos estudar as funções suavizadas $u_k^\varepsilon = \eta_\varepsilon * u_k$ onde $\eta_\varepsilon$ é a função molificadora vista na Seção \ref{sec:aproximacoes}. Também podemos supor que para todo $k \in \bN$ e $\varepsilon > 0$ as funções $u_k^\varepsilon$ tem suporte em $\Omega'$. Afirmamos que
+    \begin{equation} \label{eq:convergenciaemlq}
+        \Vert u^\varepsilon_k - u_k \Vert_{\cL^q(\Omega')} \to 0
+    \end{equation}
+    quando $\varepsilon \to 0$ uniformemente em $k$.
+    Com efeito, note que se $u_k$ é suave, então
+    \[
+        u_k^\varepsilon(x) - u_k(x) = \int_{B(\bz,\varepsilon)} \eta_\varepsilon(\tau) u_k (x - \tau) \,d\tau - u_k(x)  = \int_{B(\bz,\varepsilon)} \frac{1}{\varepsilon^n} \eta \left( \frac{\tau}{\varepsilon} \right) u_k (x - \tau) \,d\tau - u_k(x)
+    \]
+    Fazendo a substituição $\tau = \varepsilon y$ e lembrando que $\int_{B(\bz,1)} \eta(y) \,dy = 1$, obtemos
+    \[
+        u_k^\varepsilon(x) - u_k(x) = \int_{B(\bz,1)} \eta(y) \left( u_k(x - \varepsilon y) - u_k(x) \right) \,dy = \int_{B(\bz,1)} \eta(y) \int_0^1 \frac{d}{dt}u_k(x - \varepsilon t y) \,dt dy
+    \]
+    Para calcular essa derivada, seja $g(t) = x - \varepsilon t y$. Pela Regra da Cadeia temos que
+    \[
+        \frac{d}{dt} (u_k \circ g) = \sum_{j=1}^n \dfrac{\partial u_k}{\partial x_j} (g(t)) \, g_j'(t) = -\varepsilon\sum_{j=1}^{n} \dfrac{\partial u_k}{\partial x_j}(g(t)) \,y_j = -\varepsilon Du_k(x - \varepsilon ty) \cdot y
+    \]
+    Sendo assim
+    \[
+        u_k^\varepsilon(x) - u_k(x) = -\varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 Du_k(x - \varepsilon ty) \cdot y \,dtdy.
+    \]
+    Daí, passando o módulo em ambos os lados e Utilizando a Desigualdade de Hölder (Cauchy-Schwarz) obtemos
+    \[
+        |u_k^\varepsilon(x) - u_k(x)| \leqslant \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 |Du_k(x - \varepsilon ty)| \,dtdy
+    \]
+    e integrando ambos os lados sobre $\Omega'$
+    \[
+        \begin{aligned}
+            \int_{\Omega'} |u_k^\varepsilon(x) - u_k(x)|\,dx &\leqslant \int_{\Omega'} \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 |Du_k(x - \varepsilon ty) \,dtdydx\\
+            &\leqslant \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 \int_{\Omega'} |Du_k(x - \varepsilon ty)| \,dxdtdy \leqslant \varepsilon \int_{\Omega'} |Du_k(z)| \,dz.
+        \end{aligned}
+    \]
+    Isto é
+    \[
+        \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(\Omega')} \leqslant \varepsilon \Vert Du_k \Vert_{\cL^1(V)} \leqslant \varepsilon c \Vert Du_k \Vert_{\cL^p(\Omega')} \leqslant \varepsilon c \Vert u_k \Vert_{\cW^{1,p}(\Omega')}
+    \]
+    Akém disso, utilizando (\ref{eq:supfinito}) obtemos que
+    \begin{equation} \label{eq:eml1converge}
+        \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(\Omega')} \to 0
+    \end{equation}
+    quando $\varepsilon \to 0$ uniformemente em $k$. Como $1 \leqslant q < p^*$, podemos utilizar a Desigualdade de Interpolação das normas $\cL^p$
+    \[
+        \Vert u_k^\varepsilon - u_k \Vert_{\cL^q(V)} \leqslant \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(V)}^\theta \Vert u_k^\varepsilon - u_k \Vert_{\cL^{p^*}(V)}^{1- \theta}
+    \]
+    onde $\frac{1}{q} = \theta + \frac{(1 - \theta)}{p^*}$ e $0 < \theta < 1$.
+    Ademais, por () e (), $\Vert u_k^\varepsilon - u_k \Vert_{\cL^{p^*}(V)}^{1- \theta}$ é finito.
+    Assim por (\ref{eq:eml1converge})
+    \[
+        \Vert u_k^\varepsilon - u_k \Vert_{\cL^q(V)} \leqslant c \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(V)}^\theta \to 0
+    \]
+    quando $\varepsilon \to 0$ uniformemente em $k$. Como era desejado.
+
+    Agora, afirmamos que, para cada $\varepsilon > 0$ fixo, a sequência $(u_k^\varepsilon)_{k=1}^\infty$ é uniformemente limitada e equicontínua.
+    Com efeito, se $x \in \bR^n$
+    \[
+        |u_k^\varepsilon(x)| \leqslant \int_{B(x,\varepsilon)} \eta_\varepsilon (x - y) |u_k(y)| \,dy \leqslant \Vert \eta_\varepsilon \Vert_{\cL^\infty(\bR^n)} \Vert u_k \Vert_{\cL^1(V)} < \infty.
+    \]
+    De forma análoga, mostramos que $|Du_k^\varepsilon(x)| < \infty$.
+    Isso prova a afirmação pois (...)
+
+    Agora seja $\delta > 0$ fixo. Mostremos que existe uma subsequência $(u_{k_j})_{j=1}^\infty \subseteq (u_k)_{k=1}^\infty$ tal que
+    \[
+        \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_\ell} \Vert_{\cL^q(V)} \leqslant \delta.
+    \]
+    De fato, por (\ref{eq:convergenciaemlq}), conseguimos um valor de $\varepsilon > 0$ suficientemente pequeno tal que
+    \[
+        \Vert u_k^\varepsilon - u_k \Vert_{\cL^q(V)} \leqslant \frac{\delta}{2}
+    \]
+    para todo $k \in \bN$
+    Além disso, sabemos que para todo $k \in \bN$ e $\varepsilon > 0$ as funções $u_k$ e $u_k^\varepsilon$ tem suporte em um aberto limitado fixo $V \subseteq \bR^n$, podemos utilizar o fato da sequência $(u_k^\varepsilon)_{k=1}^\infty$ ser equicontínua e uniformemento limitada junto do Critério de Compacidade de Arzelà-Ascoli para obter uma subsequência $(u_{k_j}^\varepsilon)_{j=1}^\infty \subseteq (u_k^\varepsilon)_{k=1}^\infty$ que converge uniformemente em $V$.
+    Em particular
+    \[
+        \limsup_{j,\ell \to \infty} \Vert u_{k_j}^\varepsilon - u_{k_\ell}^\varepsilon \Vert_{\cL^q(V)} = 0.
+    \]
+    Dessa forma
+    \[
+        \begin{aligned}
+            \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_\ell} \Vert_{\cL^q(V)} \leqslant \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_j}^\varepsilon \Vert_{\cL^q(V)} + \limsup_{j,\ell \to \infty} \Vert u_{k_j}^\varepsilon - u_{k_\ell}^\varepsilon \Vert_{\cL^q(V)} + \limsup_{j,\ell \to \infty} \Vert u_{k_\ell}^\varepsilon - u_{k_\ell} \Vert_{\cL^q(V)}
+        \end{aligned}
+    \]
+    como era desejado.
+    Por fim, escolhendo $\delta = 1,\frac{1}{2},\dots$ em (), conseguimos extrair uma subsequência $(u_{k_j})_{j=1}^\infty \subseteq (u_k)_{k=1}^\infty$ que satisfaz
+    \[
+        \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_\ell} \Vert_{\cL^q(V)} = 0
+    \]
 \end{prf}
 
-\chapter{Derivando as equações de Navier-Stokes}
+\chapter{Algumas aplicações dos Espaços de Sobolev}
 
-Nesse capítulo visamos derivar as equações de Navier-Stokes 
-\[
-    \begin{array}{c}
-        \bu_t + \bu \cdot \nabla \bu + \nabla p = \nu \Delta \bu + \bX\\
-        \nabla \cdot \bu = 0
-    \end{array}
-\]
-partindo do principio de conservação de energia \textcolor{red}{(?)} e ressaltar alguns fatos importantes sobre essas equações e suas soluções.
+\section{Estimativas de decaimento das soluções das equações de Navier-Stokes}
+
+\section{Soluções fracas da equação de Laplace}
+
 
 \nocite{*}
 \printbibliography
