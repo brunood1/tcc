@@ -100,6 +100,51 @@
       \field{title}{Functional Analysis, Sobolev Spaces and Partial Differential Equations}
       \field{year}{2010}
     \endentry
+    \entry{fiorenza-gns}{misc}{}{}
+      \name{author}{4}{}{%
+        {{hash=5373ef87fc0dba60c43d512c1d3ae511}{%
+           family={Fiorenza},
+           familyi={F\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4f9335c53426d07699ebb3ec6d31652d}{%
+           family={Formica},
+           familyi={F\bibinitperiod},
+           given={Maria\bibnamedelima Rosaria},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=9ce38310d07f4c0d1c21413f2c11b43a}{%
+           family={Roskovec},
+           familyi={R\bibinitperiod},
+           given={Tomáš},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f776e976d7a91925f543611430727403}{%
+           family={Soudský},
+           familyi={S\bibinitperiod},
+           given={Filip},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb6e6525c9f0053b552b0476a1436e18}
+      \strng{fullhash}{6e58c0988832a6925919546e5bcee8fe}
+      \strng{fullhashraw}{6e58c0988832a6925919546e5bcee8fe}
+      \strng{bibnamehash}{6e58c0988832a6925919546e5bcee8fe}
+      \strng{authorbibnamehash}{6e58c0988832a6925919546e5bcee8fe}
+      \strng{authornamehash}{eb6e6525c9f0053b552b0476a1436e18}
+      \strng{authorfullhash}{6e58c0988832a6925919546e5bcee8fe}
+      \strng{authorfullhashraw}{6e58c0988832a6925919546e5bcee8fe}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Detailed proof of classical Gagliardo-Nirenberg interpolation inequality with historical remarks}
+      \field{year}{2018}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1812.04281
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1812.04281
+      \endverb
+    \endentry
     \entry{oseen-hydrodynamik}{book}{}{}
       \name{author}{1}{}{%
         {{hash=b301872d87f37e159237a92c47853a7a}{%
@@ -227,6 +272,36 @@
       \verb https://arxiv.org/abs/1604.02484
       \endverb
     \endentry
+    \entry{zingano-edp}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=a0562549cccb370a31ea648a3c6ea836}{%
+           family={Zingano},
+           familyi={Z\bibinitperiod},
+           given={Paulo\bibnamedelima R.},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{a0562549cccb370a31ea648a3c6ea836}
+      \strng{fullhash}{a0562549cccb370a31ea648a3c6ea836}
+      \strng{fullhashraw}{a0562549cccb370a31ea648a3c6ea836}
+      \strng{bibnamehash}{a0562549cccb370a31ea648a3c6ea836}
+      \strng{authorbibnamehash}{a0562549cccb370a31ea648a3c6ea836}
+      \strng{authornamehash}{a0562549cccb370a31ea648a3c6ea836}
+      \strng{authorfullhash}{a0562549cccb370a31ea648a3c6ea836}
+      \strng{authorfullhashraw}{a0562549cccb370a31ea648a3c6ea836}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Two problems in Partial Differential Equations (in Portuguese)}
+      \field{year}{2018}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1801.04361
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1801.04361
+      \endverb
+    \endentry
     \entry{burden-analise.numerica}{book}{}{}
       \name{author}{2}{}{%
         {{hash=087f2271a0786e7c8db8fd33785aed18}{%
@@ -286,8 +361,8 @@
       \strng{authornamehash}{421cdd5790e26e6ffad05f66854de4a5}
       \strng{authorfullhash}{421cdd5790e26e6ffad05f66854de4a5}
       \strng{authorfullhashraw}{421cdd5790e26e6ffad05f66854de4a5}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{The Elements of Integration and Lebesgue Measure}
@@ -313,8 +388,8 @@
       \strng{authornamehash}{71493eec7caacea528ad39dbfb52773a}
       \strng{authorfullhash}{71493eec7caacea528ad39dbfb52773a}
       \strng{authorfullhashraw}{71493eec7caacea528ad39dbfb52773a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Measure, Integration and Real Analysis}
