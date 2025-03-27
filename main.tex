@@ -2824,9 +2824,19 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
     \cite{brezis-functional.analysis} p.p. 94.
 \end{prf}
 
+\begin{tbox}[Critério de compacidade de Arzelà-Ascoli]
+    
+\end{tbox}
+
 \section{Motivação}
 
 \section{Espaços de Sobolev $\cW^{k,p}(\Omega)$}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[height=3cm]{sobolev.jpg}
+%     \caption{Sergei Lvovich Sobolev (1908 -- 1989)}
+% \end{figure}
 
 Nosso objetivo agora, é generalizar a noção de derivada para funções que não são diferenciáveis em um aberto $\Omega$ do $\bR^n$ e explorar algumas propriedades elementares.
 
@@ -3799,7 +3809,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
         \includegraphics[width=0.4\textwidth]{2η.pdf}
         \hspace{10mm}
         \includegraphics[width=0.4\textwidth]{2ηε.pdf}
-        \caption{$\eta$ e $\eta_\varepsilon$ com $\varepsilon = 0.5$}
+        \caption{$\eta$ e $\eta_\varepsilon$ com $\varepsilon = 0.5$\\Fonte: Autoral}
         \label{fig:eta-R2}
     \end{figure}
 
@@ -3898,6 +3908,11 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     Logo $x^\varepsilon \in \Omega \cap B[\tilde x, r]$ para todo $\varepsilon > 0$ pequeno.
     De forma análoga, verificamos que
     $B[x_\varepsilon, \varepsilon] \subseteq \Omega \cap B[\tilde x,r]$.
+    \begin{figure}
+        \centering
+        \input{mollifiers/bola.tex}
+        \caption{Fonte: Autoral. Baseada em \cite{evans-pde} p.p. 253}
+    \end{figure}
 
     Agora, definimos $u_\varepsilon(x) = u(x^\varepsilon)$ para todo $x \in \Omega'$ e $v^\varepsilon = \eta_\varepsilon * u_\varepsilon$. Assim, pelo Teorema \ref{thm:aprox1} $v^\varepsilon \in \cC^{\infty}(\overline{\Omega'})$. 
     Dito isso, afirmamos que
@@ -4041,8 +4056,8 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \]
     \begin{figure}
         \centering
-        \textcolor{red}{FIGURA DO HOMEOMORFISMO $\Phi$}
-        \caption{~}
+        \input{mollifiers/homeomorfismo.tex}
+        \caption{Representação gráfica do homemorfismo $\Phi$\\Fonte: Autoral. Baseada em \cite{evans-pde} p.p. 256}
     \end{figure}
     Dessa forma $\Psi^{-1} = \Phi$. Sendo assim, seja $y = \Phi(x)$ (ou seja $x = \Psi(y)$) e definimos $u'(y) = u(\Psi(y))$, daí como foi feito anteriormente, podemos escolher uma bola $B = B(\tilde y, r)$ e definimos $\bar u'$ de forma que $\bar u' \in \cC^1(B)$ e
     \begin{equation}
@@ -4249,7 +4264,7 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \[
         \Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
     \]
-    (finalizar, preciso refazer o final e o pedacinho de $D(u \circ \Psi)$)
+    \textcolor{red}{(finalizar, preciso refazer o final e o pedacinho de $D(u \circ \Psi)$)}
 \end{prf}
 
 \begin{tbox}[Funções traço zero em $\cW^{1,p}$]
@@ -4284,7 +4299,7 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     Seja $x' \in \bR^{n-1}$ e $x_n \geqslant 0$.
     Pelo teorema fundamental do cálculo
     \[
-        u_k(x',x_n) = u_k(x',0) + \int_0^{x_n} \dfrac{\partial u_k}{\partial x_n} (x',t) \,dt
+        u_k(x'\!,x_n) = u_k(x'\!,0) + \int_0^{x_n} \dfrac{\,\partial u_k\,}{\,\partial x_n\,} (x'\!,t) \,dt
     \]
     e daí
     \[
@@ -4605,9 +4620,9 @@ que é uma contradição.
 \begin{prf}
     Como $u \in \cW^{1,p}_0(\Omega)$, conseguimos uma sequência de funções $(u_k)$ em $\cC^{\infty}_c(\Omega)$ tal que $u_k \to u$ em $\cW^{1,p}(\Omega)$.
     Além disso, podemos extender cada $u_k$ para ser $0$ em $\bR^n \setminus \Omega$.
-    Sendo assim, aplicamos o Teorema ?? para obter
+    Sendo assim, aplicamos a Desigualdade de Gagliardo-Nirenberg-Sobolev para obter
     \[
-        \Vert u_k \Vert_{\cL^{p*}(\Omega)} \leqslant c \Vert Du_k \Vert_{\cL^p}(\Omega)
+        \Vert u_k \Vert_{\cL^{p*}(\Omega)} \leqslant c \Vert Du_k \Vert_{\cL^p(\Omega)}
     \]
     Passando ao limite \textcolor{red}{explicar o desenvolvimento}
     \[
@@ -4670,7 +4685,7 @@ isto é (...)
 Para estudar essa próxima classe de desigualdades, precisamos de algumas definições relacionadas aos espaços de Hölder.
 
 \begin{dbox}
-    Uma função $u : \Omega \to \bR$ é dita ser Hölder continua com expoente $\gamma$ quando
+    Uma função $u : \Omega \to \bR$ é dita ser Hölder continua com expoente $\gamma \in (0,1]$ quando
     \[
         |u(x) - u(y)| \leqslant c \Vert x - y \Vert^\gamma
     \]
@@ -4815,6 +4830,15 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     \]
 \end{dbox}
 
+Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
+
+\begin{tbox}
+    O espaço de Hölder $\cC^{0,\gamma}(\overline\Omega)$ é um espaço de Banach
+\end{tbox}
+\begin{prf}
+    ~
+\end{prf}
+
 \begin{tbox}
     Seja $\Omega$ um aberto limitado com $\partial\Omega$ de classe $\cC^1$.
     Considere $u \in \cW^{1,p}(\Omega)$ com $n < p \leqslant \infty$.
@@ -4900,7 +4924,12 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     como queriamos mostrar.
 \end{prf}
 
-\textcolor{red}{(definir $\cC^{k,\gamma}(\overline\Omega)$)}
+\begin{dbox}
+    O espaço de Hölder $\cC^{k,\gamma}(\overline\Omega)$ é formado pelas funções $u \in \cC^k(\Omega) \cap \cC^{0,\gamma}(\overline\Omega)$. Esse espaço é munido da norma
+    \[
+        \Vert u \Vert_{\cC^{k,\gamma}(\overline\Omega)} := \sum_{|\alpha| \leqslant k} \Vert D^{\alpha}u \Vert_{\cC(\overline\Omega)} + \sum_{|\alpha| \leqslant k} [D^\alpha u]_{\cC^{0,\gamma}(\overline\Omega)}
+    \] 
+\end{dbox}
 
 \begin{tbox}
     Sejam $\Omega$ um aberto limitado com fronteira $\partial\Omega$ de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$. 
@@ -5041,9 +5070,9 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     Isso prova a afirmação pois (...)
 
     Agora seja $\delta > 0$ fixo. Mostremos que existe uma subsequência $(u_{k_j})_{j=1}^\infty \subseteq (u_k)_{k=1}^\infty$ tal que
-    \[
+    \begin{equation} \label{eq:limsup}
         \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_\ell} \Vert_{\cL^q(V)} \leqslant \delta.
-    \]
+    \end{equation}
     De fato, por (\ref{eq:convergenciaemlq}), conseguimos um valor de $\varepsilon > 0$ suficientemente pequeno tal que
     \[
         \Vert u_k^\varepsilon - u_k \Vert_{\cL^q(V)} \leqslant \frac{\delta}{2}
@@ -5061,7 +5090,7 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
         \end{aligned}
     \]
     como era desejado.
-    Por fim, escolhendo $\delta = 1,\frac{1}{2},\dots$ em (), conseguimos extrair uma subsequência $(u_{k_j})_{j=1}^\infty \subseteq (u_k)_{k=1}^\infty$ que satisfaz
+    Por fim, escolhendo $\delta = 1,\frac{1}{2},\dots$ em (\ref{eq:limsup}), conseguimos extrair uma subsequência $(u_{k_j})_{j=1}^\infty \subseteq (u_k)_{k=1}^\infty$ que satisfaz
     \[
         \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_\ell} \Vert_{\cL^q(V)} = 0
     \]
@@ -5069,7 +5098,7 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
 
 \chapter{Algumas aplicações dos Espaços de Sobolev}
 
-\section{Estimativas de decaimento das soluções das equações de Navier-Stokes}
+\section{Estimativas de decaimento de energia das soluções das equações de Navier-Stokes}
 
 \section{Soluções fracas da equação de Laplace}
 
