@@ -5098,6 +5098,39 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
 
 \chapter{Algumas aplicações dos Espaços de Sobolev}
 
+\section{Preliminares}
+
+O primeiro preliminar para esse capítulo é a Desigualdade de Gagliardo-Nirenberg, iremos apresentar o caso geral abaixo, mas utilizaremos apenas alguns casos particulares que serão mencionados após o teorema
+\begin{tbox}[Desigualdade de Gagliardo-Nirenberg]
+    Seja $1 \leqslant q \leqslant \infty$, $\ell,k \in \bN$ com $\ell < k$ e uma das condições abaixo é satisfeita
+    \[
+        r = 1 \;\text{ e }\; \frac{\ell}{k} \leqslant \theta \leqslant 1
+    \]
+    ou
+    \[
+        1 < r < \infty,\;\, k - \ell - \frac{n}{r} \in \bN \;\text{ e }\; \frac{\ell}{k} \leqslant \theta \leqslant 1 
+    \]
+    Além disso, se
+    \[
+        \frac{1}{p} = \frac{\ell}{n} + \theta \left( \frac{1}{r} - \frac{k}{n} \right) + \frac{1 - \theta}{q}
+    \]
+    então existe uma constante positiva $c$ que não depende de $u$ tal que
+    \[
+        \Vert D^\ell u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert D^k u \Vert_{\cL^r(\bR^n)}^\theta \Vert u \Vert_{\cL^q(\bR^n)}^{1-\theta}
+    \]
+    para toda função $u \in \cL^q(\bR^n) \cap \cW^{k,r}(\bR^n)$.    
+\end{tbox}
+\begin{prf}
+    \cite{fiorenza-gns}
+\end{prf}
+
+A desigualdade de Ladyzhenskaya é um caso particular da desigualdade de Gagliardo-Nirenberg apresentada acima, quando $\ell = 0$, $m = 1$, $p = 4$, $q = r = 2$ e $\theta = \frac{3}{4}$, obtemos
+\begin{equation}
+    \Vert u \Vert_{\cL^4(\bR^n)} \leqslant c \Vert u \Vert_{\cL^2(\bR^n)}^{\frac{1}{4}} \Vert Du \Vert_{\cL^2(\bR^n)}^{\frac{3}{4}}
+\end{equation}
+
+\subsection{Semigrupo do calor}
+
 \section{Estimativas de decaimento de energia das soluções das equações de Navier-Stokes}
 
 \section{Soluções fracas da equação de Laplace}
