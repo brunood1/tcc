@@ -340,7 +340,7 @@ A sensação é de que a álgebra de Borel contem todos os subconjuntos de $\bR$
 Porem este não é o caso, pois existem subconjuntos de $\bR$ que são bastante dificeis de definir (vide [??]) que não estão em $\cB$.
 Mas se esses conjuntos são tão dificeis de definir por que precisamos de uma $\sigma$-álgebra que exclui eles?
 
-Na seção a seguir estudaremos o conceito de medida e suas propiedades, em um exemplo veremos que ao tentar definir uma medida no espaço $(\bR,\cP(\bR))$ uma propiedade importante não é satisfeita, mas restrigindo para o espaço $(\bR,\cB)$ conseguimos definir a mesma medida de forma que todas propiedades são satisfeitas.
+Na seção a seguir estudaremos o conceito de medida e suas propriedades, em um exemplo veremos que ao tentar definir uma medida no espaço $(\bR,\cP(\bR))$ uma propiedade importante não é satisfeita, mas restrigindo para o espaço $(\bR,\cB)$ conseguimos definir a mesma medida de forma que todas propriedades são satisfeitas.
 
 % Every subset of $\bR$ which we meet in everyday use is an element of Borel $\sigma$-algebra $\cB$; and indeed it is difficult (but possible!) to find a subset of $\bR$ constructed explicitly (without the Axiom of Choice) which is not in $\cB$. (Ver referência)
 
@@ -549,7 +549,7 @@ Um conceito bastante importante na teoria da medida, é a ideia de funções men
     \end{figure}
 \end{ex}
 
-Vamos estudar agora algumas propiedades elementares sobre funções mensuráveis
+Vamos estudar agora algumas propriedades elementares sobre funções mensuráveis
 
 \begin{pbox}
     Sejam $X$ um espaço mensurável, $f, g : X \to \bR$ funções mensuráveis e $c \in \bR$. Então as funções
@@ -1024,7 +1024,7 @@ onde $a_j \in \bR$ e $\chi_{E_j}$ é a função caracteristica do conjunto $E_j 
 
 \obs Adotamos a convenção $0 \cdot \infty = 0$. Dessa forma a integral da função identicamente nula é $0$ indepdendente se o conjunto tem medida finita ou infinita.
 
-\begin{lbox} \label{lm:propiedades-elementares-simples}
+\begin{lbox} \label{lm:propriedades-elementares-simples}
     Dadas funções simples $\varphi, \psi \in M^+(X, \eth)$ e $c \geqslant 0$ tem-se
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
         \item $\displaystyle \int c \varphi \, d\mu = c \int \varphi \, d\mu$
@@ -1185,7 +1185,7 @@ Além disso, definimos a integral da função $f$ sobre um conjunto mensurável
 
 \dots
 
-\begin{lbox} \label{lm:propiedades-integral-nao-negativa}
+\begin{lbox} \label{lm:propriedades-integral-nao-negativa}
     Sejam $f, g \in \cM^+(X,\eth)$ e $E, F \in \eth$.
     Então são válidas as afirmações abaixo
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
@@ -1281,9 +1281,9 @@ Um dos resultados mais importantes da teoria da medida é o Teorema da Convergê
     \]
 \end{prf}
 
-O Lema \ref{lm:propiedades-elementares-simples} sobre as operações elementares envolvendo a integral de funções simples mensuráveis e não-negativas, tambem é válido para funções mensuráveis não-negativas quaisquer como mostra o corolário abaixo
+O Lema \ref{lm:propriedades-elementares-simples} sobre as operações elementares envolvendo a integral de funções simples mensuráveis e não-negativas, tambem é válido para funções mensuráveis não-negativas quaisquer como mostra o corolário abaixo
 
-\begin{cbox} \label{cl:propiedades-elementares-nao-negativa}
+\begin{cbox} \label{cl:propriedades-elementares-nao-negativa}
     Sejam $f, g \in \cM^+(X,\eth)$ e $c > 0$, então são válidas as seguintes afirmações
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
         \item $\displaystyle \int cf \, d\mu = c \int f \,d \mu$
@@ -1297,7 +1297,7 @@ O Lema \ref{lm:propiedades-elementares-simples} sobre as operações elementares
     \[
         \int c f \, d\mu = 0 = c \int f \, d\mu.
     \]
-    Se $c > 0$, considere $(\varphi_n)$ uma sequência monótona crescente de funções simples em $\cM^+(X,\eth)$ convergindo para $f$ (lema ??). Dito isso, $(c\varphi_n)$ é um sequência monótona crescente que converge para $cf$. Pelo Lema \ref{lm:propiedades-elementares-simples} e pelo Teorema da Convergência Monótona, temos que
+    Se $c > 0$, considere $(\varphi_n)$ uma sequência monótona crescente de funções simples em $\cM^+(X,\eth)$ convergindo para $f$ (lema ??). Dito isso, $(c\varphi_n)$ é um sequência monótona crescente que converge para $cf$. Pelo Lema \ref{lm:propriedades-elementares-simples} e pelo Teorema da Convergência Monótona, temos que
     \[
         \int cf \, d\mu = \lim \int c \varphi_n \, d\mu = c \lim \int \varphi_n \, d\mu = c \int f \, d\mu.
     \]
@@ -1563,7 +1563,7 @@ ou seja
     \int_E f \, d\mu = \sum_{n=1}^{\infty} \int_{E_n} f\,d\mu
 \]
 
-Agora, estamos prontos para estudar algumas propiedades elementares das integrais de funções mensuráveis
+Agora, estamos prontos para estudar algumas propriedades elementares das integrais de funções mensuráveis
 
 \begin{tbox} \label{thm:modulo-funcao-integravel}
     Seja $f : X \to \bR$ uma função mensurável.
@@ -1643,7 +1643,7 @@ Agora, estamos prontos para estudar algumas propiedades elementares das integrai
     \[
         \int cf \,d\mu = \int cf^+ - cf^- \,d\mu 
     \]
-    como $cf^+$ e $cf^-$ são funções mensuráveis não negativas, podemos utilizar o Corolário \ref{cl:propiedades-elementares-nao-negativa}
+    como $cf^+$ e $cf^-$ são funções mensuráveis não negativas, podemos utilizar o Corolário \ref{cl:propriedades-elementares-nao-negativa}
     \[
         \int cf \,d\mu =  c \int f^+ - f^- \,d\mu = c \int f\,d\mu
     \]
@@ -1889,7 +1889,7 @@ para todo $f, g \in \cL(X,\eth,\mu)$ e $\lambda \in \bR$ é um espaço vetorial.
     para todo $[f] \in \cL^1$ é uma norma
 \end{pbox}
 \begin{prf}
-    Note que apenas precisamos mostrar que $\Vert [f] \Vert_1 = 0 \iff [f] = [0]$, pois as outras propiedades são análogas à demonstração da Proposição \ref{pr:semi-norma}.
+    Note que apenas precisamos mostrar que $\Vert [f] \Vert_1 = 0 \iff [f] = [0]$, pois as outras propriedades são análogas à demonstração da Proposição \ref{pr:semi-norma}.
     Com efeito
     \[
         \Vert [f] \Vert_1 = 0 \iff \int |f| \,d\mu = 0 \iff |f| \equiv 0 \text{ qtp em } X \iff f \equiv 0 \text{ qtp em } X \iff [f] = [0].
@@ -2442,7 +2442,7 @@ Agora vamos construir os espaços $\ell^p$ que são um caso particular dos espa�
     $\cL^\infty(\bN, \cP(\bN), \mu)$ $\dots$
 \end{ex}
 
-Vejamos mais alguma propiedades importantes dos espaços $\cL^p$
+Vejamos mais alguma propriedades importantes dos espaços $\cL^p$
 
 \begin{pbox}
     Sejam $(X,\eth,\mu)$ um espaço de medida e  $0 < p < q < r \leqslant \infty$.
@@ -2741,11 +2741,11 @@ O proximos resultados são uma generalização da \nameref{thm:desigualdade-de-h
 
 \chapter{Espaços de Sobolev}
 
-Os espaços de Sobolev desempenham um papel fundamental na análise funcional e nas equações diferenciais parciais, oferecendo uma estrutura adequada para o estudo de problemas envolvendo funções que podem não ser diferenciáveis no sentido clássico. Introduzidos como uma extensão dos conceitos de derivada e integrabilidade, esses espaços permitem trabalhar com soluções generalizadas, chamadas de soluções fracas, ampliando o escopo de problemas que podem ser tratados matematicamente. Neste capítulo, serão apresentados os conceitos básicos dos espaços de Sobolev, suas principais propriedades.
+Os espaços de Sobolev desempenham um papel fundamental na análise funcional e nas equações diferenciais parciais, oferecendo uma estrutura adequada para o estudo de problemas envolvendo funções que podem não ser diferenciáveis no sentido clássico. Introduzidos como uma extensão dos conceitos de derivada e integrabilidade, esses espaços permitem trabalhar com soluções generalizadas, chamadas de soluções fracas, ampliando o escopo de problemas que podem ser tratados matematicamente. Neste capítulo, serão apresentados os conceitos básicos dos espaços de Sobolev e suas principais propriedades.
 
 \section{Preliminares}
 
-Antes de começar de fato o estudo dos espaços de Sobolev precisamos de algumas definições que serão usadas extensivamente nesse capítulo
+Antes de começar de fato o estudo dos espaços de Sobolev precisamos de algumas definições que serão usadas extensivamente nesse capítulo.
 
 \begin{dbox} \label{def:suporte}
     Seja $\varphi : \Omega \subseteq \bR ^n \to \bR$ uma função qualquer. Definimos o suporte de $\varphi$ por
@@ -2759,10 +2759,8 @@ Note que $\{x \in \Omega \,; \varphi(x) \neq 0\} \subseteq \supp \varphi$, entã
 Além disso, se $\Omega$ é um aberto, então $\varphi$ se anula em $\partial\Omega$.
 
 \begin{dbox}
-    Seja $\Omega$ um aberto de $\bR^n$. Definimos o espaço das funções com a $k$-ésima derivada contínua por
-    \[
-        \cC^k(\Omega) = \{f : \Omega \to \bR \,; f \text{ é contínua, } f^{(k)} \text{ existe e é contínua}\}
-    \]
+    Seja $\Omega$ um aberto de $\bR^n$. O espaço $\cC^k(\Omega)$ é composto por todas funções $f : \Omega \to \bR$ contínuas em que suas derivadas de ordem menor ou igual a $k$ também são contínuas.
+    Se $f \in \cC^k(\Omega)$ dizemos que $f$ é de classe $\cC^k$.
 \end{dbox}
 
 \obs O conjunto das funções infinitamente diferenciáveis é definido por
@@ -2799,13 +2797,13 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
     onde $\nu = (\nu_1,\dots,\nu_n)$ é o vetor normal unitário que aponta pra dentro em $\partial\Omega$.   
 \end{tbox}
 \begin{prf}
-    \Cite{evans-pde}
+    \Cite{evans-pde} p.p. 628
 \end{prf}
 
 \begin{tbox}[Coordenadas Polares em $\bR^n$]
-    Seja $u : B(x_0,r) \subseteq \bR^n \to \bR$ uma função contínua, então
+    Seja $u : B(y,s) \subseteq \bR^n \to \bR$ uma função integrável, então
     \[
-        \int_{B(x_0,s)} f \,dx = \int_0^s\int_{\partial B(x_0,r)} f \,dS dr
+        \int_{B(y,s)} f \,dx = \int_0^s\int_{\partial B(y,r)} f \,dS dr
     \]
 \end{tbox}
 \begin{prf}
@@ -2813,8 +2811,8 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
 \end{prf}
 
 \begin{tbox} \label{thm:teorema-do-brezis}
-    Seja $(u_n)$ uma sequência em $\cL^p(\Omega)$ tal que $\Vert u_n - u \Vert_{\cL^p(\Omega)} \to 0$ para alguma função $u \in \cL^p(\Omega)$.
-    Então existe uma subsequência $(u_{n_k})$ e uma função $v \in \cL^p(\Omega)$ tal que
+    Seja $(u_n)_{n=1}^\infty$ uma sequência em $\cL^p(\Omega)$ tal que $\Vert u_n - u \Vert_{\cL^p(\Omega)} \to 0$ para alguma função $u \in \cL^p(\Omega)$.
+    Então existe uma subsequência $(u_{n_k})_{k=1}^\infty$ e uma função $v \in \cL^p(\Omega)$ tal que
     \begin{enumerate}[label=\textbf{(\alph*)}, leftmargin=*]
         \item $u_{n_k}(x) \to u(x)$ qtp em $\Omega$
         \item $|u_{n_k}(x)| \leqslant v(x)$ para todo $k \in \bN$ qtp em $\Omega$
@@ -2825,10 +2823,26 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
 \end{prf}
 
 \begin{tbox}[Critério de compacidade de Arzelà-Ascoli]
-    
+    Seja $(u_k)$ uma sequência de funções de $\bR^n$ em $\bR$ tal que
+    \[
+        |u_k(x)| \leqslant M
+    \]
+    onde $M >0$ é uma constante e $(u_k)$ é uniformemente equicontínua.
+    Então existe uma subsequência $(u_{k_j})_{j =1}^\infty \subseteq (u_k)_{k=1}^\infty$ e uma função contínua $u$ tal que $u_{k_j} \to u$ uniformemente em conjuntos compactos de $\bR^n$.
 \end{tbox}
+\begin{prf}
+    ~
+\end{prf}
 
-\section{Motivação}
+\begin{tbox}[Mudança de variáveis]
+    Seja $\Psi : A \to B$ um difeomorfismo entre abertos de $\bR^n$. Seja $f : B \to \bR$ uma função contínua. Então $f$ é integrável sobre $B$ se, e somente se, $(f \circ \Psi) |\det D\Psi|$ é integrável sobre $A$, nesse caso
+    \[
+        \int_B f \,dx = \int_A (f \circ \Psi) |\det D\Psi| \,dy
+    \]
+\end{tbox}
+\begin{prf}
+    O capítulo 4 de \cite{munkres-analysis.on.manifolds} é destinado a demonstração desse teorema.
+\end{prf}
 
 \section{Espaços de Sobolev $\cW^{k,p}(\Omega)$}
 
@@ -2844,11 +2858,11 @@ Seja $u \in \cC^1(\Omega)$, então se $\phi \in \cC^\infty_c(\Omega)$, utilizand
 \[
     \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \,dx = \int_{\partial\Omega} u\phi \nu_i \, dS- \int_\Omega \phi \dfrac{\partial u}{\partial x_i} \,dx. \qquad (i = 1,\dots,n)
 \]
-Como $\phi$ tem suporte compacto e $\Omega$ é um aberto, segue que $\phi$ se anula em $\partial\Omega$, como mostrado abaixo da definição de suporte. Portanto a expressão acima se torna
+Como $\phi$ tem suporte compacto e $\Omega$ é um aberto, segue que $\phi$ se anula em $\partial\Omega$, como foi mostrado abaixo da definição de suporte. Portanto a expressão acima se torna
 \begin{equation} \label{eq:derivada-fraca-xi}
     \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \,dx = - \int_\Omega \phi \dfrac{\partial u}{\partial x_i} \,dx. \qquad (i = 1,\dots,n)
 \end{equation}
-Além disso, se $u$ for de classe $\cC^k$ em $\Omega$ com $k \in \bN$ e $\alpha = (\alpha_1,\dots,\alpha_n)$ um multi-índice de ordem $|\alpha| = \alpha_1 + \cdots + \alpha_n = k$, então
+Ademais, se agora $u$ for de classe $\cC^k$ em $\Omega$ com $k \in \bN$ e $\alpha = (\alpha_1,\dots,\alpha_n) \in \bN^n$ um multi-índice de ordem $|\alpha| = \alpha_1 + \cdots + \alpha_n = k$, então
 \begin{equation} \label{eq:derivada-fraca-dalpha}
     \int_\Omega u D^\alpha \phi = (-1)^{|\alpha|} \int_\Omega D^\alpha u \phi.
 \end{equation}
@@ -2872,7 +2886,7 @@ Essa pergunta motiva a definição abaixo.
     \begin{equation} \label{eq:derivada-fraca}
         \int_\Omega u D^\alpha \phi \,dx = (-1)^{|\alpha|} \int_\Omega D^\alpha u \phi \,dx.
     \end{equation}
-    para toda função de teste $\phi \in \cC ^\infty_c(\Omega)$
+    para toda função $\phi \in \cC ^\infty_c(\Omega)$
 \end{dbox}
 
 Isto é, se dado uma função $u$ e existe uma função $v$ que satisfaz (\ref{eq:derivada-fraca}) para toda $\phi$ função de teste, dizemos que $D^\alpha u = v$ no sentido fraco.
@@ -2881,7 +2895,7 @@ Caso contrário, se não existir uma função $v$ que satisfaz (\ref{eq:derivada
 \obs Aqui, utlizamos a notação $dx$ ao invés de $d\mu$ na integral de Lebesgue como convençao para dar ênfase que estamos utilizando a medida de Lebesgue (e não uma medida qualquer).
 Além disso, se uma função é integrável a Riemann e a Lebesgue (utlizando a medida de Lebesgue), suas integrais se coincidem.
 
-\obs (função teste)
+\obs A função $\phi \in \cC^\infty_c(\Omega)$ é chamada função de teste \textcolor{red}{complemento essa observação, deixo só assim ou tiro?}
 
 \begin{ex} \label{ex:derivada-fraca-R}
     A função $u : \Omega  =(0,2) \to \bR$ dada por
@@ -2906,7 +2920,7 @@ Além disso, se uma função é integrável a Riemann e a Lebesgue (utlizando a 
             \end{array}
         \right.
     \]
-    Com efeito, note que, para toda $\phi \in \cC^\infty_c(\Omega)$ temos
+    Com efeito, note que, para toda função $\phi \in \cC^\infty_c(\Omega)$ temos
     \[
         \int_0^2 u \phi' \,dx = \int_0^1 x \phi' \,dx + \int_1^2 \phi' \,dx = x \phi \bigg|_0^1 - \int_0^1 \phi \,dx + \phi \bigg|_1^2.
     \]
@@ -2935,7 +2949,7 @@ Além disso, se uma função é integrável a Riemann e a Lebesgue (utlizando a 
     Mostremos que $u'$ não existe no sentido fraco.
     Isto é, mostrar que não existe uma função $v \in \cL^1_\loc(\Omega)$ que satisfaz
     \[
-        \int_I u \phi' \, dx = -\int_I v \phi \,dx.
+        \int_\Omega u \phi' \, dx = -\int_\Omega v \phi \,dx.
     \]
     para toda função $\phi \in \cC_c^\infty(\Omega)$. 
     Com efeito, suponha o contrário
@@ -2950,7 +2964,7 @@ Além disso, se uma função é integrável a Riemann e a Lebesgue (utlizando a 
     \[
         1 = \lim \phi_n(1) = \lim \left[ \int_0^2 v \phi_n \, dx- \int_0^1 \phi_n \,dx \right] = 0
     \]
-    pois pelo Teorema da Convergência Dominada, $\phi_n \to 0$ qtp em $I$
+    pois pelo Teorema da Convergência Dominada, $\phi_n \to 0$ qtp em $\Omega$
     Portanto $u$ não possui derivada fraca.
 \end{ex}
 
@@ -3037,7 +3051,7 @@ Com a definição de derivada fraca estabelecida, podmos definir os espaços de 
     Seja $\Omega \subseteq \bR^n$ um aberto. 
     Definimos o espaço de Sobolev $\cW^{1,p}(\Omega)$ por
     \[
-        \cW^{1,p}(\Omega) = \left\{u \in \cL^p(\Omega) \,; \text{existem } g_i : \Omega \to \bR \text{ em $\cL^p(\Omega)$ tais que} \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \, d\mu = -\!\!\int g_i \phi \,d\mu \right\}
+        \cW^{1,p}(\Omega) = \left\{u \in \cL^p(\Omega) \,; \text{existem } v_i : \Omega \to \bR \text{ em $\cL^p(\Omega)$ tais que} \int_\Omega u \dfrac{\partial \phi}{\partial x_i} \, d\mu = -\!\!\int v_i \phi \,d\mu \right\}
     \]
 \end{dbox}
 
@@ -3064,6 +3078,7 @@ onde
 \[
     \left\langle D^\alpha u, D^\alpha v\right\rangle _{\cL^2(\Omega)} = \int_\Omega D^\alpha u D^\alpha v \,dx.
 \]
+No próximo capítulo estudaremos algumas aplicações dos espaços de Sobolev, e os espaços $H^k$ serão utilizados.
 
 \begin{dbox}
     O espaço $\cW^{k,p}(\Omega)$ admite norma
@@ -3086,7 +3101,7 @@ onde
 e denotamos por $u_n \to u \text{ em } \cW^{k,p}(\Omega)$.
 Além disso dizemos que $(u_n)$ converge para $u$ em $\cW^{k,p}_\loc(\Omega)$ se $u_n$ converge para $u$ em $\cW^{k,p}(\Omega')$ para todo conjunto aberto $\Omega'$ compactamente contido em $\Omega$, isto é $\Omega' \subseteq \Omega$ e $\overline{\Omega'}$ é compacto. Essa inclusão será denotada por $\Omega' \Subset \Omega$.
 
-Ainda não temos todas as ferramentas necessárias para provar que as normas da definição anterior são de fato normas em $\cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant \infty$. Isso será feito após o Teorema \ref{thm:propiedades-derivada-fraca} sobre as propiedades da derivada fraca necessárias para verificar que $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ satisfaz a definição de norma.
+Ainda não temos todas as ferramentas necessárias para provar que as normas da definição anterior são de fato normas em $\cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant \infty$. Isso será feito após o Teorema \ref{thm:propriedades-derivada-fraca} sobre as propriedades da derivada fraca, que são necessárias para verificar que $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ satisfaz a definição de norma.
 
 \obs Essa não é a única forma de definir uma norma em $\cW^{k,p}(\Omega)$, a norma que definimos acima é equivalente, por exemplo a norma
 \[
@@ -3097,12 +3112,14 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     \max_{|\alpha|\leqslant k} \Vert D^\alpha \Vert_{\cL^\infty(\Omega)}.
 \]
 
+O próximo exemplo ilustra um caso em que uma função pode ou não possuir derivada fraca dependendo da dimensão $n$ do espaço Euclidiano e do expoente de integração $p$.
+
 \begin{ex}
     Seja $\Omega = B(\mathbf{0},1) \subseteq \bR^n$ a bola aberta de raio 1 centrada na origem, e considere $u : \Omega \to \bR$ dada por
     \[
         x \mapsto |x|^{-\alpha}.
     \]
-    Queremos verificar para quais valores de $\alpha > 0$, $n$ e $p$, $u \in \cW^{1,p}(\Omega)$.
+    Queremos verificar para quais valores de $\alpha > 0$, $n$ e $p$ a função $u$ pertence ao espaço $\cW^{1,p}(\Omega)$.
     Primeiramente, note que $u$ é suave fora de $\mathbf{0}$ com
     \[
         \dfrac{\partial u}{\partial x_i} = \frac{-\alpha x_i}{|x|^{\alpha + 2}} \quad (x \neq \mathbf{0}),
@@ -3117,11 +3134,11 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     \]
     Seja $\phi \in \cC^\infty_c(\Omega)$ e fixe $\varepsilon > 0$. Por integração por partes, temos
     \[
-        \int_{\Omega \smallsetminus B[\mathbf{0}, \varepsilon]} u \dfrac{\partial \phi}{\partial x_i} \, dx = -\int_{\Omega \smallsetminus B[\mathbf{0}, \varepsilon]} \phi \dfrac{\partial u}{\partial x_i} \,dx + \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS
+        \int_{\Omega \setminus B[\mathbf{0}, \varepsilon]} u \dfrac{\partial \phi}{\partial x_i} \, dx = -\int_{\Omega \setminus B[\mathbf{0}, \varepsilon]} \phi \dfrac{\partial u}{\partial x_i} \,dx + \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS
     \]
     onde $\nu = (\nu_1,\dots,\nu_n)$ denota o vetor normal que aponta para dentro em $\partial B[\mathbf{0},\varepsilon]$.
-    Agora se $\alpha + 1 < n$, $|Du(x)| \in \cL^1(\Omega)$.
-    De fato, integrando $Du$, temos
+    Agora se $\alpha + 1 < n$, $|Du| \in \cL^1(\Omega)$.
+    De fato, integrando $|Du|$, temos
     \[
         \int_\Omega |Du| \,dx = |\alpha|\int_{B(\mathbf{0},1)} \frac{1}{|x|^{\alpha+1}} \,dx.
     \]
@@ -3141,7 +3158,7 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     \[
         \int_\Omega |Du| \, dx = \infty \iff \alpha + 1 > n.
     \]
-    Portanto $|Du(x)| \in \cL^1(\Omega)$ desde que $\alpha + 1 < n$.
+    Portanto $|Du| \in \cL^1(\Omega)$ desde que $\alpha + 1 < n$.
     Nesse caso
     \[
         \left| \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS \right| \leqslant 
@@ -3150,29 +3167,29 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     \]
     onde essa ultima integral pode ser calculada por meio de coordenadas polares de forma análoga ao que foi feito anteriormente, resultando em
     \[
-        \left| \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS \right| \leqslant c \varepsilon^{n-1-\alpha} \overset{\varepsilon \to 0}{\longrightarrow} 0.
+        \left| \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS \right| \leqslant c \varepsilon^{n-1-\alpha} \to 0.
     \]
-    Portanto
+    quando $\varepsilon \to 0$. Portanto
     \[
         \int_{\Omega} u \dfrac{\partial \phi}{\partial x_i} \, dx = -\int_{\Omega} \phi \dfrac{\partial u}{\partial x_i} \,dx,
     \]
     para toda $\phi \in \cC^\infty_c(\Omega)$, desde que $0 < \alpha < n-1$. 
-    Além disso, $|Du(x)| \in \cL^p(\Omega)$ se, e somente se, $(\alpha + 1)p < n$, esse cálculo é feito de forma análoga ao que foi feito para verificar quando $|Du(x)| \in \cL^1(\Omega)$. Consequentemente, $u \in \cW^{1,p}(\Omega)$ se, e somente se $\alpha < \frac{n-p}{p}$.
+    Além disso, $|Du| \in \cL^p(\Omega)$ se, e somente se, $(\alpha + 1)p < n$, esse cálculo é feito de forma análoga ao que foi feito para verificar quando $|Du| \in \cL^1(\Omega)$. Consequentemente, $u \in \cW^{1,p}(\Omega)$ se, e somente se $\alpha < \frac{n-p}{p}$.
     Em particular $u \not\in \cW^{1,p}(\Omega)$ quando $p \geqslant n$.
 \end{ex}
 
-\begin{tbox}[Propiedades da derivada fraca] \label{thm:propiedades-derivada-fraca}
+\begin{tbox}[Propriedades da derivada fraca] \label{thm:propriedades-derivada-fraca}
     Seja $u, v \in \cW^{k,p}(\Omega)$ e $\alpha$ um multi-índice com $1 \leqslant |\alpha| \leqslant k$.
     Então 
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
         \item $D^\beta(D^\alpha u) = D^\alpha (D^\beta u) = D^{\alpha + \beta} u$ para todos multi-índices $\alpha$ e $\beta$ com $|\alpha| + |\beta| \leqslant k.$
         \item $D^\alpha u \in \cW^{k - |\alpha|,p}(\Omega)$
-        \item para todo $\gamma \in \bR$, $\gamma u + v \in \cW^{k,p}(\Omega)$ e
+        \item \textbf{(linearidade)} para todo $\lambda \in \bR$, $\lambda u + v \in \cW^{k,p}(\Omega)$ e
         \[
             D^{\alpha}(\gamma u + v) = \gamma D^\alpha u + D^\alpha v
         \]
-        \item se $\Omega_0$ é um aberto de $\Omega$, então $u \in \cW^{k,p}(\Omega_0)$
-        \item se $\eta \in \cC^\infty_c(\Omega)$, então $\eta u \in \cW^{k,p}(\Omega)$ e
+        \item se $\Omega'$ é um aberto de $\Omega$, então $u \in \cW^{k,p}(\Omega')$
+        \item \textbf{(regra de Leibniz)} se $\eta \in \cC^\infty_c(\Omega)$, então $\eta u \in \cW^{k,p}(\Omega)$ e
         \begin{equation} \label{eq:regra-de-leibniz}
             D^\alpha (\eta u) = \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u
         \end{equation}
@@ -3200,8 +3217,8 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     \]
     Portanto $D^{\beta} D^{\alpha} u = D^{\alpha + \beta} u$ no sentido fraco.
 
-    \textbf{(b)} Suponha que $D^\alpha u \not\in \cW^{k-|\alpha|,p}(\Omega)$, então existe um multi-índice $\beta$ com $|\beta| \leqslant k - |\alpha|$ tal que $D^{\beta}(D^{\alpha}u) \not\in \cL^p$.
-    Pelo item anterior temos que $D^{\alpha+\beta}u \not\in \cL^p(\Omega)$, o que é uma contradição, pois por hipótese $D^{\gamma}u \in \cL^p$ para todo multi-índice $\gamma$ com $|\gamma| \leqslant k$. Em particular como $|\beta| \leqslant k - |\alpha|$, tem-se $|\gamma| = |\alpha| + |\beta| \leqslant k$.
+    \textbf{(b)} Suponha que $D^\alpha u \not\in \cW^{k-|\alpha|,p}(\Omega)$, então existe um multi-índice $\beta$ com $|\beta| \leqslant k - |\alpha|$ tal que $D^{\beta}(D^{\alpha}u) \not\in \cL^p(\Omega)$.
+    Pelo item anterior temos que $D^{\alpha+\beta}u \not\in \cL^p(\Omega)$, o que é uma contradição, pois por hipótese $D^{\gamma}u \in \cL^p(\Omega)$ para todo multi-índice $\gamma$ com $|\gamma| \leqslant k$. Em particular como $|\beta| \leqslant k - |\alpha|$, tem-se $|\gamma| = |\alpha| + |\beta| \leqslant k$.
     Portanto $D^{\alpha}u \in \cW^{k-|\alpha|,p}(\Omega)$.
 
     \textbf{(c)} Note que
@@ -3211,25 +3228,25 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     Utilizando a definição de derivada fraca nas duas integrais obtemos
     {\small
     \[
-        \gamma \int_\Omega u D^{\alpha} \phi \,dx + \int_\Omega v D^{\alpha} \phi \, dx = \gamma (-1)^{|\alpha|} \int_\Omega \phi D^{\alpha} u \, dx + (-1)^{|\alpha|}\int_\Omega \phi D^{\alpha} v \, dx = \int (\gamma D^{\alpha}u + D^{\alpha}v )\phi \,dx
-    \]}
-    Portanto $D^{\alpha}(\gamma u + v) = \gamma D^\alpha u + D^\alpha v$ no sentido fraco.
+        \lambda \int_\Omega u D^{\alpha} \phi \,dx + \int_\Omega v D^{\alpha} \phi \, dx = \lambda (-1)^{|\alpha|} \int_\Omega \phi D^{\alpha} u \, dx + (-1)^{|\alpha|}\int_\Omega \phi D^{\alpha} v \, dx = \int (\lambda D^{\alpha}u + D^{\alpha}v )\phi \,dx
+    \]}\!
+    Portanto $D^{\alpha}(\lambda u + v) = \lambda D^\alpha u + D^\alpha v$ no sentido fraco.
 
-    \textbf{(d)} Seja $\Omega_0 \subseteq \Omega$ um aberto, queremos verificar que $u \in \cW^{k,p}(\Omega_0)$.
+    \textbf{(d)} Seja $\Omega' \subseteq \Omega$ um aberto, queremos verificar que $u \in \cW^{k,p}(\Omega')$.
     De fato, basta verificar que as integrais
     \[
-        \int_{\Omega_0} |u|^p \, dx \;\text{ e }\; \int_{\Omega_0} |D^{\alpha}u|^p \, dx \;\; (\forall \alpha \text{ multi-índice com }|\alpha| \leqslant k)
+        \int_{\Omega'} |u|^p \, dx \;\text{ e }\; \int_{\Omega'} |D^{\alpha}u|^p \, dx \;\; (\forall \alpha \text{ multi-índice com }|\alpha| \leqslant k)
     \]
     são finitas. De fato
     \[
-        \int_{\Omega_0} |u|^p \, dx \leqslant \int_{\Omega} |u|^p \,dx < \infty
+        \int_{\Omega'} |u|^p \, dx \leqslant \int_{\Omega} |u|^p \,dx < \infty
     \]
     e
     \[
-        \int_{\Omega_0} |D^\alpha u|^p \, dx \leqslant \int_{\Omega} |D^\alpha u|^p \,dx < \infty \;\; (\forall \alpha \text{ multi-índice com }|\alpha| \leqslant k),
+        \int_{\Omega'} |D^\alpha u|^p \, dx \leqslant \int_{\Omega} |D^\alpha u|^p \,dx < \infty \;\; (\forall \alpha \text{ multi-índice com }|\alpha| \leqslant k),
     \]
     ambas pelo fato de $u \in \cW^{k,p}(\Omega)$.
-    Assim $u \in \cW^{k,p}(\Omega_0)$.
+    Assim $u \in \cW^{k,p}(\Omega')$.
 
     \textbf{(e)} Para mostrar que (\ref{eq:regra-de-leibniz}) é válida, utilizaremos indução sobre $|\alpha|$. Com efeito para $|\alpha|= 1$, como $\eta$ e $\varphi$ são funções infinitamente diferenciáveis no sentido usual, temos que $D^{\alpha} (\eta \varphi) = \phi D^{\alpha}\eta + \eta D^{\alpha} \phi$.
     Dessa forma
@@ -3237,7 +3254,7 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
         \int_\Omega \eta u D^{\alpha} \phi \, dx = \int_\Omega u D^{\alpha} (\eta \phi) - \int_\Omega u\phi D^{\alpha} \eta \, dx.
     \]
     Como $\eta$ e $\phi$ tem suporte compacto, então $D^{\alpha}(\eta \phi)$ também tem. 
-    Dito isso, utilizando a definição de derivada fraca apenas na primeira integral obtemos
+    Dito isso, utilizando a definição de derivada fraca apenas na primeira integral do lado direito obtemos
     \[
         \int_\Omega \eta u D^{\alpha} \phi \, dx = -\int_\Omega \eta \phi D^{\alpha} u \, dx - \int_\Omega u\phi D^{\alpha} \eta \, dx = -\int_\Omega (\eta D^{\alpha}u + uD^{\alpha}\eta) \phi \,dx.
     \]
@@ -3254,7 +3271,7 @@ com $1 \leqslant p \leqslant \infty$, e a norma $\Vert \cdot \Vert_{\cW^{k,\inft
     {\small
     \[
         \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\beta - \sigma} u D^{\gamma}\phi \, dx = (-1)^{|\beta| + |\gamma|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\gamma}(D^{\sigma} \eta D^{\beta - \sigma} u)\right] \phi \, dx
-    \]}
+    \]}\!
     Além disso, como $|\gamma| = 1$, podemos aplicar a regra de Leibniz novamente, obtendo
     \begin{equation} \label{eq:integral-etau}
         \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\alpha|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} \left(D^{\rho}\eta D^{\alpha - \rho} u + D^{\sigma} \eta D^{\alpha - \sigma} u\right)\right] \phi \,dx
@@ -3390,7 +3407,7 @@ Com os resultados obtidos, agora é possível verificar que os espaços de Sobol
     \[
         D^\alpha u = u_\alpha.
     \]
-Com efeito, pelo Teorema \ref{thm:teorema-do-brezis}, o \nameref{thm:teorema-da-convergencia-dominada} e utlizando a definição de derivada fraca, obtemos \textcolor{red}{(precisa falar ``passando a uma subseq se necessário?'')}
+Com efeito, pelo Teorema \ref{thm:teorema-do-brezis}, \nameref{thm:teorema-da-convergencia-dominada}, utlizando a definição de derivada fraca e passando a uma subsequência se necessário, obtemos
     \[
         \begin{aligned}
             \int_\Omega u D^\alpha \phi \, dx 
@@ -3420,7 +3437,12 @@ Com efeito, pelo Teorema \ref{thm:teorema-do-brezis}, o \nameref{thm:teorema-da-
 
 \section{Aproximações} \label{sec:aproximacoes}
 
-Não é ideal ficar voltando o tempo todo à definição de derivadas fracas. Para explorar as propriedades mais profundas dos espaços de Sobolev, precisamos de métodos sistemáticos para aproximar funções nesses espaços por funções suaves. A técnica de molificação, que envolve a convolução de uma função com uma função conhecida como função molificadora que é suave e tem suporte compacto, oferece essa ferramenta. Esse processo resulta em uma sequência de funções suaves que convergem para a função original no espaço de Sobolev, permitindo a aproximação de funções sem derivada bem definida por funções suaves. As funções molificadoras são essenciais na teoria dos espaços de Sobolev, possibilitando o estudo de soluções fracas para equações diferenciais parciais e estabelecendo resultados importantes de densidade.
+% Não é ideal ficar voltando o tempo todo à definição de derivadas fracas. Para explorar as propriedades mais profundas dos espaços de Sobolev, precisamos de métodos sistemáticos para aproximar funções nesses espaços por funções suaves. A técnica de molificação, que envolve a convolução de uma função com uma função conhecida como função molificadora que é suave e tem suporte compacto, oferece essa ferramenta. Esse processo resulta em uma sequência de funções suaves que convergem para a função original no espaço de Sobolev, permitindo a aproximação de funções sem derivada bem definida por funções suaves. As funções molificadoras são essenciais na teoria dos espaços de Sobolev, possibilitando o estudo de soluções fracas para equações diferenciais parciais e estabelecendo resultados importantes de densidade.
+
+A definição de derivada fraca, em muitos casos não é suficiente para mostrar propriedades mais profundas dos espaços de Sobolev.
+Uma forma de contornar esse problema é procurando formas de aproximar em $\cW^{k,p}$ por uma sequência de funções suaves.
+Esse processo é conhecido como molificação ou regularização é feito por meio de uma convolução da função a ser aproximada e uma função especial chamada função molificadora. 
+Nesse capítulo apresentaremos alguns teoremas e exemplos da teoria de aproximação, que é de extrema importância no estudo de equações diferenciais parciais.
 
 Um exemplo de função molificadora é
 \begin{equation} \label{eq:molificador-friedrich}
@@ -3454,7 +3476,7 @@ Essa função será utilizada para realizar as convoluções que aproximam as fu
     u^\varepsilon(x) = \int_\Omega \eta_\varepsilon(x-y) u(y) = \int_{B[0,\varepsilon]} \eta_\varepsilon(y) u(x-y) \,dy
 \]
 
-O primeiro teorema que vamos estudar demonstra algumas propiedades importantes sobre essas aproximações.
+O primeiro teorema que vamos estudar demonstra algumas propriedades importantes sobre essas aproximações.
 
 \begin{tbox}[Aproximação local por funções suaves] \label{thm:aprox1}
     Seja $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$ e defina
@@ -3578,7 +3600,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \int_{B[x,\varepsilon]} \left| \eta_\varepsilon^{1-\frac{1}{p}}(x-y) \eta_\varepsilon^{\frac{1}{p}}(x-y) v(y) \right|dy \leqslant \left( \int_{B[x,\varepsilon]} \eta_\varepsilon (x-y) \,dy\right)^{\!1-\frac{1}{p}} \left( \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)|^p \right)^{\frac{1}{p}}
     \]
-    Como $\displaystyle\int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dy = 1$ e utilizando o Teorema de Fubini, segue que
+    Como $\int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dy = 1$ e utilizando o Teorema de Fubini, segue que
     \[
         \int_V |v^\varepsilon(x)|^p \,dx = \int_V \int_{B(x,\varepsilon)} \eta_\varepsilon(x-y) |v(y)|^p \,dy \,dx \leqslant \int_W |v(y)|^p \int_{B(y,\varepsilon)} \eta_\varepsilon(x-y) \,dx \,dy.
     \]
@@ -3626,16 +3648,11 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \]
     Utlizando integração por partes, obtemos
     \[
-        \int_\Omega u \phi'\,dx = \bigg[ x\phi \bigg]_{\text{-}1}^0 - \int_{\text{-}1}^0 \phi \,dx + \bigg[ -x \phi \bigg]_0^1 - \int_0^1 -\phi \,dx.
+        \int_\Omega u \phi' =  - \int_{\m1}^0 -\phi \,dx  - \int_0^1 \phi \,dx -x \phi \bigg|^{0}_{\m1}+ x\phi \bigg|_0^1 = -\int_{\m1}^{0} - \phi \,dx -\int_0^1 \phi \,dx - \phi(-1) + \phi(1)
     \]
-    Porém
-    % Como $\phi$ tem suporte compacto em $\Omega$, então
+    Porem, $\phi$ tem suorte compacto, logo, se anula em $\partial\Omega = \{-1,1\}$. Dito isso
     \[
-       \bigg[ x\phi \bigg]_{\text{-}1}^0 + \bigg[ -x \phi \bigg]_0^1 = 0
-    \]
-    Sendo assim
-    \[
-        \int_\Omega u \phi'\,dx = - \int_{\text{-}1}^0 \phi \,dx - \int_0^1 -\phi \,dx = -\int_\Omega \sgn(x)\phi \,dx.
+        \int_\Omega u \phi'\,dx = - \int_{\text{-}1}^0 -\phi \,dx - \int_0^1 \phi \,dx = -\int_\Omega \sgn(x)\phi \,dx.
     \]
     Portanto
     \[
@@ -3654,7 +3671,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \]
     Além disso
     \[
-        \int_\Omega |\sgn(x)|^p \,dx = \int_{\text{-}1}^1 1^p \,dx = \bigg[ x \bigg]^1_{\text{-}1} = 2 < \infty
+        \int_\Omega |\sgn(x)|^p \,dx = \int_{\text{-}1}^1 1^p \,dx =  \mu((-1,1)) = 2 < \infty
     \]
     Assim $u'\in \cL^p(\Omega)$ e portanto $u \in \cW^{1,p}(\Omega)$ para para $1 \leqslant p < \infty$.
     Vamos utiizar a convolução para encontrar uma aproximação suave de $u$. 
@@ -3779,8 +3796,8 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     {\small
     \[
         \frac{1}{2^p}\int_{\text{-}1}^1\int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i dx_j = \frac{1}{2^p}\int_{\text{-}1}^1 dx_j \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i.
-    \]}
-    Daí, precisamos ver para quais valores de $p$ essa integral é finita, sendo assim
+    \]}\!
+    Dito isso, precisamos ver para quais valores de $p$ essa integral é finita, sendo assim
     \[
         \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-2}}\int_0^1 x_i^{\frac{p}{2}+1} \,dx = \frac{1}{2^{p-2}} \left[ -\frac{1^{-\frac{p}{2}+1} - 0^{-\frac{p}{2}+1}}{\tfrac{p}{2} - 1} \right]
     \]
@@ -3823,7 +3840,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \end{figure}
 \end{ex}
 
-\begin{tbox}
+\begin{tbox}[Meyers-Serrin]
     Sejam $\Omega$ um aberto limitado e $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
     Então existem funções $u_n \in \cC^{\infty}(\Omega) \cap \cW^{k,p}(\Omega)$ tais que
     \[
@@ -3835,12 +3852,12 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \Omega = \bigcup_{i=1}^\infty \Omega_i   
     \]
-    onde $\Omega_i = \{x \in \Omega \,; d(x, \partial\Omega) > \tfrac{1}{i}\}$. Defina $\Omega'_i = \Omega_{i+3} \smallsetminus \overline{\Omega_{i+1}}$.
+    onde $\Omega_i = \{x \in \Omega \,; d(x, \partial\Omega) > \tfrac{1}{i}\}$. Defina $\Omega'_i = \Omega_{i+3} \setminus \overline{\Omega_{i+1}}$.
     Além disso, escolha qualquer aberto $\Omega'_0 \Subset \Omega$ de forma que
     \[
         \Omega = \bigcup_{i=0}^\infty \Omega'_i
     \]
-    e seja $(\phi_i)_{i=0}^\infty$ uma partição da unidade suave subordinada aos abertos $(\Omega'_i)_{i=0}^\infty$, isto é
+    e seja $\{\phi_i\}_{i=0}^\infty$ uma partição da unidade suave subordinada aos abertos $\{\Omega'_i\}_{i=0}^\infty$, isto é
     \[
        0 \leqslant \phi_i \leqslant 1 \text{ com } \phi_i \in \cC^\infty_c(\Omega'_i) \;\text{ e }\; \sum_{i=0}^\infty \phi_i = 1 \text{ em } \Omega.
     \]
@@ -3852,14 +3869,14 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \frac{\delta}{2^{i+1}} \;\text{ e }\; \supp u^i \subseteq \Omega''_i
     \]
-    com $\Omega''_i = \Omega_{i+4} \smallsetminus \overline{\Omega_{i}} \supseteq \Omega'_i$.
+    com $\Omega''_i = \Omega_{i+4} \setminus \overline{\Omega_{i}} \supseteq \Omega'_i$.
 
     Seja $v = \sum_{i=1}^\infty u^i \in \cC^{\infty}(\Omega) \cap \cW^{k,p}(\Omega)$.
-    Como $u = u \sum_{i=1}^\infty \phi_i = \sum_{i=1}^n \phi_i u$ para cada $\Omega' \Subset \Omega$ temos
+    Como $u = u \sum_{i=1}^\infty \phi_i = \sum_{i=1}^n \phi_i u$ para cada $V \Subset \Omega$ temos
     \[
         \Vert v - u \Vert_{\cW^{k,p}(V)} \leqslant \sum_{i=1}^\infty \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \sum_{i=1}^\infty \frac{\delta}{2^{i+1}} = \delta.
     \]
-    Passando o supremo sobre os conjuntos $\Omega' \Subset \Omega$ obtemos
+    Passando o supremo sobre os conjuntos $V \Subset \Omega$ obtemos
     \[
         \Vert v - u \Vert_{\cW^{k,p}(\Omega)} < \delta.
     \]
@@ -3868,9 +3885,9 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
 
 \begin{dbox} \label{def:fronteira-ck}
     Seja $\Omega \subseteq \bR^n$ um aberto limitado. 
-    Dizemos que $\partial \Omega$ é de classe $\cC^k$ se para cada ponto $\tilde x \in \partial \Omega$ existe um raio $r > 0$ e uma função de classe $\cC^k$ $\gamma : \bR^{n-1} \to \bR$ tal que, fazendo uma mudança de coordenadas se necessário, obtemos
+    Dizemos que sua fronteira $\partial \Omega$ é de classe $\cC^k$ se para cada ponto $\tilde x \in \partial \Omega$ existe um raio $r > 0$ e uma função de classe $\cC^k$ $\gamma : \bR^{n-1} \to \bR$ tal que, fazendo uma mudança de coordenadas se necessário, obtemos
     \[
-        \Omega \cap B_r[\tilde x] = \{x \in B_r[\tilde x] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}
+        \Omega \cap B[\tilde x,r] = \{x \in B[\tilde x,r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}
     \]
     De forma análoga, $\partial\Omega$ é de classe $\cC^\infty$ se é de classe $\cC^k$ para todo $k \in \bN$.
 \end{dbox}
@@ -3887,15 +3904,15 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \Omega \cap B[\tilde x, r] = \{x \in B[\tilde x, r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}.
     \]
-    Definimos $\Omega' = \Omega \cap B[\tilde x, \sfrac{r}{2}]$.
-    Além disso, definimos para cada $\varepsilon > 0$, $\lambda > 0$ e $x \in \Omega'$
+    Definimos $V = \Omega \cap B[\tilde x, \sfrac{r}{2}]$.
+    Além disso, definimos para cada $\varepsilon > 0$, $\lambda > 0$ e $x \in V$
     \[
         x^\varepsilon = x + \lambda \varepsilon e_n = (x_1,\dots,x_{n-1}, x_n + \lambda\varepsilon).
     \]
-    Observe que, para um $\lambda > 0$ suficientemente grande e $\varepsilon > 0$ suficientemente pequeno, a bola $B_\varepsilon[x^\varepsilon]$ está contída em $\Omega \cap B[x,0,r]$ para todo $x \in V$.
-    De fato, por definição, dado $x \in \Omega'$ temos que $x \in \Omega$ e $\Vert x - \tilde x \Vert \leqslant \sfrac{r}{2}$.
+    Observe que, para um $\lambda > 0$ suficientemente grande e $\varepsilon > 0$ suficientemente pequeno, a bola $B[x^\varepsilon\!,\varepsilon]$ está contída em $\Omega \cap B[\tilde x,r]$ para todo $x \in V$.
+    De fato, por definição, dado $x \in V$ temos que $x \in \Omega$ e $\Vert x - \tilde x \Vert \leqslant \sfrac{r}{2}$.
     Note que $x^\varepsilon \in \Omega \cap B[\tilde x, r]$ para todo $\varepsilon > 0$ suficientemente pequeno e $\lambda > 0$ suficientemente grande.
-    Com efeito, como $x \in \Omega'$, em particular $x \in \Omega \cap B[\tilde x, r]$.
+    Com efeito, como $x \in V$, em particular $x \in \Omega \cap B[\tilde x, r]$.
     Como $\Omega$ tem fronteira de classe $\cC^1$, temos que $x_n > \gamma(x_1,\dots,x_{n-1})$, daí
     \[
         x^\varepsilon_n = x_n + \lambda \varepsilon > x_n >  \gamma(x_{1},\dots,x_{n-1}).
@@ -3905,19 +3922,19 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
         \Vert x^\varepsilon - \tilde x \Vert = \Vert x + \lambda \varepsilon e_n - \tilde x \Vert \leqslant \Vert x - \tilde x \Vert + \Vert \lambda \varepsilon e_n  \Vert \leqslant \frac{r}{2} + \lambda\varepsilon < r
     \]
     desde que $0 <\varepsilon < \sfrac{r}{2\lambda}$.
-    Logo $x^\varepsilon \in \Omega \cap B[\tilde x, r]$ para todo $\varepsilon > 0$ pequeno.
+    Logo $x^\varepsilon \in \Omega \cap B[\tilde x, r]$ para todo $\varepsilon > 0$ suficientemente pequeno.
     De forma análoga, verificamos que
-    $B[x_\varepsilon, \varepsilon] \subseteq \Omega \cap B[\tilde x,r]$.
+    $B[x^\varepsilon\!, \varepsilon] \subseteq \Omega \cap B[\tilde x,r]$.
     \begin{figure}
         \centering
         \input{mollifiers/bola.tex}
         \caption{Fonte: Autoral. Baseada em \cite{evans-pde} p.p. 253}
     \end{figure}
 
-    Agora, definimos $u_\varepsilon(x) = u(x^\varepsilon)$ para todo $x \in \Omega'$ e $v^\varepsilon = \eta_\varepsilon * u_\varepsilon$. Assim, pelo Teorema \ref{thm:aprox1} $v^\varepsilon \in \cC^{\infty}(\overline{\Omega'})$. 
+    Agora, definimos $u_\varepsilon(x) = u(x^\varepsilon)$ para todo $x \in V$ e $v^\varepsilon = \eta_\varepsilon * u_\varepsilon$. Assim, pelo Teorema \ref{thm:aprox1} $v^\varepsilon \in \cC^{\infty}(\overline{V})$. 
     Dito isso, afirmamos que
     \[
-        \Vert v^\varepsilon - u \Vert_{\cW^{k,p}(V)} \to 0
+        \Vert v^\varepsilon - u \Vert_{\cW^{k,p}(V)} \to 0.
     \]
     De fato, seja $\alpha $ um multi-índice com $|\alpha| \leqslant k$, então
     \[
@@ -3931,26 +3948,38 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
     \[
         \begin{aligned}
             \Vert v^\varepsilon - u \Vert_{\cW^{k,p}(V)} &= \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \\
-            &\leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} + \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \to 0
+            &\leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} + \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \to 0.
         \end{aligned}
     \]
 
-    Note que todos os cálculos form feitos em uma vizinhança de um ponto $\tilde x \in \partial\Omega$. Dito isso, considere $\delta > 0$, como $\partial \Omega$ é compacto, pelo Teorema de Heine-Borel, podemos encontrar uma quantidade finita de pontos $\tilde x_i \in \partial \Omega$, raios $r_i > 0$, conjuntos $\Omega'_i = \Omega \cap B[\tilde x_i,\sfrac{r_i}{2}]$ e funções $v_i^\varepsilon$ com $i = 1,\dots,N$ tal que $\Vert v_i - u \Vert_{\cW^{k,p}(\Omega'_i)} \to 0$ e 
+    Note que todos os cálculos form feitos em uma vizinhança de um ponto $\tilde x \in \partial\Omega$. Dito isso, como $\partial \Omega$ é compacto, pelo Teorema de Heine-Borel, podemos encontrar uma quantidade finita de pontos $\tilde x_i \in \partial \Omega$, raios $r_i > 0$, conjuntos $V_i = \Omega \cap B[\tilde x_i,\sfrac{r_i\,}{2}]$ e funções $v_i^\varepsilon$ com $i = 1,\dots,N$ tal que $\Vert v_i - u \Vert_{\cW^{k,p}(V_i)} \to 0$ e 
     \[
         \partial\Omega \subseteq \bigcup_{i=1}^N B(\tilde x_i, \sfrac{r_i}{2}).
     \]
-    Além disso, considere um aberto $\Omega'_0$ da forma $\Omega \cap B(\tilde \tilde x, \sfrac{r_0}{2})$ e uma função $v^\varepsilon_0$ com $\Vert v^\varepsilon_0 - u \Vert_{\cW^{k,p}(\Omega'_0)} \to 0$ e
+    Além disso, considere um aberto $V_0$ da forma $\Omega \cap B(\tilde x_0, \sfrac{r_0\,}{2})$ e uma função $v^\varepsilon_0$ com $\Vert v^\varepsilon_0 - u \Vert_{\cW^{k,p}(V_0)} \to 0$ e
     \[
-        \Omega \subseteq \bigcup_{i=0}^N \Omega'_i
+        \Omega \subseteq \bigcup_{i=0}^N V_i
     \]
-    Seja $\{\phi_i\}_{i=0}^N$ uma partição da unidade subordinada aos conjuntos $\{\Omega'_i\}_{i=0}^N$ em $\Omega$.
+    Seja $\{\phi_i\}_{i=0}^N$ uma partição da unidade subordinada aos conjuntos $\{V_i\}_{i=0}^N$ em $\Omega$.
     Defina
     \[
         v^\varepsilon = \sum_{i=0}^N \phi_i v_i^\varepsilon \in \cC^{\infty}(\overline\Omega)
     \]
-    Daí
+    e novamente denotando $u$ por $\sum_{i=1}^N \phi_i u$. Dito isso, obtemos
     \[
-        \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(\Omega)} \leqslant \sum_{i=0}^N \Vert D^\alpha (\phi_i v_i^\varepsilon) - D^\alpha(\phi_i u) \Vert_{\cL^p(\Omega)} \leqslant \sum_{i=0}^N \Vert v_i^\varepsilon - u \Vert_{\cW^{k,p}(\Omega)} = cN\delta
+        \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(\Omega)} \leqslant \sum_{i=0}^N \Vert D^\alpha (\phi_i v_i^\varepsilon) - D^\alpha(\phi_i u) \Vert_{\cL^p(\Omega)}.
+    \]
+    Utilizando a Regra de Leibniz, segue que
+    \[
+        \begin{aligned}
+            \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(\Omega)} &\leqslant \sum_{i=0}^N\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \left\Vert  D^{\sigma} \phi_i \left[ D^{\alpha - \sigma} \left( v_i^\varepsilon - u \right) \right] \right\Vert _{\cL^p(V_i)}\\ 
+            &\leqslant c\sum_{i=0}^N\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha-\sigma}(v^\varepsilon_i - u) \Vert_{\cL^p(V_i)}
+        \end{aligned}
+    \]
+    onde utilizamos o fato de $\phi_i$ (e por consequência $D^\sigma \phi_i$) ter suporte compacto na ultima desigualdade. 
+    Ademais, como $|\alpha - \sigma| \leqslant k$ temos que
+    \[
+        \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(\Omega)} \leqslant c \sum_{i=0}^N\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert v_i^\varepsilon - u \Vert_{\cW^{k,p}(V_i)} \leqslant c\sum_{i=0}^N \Vert v_i^\varepsilon - u \Vert_{\cW^{k,p}(V_i)} \to 0 
     \]
     Por fim, definindo $u_n := v^{\frac{1}{n}}$ temos que
     \[
@@ -3961,9 +3990,7 @@ O primeiro teorema que vamos estudar demonstra algumas propiedades importantes s
 
 \section{Extensões}
 
-O objetivo dessa seção é entender como extender funções no espaço $\cW^{1,p}(\Omega)$ para que sejam funções em $\cW^{1,p}(\bR^n)$. 
-Vale ressaltar que isso é algo sutíl, não é um simples ``defina a funçao de forma que seja nula em $\bR^n \smallsetminus \Omega$'' pois isso pode fazer com que a função não tenha mais derivada fraca.
-O teorema de extensão é enunciado de forma que as derivadas fracas são preservadas na fronteira. \textcolor{red}{escrever de forma mais clara}
+(introdução)
 
 \begin{tbox} \label{thm:extensao}
     Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e um $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$ com $1 \leqslant p < \infty$ tal que para cada $u \in \cW^{k,p}(\Omega)$
@@ -4013,11 +4040,11 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     quando $x_n = 0$.
     Portanto $D^\alpha u^- = D^\alpha u^+$ em $\{x_n = 0\}$ com $|\alpha| \leqslant 1$. Sendo assim, $\bar u \in \cC^1 (B)$, pois fora de $\{x_n = 0\}$, as componentes de $\bar u$ já eram de classe $\cC^\infty$, então apenas restava verificar que em $B^+ \cap B^- = B \cap \{x_n = 0\}$ as componentes em $B^+$ e $B^-$ se igualavam, implicando a continuidade $\bar u$ e suas derivadas.
 
-    Agora, desejamos mostrar que
+    Agora, desejamos mostrar que 
     \begin{equation} \label{eq:desigualdade-B-Bmais}
         \Vert \bar u \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u \Vert_{\cW^{1,p}(B^+)}
     \end{equation}
-    onde $c$ é uma constante positiva que não depende de $u$.
+    onde $c$ é uma constante\footnote{Durante essa e outras demonstrações, mesmo se o valor da constante $c$ mudar, ainda continuaremos denotando por $c$, então por exemplo $c + 2^p$, $c(1 + n)$, etc, ainda serão denotados por $c$.} positiva que não depende de $u$.
     De fato
     \[
         \Vert \bar u \Vert_{\cW^{1,p}(B)}^p = \sum_{|\alpha| \leqslant 1} \Vert D^\alpha\bar u \Vert_{\cL^P(B)}^p = \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right].
@@ -4069,7 +4096,7 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \]
     De fato, para $\bar u (w) = \bar u'(\Phi(w))$, obtemos, utilizando o Teorema de Mudança de Variáveis
     \[
-        \Vert D^\alpha \bar u' \Vert_{\cL^p(B)}^p = \int_B |D^\alpha \bar u'(y)|^p \,dy = \int_B |D^\alpha \bar u (\Psi (y))|^p \,dy = \int_W |D^\alpha \bar u (x)|^p \,dx = \Vert D^\alpha \bar u \Vert_{\cL^p(B')}^p.
+        \Vert D^\alpha \bar u' \Vert_{\cL^p(B)}^p = \int_B |D^\alpha \bar u'(y)|^p \,dy = \int_B |D^\alpha \bar u (\Psi (y))|^p \,dy = \int_{B'} |D^\alpha \bar u (x)|^p \,dx = \Vert D^\alpha \bar u \Vert_{\cL^p(B')}^p.
     \]
     Dessa forma, passando o somatório
     \begin{equation} \label{eq:normaBigualnormaW}
@@ -4110,7 +4137,7 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \[
         \Vert \bar u \Vert^p_{\cW^{1,p}(\bR^n)} = \sum_{|\alpha| \leqslant 1} \Vert D^\alpha \bar u \Vert^p_{\cL^p(\bR^n)}
         % = \sum_{|\alpha| \leqslant 1} \left\Vert \sum_{i=0}^N D^\alpha(\phi_i \bar u_i) \right\Vert _{\cL^p(\bR^n)}^p 
-        \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{n=1}^N \Vert D^\alpha (\phi_i \bar u_i) \Vert_{\cL^p(\bR)}^p
+        \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^N \Vert D^\alpha (\phi_i \bar u_i) \Vert_{\cL^p(\bR)}^p
     \]
     onde $c$ é uma constante positiva que depende de $p$. Daí utuliziando a regra de Leibniz para derivada do produto em $\phi_i \bar u_i$ obtemos
     \[
@@ -4184,7 +4211,7 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
 (introdução)
 
 \begin{tbox}
-    Seja $\Omega$ um aberto limitado e $\partial\Omega$ de classe $\cC^1$. Então existe um operador linear limitado $T : \cW^{1,p}(\Omega) \to \cL^P(\partial \Omega)$ tal que
+    Seja $\Omega$ um aberto limitado com fronteira de classe $\cC^1$. Então existe um operador linear limitado $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$ com $1 \leqslant p < \infty$ tal que
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
         \item $Tu = u \big|_{\partial \Omega}$ se $u \in \cW^{1,p}(\Omega) \cap \cC(\Omega)$
         \item $\Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{W^{1,p}(\Omega)}$ onde $c$ depende apenas de $p$ e $\Omega$.
@@ -4192,17 +4219,17 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
 \end{tbox} 
 \begin{prf}
     Incialmente suponha que $u \in \cC^1(\overline{\Omega})$. Da mesma forma que foi feito no Teorema \ref{thm:extensao} considere $\tilde x \in \partial\Omega$ e suponhamos que $\partial\Omega$ está contido no plano $\{x_n = 0\}$ perto de $\tilde x$.
-    Sendo assim, seja $B = B(\tilde x, r)$ (e defina $B^+$ e $B^-$ como na demonstração anterior) e $\widehat B = B(\tilde x, \sfrac{r}{2})$.
-    Além disso, considere $\xi \in \cC^{\infty}_c(B)$ de forma que $\xi \geqslant 0$ em $B$ e $\xi \equiv 1$ em $\widehat B$ e denote $\Gamma = \partial \Omega \cap \widehat B$ e $x' = (x_1,\dots,x_{n-1}) \in \bR^{n-1}$.
+    Sendo assim, seja $B = B(\tilde x, r)$ (e defina $B^+$ e $B^-$ como feito anteriormente) e $\widehat B = B(\tilde x, \sfrac{r}{2})$.
+    Além disso, considere $\xi \in \cC^{\infty}_c(B)$ de forma que $\xi \geqslant 0$ em $B$ e $\xi \equiv 1$ em $\widehat B$, e denote $\Gamma = \partial \Omega \cap \widehat B$ e $x' = (x_1,\dots,x_{n-1}) \in \bR^{n-1}$.
     Note que utilizando integração por partes
     \[
         \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n}\,dx = \int_{\partial B^+} \xi |u|^p \, \nu_n dS
     \]
-    onde $\nu$ é o vetor unitário que aponta para baixo em (?), isto é $\nu = (0,\dots,0,-1)$. Sendo assim, $\nu_n = -1$ e 
+    onde $\nu$ é o vetor unitário que aponta para baixo em $\partial B^+$, isto é $\nu = (0,\dots,0,-1)$. Sendo assim, $\nu_n = -1$ e 
     \[
         \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx = -\int_{\partial B^+} \xi(x') |u(x')|^p \,dx'.
     \]
-    Dessa forma
+    Dessa forma, como $\Gamma \subseteq \partial B^+$ e $\xi(x) = 1$ para todo $x \in B^+$
     \[
         \int_{\Gamma} |u|^p \,dx' \leqslant \int_{\partial B^+} \xi|u|^p \,dx' = -\int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx.
     \]
@@ -4210,7 +4237,7 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \[
         \int_\Gamma |u|^p \,dx' \leqslant - \int_{B^+} \dfrac{\partial \xi}{\partial x_n} |u|^p + p|u|^{p-1} \sgn\,u\,\dfrac{\partial u}{\partial x_n} \xi \,dx \leqslant c \int_{B^+} |u|^p + |u|^{p-1} \Vert Du \Vert \,dx
     \]
-    onde utilizamos o fato de $\xi$ ter suporte compacto para a ultima desigualdade. Por fim utilizando a Desigualdade de Young
+    onde utilizamos o fato de $\xi$ e suas derivadas parciais terem suporte compacto para a ultima desigualdade. Por fim utilizando a Desigualdade de Young
     \begin{equation} \label{eq:umaisdu}
         \int_\Gamma |u|^p \,dx' \leqslant c \int_{B^+} |u|^p + \frac{|u|^{(p-1)p'}}{p'} + \frac{\Vert Du \Vert^p}{p} \,dx \leqslant c \int_{B^+} |u|^p + \Vert Du \Vert^p \,dx
     \end{equation}
@@ -4223,7 +4250,7 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \[
         \int_{B^+} |u'(y)|^p + \Vert Du'(y) \Vert^p \,dy \leqslant c\int_{\Psi(B^+)} |u(x)|^p + \Vert Du(x) \Vert^p \,dx
     \]
-    onde $c$ é uma constante que depende de $\gamma$. Dessa forma por (\ref{eq:umaisdu})
+    onde $c$ é uma constante que depende de $\gamma$ que surge devido a regra da cadeia. Dessa forma por (\ref{eq:umaisdu})
     \[
         \begin{aligned}
             \Vert u \Vert^p_{\cL^p(\Psi(\Gamma))} = \int_{\Psi(\Gamma)} |u|^p \,dx' = \int_{\Gamma} |u'|^p \,dy' &\leqslant c\int_{B^+} |u'|^p + \Vert Du' \Vert^p \,dy\\ 
@@ -4240,17 +4267,17 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
         \partial\Omega \subseteq \bigcup_{i=1}^N \Psi(\Gamma_i)
     \]
     e $\Vert u \Vert_{\cL^p(\Psi(\Gamma_i))} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$.
-    Seja $\{\phi_i\}_{i=1}^N$ uma partição da unidade subordinada a cobertura $\{\Psi(\Gamma_i)\}_{i=1}^N$. Sendo assim, $u = \sum_{i=1}^N \phi_i u$.
+    Considere uma partição da unidade $\{\phi_i\}_{i=1}^N$ subordinada a cobertura $\{\Psi(\Gamma_i)\}_{i=1}^N$, e denote $u = \sum_{i=1}^N \phi_i u$.
 
     Defina $\widetilde T : \cC^1(\overline \Omega) \to \cL^p(\partial\Omega)$ por $\widetilde T u = u |_{\partial \Omega}$.
     Dessa forma
     \[
         \begin{aligned}
             \Vert \widetilde Tu \Vert_{\cL^p(\partial \Omega)}^p = \int_{\partial\Omega} | \widetilde T u|^p \,dx = \int_{\partial\Omega} |u|^p \,dx &\leqslant c \sum_{i=1}^{N} \int_{\partial \Omega} \phi_i^p |u|^p \,dx\\ 
-            &= c \sum_{i=1}^N \int_{\Psi(\Gamma_i)} |u|^p \leqslant c\Vert u \Vert_{\cW^{1,p}(\Omega)}^p
+            &= c \sum_{i=1}^N \int_{\Psi(\Gamma_i)} |u|^p \,dx \leqslant c\Vert u \Vert_{\cW^{1,p}(\Omega)}^p
         \end{aligned}
     \]
-    isto mostra que $\widetilde T$ é um operador limitado.
+    onde $c$ é uma constante que depende de $p$ e $\Omega$. Isto mostra que $\widetilde T$ é um operador limitado.
     Por fim, defina $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$ por
     \[
         T u = \left\{  
@@ -4264,11 +4291,11 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     \[
         \Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
     \]
-    \textcolor{red}{(finalizar, preciso refazer o final e o pedacinho de $D(u \circ \Psi)$)}
+    para todo $u \in \cW^{1,p}(\Omega)$ (\dots)
 \end{prf}
 
 \begin{tbox}[Funções traço zero em $\cW^{1,p}$]
-    Seja $\Omega$ um aberto limitado com $\partial \Omega$ de classe $\cC^1$ e $u \in \cW^{1,p}(\Omega)$
+    Seja $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{1,p}(\Omega)$ com $1 \leqslant p < \infty$.
     \[
         u \in \cW_0^{1,p}(\Omega) \iff Tu = 0 \text{ em } \partial \Omega
     \]
@@ -4296,28 +4323,28 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     onde $\bR^n_+$ denota o semiplano superior de $\bR^n$.
     Como $Tu = 0$ em $\bR^{n-1}$ então existe um sequência de funções $(u_k) \in \cC^1(\overline{\bR^n_+})$ tal que $u_k \to u$ em $\cW^{1,p}(\bR^n_+)$ e $Tu_k = u_k |_{\bR^{n-1}} \to 0$ em $\cL^p(\bR^{n-1})$. 
     
-    Seja $x' \in \bR^{n-1}$ e $x_n \geqslant 0$.
-    Pelo teorema fundamental do cálculo
+    DIto isso, seja $x' \in \bR^{n-1}$ e $x_n \geqslant 0$.
+    Pelo teorema fundamental do cálculo, podemos escrever $u_k$ da seguinte forma
     \[
-        u_k(x'\!,x_n) = u_k(x'\!,0) + \int_0^{x_n} \dfrac{\,\partial u_k\,}{\,\partial x_n\,} (x'\!,t) \,dt
+        u_k(x'\!,x_n) = u_k(x'\!,0) + \int_0^{x_n} \dfrac{\partial u_k}{\partial x_n} (x'\!,t) \,dt
     \]
     e daí
     \[
-        |u_k(x',x_n)|^p \leqslant c \left[  |u_k(x',0)|^p + \left(  \int_0^{x_n} \left|\dfrac{\partial u_k}{\partial x_n} (x',t)\right| \,dt\right)^{\!p\,} \right]
+        |u_k(x'\!,x_n)|^p \leqslant c \left(  |u_k(x'\!,0)|^p + \left(  \int_0^{x_n} \left|\dfrac{\partial u_k}{\partial x_n} (x'\!,t)\right| \,dt\right)^{\!p\,} \right)
     \]
     onde aqui a constante $c$ depende de $p$. Integrando ambos os lados sobre $\bR^{n-1}$ obtemos
     \[
-        \int_{\bR^{n-1}} |u_k(x',x_n)|^p \,dx' \leqslant c \left[ \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left(  \int_0^{x_n} \Vert Du_k(x',t) \Vert \,dt\right)^{\!p\,} dx' \right]
+        \int_{\bR^{n-1}} |u_k(x',x_n)|^p \,dx' \leqslant c \left( \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left(  \int_0^{x_n} \Vert Du_k(x',t) \Vert \,dt\right)^{\!p\,} dx' \right).
     \]
-    Utlizando a Desigualdade de Hölder na ultima integral, temos que o lado direito da equação acima é menor igual a
+    Utlizando a Desigualdade de Hölder na ultima integral, temos que o lado direito da equação acima é menor ou igual a
     \[
-        c \left[ \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left( \int_0^{x_n} \Vert Du_k (x',t) \Vert^p \,dt \right)\left( \int_0^{x_n} 1^{p'} \,dt \right)^{p/p'} dx'\right].
+        c \left( \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left( \int_0^{x_n} \Vert Du_k (x',t) \Vert^p \,dt \right)\left( \int_0^{x_n} 1^{p'} \,dt \right)^{p/p'} dx'\right).
     \]
     Porem $p/p' = p-1$, sendo assim, resolvendo a ultima integral e utlizando o Teorema de Fubini, obtemos que o lado direito da equação acima é igual a
     \[
-        c \left[ \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + x_n^{p-1} \int_{0}^{x_n} \int_{\bR^{n-1}} \Vert Du_k (x',t) \Vert^p  \,dx'dt \right].
+        c \left( \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + x_n^{p-1} \int_{0}^{x_n} \int_{\bR^{n-1}} \Vert Du_k (x',t) \Vert^p  \,dx'dt \right).
     \]
-    Utlizando o Teorema da Convergência Dominada quando $k \to \infty$.
+    Por fim, como $\Vert u_k |_{\bR^{n-1}} \Vert_{\cL^p(\bR^{n-1})} \to 0$ e utlizando o Teorema da Convergência Dominada quando $k \to \infty$.
     \begin{equation} \label{eq:uuuuu}
         \int_{\bR^{n-1}} |u(x',x_n)|^p \,dx' \leqslant  c x_n^{p-1}\int_0^{x_n} \Vert Du(x',t) \Vert^p \,dx'dt
     \end{equation}
@@ -4330,28 +4357,28 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
             &0 \leqslant \xi \leqslant 1
         \end{aligned}
     \]
-    e defina $\xi_k = \xi(kx_n)$ e $w_k = u(x) (1 - \xi_k(x))$ para todo $x \in \bR^n_+$. Dessa forma
+    e defina $\xi_k = \xi(kx_n)$ e $v_k = u(x) (1 - \xi_k(x))$ para todo $x \in \bR^n_+$. Dessa forma
     \[
         \begin{aligned}
-            &\dfrac{\partial w_k}{\partial x_n} = (1 - \xi_k)\dfrac{\partial u}{\partial x_n} - ku\xi'\\
-            &\dfrac{\partial w_k}{\partial x'} = (1-\xi_k)\dfrac{\partial u}{\partial x'}.
+            &\dfrac{\partial v_k}{\partial x_n} = (1 - \xi_k)\dfrac{\partial u}{\partial x_n} - ku\xi'\\
+            &\dfrac{\partial v_k}{\partial x'} = (1-\xi_k)\dfrac{\partial u}{\partial x'}.
         \end{aligned}
     \]
     Consequentemente
     \[
         \begin{aligned}
-            \int_{\bR^n_+} \Vert Dw_k - Du \Vert^p \,dx &\leqslant c \int_{\bR^n_+} \left( \left\Vert \dfrac{\partial w_k}{\partial x'} - \dfrac{\partial u}{\partial x'} \right\Vert + \left| \dfrac{\partial w_k}{\partial x_n} - \dfrac{\partial u}{\partial x_n} \right| \right)^p dx\\
-            &\leqslant c  \int_{\bR^n_+} \left( \xi_k\left\Vert \dfrac{\partial u}{\partial x'} \right\Vert + \xi_k \left| \dfrac{\partial u}{\partial x_n}\right| + m |u| |\xi'|  \right)^p dx\\ 
+            \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx &\leqslant c \int_{\bR^n_+} \left( \left\Vert \dfrac{\partial v_k}{\partial x'} - \dfrac{\partial u}{\partial x'} \right\Vert + \left| \dfrac{\partial v_k}{\partial x_n} - \dfrac{\partial u}{\partial x_n} \right| \right)^p dx\\
+            &\leqslant c  \int_{\bR^n_+} \left( \xi_k\left\Vert \dfrac{\partial u}{\partial x'} \right\Vert + \xi_k \left| \dfrac{\partial u}{\partial x_n}\right| + k |u| |\xi'|  \right)^p dx\\ 
         \end{aligned}
     \]
-    (explicar)
+    onde $c$ é uma constante que depende de $p$ e $n$. Daí (...)
     \[
-        \int_{\bR^n_+} \Vert Dw_k - Du \Vert^p \,dx \leqslant c \int_{\bR^n_+} \xi_k^p \Vert Du \Vert^p dx + cm^p \int_{\bR^n_+} |\xi_k'|^p |u|^p dx
+        \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx \leqslant c \int_{\bR^n_+} \xi_k^p \Vert Du \Vert^p dx + ck^p \int_{\bR^n_+} |\xi'|^p |u|^p dx
     \]
     Observe que $\supp \xi' \subseteq \supp \xi \subseteq [0,2]$. Isto nos diz que $\xi'(x) = \xi'(kx_n) = 0$ quando $kx_n > 2$ ou $x_n > 2/k$.
     Logo podemos escrever a ultima desigualdade como
     \[
-        \int_{\bR^n_+} \Vert Dw_k - Du \Vert^p \,dx \leqslant c \int_{\bR^{n-1}} |\xi_k|^p \Vert Du \Vert^p \,dx + cm^p \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u|^p \,dx'dt.
+        \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx \leqslant c \int_{\bR^{n}_+} |\xi_k|^p \Vert Du \Vert^p \,dx + ck^p \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u|^p \,dx'dt.
     \]
     Note que
     \[
@@ -4368,33 +4395,36 @@ O teorema de extensão é enunciado de forma que as derivadas fracas são preser
     quando $k \to \infty$.
     Portanto
     \[
-        \int_{\bR^n_+} \Vert Dw_k - Du \Vert^p \,dx \to 0
+        \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx \to 0
     \]
-    isto é $\Vert Dw_k - Du \Vert_{\cL^p(\bR^n_+)} \to 0$ quando $k \to 0$.
+    isto é $\Vert Dv_k - Du \Vert_{\cL^p(\bR^n_+)} \to 0$ quando $k \to \infty$.
 
     Por fim
     \[
-        \Vert w_k - u \Vert_{\cL^p(\bR^n_+)}^p = \int_{\bR^n_+} |w_m - u|^p \,dx = \int_{\bR^n_+} \xi_k|u|^p \,dx.
+        \Vert v_k - u \Vert_{\cL^p(\bR^n_+)}^p = \int_{\bR^n_+} |v_k - u|^p \,dx = \int_{\bR^n_+} \xi_k|u|^p \,dx.
     \]
     De forma análoga ao que foi feito anteriormente
     \[
-        \Vert w_k - u \Vert_{\cL^p(\bR^n_+)}^p = \int_{0}^{\frac{2}{k}} \xi(mx_n) \int_{\bR^{n-1}} |u(x)|^p \,dx'dx_n \leqslant c \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u(x)|^p \, dx'dx_n \to 0.
+        \Vert v_k - u \Vert_{\cL^p(\bR^n_+)}^p = \int_{0}^{\frac{2}{k}} \xi(kx_n) \int_{\bR^{n-1}} |u(x)|^p \,dx'dx_n \leqslant c \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u(x)|^p \, dx'dx_n \to 0.
     \]
     Dessa forma
     \[
-        \Vert w_n - u \Vert_{\cW^{1,p}(\bR^n_+)}^p \leqslant \Vert w_n - u \Vert_{\cL^{p}(\bR^n_+)}^p + \Vert Dw_n - Du \Vert_{\cL^{p}(\bR^n_+)}^p \to 0
+        \Vert v_k - u \Vert_{\cW^{1,p}(\bR^n_+)}^p \leqslant \Vert v_k - u \Vert_{\cL^{p}(\bR^n_+)}^p + \Vert Dv_k - Du \Vert_{\cL^{p}(\bR^n_+)}^p \to 0
     \]
 
-    Defina $u_k = \eta_{\frac{1}{k}} * w_k$. Assim, para $k$ grande $u_k \in \cC^{\infty}_c(\bR^n_+)$ e 
+    Defina $u_k = \eta_{\frac{1}{k}} * v_k$. Assim, para $k$ grande $u_k \in \cC^{\infty}_c(\bR^n_+)$ e 
     \[
-        \Vert u_k - u \Vert_{\cW^{1,p}(\bR^n_+)} = \Vert u_k - w_k \Vert_{\cW^{1,p}(\bR^n_+)} + \Vert w_k - u \Vert_{\cW^{1,p}(\bR^n_+)} \to 0
+        \Vert u_k - u \Vert_{\cW^{1,p}(\bR^n_+)} \leqslant \Vert u_k - v_k \Vert_{\cW^{1,p}(\bR^n_+)} + \Vert v_k - u \Vert_{\cW^{1,p}(\bR^n_+)} \to 0
     \]
     Portanto $u \in \cW^{1,p}_0(\bR^n_+)$.
 \end{prf}
 
 \section{Desigualdades de Sobolev}
 
-Nosso objetivo nessa seção é descobrir formas de incorporar espaços de Sobolev em outros espaços ...
+Nosso objetivo nessa seção é descobrir formas de incorporar espaços de Sobolev em outros espaços (...)
+
+Dividiremos o estudo dessas desigualdades em dois casos, $1 \leqslant p < n$ e $n < p \leqslant \infty$.
+O caso $n = p$ não será apresentado nesse texto, aos interessados consultar (referência)
 
 \subsection{Desigualdade de Gagliardo-Nirenberg-Sobolev}
 
@@ -4572,30 +4602,26 @@ que é uma contradição.
             &\Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)}.
         \end{aligned}
     \]
-    Como $\bar u$ tem suporte compacto, sabemos que existe uma sequência $(u_k)$ dada por $\eta_{\varepsilon(k)} * \bar u$ ($\varepsilon(k) = 1/k$) tal que
+    Como $\bar u$ tem suporte compacto, sabemos que existe uma sequência $(u_k)$ dada por $\eta_{\frac{1}{k}} * \bar u$ tal que
     \[
-        \Vert u_m - \bar u \Vert_{\cW^{1,p}(\Omega)} \to 0
+        \Vert u_k - \bar u \Vert_{\cW^{1,p}(\Omega)} \to 0
     \]
     e para $k$ grande $u_k \in \cC^{\infty}_c(\bR^n)$.
-    Pelo teorema anterior
+    Pela Desigaldade de Gagliardo-Nirenberg-Sobolev
     \begin{equation} \label{eq:iiii}
-        \Vert u_k - u_l \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert Du_k - Du_l \Vert_{\cL^p(\bR^n)}.
+        \Vert u_k - u_\ell \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert Du_k - Du_\ell \Vert_{\cL^p(\bR^n)}.
     \end{equation}
     Note que
     \[
         \Vert Du_k - D\bar u \Vert_{\cL^p(\bR^n)} \leqslant \Vert u_k - \bar u \Vert_{\cW^{1,p}(\bR^n)} \to 0
     \]
     isso mostra que $(Du_k)$ é convergente (e portanto de Cauchy) em $\cL^p(\bR^n)$.
-    Consequentemente, por (\ref{eq:iiii}) observamos que $(u_k)$ é de Cauchy em $\cL^{p^*}(\bR^n)$ que é um espaço completo, logo $u_k \to v$ em $\cL^{p^*}(\bR^n)$.
-    Mostremos que $v = \bar u$.
-    \[
-        \textcolor{red}{\text{ver como foi feito nas notas}}
-    \]
+    Consequentemente, por (\ref{eq:iiii}) observamos que $(u_k)$ é de Cauchy em $\cL^{p^*}(\bR^n)$ que é um espaço completo, logo existe $v \in \cL^{p^*}(\bR^n)$ tal que $u_k \to v$ em $\cL^{p^*}(\bR^n)$. Portanto, pelo Teorema \ref{thm:teorema-do-brezis}, ao menos de uma subsequência $u_k(x) \to v(x)$ qtp em $\bR^n$. Análogamente, $u_k(x) \to \bar u(x)$ qtp em $\bR^n$, desde que $\Vert u_k - \bar u \Vert_{\cL^p(\bR^n)} \leqslant \Vert u_k - \bar u \Vert_{\cW^{1,p}(\bR^n)} \to 0$. Com isso $v(x) = \bar u(x)$ qtp em $\bR^n$.
     Dessa forma
     \[
         \Vert u_k - \bar u \Vert_{\cL^{p^*}(\bR^n)} \to 0.
     \]
-    O teorema anterior também implica em
+    A Desigualdade de Gagliardo-Nirenberg-Sobolev também implica em
     \[  
         \Vert u_k \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert Du_k \Vert_{\cL^p(\bR^n)}
     \]
@@ -4624,7 +4650,7 @@ que é uma contradição.
     \[
         \Vert u_k \Vert_{\cL^{p*}(\Omega)} \leqslant c \Vert Du_k \Vert_{\cL^p(\Omega)}
     \]
-    Passando ao limite \textcolor{red}{explicar o desenvolvimento}
+    Passando ao limite
     \[
         \Vert u \Vert_{\cL^{p^*}}(\Omega) \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}
     \]
@@ -4678,7 +4704,7 @@ O resultado acima nos diz que
 \[
     \cW^{1,p}_0(\Omega) \hookrightarrow \cL^q(\Omega) \quad (1 \leqslant q \leqslant p^*) \;\text{ e }\; \cW^{1,s}_0(\Omega) \hookrightarrow \cL^{s^*}(\Omega) \quad (1 \leqslant s \leqslant \infty)
 \]
-isto é (...)
+isto é o mesmo que dizer que $\cW^{1,p}_0(\Omega) \subseteq \cL^q(\Omega)$ com $1 \leqslant q \leqslant p^*$, $\cW^{1,s}(\Omega) \subseteq \cL^{s^*}(\Omega)$ com $1 \leqslant s \leqslant \infty$ e o operador inclusão $\iota$ (em cada um dos casos) é um operados linear limitado.
 
 \subsection{Desigualdade de Morrey}
 
@@ -4715,19 +4741,24 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
 \end{tbox}
 \begin{prf}
     Primeiramente, escolha uma bola $B(x,r) \subseteq \bR^n$.
-    Afirmamos que existe uma constante $c$ dependendo apenas de $n$ tal que
+    Afirmamos que existe uma constante $c > 0$ dependendo apenas de $n$ tal que\footnote{A integral
+    \[
+        \sint_{B(x,r)} f\,dy := \frac{1}{\sigma(n)r^n}\int_{B(x,r)} f \,dy
+    \]
+    onde $\sigma(n)r^n$ é o volume da esfera $n$-dimensional, representa a média da função $f$ sobre $B(x,r)$.}
     \begin{equation} \label{eq:desigualdade-uyux}
         \sint_{B(x,r)} |u(y) - u(x)| \,dy \leqslant c \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|y-x|^{n-1}} \,dy.
     \end{equation}
-    Com efeito, fixe $w \in \partial B(\bz,1)$, assim, se $0 < s < r$ segue que
+    Com efeito, fixando $w \in \partial B(\bz,1)$, assim, se $0 < s < r$ segue que
     \[
-        |u(x + sw) - u(x)| = \left| \int_0^s u'(x + tw) \,dt \right| = \left|\int_0^s Du(x + tw) \cdot w \,dt \right| \leqslant \int_0^s |Du(x + tw)| \,dt.
+        |u(x + sw) - u(x)| = \left| \int_0^s u'(x + tw) \,dt \right| = \left|\int_0^s Du(x + tw) \cdot w \,dt \right| \leqslant \int_0^s |Du(x + tw)| \,dt
     \]
-    Daí
+    onde utilizamos a Desigualdade de Hölder (Cauchy-Schwarz) e o fato de $|w| = 1$. Daí integrando ambos os lados sobre $\partial B(\bz,1)$
+    {\small
     \[
         \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{\partial B(\bz,1)} |Du(x + tw)| \,dSdt = \int_0^s \int_{\partial B(\bz,1)} |Du(x + tw)| \frac{t^{n-1}}{t^{n-1}} \,dSdt.
-    \]
-    Seja $y = x + tw$, de forma que $t = \Vert x - y \Vert$. Assim, obtemos
+    \]}\!
+    Seja $y = x + tw$, de forma que $t = \Vert x - y \Vert$. Assim, por meio de coordenadas polares obtemos
     \[
         \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{B(x,t)} \frac{Du(y)}{|x-y|^{n-1}} \,dSdt =  \int_{B(x,s)} \frac{|Du(y)|}{|x-y|^{n-1}} \,dy
     \]
@@ -4747,7 +4778,7 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     \[
         \int_{B(x,r)} |u(y) - u(x)| \leqslant \frac{r^n}{n} \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy
     \]
-    Por fim dividindo ambos os lados por $\sigma(n) r^n$ (volume da $n$-esfera de raio $r$)
+    Por fim dividindo ambos os lados por $\sigma(n) r^n$ (volume da $n$-esfera de raio $r$), temos
     \[
         \sint_{B(x,r)} |u(y) - u(x)| \,dy \leqslant \frac{1}{n\sigma(n)} \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{\Vert x-y \Vert^{n-1}} \,dy.
     \]
@@ -4866,7 +4897,7 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
         \Vert u_k -u_l \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u_k - u_l \Vert_{\cW^{1,p}(\bR^n)}.
     \]
     Isto nos diz que $(u_k)$ é de Cauchy em $\cC^{0,\gamma}(\bR^n)$, já que $(u_k)$ é convergente em ds $\cW^{1,p}(\bR^n)$.
-    Como $\cC^{0,\gamma}(\bR^n)$ é commpleto \textcolor{red}{verificar}, existe uma função $u^* \in \cC^{0,\gamma}(\bR^n)$ tal que
+    Como $\cC^{0,\gamma}(\bR^n)$ é commpleto \textcolor{red}{verificar (ainda não consegui)}, existe uma função $u^* \in \cC^{0,\gamma}(\bR^n)$ tal que
     \[
         \Vert u_k - u^* \Vert_{\cC^{0,\gamma}(\bR^n)} \to 0.
     \]
@@ -4909,10 +4940,10 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
     Como $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant kp < n$ temos que $D^\alpha u \in \cL^p(\Omega)$ para todo multi-índice $\alpha$ com $|\alpha| \leqslant k$.
     Utilizando a Desigualdade de Gagliardo-Nirenberg-Sobolev obtemos
     \[
-        \Vert D^\beta u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}
+        \Vert D^\beta u \Vert_{\cL^{p^*}(\Omega)} \leqslant c\Vert u \Vert_{\cL^p(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}
     \]
-    com $|\beta| = k-1$.
-    Dessa forma $u \in \cW^{k-1,p^*}(\Omega)$.
+    com $|\beta| \leqslant k-1$.
+    Dessa forma $u \in \cW^{k-1,p^*}(\Omega)$ e $\Vert u \Vert_{\cW^{k-1,p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}$.
     De forma análoga temos que $u \in \cW^{k-2,p^{**}}(\Omega)$ onde
     \[
         \frac{1}{p^{**}} = \frac{1}{p^*} - \frac{1}{n} = \frac{1}{p} - \frac{1}{n} - \frac{1}{n} = \frac{1}{p} - \frac{2}{n}.
@@ -4932,47 +4963,76 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
 \end{dbox}
 
 \begin{tbox}
-    Sejam $\Omega$ um aberto limitado com fronteira $\partial\Omega$ de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$. 
-    Se $kp > n$, então $u \in \cC^{k - l - 1,\gamma}(\overline\Omega)$, onde $l = \left\lfloor \frac{n}{p} \right\rfloor$ e
+    Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$. 
+    Se $kp > n$, então $u \in \cC^{k - \ell - 1,\gamma}(\overline\Omega)$, onde $l = \left\lfloor \frac{n}{p} \right\rfloor$ e
     \[
         \gamma = \left\lfloor \frac{n}{p} \right\rfloor + 1 - \frac{n}{p}
     \]
     se $\frac{n}{p}$ não é um inteiro e $\gamma \in (0,1)$ se $\frac{n}{p}$ é um inteiro.
     Além disso a desigualdade
     \[
-        \Vert u \Vert_{\cC^{k - l - 1,\gamma}(\overline\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}
+        \Vert u \Vert_{\cC^{k - \ell - 1,\gamma}(\overline\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}
     \]
     é valida com $c$ dependendo apenas de $k, p, n, \gamma$ e $\Omega$.
 \end{tbox}
 \begin{prf}
-    Suponha que $\sfrac{n}{p}$ não é um inteiro. Então como visto na demonstração anterior temos que $u \in \cW^{k-l,r}(\Omega)$ quando
-    \[
-        \frac{1}{r} = \frac{1}{p} - \frac{l}{n}
-    \]
-    desde que $lp < n$. Além disso, $l$ é um inteiro tal que
-    \[
-        l \leqslant \frac{n}{p} < l + 1
-    \]
-    isto é $l = \left\lfloor \frac{n}{p} \right\rfloor$.
-    Consequentemente temos que
+    Suponha que $\frac{n}{p}$ não é um inteiro. Então como visto na demonstração anterior temos que $u \in \cW^{k-\ell,r}(\Omega)$ quando
+    \begin{equation}
+        \frac{1}{r} = \frac{1}{p} - \frac{\ell}{n}
+    \end{equation}
+    desde que $\ell p < n$. Além disso, $\ell$ é um inteiro tal que
+    \begin{equation}
+        \ell < \frac{n}{p} < \ell + 1
+    \end{equation}
+    isto é $\ell = \left\lfloor \frac{n}{p} \right\rfloor$.
+    Consequentemente temos por () e () que
     \[
         r = \frac{pn}{n-pl} > n
     \]
-    assim, pela Desigualdade de Morrey temos que $D^\alpha u \in \cC^{0,1-\frac{n}{r}}(\overline\Omega)$ para todo $|\alpha| \leqslant k - l - 1$. Observe também que $1 - \frac{n}{r} = l +1 - \frac{n}{p} = \gamma$.
-    Portanto $u \in \cC^{k-l-1,\gamma}(\overline\Omega)$ e
+    Além disso, $D^\alpha u \in \cW^{1,r}(\Omega)$ para todo $|\alpha| \leqslant k - \ell -1$. Dito isso, pelo Teorema \ref{thm:extensao}, seja $\overline{D^\alpha u} \in \cW^{1,r}(\bR^n)$ uma extensão de $D^\alpha u$.
+    Assim pela Desigualdade de Morrey $\overline{D^\alpha u} \in \cC^{0,\gamma}(\bR^n)$ e
     \[
-        \text{desigualdade}
+        \begin{aligned}
+            \Vert D^\alpha u \Vert_{\cC^{0,\gamma}(\overline\Omega)} = \Vert \overline{D^\alpha u} \Vert_{\cC^{0,\gamma}(\bR^n)} &\leqslant \Vert \overline{D^\alpha u} \Vert_{\cC^{0,\gamma}(\bR^n)} \\
+            &\leqslant c \Vert \overline{D^\alpha u} \Vert_{\cW^{1,r}(\bR^n)}\leqslant c \Vert D^\alpha u \Vert_{\cW^{1,r}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k-\ell,r}(\Omega)}.
+        \end{aligned}
+    \]
+    Mostrando que $D^\alpha u \in \cC^{0,\gamma}(\overline\Omega)$
+    Observe também que $1 - \frac{n}{r} = \ell +1 - \frac{n}{p} = \gamma$.
+    Portanto $u \in \cC^{k-\ell-1,\gamma}(\overline\Omega)$ e
+    \[
+        \begin{aligned}
+            \Vert u \Vert_{\cC^{k-\ell-1,\gamma}(\overline\Omega)} &= \sum_{|\alpha| \leqslant k - \ell - 1} \left( \Vert D^\alpha u \Vert_{\cC(\overline\Omega)} + [D^\alpha u]_{\cC^{0,\gamma}(\overline\Omega)} \right)\\ &\leqslant \sum_{|\alpha| \leqslant k - \ell - 1} \left(    \Vert D^\alpha u \Vert_{\cC^{0,\gamma}(\overline\Omega)} +  \Vert D^\alpha u \Vert_{\cC^{0,\gamma}(\overline\Omega)}\right)\\
+            &=\sum_{|\alpha| \leqslant k - \ell - 1}\!\!\!\! 2\Vert D^\alpha u \Vert_{\cC^{0,\gamma}(\overline\Omega)} \leqslant \sum_{|\alpha| \leqslant k - \ell - 1} \!\!\! c\Vert D^\alpha u \Vert_{\cW^{1,r}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k-\ell,r}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+        \end{aligned}
     \]
 
-    Por fim, suponha que $\sfrac{n}{p}$ é um inteiro. Denotando $l = \sfrac{n}{p} - 1$, temos de forma análoga ao caso anterior que $u \in \cW^{k-l,r}(\Omega)$ com $r = \frac{pn}{n-pl} = n$.
-    Assim, utilizando a Desigualdade de Gagliardo-Nirenberg-Sobolev temos que
-    $D^\alpha u \in \cL^q(\Omega)$ para todo $n \leqslant q < \infty$ e $|\alpha| \leqslant k - l - 1$.
-    Novamente utilizando a Desigualdadede Morrey, $D^\alpha u \in \cC^{0,1-\frac{n}{q}}(\overline\Omega)$ para todo $n < q < \infty$ e $|\alpha| \leqslant k - l - 1$.
-    Consequentemente $u \in \cC^{k-l-1,\gamma}(\overline\Omega)$ para todo $0 < \gamma < 1$ e
+    Por fim, suponha que $\frac{n}{p}$ é um inteiro. Seja $\ell = \left\lfloor \frac{n}{p} \right\rfloor - 1 = \frac{n}{p} - 1$.
+    Como anteriormente, temos que $u \in \cW^{k-\ell,r}$ desde que () seja satisfeito. Porém agora
     \[
-        \text{desigualdade}
+        r = \frac{pn}{n - p\ell} = n.
     \]
-    Finalizando a demonstração
+    Isto nos diz que $D^\alpha u \in \cL^r(\Omega)$ para todo $|\alpha| \leqslant k - \ell$.
+    Sejam $n < q < \infty$ e $1 \leqslant s = \frac{nq}{n + q} < n$. Dessa forma $s^* = q$ e pela Desigualdade de Gagliardo-Nirenberg-Sobolev temos que
+    \[
+        \Vert D^\alpha u \Vert_{\cL^q(\Omega)}\leqslant c\Vert D(D^\alpha u) \Vert_{\cL^s(\Omega)} \leqslant c \Vert D(D^\alpha u) \Vert_{\cL^r(\Omega)}
+    \]
+    que é finito pois $u \in \cW^{k-\ell,r}(\Omega)$.
+    Como $\Omega$ é limitado concluimos que
+    \[
+        \Vert D^\alpha u \Vert_{\cL^q(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k-\ell,r}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}
+    \]
+    para todo $|\alpha| \leqslant k - \ell - 1$. Isto nos diz que $D^\alpha u \in \cL^q(\Omega)$ para todo $|\alpha| \leqslant k - \ell - 1 = k - \frac{n}{p}$.
+    Como $n < q < \infty$, utilizando a Desigualdade de Morrey
+    \[
+        \Vert D^\alpha u \Vert_{\cC^{0,1 - \frac{n}{q}}(\overline\Omega)} \leqslant c \Vert D^\alpha u \Vert_{\cW^{1,q}(\Omega)}
+    \]
+    para todo $|\alpha| \leqslant k - \ell - 2$.
+    Assim, tomando $\gamma \in (0,1)$ obtemos
+    \[
+        \Vert u \Vert_{\cC^{k-\ell-1,\gamma}(\Omega)} \leqslant c\Vert u \Vert_{\cW^{k-l-1,q}(\Omega)} \leqslant (...) \leqslant c \Vert u \Vert_{\cW^{k,p}}
+    \]
+    como era desejado.
 \end{prf}
 
 \section{Compacidade}
@@ -5000,20 +5060,21 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
 \end{tbox}
 \begin{prf}
     Seja $1 \leqslant q < p^*$ fixo.
-    Como $\Omega$ é limitado temos pelo Teorema \ref{thm:desigualdade-teorema-2} temos que $\cW^{1,p}(\Omega) \subseteq \cL^q(\Omega)$ e $\Vert u \Vert_{\cL^q(\Omega)} \leqslant c \Vert u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$.
-    Resta mostrar que se $(u_k)_{k = 1}^\infty$ é uma sequência limitada em $\cW^{1,p}(\Omega)$, então existe uma subsequência $(u_{k_j})_{j=1}^\infty$.
+    Como $\Omega$ é limitado, segue que $\Vert u \Vert_{\cL^q(\Omega)} \leqslant c \Vert u \Vert_{\cL^{p^*}(\Omega)}$ e pelo Teorema \ref{thm:desigualdade-teorema-2} temos $\Vert u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$. Logo $\cW^{1,p}(\Omega) \subseteq \cL^q(\Omega)$ e $\Vert u \Vert_{\cL^p(\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$.
+    Resta mostrar que se $(u_k)_{k = 1}^\infty$ é uma sequência limitada em $\cW^{1,p}(\Omega)$, então existe uma subsequência $(u_{k_j})_{j=1}^\infty$ que converge em $\cL^q(\Omega)$.
 
-    Pelo Teorema de Extensão, podemos supor sem perda de generalidade que $\Omega = \bR^n$ e que para todo $k \in \bN$, $u_k$ tem suporte compacto em algum aberto limitado $\Omega' \subseteq \bR^n$. 
+    Pelo Teorema de Extensão, podemos supor sem perda de generalidade que $\Omega = \bR^n$ e que para todo $k \in \bN$, $u_k$ tem suporte compacto em algum aberto limitado $V \subseteq \bR^n$. 
     Também podemos supor que
     \begin{equation} \label{eq:supfinito}
-        \sup_k \Vert u_k \Vert_{\cW^{1,p}(\Omega')} < \infty
+        \sup_k \Vert u_k \Vert_{\cW^{1,p}(V)} < \infty
     \end{equation}
+    poisa sequência é limitada
 
-    Primeiramente vamos estudar as funções suavizadas $u_k^\varepsilon = \eta_\varepsilon * u_k$ onde $\eta_\varepsilon$ é a função molificadora vista na Seção \ref{sec:aproximacoes}. Também podemos supor que para todo $k \in \bN$ e $\varepsilon > 0$ as funções $u_k^\varepsilon$ tem suporte em $\Omega'$. Afirmamos que
+    Primeiramente vamos estudar as funções suavizadas $u_k^\varepsilon = \eta_\varepsilon * u_k$ onde $\eta_\varepsilon$ é a função molificadora vista na Seção \ref{sec:aproximacoes}. Também podemos supor que para todo $k \in \bN$ e $\varepsilon > 0$ as funções $u_k^\varepsilon$ tem suporte em $V$. Afirmamos que
     \begin{equation} \label{eq:convergenciaemlq}
-        \Vert u^\varepsilon_k - u_k \Vert_{\cL^q(\Omega')} \to 0
+        \Vert u^\varepsilon_k - u_k \Vert_{\cL^q(V)} \to 0
     \end{equation}
-    quando $\varepsilon \to 0$ uniformemente em $k$.
+    uniformemente em $k$, quando $\varepsilon \to 0$.
     Com efeito, note que se $u_k$ é suave, então
     \[
         u_k^\varepsilon(x) - u_k(x) = \int_{B(\bz,\varepsilon)} \eta_\varepsilon(\tau) u_k (x - \tau) \,d\tau - u_k(x)  = \int_{B(\bz,\varepsilon)} \frac{1}{\varepsilon^n} \eta \left( \frac{\tau}{\varepsilon} \right) u_k (x - \tau) \,d\tau - u_k(x)
@@ -5034,43 +5095,54 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
     \[
         |u_k^\varepsilon(x) - u_k(x)| \leqslant \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 |Du_k(x - \varepsilon ty)| \,dtdy
     \]
-    e integrando ambos os lados sobre $\Omega'$
+    e integrando ambos os lados sobre $V$
     \[
         \begin{aligned}
-            \int_{\Omega'} |u_k^\varepsilon(x) - u_k(x)|\,dx &\leqslant \int_{\Omega'} \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 |Du_k(x - \varepsilon ty) \,dtdydx\\
-            &\leqslant \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 \int_{\Omega'} |Du_k(x - \varepsilon ty)| \,dxdtdy \leqslant \varepsilon \int_{\Omega'} |Du_k(z)| \,dz.
+            \int_{V} |u_k^\varepsilon(x) - u_k(x)|\,dx &\leqslant \int_{V} \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 |Du_k(x - \varepsilon ty) \,dtdydx\\
+            &\leqslant \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 \int_{V} |Du_k(x - \varepsilon ty)| \,dxdtdy \leqslant \varepsilon \int_{V} |Du_k(z)| \,dz.
         \end{aligned}
     \]
     Isto é
     \[
-        \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(\Omega')} \leqslant \varepsilon \Vert Du_k \Vert_{\cL^1(V)} \leqslant \varepsilon c \Vert Du_k \Vert_{\cL^p(\Omega')} \leqslant \varepsilon c \Vert u_k \Vert_{\cW^{1,p}(\Omega')}
+        \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(V)} \leqslant \varepsilon \Vert Du_k \Vert_{\cL^1(V)} \leqslant \varepsilon c \Vert Du_k \Vert_{\cL^p(V)} \leqslant \varepsilon c \Vert u_k \Vert_{\cW^{1,p}(V)}
     \]
-    Akém disso, utilizando (\ref{eq:supfinito}) obtemos que
+    Akém disso, utilizando (\ref{eq:supfinito}) e o Teorema da Convergência Dominada obtemos que
     \begin{equation} \label{eq:eml1converge}
-        \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(\Omega')} \to 0
+        \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(V)} \to 0
     \end{equation}
     quando $\varepsilon \to 0$ uniformemente em $k$. Como $1 \leqslant q < p^*$, podemos utilizar a Desigualdade de Interpolação das normas $\cL^p$
     \[
         \Vert u_k^\varepsilon - u_k \Vert_{\cL^q(V)} \leqslant \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(V)}^\theta \Vert u_k^\varepsilon - u_k \Vert_{\cL^{p^*}(V)}^{1- \theta}
     \]
     onde $\frac{1}{q} = \theta + \frac{(1 - \theta)}{p^*}$ e $0 < \theta < 1$.
-    Ademais, por () e (), $\Vert u_k^\varepsilon - u_k \Vert_{\cL^{p^*}(V)}^{1- \theta}$ é finito.
+    Ademais, por (\ref{eq:supfinito}) e pela Desigualdade de Gagliardo-Nirenberg-Sobolev, $\Vert u_k^\varepsilon - u_k \Vert_{\cL^{p^*}(V)}^{1- \theta}$ é finito. De fato
+    \[
+        \Vert u_k^\varepsilon - u_k \Vert_{\cL^{p^*}(V)}^{1 - \theta} \leqslant c \Vert Du_k^\varepsilon - Du_k \Vert_{\cL^p(V)}^{1 - \theta} \leqslant c \Vert u_k^\varepsilon - u_k \Vert_{\cW^{1,p}(V)}^{1- \theta} < \infty. 
+    \]
     Assim por (\ref{eq:eml1converge})
     \[
         \Vert u_k^\varepsilon - u_k \Vert_{\cL^q(V)} \leqslant c \Vert u_k^\varepsilon - u_k \Vert_{\cL^1(V)}^\theta \to 0
     \]
-    quando $\varepsilon \to 0$ uniformemente em $k$. Como era desejado.
+    uniformemente em $k$, quando $\varepsilon \to 0$. Como era desejado.
 
     Agora, afirmamos que, para cada $\varepsilon > 0$ fixo, a sequência $(u_k^\varepsilon)_{k=1}^\infty$ é uniformemente limitada e equicontínua.
     Com efeito, se $x \in \bR^n$
+    \begin{equation} \label{eq:ufin}
+        |u_k^\varepsilon(x)| \leqslant \int_{B(x,\varepsilon)} \eta_\varepsilon (x - y) |u_k(y)| \,dy \leqslant \Vert \eta_\varepsilon \Vert_{\cL^\infty(\bR^n)} \Vert u_k \Vert_{\cL^1(V)} \leqslant \frac{c}{\varepsilon^n} < \infty
+    \end{equation}
+    onde por (\ref{eq:supfinito}) $c$ não depende de $k$. De forma análoga, mostramos que
+    \begin{equation} \label{eq:Dufin}
+        |Du_k^\varepsilon(x)|  \leqslant \frac{c}{\varepsilon^{n+1}} < \infty.
+    \end{equation}
+    Isso prova que $(u_k^\varepsilon)_{k=1}^\infty \subseteq \cW^{1,p}(V)$ é uniformemente limitada pois mostramos que $\Vert u_k^\varepsilon \Vert_{\cW^{1,p}(\Omega)}\leqslant M$ onde $M > 0$ não depende de $k$.
+    Ademais, $(u_k^\varepsilon)_{k=1}^\infty$ é equicontínua pois, dado $\tilde\varepsilon > 0$ existe $\delta < \tilde\varepsilon / L$ tal que, pela Desigualdade do Valor Médio
     \[
-        |u_k^\varepsilon(x)| \leqslant \int_{B(x,\varepsilon)} \eta_\varepsilon (x - y) |u_k(y)| \,dy \leqslant \Vert \eta_\varepsilon \Vert_{\cL^\infty(\bR^n)} \Vert u_k \Vert_{\cL^1(V)} < \infty.
+        \Vert x - y \Vert \leqslant \delta \implies |u_k^\varepsilon(x) - u_k^\varepsilon(y)| \leqslant L \Vert x - y \Vert < L \delta < \tilde\varepsilon.
     \]
-    De forma análoga, mostramos que $|Du_k^\varepsilon(x)| < \infty$.
-    Isso prova a afirmação pois (...)
+    onde $L = \sup_{x \in V} \Vert Du_k(x) \Vert$, que existe por (\ref{eq:supfinito}) e (\ref{eq:Dufin}) e não depende de $k$ e $x$.
 
     Agora seja $\delta > 0$ fixo. Mostremos que existe uma subsequência $(u_{k_j})_{j=1}^\infty \subseteq (u_k)_{k=1}^\infty$ tal que
-    \begin{equation} \label{eq:limsup}
+    \begin{equation} \label{eq:limsup1}
         \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_\ell} \Vert_{\cL^q(V)} \leqslant \delta.
     \end{equation}
     De fato, por (\ref{eq:convergenciaemlq}), conseguimos um valor de $\varepsilon > 0$ suficientemente pequeno tal que
@@ -5078,7 +5150,7 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
         \Vert u_k^\varepsilon - u_k \Vert_{\cL^q(V)} \leqslant \frac{\delta}{2}
     \]
     para todo $k \in \bN$
-    Além disso, sabemos que para todo $k \in \bN$ e $\varepsilon > 0$ as funções $u_k$ e $u_k^\varepsilon$ tem suporte em um aberto limitado fixo $V \subseteq \bR^n$, podemos utilizar o fato da sequência $(u_k^\varepsilon)_{k=1}^\infty$ ser equicontínua e uniformemento limitada junto do Critério de Compacidade de Arzelà-Ascoli para obter uma subsequência $(u_{k_j}^\varepsilon)_{j=1}^\infty \subseteq (u_k^\varepsilon)_{k=1}^\infty$ que converge uniformemente em $V$.
+    Além disso, sabemos que para todo $k \in \bN$ e $\varepsilon > 0$ as funções $u_k$ e $u_k^\varepsilon$ tem suporte em um aberto limitado fixo $V \subseteq \bR^n$, podemos utilizar o fato da sequência $(u_k^\varepsilon)_{k=1}^\infty$ ser equicontínua e uniformemente limitada junto do Critério de Compacidade de Arzelà-Ascoli para obter uma subsequência $(u_{k_j}^\varepsilon)_{j=1}^\infty \subseteq (u_k^\varepsilon)_{k=1}^\infty$ que converge uniformemente em $V$.
     Em particular
     \[
         \limsup_{j,\ell \to \infty} \Vert u_{k_j}^\varepsilon - u_{k_\ell}^\varepsilon \Vert_{\cL^q(V)} = 0.
@@ -5086,14 +5158,16 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
     Dessa forma
     \[
         \begin{aligned}
-            \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_\ell} \Vert_{\cL^q(V)} \leqslant \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_j}^\varepsilon \Vert_{\cL^q(V)} + \limsup_{j,\ell \to \infty} \Vert u_{k_j}^\varepsilon - u_{k_\ell}^\varepsilon \Vert_{\cL^q(V)} + \limsup_{j,\ell \to \infty} \Vert u_{k_\ell}^\varepsilon - u_{k_\ell} \Vert_{\cL^q(V)}
+            \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_\ell} \Vert_{\cL^q(V)} &\leqslant \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_j}^\varepsilon \Vert_{\cL^q(V)} \\
+            &+ \limsup_{j,\ell \to \infty} \Vert u_{k_j}^\varepsilon - u_{k_\ell}^\varepsilon \Vert_{\cL^q(V)} + \limsup_{j,\ell \to \infty} \Vert u_{k_\ell}^\varepsilon - u_{k_\ell} \Vert_{\cL^q(V)} \leqslant \delta.
         \end{aligned}
     \]
     como era desejado.
-    Por fim, escolhendo $\delta = 1,\frac{1}{2},\dots$ em (\ref{eq:limsup}), conseguimos extrair uma subsequência $(u_{k_j})_{j=1}^\infty \subseteq (u_k)_{k=1}^\infty$ que satisfaz
+    Por fim, escolhendo $\delta = 1,\frac{1}{2},\dots$ em (\ref{eq:limsup1}), conseguimos extrair uma subsequência $(u_{k_j})_{j=1}^\infty \subseteq (u_k)_{k=1}^\infty$ que satisfaz
     \[
         \limsup_{j,\ell \to \infty} \Vert u_{k_j} - u_{k_\ell} \Vert_{\cL^q(V)} = 0
     \]
+    \textcolor{red}{por que isso é suficiente?}
 \end{prf}
 
 \chapter{Algumas aplicações dos Espaços de Sobolev}

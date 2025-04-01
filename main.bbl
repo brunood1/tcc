@@ -100,6 +100,33 @@
       \field{title}{Functional Analysis, Sobolev Spaces and Partial Differential Equations}
       \field{year}{2010}
     \endentry
+    \entry{munkres-analysis.on.manifolds}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=681c503f86c5b4758bc41fce37310d03}{%
+           family={Munkres},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{fullhash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{fullhashraw}{681c503f86c5b4758bc41fce37310d03}
+      \strng{bibnamehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authorbibnamehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authornamehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authorfullhash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authorfullhashraw}{681c503f86c5b4758bc41fce37310d03}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0201510355}
+      \field{title}{Analysis on Manifolds}
+      \field{year}{1991}
+    \endentry
     \entry{fiorenza-gns}{misc}{}{}
       \name{author}{4}{}{%
         {{hash=5373ef87fc0dba60c43d512c1d3ae511}{%
@@ -131,8 +158,8 @@
       \strng{authornamehash}{eb6e6525c9f0053b552b0476a1436e18}
       \strng{authorfullhash}{6e58c0988832a6925919546e5bcee8fe}
       \strng{authorfullhashraw}{6e58c0988832a6925919546e5bcee8fe}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Detailed proof of classical Gagliardo-Nirenberg interpolation inequality with historical remarks}
@@ -288,8 +315,8 @@
       \strng{authornamehash}{a0562549cccb370a31ea648a3c6ea836}
       \strng{authorfullhash}{a0562549cccb370a31ea648a3c6ea836}
       \strng{authorfullhashraw}{a0562549cccb370a31ea648a3c6ea836}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Two problems in Partial Differential Equations (in Portuguese)}
@@ -423,34 +450,6 @@
       \field{edition}{12}
       \field{title}{Curso de Análise vol. 2}
       \field{year}{2020}
-      \true{nocite}
-    \endentry
-    \entry{munkres-analysis.on.manifolds}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=681c503f86c5b4758bc41fce37310d03}{%
-           family={Munkres},
-           familyi={M\bibinitperiod},
-           given={James\bibnamedelima R.},
-           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {CRC Press}%
-      }
-      \strng{namehash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{fullhash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{fullhashraw}{681c503f86c5b4758bc41fce37310d03}
-      \strng{bibnamehash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{authorbibnamehash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{authornamehash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{authorfullhash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{authorfullhashraw}{681c503f86c5b4758bc41fce37310d03}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{978-0201510355}
-      \field{title}{Analysis on Manifolds}
-      \field{year}{1991}
       \true{nocite}
     \endentry
     \entry{galdi-navier.stokes}{book}{}{}
