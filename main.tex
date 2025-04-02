@@ -86,12 +86,15 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 
 \newcommand{\bz}{\mathbf{0}}
 \newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
 \newcommand{\bX}{\mathbf{X}}
+\newcommand{\BQ}{\mathbf{Q}}
 
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cB}{\mathcal{B}}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cM}{\mathcal{M}}
+\newcommand{\cH}{\mathcal{H}}
 \newcommand{\cL}{\mathcal{L}}
 \newcommand{\cT}{\mathcal{T}}
 \newcommand{\cP}{\mathcal{P}}
@@ -5206,6 +5209,112 @@ A desigualdade de Ladyzhenskaya é um caso particular da desigualdade de Gagliar
 \subsection{Semigrupo do calor}
 
 \section{Estimativas de decaimento de energia das soluções das equações de Navier-Stokes}
+
+Em 1934, Leray construiu soluções fracas globais de energia finita $\bu(\cdot,t) \in \cL^\infty\big([0,\infty), \cL^2_\sigma(\bR^3)\big) \cap \cC_W\left([0,\infty), \cL^2(\bR^3)\right) \cap \cL^2\big([0,\infty), \dot\cH(\bR^3)\big)$\footnote{Os espaços (...)} para as equações de Navier-Stokes em $\bR^3$
+
+\begin{equation} \label{eq:navierstokes}
+    \begin{aligned}
+        &\bu_t + \bu \cdot \nabla \bu + \nabla p = \nu \Delta\bu\\
+        &\nabla\cdot\bu = 0\\
+        &\bu(\cdot,0) = \bu_0 \in \cL^2_\sigma(\bR^3)
+    \end{aligned}
+\end{equation}
+onde $\nu > 0$ é constante (...)
+
+\textcolor{red}{(seção 2 :: paulo)}
+
+(...)
+
+\[
+    \partial_t \bu_\delta + \bar \bu_\delta(\cdot,t) \geq \nabla \bu_\delta + \nabla \bu_\delta + \nabla p_\delta= \nu \Delta \bu_\delta
+\]
+
+(...)
+
+\begin{pbox}
+    Para quase todo $s > 0$ (e todo $s \geqslant T_{**}$) tem-se
+    \[
+        \Vert e^{\nu\Delta(t-s)}\BQ(\cdot,s) \Vert_{\cL^2(\bR^3)} \leqslant c \nu^{-\frac{3}{4}} (t-s)^{-\frac{3}{4}} \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}
+    \]
+    para todo $t > s$, onde $c = (8\pi)^{-\frac{3}{4}}$.
+\end{pbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{equation}
+    \Vert D^{\alpha} \big( e^{\nu\Delta\tau} u \big) \Vert_{\cL^2(\bR^n)} \leqslant c(n,k) (\nu\tau)^{-\frac{n}{2}\left( \frac{1}{r} - \frac{1}{2} \right) - \frac{k}{2}} \Vert u \Vert_{\cL^r(\bR^n)} 
+\end{equation}
+
+\begin{pbox}
+    Para quase todo $s > 0$ (e todo $s \geqslant T_{**}$), tem-se
+    \[
+        \Vert D^{\alpha} \big( e^{\nu\Delta(t-s)}\BQ(\cdot,s)\big) \Vert_{\cL^2(\bR^3)} \leqslant c(k) \nu^{-\left( \frac{k}{2} + \frac{3}{4} \right)} (t - s)^{-\left( \frac{k}{2} + \frac{3}{4}\right)} \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}
+    \]
+    para todo $t > s$, onde $k = |\alpha|$ e $c(m)$ depende apenas de $m$.
+\end{pbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{pbox}
+    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}). Então existe $t_{**} > T_{**}$ (com $t_{**}$ dependendo da solução $\bu$) suficientemente grande tal que $\Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ é uma funçao suave e monotonicamente decrescente de $t$ no intervalo $[t_{**}, \infty)$.
+\end{pbox}
+\begin{prf}
+    
+\end{prf}
+
+\textcolor{red}{(seção 3 :: paulo)}
+
+\begin{pbox}
+    Seja $\bu(\cdot,t)$ solução de Leray para (\ref{eq:navierstokes}).
+    Dados $\tilde t_0 > t_0 > 0$ tem-se
+    \[
+        \Vert D^\alpha \bv(\cdot,t) - D^\alpha \tilde \bv(\cdot,t)\Vert_{\cL^2(\bR^3)} \leqslant c(k) \nu^{-\left( \frac{5}{4} + \frac{k}{2} \right)} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}^2 (\tilde t_0 - t_0)^{\frac{1}{2}} (t - \tilde t_0)^{-\left( \frac{3}{4} + \frac{k}{2} \right)}
+    \]
+    para todo $t > \tilde t_0$, onde $\bv(\cdot,t) = e^{\nu\Delta(t-t_0)} \bu(\cdot,t_0)$, $\tilde\bv(\cdot,t) = e^{\nu\Delta(t-\tilde t_0)} \bu(\cdot,\tilde t_0)$ e $k = |\alpha|$.
+\end{pbox}
+\begin{prf}
+    Primeiramente, escrevemos $\bv(\cdot,t)$ como
+    \[
+        \bv(\cdot,t) = e^{\nu\Delta(t-t_0)} (\bu(\cdot,t) - \bu_\delta(\cdot,t)) + e^{\nu\Delta(t-t_0)}\bu_\delta(\cdot,t_0)
+    \]
+    onde $t > t_0$ e $\bu_\delta(\cdot,t)$ dada em ().
+    Ademais
+    \[
+        \bu_\delta(\cdot,t_0) = e^{\nu\Delta t_0}\bar\bu_{0,\delta} + \int_0^{t_0} e^{\nu\Delta(t_0 - s)}\BQ_\delta(\cdot,s)\,ds
+    \]
+    (...)
+\end{prf}
+
+\begin{tbox}
+    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}), então
+    \[
+        t^{\frac{1}{2}} \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0
+    \]
+    quando $t \to \infty$.
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{tbox}[Solução do problema clássico de Leray]
+    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}), então
+    \[
+        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}\to 0
+    \]
+    quando $t \to \infty$.
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{tbox}
+    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}), então para todo $k \geqslant 0$ tem-se
+    \[
+        t^{\frac{k}{2}} \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}
+    \]
+\end{tbox}
 
 \section{Soluções fracas da equação de Laplace}
 

@@ -199,6 +199,35 @@
       \field{year}{1927}
       \true{nocite}
     \endentry
+    \entry{elon-analise.rn}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=94fad9a96637b87ca3d48630e846de5d}{%
+           family={Lima},
+           familyi={L\bibinitperiod},
+           given={Elon\bibnamedelima Lages},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Instituto de Matemática Pura e Aplicada (IMPA)}%
+      }
+      \strng{namehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{fullhash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{fullhashraw}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{bibnamehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorbibnamehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authornamehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorfullhash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorfullhashraw}{94fad9a96637b87ca3d48630e846de5d}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{12}
+      \field{title}{Curso de Análise vol. 2}
+      \field{year}{2020}
+      \true{nocite}
+    \endentry
     \entry{elon-espacos.metricos}{book}{}{}
       \name{author}{1}{}{%
         {{hash=94fad9a96637b87ca3d48630e846de5d}{%
@@ -218,7 +247,7 @@
       \strng{authornamehash}{94fad9a96637b87ca3d48630e846de5d}
       \strng{authorfullhash}{94fad9a96637b87ca3d48630e846de5d}
       \strng{authorfullhashraw}{94fad9a96637b87ca3d48630e846de5d}
-      \field{extraname}{1}
+      \field{extraname}{2}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -226,6 +255,36 @@
       \field{edition}{6\textsuperscript{a} edição}
       \field{title}{Espaços Métricos}
       \field{year}{2020}
+      \true{nocite}
+    \endentry
+    \entry{galdi-navier.stokes}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=694f6d5a6cf9c500d8e15d2bb537e43e}{%
+           family={Galdi},
+           familyi={G\bibinitperiod},
+           given={Giovanni\bibnamedelima P.},
+           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
+      \strng{fullhash}{694f6d5a6cf9c500d8e15d2bb537e43e}
+      \strng{fullhashraw}{694f6d5a6cf9c500d8e15d2bb537e43e}
+      \strng{bibnamehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
+      \strng{authorbibnamehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
+      \strng{authornamehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
+      \strng{authorfullhash}{694f6d5a6cf9c500d8e15d2bb537e43e}
+      \strng{authorfullhashraw}{694f6d5a6cf9c500d8e15d2bb537e43e}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{isbn}{978-0-387-09620-9}
+      \field{series}{Springer Monographs in Mathematics}
+      \field{title}{An Introduction to the Mathematical Theory of the Navier-Stokes Equations: Steady-State Problems}
+      \field{year}{2011}
       \true{nocite}
     \endentry
     \entry{leray-fluid}{article}{}{}
@@ -247,8 +306,8 @@
       \strng{authornamehash}{d1c85ad391835096e0ab05bb90e4a799}
       \strng{authorfullhash}{d1c85ad391835096e0ab05bb90e4a799}
       \strng{authorfullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Acta Mathematica}
@@ -280,8 +339,8 @@
       \strng{authornamehash}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{authorfullhash}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{authorfullhashraw}{df40f8bbb84888bd9bd6e5a21cd28dea}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{math.HO}
@@ -421,65 +480,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Measure, Integration and Real Analysis}
       \field{year}{2024}
-      \true{nocite}
-    \endentry
-    \entry{elon-analise.rn}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=94fad9a96637b87ca3d48630e846de5d}{%
-           family={Lima},
-           familyi={L\bibinitperiod},
-           given={Elon\bibnamedelima Lages},
-           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Instituto de Matemática Pura e Aplicada (IMPA)}%
-      }
-      \strng{namehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{fullhash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{fullhashraw}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{bibnamehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authorbibnamehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authornamehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authorfullhash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authorfullhashraw}{94fad9a96637b87ca3d48630e846de5d}
-      \field{extraname}{2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{12}
-      \field{title}{Curso de Análise vol. 2}
-      \field{year}{2020}
-      \true{nocite}
-    \endentry
-    \entry{galdi-navier.stokes}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=694f6d5a6cf9c500d8e15d2bb537e43e}{%
-           family={Galdi},
-           familyi={G\bibinitperiod},
-           given={Giovanni\bibnamedelima P.},
-           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \strng{fullhash}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \strng{fullhashraw}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \strng{bibnamehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \strng{authorbibnamehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \strng{authornamehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \strng{authorfullhash}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \strng{authorfullhashraw}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{2nd}
-      \field{isbn}{978-0-387-09620-9}
-      \field{series}{Springer Monographs in Mathematics}
-      \field{title}{An Introduction to the Mathematical Theory of the Navier-Stokes Equations: Steady-State Problems}
-      \field{year}{2011}
       \true{nocite}
     \endentry
   \enddatalist
