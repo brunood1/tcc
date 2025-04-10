@@ -127,6 +127,36 @@
       \field{title}{Analysis on Manifolds}
       \field{year}{1991}
     \endentry
+    \entry{leray-fluid}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=d1c85ad391835096e0ab05bb90e4a799}{%
+           family={Leray},
+           familyi={L\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{fullhash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{fullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{bibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{authorbibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{authornamehash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{authorfullhash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{authorfullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Acta Mathematica}
+      \field{title}{Sur le mouvement d'un liquide visqueux emplissant l'espace}
+      \field{volume}{63}
+      \field{year}{1934}
+      \field{pages}{193\bibrangedash 248}
+      \range{pages}{56}
+    \endentry
     \entry{fiorenza-gns}{misc}{}{}
       \name{author}{4}{}{%
         {{hash=5373ef87fc0dba60c43d512c1d3ae511}{%
@@ -164,6 +194,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Detailed proof of classical Gagliardo-Nirenberg interpolation inequality with historical remarks}
       \field{year}{2018}
+      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/1812.04281
       \endverb
@@ -276,8 +307,8 @@
       \strng{authornamehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
       \strng{authorfullhash}{694f6d5a6cf9c500d8e15d2bb537e43e}
       \strng{authorfullhashraw}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2nd}
@@ -286,37 +317,6 @@
       \field{title}{An Introduction to the Mathematical Theory of the Navier-Stokes Equations: Steady-State Problems}
       \field{year}{2011}
       \true{nocite}
-    \endentry
-    \entry{leray-fluid}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=d1c85ad391835096e0ab05bb90e4a799}{%
-           family={Leray},
-           familyi={L\bibinitperiod},
-           given={Jean},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{fullhash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{fullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{bibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{authorbibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{authornamehash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{authorfullhash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{authorfullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Acta Mathematica}
-      \field{title}{Sur le mouvement d'un liquide visqueux emplissant l'espace}
-      \field{volume}{63}
-      \field{year}{1934}
-      \true{nocite}
-      \field{pages}{193\bibrangedash 248}
-      \range{pages}{56}
     \endentry
     \entry{leray.robert-fluid}{misc}{}{}
       \name{author}{2}{}{%
