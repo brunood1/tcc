@@ -5243,7 +5243,7 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
 % Logo é convergente, e esse limite é o que chamamos de $\hat u$.
 % De forma análoga, definimos $\check u$.
 
-\begin{tbox}[Propiedades da transformada de Fourier] thm:propriedades-transformada
+\begin{tbox}[Propiedades da transformada de Fourier] \label{thm:propriedades-transformada}
     Seja $u, v \in \cL^2(\bR^n)$. Então
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
         \item $\widehat{\lambda u + v} = \lambda \hat u + \hat v$
@@ -5320,7 +5320,23 @@ Dessa forma podemos aplicar a transformada inversa para obter
 \]
 onde $F$ é a transformada inversa de $e^{\nu t \Vert \omega \Vert^2}$. Ou seja
 \[
-    F = \int_{\bR^n} e^{i \omega \cdot x} e^{\nu t \Vert \omega \Vert^2} \,d\omega = 
+    F = \frac{1}{(2\pi)^\frac{n}{2}}\int_{\bR^n} e^{i \omega \cdot x} e^{\nu t \Vert \omega \Vert^2} \,d\omega =  \frac{1}{(2\pi)^\frac{n}{2}}\prod_{k=1}^n \int_{\m\infty}^{\infty} e^{i \omega_k x_k - \nu t\omega_k^2} \,d\omega_k
+\]
+Para resolver essa integral, primeiramente precisamos completar o quadrado no expoente.
+Dito isso
+\[
+    \begin{aligned}
+        \int_{\m\infty}^{\infty} e^{i \omega_k x_k - \nu t\omega_k^2} \,d\omega_k &= \int_{\m\infty}^{\infty} \exp \left(-\nu t\omega_k^2 + i x_k\omega_k + \frac{x_k^2}{2\nu t} - \frac{x_k^2}{2\nu t}\right) \, d\omega_k\\
+        &= \int_{\m\infty}^\infty \exp\left( -\frac{x_k^2}{2\nu t} \right) \exp \left( - \left( \sqrt{\nu t}\omega_k - \frac{ix_k}{2\nu t} \right)^2 \right) \,d\omega_k
+    \end{aligned}
+\] 
+Fazendo a substituição $t_k = \sqrt{\nu t}\omega_k - \frac{ix_k}{2\nu t}$ obtemos $dt_k = \sqrt{\nu t} \,d\omega_k$ e a integral se torna
+\[
+    \frac{1}{(\nu t)^{\frac{1}{2}}} e^{\frac{-x_k^2}{4\nu t}} \int_{\m\infty}^\infty e^{-t_k^2} \,dt_k = \left( \frac{\pi}{\nu t} \right)^{\frac{1}{2}} e^{-\frac{x_k^2}{4\nu t}}
+\]
+Sendo assim 
+\[
+    F =   \frac{1}{(2\pi)^\frac{n}{2}}\prod_{k=1}^n \int_{\m\infty}^{\infty} e^{i \omega_k x_k - \nu t\omega_k^2} \,d\omega_k =  \frac{1}{(2\pi)^\frac{n}{2}}\prod_{k=1}^n \left( \frac{\pi}{\nu t} \right)^{\frac{1}{2}} e^{-\frac{x_k^2}{4\nu t}} = \frac{1}{(2\nu t)^\frac{n}{2}} e^{^{-\frac{\Vert x \Vert^2}{4\nu t}}}
 \]
 Portanto
 \[
@@ -5356,7 +5372,7 @@ O resto dessa subseção será destinada a estudar algumas propriedades que ser�
 
 \subsection{Projeção de Helmholtz}
 
-\section{Estimativas de decaimento de energia das soluções das equações de Navier-Stokes}
+\section{Propriedades da soluções de Leray}
 
 Em 1934 \cite{leray-fluid}, Leray construiu soluções fracas globais de energia finita
 \begin{equation} \label{eq:solucao-leray}
@@ -5514,7 +5530,48 @@ onde $c$ é uma constante positíva e
     Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}). Então existe $t_{**} > T_{**}$ (com $t_{**}$ dependendo da solução $\bu$) suficientemente grande tal que $\Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ é uma funçao suave e monotonicamente decrescente de $t$ no intervalo $[t_{**}, \infty)$.
 \end{pbox}
 \begin{prf}
-    
+    Sejam $t_0 \geqslant T_{**}$ e $t > t_0$.
+    Aplicando a $k$-ésima derivada parcial $D_k$ à $\bu_t + \bu \cdot \nabla \bu + \nabla p = \nu \Delta \bu$, fazendo o produto escalar com $D_k \bu$, integrando em $\bR^3 \times [t_0,t]$ obtemos
+    \[
+        \begin{aligned}
+            \int_{\bR^3} \int_{t_0}^t D_k \bu_t \cdot D_k \bu \,dsdx &+ \int_{\bR^3} \int_{t_0}^t D_k (\bu \cdot \nabla \bu) \cdot D_k \bu \,dsdx\\ 
+            &+ \int_{\bR^3} \int_{t_0}^t D_k \nabla p \cdot D_k\bu \,dsdx = \nu \int_{\bR^3} \int_{t_0}^t D_k \Delta \bu \cdot D_k \bu \,dsdx
+        \end{aligned}
+    \]
+    Vamos analisar cada integral separadamente. (...)
+    Dito isso, somando em $1 \leqslant k \leqslant 3$
+    \[
+        \begin{aligned}
+            \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 &+ 2\nu \int_{t_0}^t \Vert D^2 \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 \,ds\\ &= \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + 2 \sum_{i,j,k} \int_{t_0}^t \int_{\bR^3} u_i(x,s) D_k u_j D_j D_k u_i(x,s) \,dxds.
+        \end{aligned}
+    \]
+    Utilizando a Desigualdade de Hölder e a definição das normas em () temos que o lado direito da equação acima é menor ou igual a
+    \[
+        \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 + 2 \! \int_{t_0}^t \Vert \bu(\cdot,s) \Vert_{\infty} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds
+    \]
+    que pela Desigualdade de Gagliardo-Nireneberg () é menor ou igual a
+    \[
+        \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 + 2 \! \int_{t_0}^t \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds.
+    \]
+    Em particular temos
+    \[
+        \begin{aligned}
+            \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} &+ 2 \nu \int_{t_0}^t \Vert D^2 \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds\\ &\leqslant \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + 2 \! \int_{t_0}^t \big[ \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \big]^\frac{1}{2} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2
+        \end{aligned}
+    \]
+    para todo $t \geqslant t_0$. Daí, seja $t_0 > t_*$ tal que pela desigualdade de energia (\ref{eq:desigualdade-de-energia}) $\Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,t_0 ) \Vert_{\cL^2(\bR^3)} < \nu$.
+    Dessa forma, segue que
+    \[
+        \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} < \nu
+    \]
+    para todo $s > t_0$.
+    Com efeito, (...)
+    De () e () temos
+    \[
+        \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 + 2 \gamma \! \int_{t_0}^{t} \Vert D^2 \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds \leqslant \Vert D\bu(\cdot,t_2) \Vert_{\cL^2(\bR^3)}^2
+    \]
+    para todo $t \geqslant t_2 \geqslant t_0$, onde $\gamma = \nu - \Vert \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}} \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}} > 0$ é uma constante.
+    Tomando $t_{**} = t_0$, finalizamos a demonstração.
 \end{prf}
 
 \noindent\textbf{\textcolor{red}{(seção 3 :: paulo)}}
@@ -5596,14 +5653,41 @@ onde $c$ é uma constante positíva e
     \]
     onde
     \[
-        J_{\alpha,\delta}(t) = \left\Vert D^\alpha\left( e^{\nu\Delta(t-\tilde t_0)} \big[\bu(\cdot,\tilde t_0) - \bu_\delta(\cdot,\tilde t_0)\big] \right) \right\Vert _{\cL^2(K)} \!\!+ \left\Vert D^\alpha\left( e^{\nu\Delta(t-t_0)} \big[\bu(\cdot, t_0) - \bu_\delta(\cdot, t_0)\big] \right) \right\Vert _{\cL^2(K)}.
+        \begin{aligned}
+            J_{\alpha,\delta}(t) = \big\Vert D^\alpha\big( e^{\nu\Delta(t-\tilde t_0)} \big[\bu(\cdot,\tilde t_0) &- \bu_\delta(\cdot,\tilde t_0)\big] \big) \big\Vert _{\cL^2(K)} \\
+            &+ \big\Vert D^\alpha\big( e^{\nu\Delta(t-t_0)} \big[\bu(\cdot, t_0) - \bu_\delta(\cdot, t_0)\big] \big) \big\Vert _{\cL^2(K)}.
+        \end{aligned}
     \]
     Tomando $\delta = \delta' \to 0$, temos que $J_{\alpha,\delta}(t)\to0$. pois, dados $\sigma,\tau >0$
     \[
         \Vert D^\alpha (e^{\nu\Delta\tau}[\bu(\cdot,\sigma) -  \bu_{\delta'}(\cdot,\sigma)]) \Vert_{\cL^2(K)} \to 0
     \]
-    quando $\delta' \to 0$
+    quando $\delta' \to 0$. De fato, denotando $F_\delta(\cdot,\tau) = D^\alpha \big( e^{\nu \Delta \tau} [\bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma)] \big)$, tem-se
+    \[
+        F_\delta(\cdot,\tau) =  H_\alpha(\cdot,\tau) * [\bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma)]
+    \]
+    onde $H_\alpha(\cdot,\tau) \in \cL^1(\bR^3) \cap \cL^\infty(\bR^3)$ não depende de $\delta$. Como $\bu(\cdot,\sigma) - \bu_{\delta'}(\cdot,\sigma) \rightharpoonup 0$, segue que $F_{\delta'}(x,\tau) \to 0$ para cada $x \in \bR^3$.
+    Por outro lado
+    \[
+        \begin{aligned}
+            |\Phi_\delta(x,t)| &\leqslant \int_{\bR^3} | \Theta_\alpha(x-y,\tau) [\bu(y,\sigma) - \bu_\delta(y,\sigma)]| \,dy\\
+            &\leqslant\int_{\bR^3} |\Theta_\alpha(x-y,\tau)|^2 \,dy \int_{\bR^3} |\bu(y,\sigma) - \bu_\delta(y,\sigma)|^2 \,dy\\[2pt] 
+            &= \Vert \Theta_\alpha(\cdot,\tau) \Vert_{\cL^2(\bR^3)} \Vert \bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma) \Vert_{\cL^2(\bR^3)}
+        \end{aligned}
+    \]
+    utilizando a desigualdade triangular e () obtemos
+    \[
+        |\Phi_\delta(x,t)| \leqslant 2 \Vert \Theta_\alpha(\cdot,t) \Vert_{\cL^2(\bR^3)} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}
+    \]
+    para todo $x \in \bR^3$. Pelo Teorema da Convergência Dominada, segue que $\Vert \Phi_{\delta'}(\cdot,t) \Vert_{\cL^2(K)} \to 0$, quando $\delta'\to 0$ pelo fato de $K$ ser compacto.
+    Dito isso, fazendo $\delta = \delta'\to 0$ em () temos que
+    \[
+        \Vert D^\alpha \tilde\bv - D^\alpha \bv(\cdot,t) \Vert_{\cL^2(K)} \leqslant c(k) \nu^{-\left( \frac{k}{2} + \frac{5}{4} \right)} \Vert \bu_0 \Vert^2_{\cL^2(\bR^3)} (\tilde t_0 - t_0)^{\frac{1}{2}} (t - \tilde t_0)^{-\left( \frac{k}{2} - \frac{3}{4} \right)}
+    \]
+    para todo $t_0 > \tilde t_0$. Tomando o supremo de todos $K \subseteq \bR^3$ obtemos a desigualdade desejada.
 \end{prf}
+
+(texto)
 
 \begin{tbox} \label{thm:Duto0}
     Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}), então
@@ -5633,7 +5717,49 @@ onde $c$ é uma constante positíva e
     quando $t \to \infty$.
 \end{tbox}
 \begin{prf}
-    
+    Seja $t_{**}$ como definido na Proposição ??.
+    Dado $\varepsilon > 0$ tomemos $t_0 \geqslant t_{**}$ suficientemente grande tal que pelo Teorema anterior, temos
+    \[
+        t^{\frac{1}{2}} \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \varepsilon
+    \]
+    para todo $t \geqslant t_0$.
+    Como $\bu(\cdot,t)$ é suave em $[t_0,\infty)$ obtemos
+    \[
+        \bu(\cdot,t) = e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) + \int_{t_0}^{t} e^{\nu\Delta(t-s)}\BQ(\cdot,s) \, ds
+    \]
+    Dito isso, utlizando ()
+    \[
+        \begin{aligned}
+            \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} &\leqslant \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + \int_{t_0}^t \Vert e^{\nu\Delta(t-s)} \BQ(\cdot,s) \Vert_{\cL^2(\bR^3)}\,ds\\
+            &\leqslant \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + c \nu^{-\frac{3}{4}} \int_{t_0}^t (t - s)^{-\frac{3}{4}} \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds
+        \end{aligned}
+    \]
+    Como $\Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \leqslant \Vert \bu_{0} \Vert_{\cL^2(\bR^3)}$ temos que o lado direito da equação acima é menor ou igual a
+    \[
+        \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + c \nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \int_{t_0}^t (t - s)^{-\frac{3}{4}}\Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds
+    \]
+    e por () é menor ou igual a
+    \[
+        \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + c \nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}\, \varepsilon \! \int_{t_0}^t (t - s)^{-\frac{3}{4}} s^{-\frac{1}{2}} \,ds.
+    \]
+    Note que
+    \[
+        \textcolor{red}{\int_{t_0}^t (t - s)^{-\frac{3}{4}}s^{-\frac{1}{2}} \leqslant 6\sqrt[4]{2}}
+    \]
+    para todo $t \geqslant t_0 + 1$. Sendo assim
+    \[
+        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + \varepsilon\nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}.
+    \]
+    Como $\Vert e^{\nu\Delta(t-t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} \to 0$ quando $t \to \infty$, temos que \textcolor{red}{(?)}
+    \[
+        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant (1 +  \nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}) \,\varepsilon
+    \]
+    para todo $t \gg 1$.
+    Como $\varepsilon > 0$ é arbitrário, isso mostra que
+    \[
+        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0
+    \]
+    como era desejado.
 \end{prf}
 
 Note que os Teoremas \ref{thm:Duto0} e \ref{thm:problema-leray} juntos mostram que temos o decaimento de energia na norma do espaço de Sobolev $\cH^1(\Omega)$. De fato
@@ -5648,7 +5774,48 @@ Note que os Teoremas \ref{thm:Duto0} e \ref{thm:problema-leray} juntos mostram q
     \]
 \end{tbox}
 
-\section{Soluções fracas da equação de Laplace}
+\section{Problema de Dirichlet}
+
+(introdução)
+
+\begin{tbox}[Teorema da representação de Riesz para espaços de Hilbert]
+    Sejam $H$ um espaço de Hilbert e $f : H \to \bR$ um funcional linear limitado.
+    Então existe um único $v \in H$ tal que $f(u) = \left\langle u, v\right\rangle$ para todo $u \in H$.
+    Além disso $\Vert f \Vert = \Vert v \Vert$.
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{tbox}[Teorema de Lax-Milgram]
+    Sejam $H$ um espaço de Hilbert e $B : H \times H \to \bR$ uma aplicação bilinear tal que existem $\alpha, \beta > 0$ tais que
+    \begin{enumerate}
+        \item $| B(u,v)| \leqslant \alpha \Vert u \Vert \Vert v \Vert$ para todo $u,v \in H$ i.e., a forma bilinear é limitada;
+        \item $\beta \Vert u \Vert^2 \leqslant B(u,u)$ para todo $u \in H$ i.e., a forma bilinear é coerciva.
+    \end{enumerate}
+    Seja $f : H \to \bR$ um funcional linear limitado. Então existe um único $v \in H$ tal que $B(u,v) = f(u)$ para todo $u \in H$.
+\end{tbox}
+\begin{prf}
+    \dots
+\end{prf}
+
+\noindent\textbf{Aplicação do Teorema de Lax-Milgram} (Existência de soluções fracas)\textbf{.} Considere o problema de Dirichlet
+\begin{equation} \label{eq:problema-de-dirichlet}
+    \begin{aligned}
+        -\Delta u + u = f &\text{ em } \Omega\\
+        u = 0 &\text{ em } \partial\Omega
+    \end{aligned}
+\end{equation}
+onde $\Omega$ é um aberto limitado.
+Uma solução clássica para o problema de Dirichlet é uma função $u  \in \cC^2(\Omega)$ satisfazendo (\ref{eq:problema-de-dirichlet}).
+Uma solução fraca do problema de Dirichlet é uma função $u \in \cH_0^1(\Omega) = \cW^{1,2}_0(\Omega)$ satisfazendo
+\[
+    \int_\Omega -v \Delta u \, dx + \int_\Omega u v \, dx = \int_\Omega f v \, dx.
+\]
+Integrando por partes a primeira integral, temos a condição equivalente
+\[
+    \int_\Omega D u \cdot D v \, dx + \int_\Omega u v \, dx = \int_\Omega f v \, dx.
+\]
 
 
 \nocite{*}
