@@ -18,69 +18,76 @@
 
 
 \refsection{0}
-  \datalist[entry]{none/global//global/global/global}
-    \entry{evans-pde}{book}{}{}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{axler-measure.theory}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=0d72932a7775f85a51622d3af75ae26e}{%
-           family={Evans},
-           familyi={E\bibinitperiod},
-           given={Lawrence\bibnamedelima C.},
-           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=71493eec7caacea528ad39dbfb52773a}{%
+           family={Axler},
+           familyi={A\bibinitperiod},
+           given={Sheldon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
       }
       \list{publisher}{1}{%
-        {AMS}%
+        {Springer}%
       }
-      \strng{namehash}{0d72932a7775f85a51622d3af75ae26e}
-      \strng{fullhash}{0d72932a7775f85a51622d3af75ae26e}
-      \strng{fullhashraw}{0d72932a7775f85a51622d3af75ae26e}
-      \strng{bibnamehash}{0d72932a7775f85a51622d3af75ae26e}
-      \strng{authorbibnamehash}{0d72932a7775f85a51622d3af75ae26e}
-      \strng{authornamehash}{0d72932a7775f85a51622d3af75ae26e}
-      \strng{authorfullhash}{0d72932a7775f85a51622d3af75ae26e}
-      \strng{authorfullhashraw}{0d72932a7775f85a51622d3af75ae26e}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \strng{namehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{fullhash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{fullhashraw}{71493eec7caacea528ad39dbfb52773a}
+      \strng{bibnamehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authorbibnamehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authornamehash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authorfullhash}{71493eec7caacea528ad39dbfb52773a}
+      \strng{authorfullhashraw}{71493eec7caacea528ad39dbfb52773a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Partial Differential Equations}
-      \field{year}{2010}
+      \field{title}{Measure, Integration and Real Analysis}
+      \field{year}{2024}
+      \true{nocite}
     \endentry
-    \entry{folland-real.analysis}{book}{}{}
+    \entry{bartle-measure.theory}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=3cda3c2620975d41afd056d0ac5a79b8}{%
-           family={Folland},
-           familyi={F\bibinitperiod},
-           given={Gerald\bibnamedelima B.},
-           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=421cdd5790e26e6ffad05f66854de4a5}{%
+           family={Bartle},
+           familyi={B\bibinitperiod},
+           given={Robert\bibnamedelima G.},
+           giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
       }
-      \list{publisher}{1}{%
-        {Wiley}%
+      \list{publisher}{2}{%
+        {John Wiley}%
+        {Sons}%
       }
-      \strng{namehash}{3cda3c2620975d41afd056d0ac5a79b8}
-      \strng{fullhash}{3cda3c2620975d41afd056d0ac5a79b8}
-      \strng{fullhashraw}{3cda3c2620975d41afd056d0ac5a79b8}
-      \strng{bibnamehash}{3cda3c2620975d41afd056d0ac5a79b8}
-      \strng{authorbibnamehash}{3cda3c2620975d41afd056d0ac5a79b8}
-      \strng{authornamehash}{3cda3c2620975d41afd056d0ac5a79b8}
-      \strng{authorfullhash}{3cda3c2620975d41afd056d0ac5a79b8}
-      \strng{authorfullhashraw}{3cda3c2620975d41afd056d0ac5a79b8}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \strng{namehash}{421cdd5790e26e6ffad05f66854de4a5}
+      \strng{fullhash}{421cdd5790e26e6ffad05f66854de4a5}
+      \strng{fullhashraw}{421cdd5790e26e6ffad05f66854de4a5}
+      \strng{bibnamehash}{421cdd5790e26e6ffad05f66854de4a5}
+      \strng{authorbibnamehash}{421cdd5790e26e6ffad05f66854de4a5}
+      \strng{authornamehash}{421cdd5790e26e6ffad05f66854de4a5}
+      \strng{authorfullhash}{421cdd5790e26e6ffad05f66854de4a5}
+      \strng{authorfullhashraw}{421cdd5790e26e6ffad05f66854de4a5}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{2nd}
-      \field{isbn}{978-0471317166}
-      \field{series}{Pure and Applied Mathematics}
-      \field{title}{Real Analysis: Modern Techniques and Their Applications}
-      \field{year}{1999}
+      \field{title}{The Elements of Integration and Lebesgue Measure}
+      \field{year}{1995}
+      \true{nocite}
     \endentry
     \entry{brezis-functional.analysis}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=31e0c25a6fb0297f0536bede27a04cd4}{%
+        {{un=0,uniquepart=base,hash=31e0c25a6fb0297f0536bede27a04cd4}{%
            family={Brezis},
            familyi={B\bibinitperiod},
            given={Haim},
-           giveni={H\bibinitperiod}}}%
+           giveni={H\bibinitperiod},
+           givenun=0}}%
       }
       \list{publisher}{1}{%
         {Springer}%
@@ -93,92 +100,113 @@
       \strng{authornamehash}{31e0c25a6fb0297f0536bede27a04cd4}
       \strng{authorfullhash}{31e0c25a6fb0297f0536bede27a04cd4}
       \strng{authorfullhashraw}{31e0c25a6fb0297f0536bede27a04cd4}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Functional Analysis, Sobolev Spaces and Partial Differential Equations}
       \field{year}{2010}
     \endentry
-    \entry{munkres-analysis.on.manifolds}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=681c503f86c5b4758bc41fce37310d03}{%
-           family={Munkres},
-           familyi={M\bibinitperiod},
-           given={James\bibnamedelima R.},
-           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+    \entry{burden-analise.numerica}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=087f2271a0786e7c8db8fd33785aed18}{%
+           family={Burden},
+           familyi={B\bibinitperiod},
+           given={Richard\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4204928ced965b41fb12c0ed6d636f41}{%
+           family={Faires},
+           familyi={F\bibinitperiod},
+           given={J.\bibnamedelimi Douglas},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
       }
       \list{publisher}{1}{%
-        {CRC Press}%
+        {CENGAGE DO BRASIL}%
       }
-      \strng{namehash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{fullhash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{fullhashraw}{681c503f86c5b4758bc41fce37310d03}
-      \strng{bibnamehash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{authorbibnamehash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{authornamehash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{authorfullhash}{681c503f86c5b4758bc41fce37310d03}
-      \strng{authorfullhashraw}{681c503f86c5b4758bc41fce37310d03}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \strng{namehash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{fullhash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{fullhashraw}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{bibnamehash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{authorbibnamehash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{authornamehash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{authorfullhash}{30f50a4be86ef6852f9a742a7e344186}
+      \strng{authorfullhashraw}{30f50a4be86ef6852f9a742a7e344186}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{978-0201510355}
-      \field{title}{Analysis on Manifolds}
-      \field{year}{1991}
+      \field{isbn}{9788522123407}
+      \field{title}{Análise Numérica}
+      \field{year}{2016}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
+      \endverb
     \endentry
-    \entry{leray-fluid}{article}{}{}
+    \entry{evans-pde}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=d1c85ad391835096e0ab05bb90e4a799}{%
-           family={Leray},
-           familyi={L\bibinitperiod},
-           given={Jean},
-           giveni={J\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=0d72932a7775f85a51622d3af75ae26e}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={Lawrence\bibnamedelima C.},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Springer}%
+        {AMS}%
       }
-      \strng{namehash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{fullhash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{fullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{bibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{authorbibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{authornamehash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{authorfullhash}{d1c85ad391835096e0ab05bb90e4a799}
-      \strng{authorfullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \strng{namehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{fullhash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{fullhashraw}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{bibnamehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authorbibnamehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authornamehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authorfullhash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authorfullhashraw}{0d72932a7775f85a51622d3af75ae26e}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Acta Mathematica}
-      \field{title}{Sur le mouvement d'un liquide visqueux emplissant l'espace}
-      \field{volume}{63}
-      \field{year}{1934}
-      \field{pages}{193\bibrangedash 248}
-      \range{pages}{56}
+      \field{title}{Partial Differential Equations}
+      \field{year}{2010}
     \endentry
     \entry{fiorenza-gns}{misc}{}{}
       \name{author}{4}{}{%
-        {{hash=5373ef87fc0dba60c43d512c1d3ae511}{%
+        {{un=0,uniquepart=base,hash=5373ef87fc0dba60c43d512c1d3ae511}{%
            family={Fiorenza},
            familyi={F\bibinitperiod},
            given={Alberto},
-           giveni={A\bibinitperiod}}}%
-        {{hash=4f9335c53426d07699ebb3ec6d31652d}{%
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4f9335c53426d07699ebb3ec6d31652d}{%
            family={Formica},
            familyi={F\bibinitperiod},
            given={Maria\bibnamedelima Rosaria},
-           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-        {{hash=9ce38310d07f4c0d1c21413f2c11b43a}{%
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ce38310d07f4c0d1c21413f2c11b43a}{%
            family={Roskovec},
            familyi={R\bibinitperiod},
            given={Tomáš},
-           giveni={T\bibinitperiod}}}%
-        {{hash=f776e976d7a91925f543611430727403}{%
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f776e976d7a91925f543611430727403}{%
            family={Soudský},
            familyi={S\bibinitperiod},
            given={Filip},
-           giveni={F\bibinitperiod}}}%
+           giveni={F\bibinitperiod},
+           givenun=0}}%
       }
       \strng{namehash}{eb6e6525c9f0053b552b0476a1436e18}
       \strng{fullhash}{6e58c0988832a6925919546e5bcee8fe}
@@ -188,13 +216,14 @@
       \strng{authornamehash}{eb6e6525c9f0053b552b0476a1436e18}
       \strng{authorfullhash}{6e58c0988832a6925919546e5bcee8fe}
       \strng{authorfullhashraw}{6e58c0988832a6925919546e5bcee8fe}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Detailed proof of classical Gagliardo-Nirenberg interpolation inequality with historical remarks}
       \field{year}{2018}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/1812.04281
       \endverb
@@ -202,99 +231,46 @@
       \verb https://arxiv.org/abs/1812.04281
       \endverb
     \endentry
-    \entry{oseen-hydrodynamik}{book}{}{}
+    \entry{folland-real.analysis}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=b301872d87f37e159237a92c47853a7a}{%
-           family={Oseen},
-           familyi={O\bibinitperiod},
-           given={C.W.},
-           giveni={C\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=3cda3c2620975d41afd056d0ac5a79b8}{%
+           family={Folland},
+           familyi={F\bibinitperiod},
+           given={Gerald\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Akademische Verlagsgesellschaft}%
+        {Wiley}%
       }
-      \strng{namehash}{b301872d87f37e159237a92c47853a7a}
-      \strng{fullhash}{b301872d87f37e159237a92c47853a7a}
-      \strng{fullhashraw}{b301872d87f37e159237a92c47853a7a}
-      \strng{bibnamehash}{b301872d87f37e159237a92c47853a7a}
-      \strng{authorbibnamehash}{b301872d87f37e159237a92c47853a7a}
-      \strng{authornamehash}{b301872d87f37e159237a92c47853a7a}
-      \strng{authorfullhash}{b301872d87f37e159237a92c47853a7a}
-      \strng{authorfullhashraw}{b301872d87f37e159237a92c47853a7a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \strng{namehash}{3cda3c2620975d41afd056d0ac5a79b8}
+      \strng{fullhash}{3cda3c2620975d41afd056d0ac5a79b8}
+      \strng{fullhashraw}{3cda3c2620975d41afd056d0ac5a79b8}
+      \strng{bibnamehash}{3cda3c2620975d41afd056d0ac5a79b8}
+      \strng{authorbibnamehash}{3cda3c2620975d41afd056d0ac5a79b8}
+      \strng{authornamehash}{3cda3c2620975d41afd056d0ac5a79b8}
+      \strng{authorfullhash}{3cda3c2620975d41afd056d0ac5a79b8}
+      \strng{authorfullhashraw}{3cda3c2620975d41afd056d0ac5a79b8}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{series}{Mahtematik in Monographien und Lehrbüchern}
-      \field{title}{Hydrodynamik}
-      \field{year}{1927}
-      \true{nocite}
-    \endentry
-    \entry{elon-analise.rn}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=94fad9a96637b87ca3d48630e846de5d}{%
-           family={Lima},
-           familyi={L\bibinitperiod},
-           given={Elon\bibnamedelima Lages},
-           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Instituto de Matemática Pura e Aplicada (IMPA)}%
-      }
-      \strng{namehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{fullhash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{fullhashraw}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{bibnamehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authorbibnamehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authornamehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authorfullhash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authorfullhashraw}{94fad9a96637b87ca3d48630e846de5d}
-      \field{extraname}{1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{12}
-      \field{title}{Curso de Análise vol. 2}
-      \field{year}{2020}
-      \true{nocite}
-    \endentry
-    \entry{elon-espacos.metricos}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=94fad9a96637b87ca3d48630e846de5d}{%
-           family={Lima},
-           familyi={L\bibinitperiod},
-           given={Elon\bibnamedelima Lages},
-           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {IMPA}%
-      }
-      \strng{namehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{fullhash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{fullhashraw}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{bibnamehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authorbibnamehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authornamehash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authorfullhash}{94fad9a96637b87ca3d48630e846de5d}
-      \strng{authorfullhashraw}{94fad9a96637b87ca3d48630e846de5d}
-      \field{extraname}{2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{6\textsuperscript{a} edição}
-      \field{title}{Espaços Métricos}
-      \field{year}{2020}
-      \true{nocite}
+      \field{edition}{2nd}
+      \field{isbn}{978-0471317166}
+      \field{series}{Pure and Applied Mathematics}
+      \field{title}{Real Analysis: Modern Techniques and Their Applications}
+      \field{year}{1999}
     \endentry
     \entry{galdi-navier.stokes}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=694f6d5a6cf9c500d8e15d2bb537e43e}{%
+        {{un=0,uniquepart=base,hash=694f6d5a6cf9c500d8e15d2bb537e43e}{%
            family={Galdi},
            familyi={G\bibinitperiod},
            given={Giovanni\bibnamedelima P.},
-           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
       }
       \list{publisher}{1}{%
         {Springer}%
@@ -307,8 +283,10 @@
       \strng{authornamehash}{694f6d5a6cf9c500d8e15d2bb537e43e}
       \strng{authorfullhash}{694f6d5a6cf9c500d8e15d2bb537e43e}
       \strng{authorfullhashraw}{694f6d5a6cf9c500d8e15d2bb537e43e}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2nd}
@@ -318,18 +296,53 @@
       \field{year}{2011}
       \true{nocite}
     \endentry
-    \entry{leray.robert-fluid}{misc}{}{}
-      \name{author}{2}{}{%
-        {{hash=d1c85ad391835096e0ab05bb90e4a799}{%
+    \entry{leray-fluid}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d1c85ad391835096e0ab05bb90e4a799}{%
            family={Leray},
            familyi={L\bibinitperiod},
            given={Jean},
-           giveni={J\bibinitperiod}}}%
-        {{hash=99d22c2fbcb6e4e35364f115c7ae91f1}{%
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{fullhash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{fullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{bibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{authorbibnamehash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{authornamehash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{authorfullhash}{d1c85ad391835096e0ab05bb90e4a799}
+      \strng{authorfullhashraw}{d1c85ad391835096e0ab05bb90e4a799}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Acta Mathematica}
+      \field{title}{Sur le mouvement d'un liquide visqueux emplissant l'espace}
+      \field{volume}{63}
+      \field{year}{1934}
+      \field{pages}{193\bibrangedash 248}
+      \range{pages}{56}
+    \endentry
+    \entry{leray.robert-fluid}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d1c85ad391835096e0ab05bb90e4a799}{%
+           family={Leray},
+           familyi={L\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=99d22c2fbcb6e4e35364f115c7ae91f1}{%
            family={Terrell},
            familyi={T\bibinitperiod},
            given={Robert},
-           giveni={R\bibinitperiod}}}%
+           giveni={R\bibinitperiod},
+           givenun=0}}%
       }
       \strng{namehash}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{fullhash}{df40f8bbb84888bd9bd6e5a21cd28dea}
@@ -339,8 +352,10 @@
       \strng{authornamehash}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{authorfullhash}{df40f8bbb84888bd9bd6e5a21cd28dea}
       \strng{authorfullhashraw}{df40f8bbb84888bd9bd6e5a21cd28dea}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{math.HO}
@@ -358,13 +373,251 @@
       \verb https://arxiv.org/abs/1604.02484
       \endverb
     \endentry
-    \entry{zingano-edp}{misc}{}{}
+    \entry{elon-analise.rn}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=a0562549cccb370a31ea648a3c6ea836}{%
+        {{un=0,uniquepart=base,hash=94fad9a96637b87ca3d48630e846de5d}{%
+           family={Lima},
+           familyi={L\bibinitperiod},
+           given={Elon\bibnamedelima Lages},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Instituto de Matemática Pura e Aplicada (IMPA)}%
+      }
+      \strng{namehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{fullhash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{fullhashraw}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{bibnamehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorbibnamehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authornamehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorfullhash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorfullhashraw}{94fad9a96637b87ca3d48630e846de5d}
+      \field{extraname}{1}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{12}
+      \field{title}{Curso de Análise vol. 2}
+      \field{year}{2020}
+      \true{nocite}
+    \endentry
+    \entry{elon-espacos.metricos}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=94fad9a96637b87ca3d48630e846de5d}{%
+           family={Lima},
+           familyi={L\bibinitperiod},
+           given={Elon\bibnamedelima Lages},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IMPA}%
+      }
+      \strng{namehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{fullhash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{fullhashraw}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{bibnamehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorbibnamehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authornamehash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorfullhash}{94fad9a96637b87ca3d48630e846de5d}
+      \strng{authorfullhashraw}{94fad9a96637b87ca3d48630e846de5d}
+      \field{extraname}{2}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6\textsuperscript{a} edição}
+      \field{title}{Espaços Métricos}
+      \field{year}{2020}
+      \true{nocite}
+    \endentry
+    \entry{lorenz-navier.stokes}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f5dd203e64f3555c9f89dcfdd6a585f5}{%
+           family={Lorenz},
+           familyi={L\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0562549cccb370a31ea648a3c6ea836}{%
            family={Zingano},
            familyi={Z\bibinitperiod},
            given={Paulo\bibnamedelima R.},
-           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0d98e5d83194a8c7801f52a945e9d958}
+      \strng{fullhash}{0d98e5d83194a8c7801f52a945e9d958}
+      \strng{fullhashraw}{0d98e5d83194a8c7801f52a945e9d958}
+      \strng{bibnamehash}{0d98e5d83194a8c7801f52a945e9d958}
+      \strng{authorbibnamehash}{0d98e5d83194a8c7801f52a945e9d958}
+      \strng{authornamehash}{0d98e5d83194a8c7801f52a945e9d958}
+      \strng{authorfullhash}{0d98e5d83194a8c7801f52a945e9d958}
+      \strng{authorfullhashraw}{0d98e5d83194a8c7801f52a945e9d958}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Navier-Stokes equations for Incompressible Flows: solution properties at potential blow-up times}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1503.01767
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1503.01767
+      \endverb
+    \endentry
+    \entry{munkres-analysis.on.manifolds}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=681c503f86c5b4758bc41fce37310d03}{%
+           family={Munkres},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{fullhash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{fullhashraw}{681c503f86c5b4758bc41fce37310d03}
+      \strng{bibnamehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authorbibnamehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authornamehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authorfullhash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authorfullhashraw}{681c503f86c5b4758bc41fce37310d03}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0201510355}
+      \field{title}{Analysis on Manifolds}
+      \field{year}{1991}
+    \endentry
+    \entry{cesar-analise.funcional}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fba1187bf27b844047baba07bc7ab6e4}{%
+           family={Oliveira},
+           familyi={O\bibinitperiod},
+           given={César\bibnamedelima R.},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Instituto de Matemática Pura e Aplicada (IMPA)}%
+      }
+      \strng{namehash}{fba1187bf27b844047baba07bc7ab6e4}
+      \strng{fullhash}{fba1187bf27b844047baba07bc7ab6e4}
+      \strng{fullhashraw}{fba1187bf27b844047baba07bc7ab6e4}
+      \strng{bibnamehash}{fba1187bf27b844047baba07bc7ab6e4}
+      \strng{authorbibnamehash}{fba1187bf27b844047baba07bc7ab6e4}
+      \strng{authornamehash}{fba1187bf27b844047baba07bc7ab6e4}
+      \strng{authorfullhash}{fba1187bf27b844047baba07bc7ab6e4}
+      \strng{authorfullhashraw}{fba1187bf27b844047baba07bc7ab6e4}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{978-85-244-0453-5}
+      \field{title}{Introdução à Análise Funcional}
+      \field{year}{2018}
+      \field{pages}{257}
+      \range{pages}{1}
+    \endentry
+    \entry{oseen-hydrodynamik}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b301872d87f37e159237a92c47853a7a}{%
+           family={Oseen},
+           familyi={O\bibinitperiod},
+           given={C.W.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Akademische Verlagsgesellschaft}%
+      }
+      \strng{namehash}{b301872d87f37e159237a92c47853a7a}
+      \strng{fullhash}{b301872d87f37e159237a92c47853a7a}
+      \strng{fullhashraw}{b301872d87f37e159237a92c47853a7a}
+      \strng{bibnamehash}{b301872d87f37e159237a92c47853a7a}
+      \strng{authorbibnamehash}{b301872d87f37e159237a92c47853a7a}
+      \strng{authornamehash}{b301872d87f37e159237a92c47853a7a}
+      \strng{authorfullhash}{b301872d87f37e159237a92c47853a7a}
+      \strng{authorfullhashraw}{b301872d87f37e159237a92c47853a7a}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Mahtematik in Monographien und Lehrbüchern}
+      \field{title}{Hydrodynamik}
+      \field{year}{1927}
+      \true{nocite}
+    \endentry
+    \entry{wiegner-decay}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3c8c660116801c02dc2037d440ddc0fd}{%
+           family={Wiegner},
+           familyi={W\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3c8c660116801c02dc2037d440ddc0fd}
+      \strng{fullhash}{3c8c660116801c02dc2037d440ddc0fd}
+      \strng{fullhashraw}{3c8c660116801c02dc2037d440ddc0fd}
+      \strng{bibnamehash}{3c8c660116801c02dc2037d440ddc0fd}
+      \strng{authorbibnamehash}{3c8c660116801c02dc2037d440ddc0fd}
+      \strng{authornamehash}{3c8c660116801c02dc2037d440ddc0fd}
+      \strng{authorfullhash}{3c8c660116801c02dc2037d440ddc0fd}
+      \strng{authorfullhashraw}{3c8c660116801c02dc2037d440ddc0fd}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of The London Mathematical Society-second Series}
+      \field{title}{Decay Results for Weak Solutions of the Navier–Stokes Equations on Rn}
+      \field{volume}{35}
+      \field{year}{1987}
+      \field{pages}{303\bibrangedash 313}
+      \range{pages}{11}
+      \verb{urlraw}
+      \verb https://api.semanticscholar.org/CorpusID:121405454
+      \endverb
+      \verb{url}
+      \verb https://api.semanticscholar.org/CorpusID:121405454
+      \endverb
+    \endentry
+    \entry{zingano-edp}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a0562549cccb370a31ea648a3c6ea836}{%
+           family={Zingano},
+           familyi={Z\bibinitperiod},
+           given={Paulo\bibnamedelima R.},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
       }
       \strng{namehash}{a0562549cccb370a31ea648a3c6ea836}
       \strng{fullhash}{a0562549cccb370a31ea648a3c6ea836}
@@ -374,8 +627,10 @@
       \strng{authornamehash}{a0562549cccb370a31ea648a3c6ea836}
       \strng{authorfullhash}{a0562549cccb370a31ea648a3c6ea836}
       \strng{authorfullhashraw}{a0562549cccb370a31ea648a3c6ea836}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Two problems in Partial Differential Equations (in Portuguese)}
@@ -387,100 +642,6 @@
       \verb{url}
       \verb https://arxiv.org/abs/1801.04361
       \endverb
-    \endentry
-    \entry{burden-analise.numerica}{book}{}{}
-      \name{author}{2}{}{%
-        {{hash=087f2271a0786e7c8db8fd33785aed18}{%
-           family={Burden},
-           familyi={B\bibinitperiod},
-           given={Richard\bibnamedelima L.},
-           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-        {{hash=4204928ced965b41fb12c0ed6d636f41}{%
-           family={Faires},
-           familyi={F\bibinitperiod},
-           given={J.\bibnamedelimi Douglas},
-           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {CENGAGE DO BRASIL}%
-      }
-      \strng{namehash}{30f50a4be86ef6852f9a742a7e344186}
-      \strng{fullhash}{30f50a4be86ef6852f9a742a7e344186}
-      \strng{fullhashraw}{30f50a4be86ef6852f9a742a7e344186}
-      \strng{bibnamehash}{30f50a4be86ef6852f9a742a7e344186}
-      \strng{authorbibnamehash}{30f50a4be86ef6852f9a742a7e344186}
-      \strng{authornamehash}{30f50a4be86ef6852f9a742a7e344186}
-      \strng{authorfullhash}{30f50a4be86ef6852f9a742a7e344186}
-      \strng{authorfullhashraw}{30f50a4be86ef6852f9a742a7e344186}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9788522123407}
-      \field{title}{Análise Numérica}
-      \field{year}{2016}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
-      \endverb
-      \verb{url}
-      \verb https://books.google.com.br/books?id=mEo1tAEACAAJ
-      \endverb
-    \endentry
-    \entry{bartle-measure.theory}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=421cdd5790e26e6ffad05f66854de4a5}{%
-           family={Bartle},
-           familyi={B\bibinitperiod},
-           given={Robert\bibnamedelima G.},
-           giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
-      }
-      \list{publisher}{2}{%
-        {John Wiley}%
-        {Sons}%
-      }
-      \strng{namehash}{421cdd5790e26e6ffad05f66854de4a5}
-      \strng{fullhash}{421cdd5790e26e6ffad05f66854de4a5}
-      \strng{fullhashraw}{421cdd5790e26e6ffad05f66854de4a5}
-      \strng{bibnamehash}{421cdd5790e26e6ffad05f66854de4a5}
-      \strng{authorbibnamehash}{421cdd5790e26e6ffad05f66854de4a5}
-      \strng{authornamehash}{421cdd5790e26e6ffad05f66854de4a5}
-      \strng{authorfullhash}{421cdd5790e26e6ffad05f66854de4a5}
-      \strng{authorfullhashraw}{421cdd5790e26e6ffad05f66854de4a5}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The Elements of Integration and Lebesgue Measure}
-      \field{year}{1995}
-      \true{nocite}
-    \endentry
-    \entry{axler-measure.theory}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=71493eec7caacea528ad39dbfb52773a}{%
-           family={Axler},
-           familyi={A\bibinitperiod},
-           given={Sheldon},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{71493eec7caacea528ad39dbfb52773a}
-      \strng{fullhash}{71493eec7caacea528ad39dbfb52773a}
-      \strng{fullhashraw}{71493eec7caacea528ad39dbfb52773a}
-      \strng{bibnamehash}{71493eec7caacea528ad39dbfb52773a}
-      \strng{authorbibnamehash}{71493eec7caacea528ad39dbfb52773a}
-      \strng{authornamehash}{71493eec7caacea528ad39dbfb52773a}
-      \strng{authorfullhash}{71493eec7caacea528ad39dbfb52773a}
-      \strng{authorfullhashraw}{71493eec7caacea528ad39dbfb52773a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Measure, Integration and Real Analysis}
-      \field{year}{2024}
-      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection

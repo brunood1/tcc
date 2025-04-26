@@ -57,7 +57,9 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 
 \theoremstyle{definition}
 
-\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak}]{thmbox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, 
+mdframed={nobreak}
+]{thmbox}
 \declaretheorem[style=thmbox, name=Definição, numberwithin=chapter]{dbox}
 \declaretheorem[style=thmbox, name=Teorema, numberwithin=chapter, sibling=dbox]{tbox}
 \declaretheorem[style=thmbox, name=Proposição, numberwithin=chapter, sibling=dbox]{pbox}
@@ -113,7 +115,7 @@ innerleftmargin=8pt, innerrightmargin=8pt}
 
 
 \usepackage{csquotes}
-\usepackage[backend=biber, maxbibnames=5, minbibnames=3, sorting=none, url=false, isbn=false, doi=false, defernumbers=true]{biblatex}
+\usepackage[style=abnt, backend=biber, maxbibnames=5, minbibnames=3, sorting=nty, url=false, isbn=false, doi=false, defernumbers=true]{biblatex}
 \addbibresource{bibliography.bib}
 
 
@@ -2835,7 +2837,7 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
     Então existe uma subsequência $(u_{k_j})_{j =1}^\infty \subseteq (u_k)_{k=1}^\infty$ e uma função contínua $u$ tal que $u_{k_j} \to u$ uniformemente em conjuntos compactos de $\bR^n$.
 \end{tbox}
 \begin{prf}
-    ~
+    \textcolor{red}{preciso de uma referencia}
 \end{prf}
 
 \begin{tbox}[Mudança de variáveis]
@@ -2848,13 +2850,45 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
     O capítulo 4 de \cite{munkres-analysis.on.manifolds} é destinado a demonstração desse teorema.
 \end{prf}
 
+\section{Motivação}
+Considere o problema de Dirichlet
+\begin{equation} \label{eq:problema-dirichlet-motivacao}
+    \begin{aligned}
+        -\Delta u + u = f &\text{ em } \Omega\\
+        u = 0 &\text{ em } \partial\Omega
+    \end{aligned}
+\end{equation}
+onde $\Omega \subseteq \bR^n$ é um aberto limitado.
+Uma solução clássica para o problema é uma função $u \in \cC^2(\Omega)$ satisfazendo (\ref{eq:problema-dirichlet-motivacao}). 
+Por outro lado, multiplicando ambos os lados da primeira equação em (\ref{eq:problema-dirichlet-motivacao}) por uma função $\phi \in \cC^{\infty}_C(\Omega)$ e integrando sobre $\Omega$ obtemos
+\[
+    \int_\Omega - \phi \Delta u \,dx + \int_\Omega u \phi \,dx = \int_\Omega f \phi \,dx.
+\]
+Note que utlizando integração por partes, a primeira integral pode ser reescrita como
+\[
+    \int_\Omega -\phi \Delta u \,dx = -\sum_{i=1}^n \int_\Omega \phi \frac{\partial^2 u}{\partial x_i^2} \,dx = -\sum_{i=1}^n \left( \int_{\partial\Omega} \phi \frac{\partial u}{\partial x_i} \nu_i \,dS - \int_\Omega \frac{\partial \phi}{\partial x_i} \frac{\partial u}{\partial x_i} \,dx\right)
+\]
+mas como $\phi$ se anula em $\partial \Omega$, obtemos
+\[
+    \int_\Omega -\phi \Delta u \,dx = \sum_{i=1}^n \int_\Omega \frac{\partial \phi}{\partial x_i} \frac{\partial u}{\partial x_i} \,dx = \int_{\Omega} \nabla u \cdot \nabla \phi \,dx.
+\]
+Dito isso, dizemos que $u$ é uma solução fraca do problema de Dirichlet se existe uma função $\phi \in \cC^{\infty}_C(\Omega)$\footnote{Nomenclatura: $\phi$ é chamada função teste} tal que
+\begin{equation} \label{eq:sol-fraca-dirichlet}
+    \int_{\Omega} \nabla u \cdot \nabla \phi \,dx + \int_\Omega u\phi = \int_\Omega f \phi
+\end{equation}
+é satisfeito.
+Observe que agora, não precisamos mais que $u$ seja de classe $\cC^2$ já que a segunda derivada de $u$ não é utilizada em (\ref{eq:sol-fraca-dirichlet}). Na verdade, não precisamos nem que $u$ seja contínua, apenas integrável em $\Omega$.
+Na Seção \ref{eq:sol-fraca-dirichlet} voltaremos a essa motivação para mostrar que para qualquer função $f \in \cL^2(\Omega)$, existe uma única solução fraca para (\ref{eq:problema-dirichlet-motivacao}). 
+Essa solução é uma função que pertece ao espaço de Sobolev $H^1_0(\Omega)$, esse e outros espaços e suas propriedades serão estudadas ao longo desse trabalho.
+
+
 \section{Espaços de Sobolev $\cW^{k,p}(\Omega)$}
 
-% \begin{figure}
-%     \centering
-%     \includegraphics[height=3cm]{sobolev.jpg}
-%     \caption{Sergei Lvovich Sobolev (1908 -- 1989)}
-% \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=3cm]{sobolev.jpg}
+    \caption{Sergei Lvovich Sobolev (1908 -- 1989)}
+\end{figure}
 
 Nosso objetivo agora, é generalizar a noção de derivada para funções que não são diferenciáveis em um aberto $\Omega$ do $\bR^n$ e explorar algumas propriedades elementares.
 
@@ -2898,8 +2932,6 @@ Caso contrário, se não existir uma função $v$ que satisfaz (\ref{eq:derivada
 
 \obs Aqui, utlizamos a notação $dx$ ao invés de $d\mu$ na integral de Lebesgue como convençao para dar ênfase que estamos utilizando a medida de Lebesgue (e não uma medida qualquer).
 Além disso, se uma função é integrável a Riemann e a Lebesgue (utlizando a medida de Lebesgue), suas integrais se coincidem.
-
-\obs A função $\phi \in \cC^\infty_c(\Omega)$ é chamada função de teste \textcolor{red}{complemento essa observação, deixo só assim ou tiro?}
 
 \begin{ex} \label{ex:derivada-fraca-R}
     A função $u : \Omega  =(0,2) \to \bR$ dada por
@@ -2983,7 +3015,7 @@ O primeiro resultado sobre a derivada fraca que queremos mostrar é a sua unicid
     se, e somente se $u \equiv 0$ qtp em $\Omega$
 \end{lbox}
 \begin{prf}
-    \cite{brezis-functional.analysis} \textcolor{red}{(digitar depois)}
+    \cite{brezis-functional.analysis}
 \end{prf}
 
 Com o lema acima em mente, temos todas as ferramentas para mostrar a unicidade da derivda fraca.
@@ -3107,6 +3139,9 @@ Além disso dizemos que $(u_n)$ converge para $u$ em $\cW^{k,p}_\loc(\Omega)$ se
 
 Ainda não temos todas as ferramentas necessárias para provar que as normas da definição anterior são de fato normas em $\cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant \infty$. Isso será feito após o Teorema \ref{thm:propriedades-derivada-fraca} sobre as propriedades da derivada fraca, que são necessárias para verificar que $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ satisfaz a definição de norma.
 
+Um outro espaço importante é o espaço $\cW^{k,p}_0(\Omega)$ ($H^k_0(\Omega)$ se $p = 2$) que é definido como o fecho de $\cC^{\infty}_c(\Omega)$ em $\cW^{k,p}(\Omega)$. Ou seja, dada uma função em $u \in \cW^{k,p}_0(\Omega)$ existe uma sequência $(u_k)$ em $\cC^{\infty}_c(\Omega)$ tal que $u_k \to u$ em $\cW^{k,p}(\Omega)$.
+O teorema \ref{thm:traco-2} mostra uma equivalência para as funções nesse espaço.
+
 \obs Essa não é a única forma de definir uma norma em $\cW^{k,p}(\Omega)$, a norma que definimos acima é equivalente, por exemplo a norma
 \[
     \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}
@@ -3121,34 +3156,34 @@ O próximo exemplo ilustra um caso em que uma função pode ou não possuir deri
 \begin{ex}
     Seja $\Omega = B(\mathbf{0},1) \subseteq \bR^n$ a bola aberta de raio 1 centrada na origem, e considere $u : \Omega \to \bR$ dada por
     \[
-        x \mapsto |x|^{-\alpha}.
+        x \mapsto \Vert x \Vert^{-\alpha}.
     \]
     Queremos verificar para quais valores de $\alpha > 0$, $n$ e $p$ a função $u$ pertence ao espaço $\cW^{1,p}(\Omega)$.
     Primeiramente, note que $u$ é suave fora de $\mathbf{0}$ com
     \[
-        \dfrac{\partial u}{\partial x_i} = \frac{-\alpha x_i}{|x|^{\alpha + 2}} \quad (x \neq \mathbf{0}),
+        \dfrac{\partial u}{\partial x_i} = \frac{-\alpha x_i}{\Vert x \Vert^{\alpha + 2}} \quad (x \neq \mathbf{0}),
     \]
     e daí, como
     \[
-        Du(x) = \left(\frac{-\alpha x_1}{|x|^{\alpha + 2}},\dots,\frac{-\alpha x_n}{|x|^{\alpha + 2}}  \right) \quad (x \neq \mathbf{0}),
+        Du(x) = \left(\frac{-\alpha x_1}{\Vert x \Vert^{\alpha + 2}},\dots,\frac{-\alpha x_n}{\Vert x \Vert^{\alpha + 2}}  \right) \quad (x \neq \mathbf{0}),
     \]
     segue que
     \[
-        |Du(x)| = \frac{|\alpha|}{|x|^{\alpha + 1}} \quad (x \neq \mathbf{0}).
+        \Vert Du(x) \Vert = \frac{|\alpha|}{\Vert x \Vert^{\alpha + 1}} \quad (x \neq \mathbf{0}).
     \]
     Seja $\phi \in \cC^\infty_c(\Omega)$ e fixe $\varepsilon > 0$. Por integração por partes, temos
     \[
         \int_{\Omega \setminus B[\mathbf{0}, \varepsilon]} u \dfrac{\partial \phi}{\partial x_i} \, dx = -\int_{\Omega \setminus B[\mathbf{0}, \varepsilon]} \phi \dfrac{\partial u}{\partial x_i} \,dx + \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS
     \]
     onde $\nu = (\nu_1,\dots,\nu_n)$ denota o vetor normal que aponta para dentro em $\partial B[\mathbf{0},\varepsilon]$.
-    Agora se $\alpha + 1 < n$, $|Du| \in \cL^1(\Omega)$.
-    De fato, integrando $|Du|$, temos
+    Agora se $\alpha + 1 < n$, $\Vert Du \Vert \in \cL^1(\Omega)$.
+    De fato, integrando $\Vert Du \Vert$, temos
     \[
-        \int_\Omega |Du| \,dx = |\alpha|\int_{B(\mathbf{0},1)} \frac{1}{|x|^{\alpha+1}} \,dx.
+        \int_\Omega \Vert Du \Vert \,dx = |\alpha|\int_{B(\mathbf{0},1)} \frac{1}{\Vert x \Vert^{\alpha+1}} \,dx.
     \]
     Transformando em coordenadas polares, conseguimos simplificar essa integral da seguinte forma
     \[
-        \int_{B(\mathbf{0},1)} \frac{1}{|x|^{\alpha+1}} \,dx =  \int_0^1 \int_{|x| = r} \frac{1}{|x|^{\alpha + 1}} \,dS dr = \int_0^1 \int_{|x|= r} \frac{1}{r^{\alpha + 1}} \, dS dr = \int_0^1 \frac{1}{r^{\alpha+1}}  \int_{|x| = r} dS dr.
+        \int_{B(\mathbf{0},1)} \frac{1}{\Vert x \Vert^{\alpha+1}} \,dx =  \int_0^1 \int_{\Vert x \Vert = r} \frac{1}{\Vert x \Vert^{\alpha + 1}} \,dS dr = \int_0^1 \int_{\Vert x \Vert= r} \frac{1}{r^{\alpha + 1}} \, dS dr = \int_0^1 \frac{1}{r^{\alpha+1}}  \int_{\Vert x \Vert = r} dS dr.
     \]
     Onde a integral de superficie, é igual a area da esfera $n$-dimensional de raio $r$, dada por
     \[
@@ -3156,18 +3191,18 @@ O próximo exemplo ilustra um caso em que uma função pode ou não possuir deri
     \]
     que por simplicidade, vamos denotar por $\sigma(n) r^{n-1}$. Dessa forma
     \[
-        \int \frac{1}{r^{\alpha+1}}  \int_{|x| = r} dS dr = \sigma(n)\int_0^1 r^{n-\alpha-2} \,dr = \sigma(n)\left(\frac{1^{n-\alpha-1}}{n-\alpha -1} - \frac{0^{n-\alpha-1}}{n-\alpha-1}\right).
+        \int \frac{1}{r^{\alpha+1}}  \int_{\Vert x \Vert = r} dS dr = \sigma(n)\int_0^1 r^{n-\alpha-2} \,dr = \sigma(n)\left(\frac{1^{n-\alpha-1}}{n-\alpha -1} - \frac{0^{n-\alpha-1}}{n-\alpha-1}\right).
     \]
     Note que se $n - \alpha - 1 < 0$ então $0^{n-\alpha-1} = \infty$. Sendo assim
     \[
-        \int_\Omega |Du| \, dx = \infty \iff \alpha + 1 > n.
+        \int_\Omega \Vert Du \Vert \, dx = \infty \iff \alpha + 1 > n.
     \]
-    Portanto $|Du| \in \cL^1(\Omega)$ desde que $\alpha + 1 < n$.
+    Portanto $\Vert Du \Vert \in \cL^1(\Omega)$ desde que $\alpha + 1 < n$.
     Nesse caso
     \[
         \left| \int_{\partial B[\mathbf{0},\varepsilon]} u \phi \nu_i \,dS \right| \leqslant 
         % \int_{\partial B[\mathbf{0},\varepsilon]} |u \phi \nu_i| \,dS = 
-        \int_{\partial B[\mathbf{0},\varepsilon]} |u| |\phi| |\nu_i| \,dS \leqslant \Vert \phi \Vert_{\infty}\int_{\partial B[\mathbf{0},\varepsilon]} |u|dS \leqslant \Vert \phi \Vert_{\infty}\int_{\partial B[\mathbf{0},\varepsilon]} \varepsilon^{-\alpha} \,dS,
+        \int_{\partial B[\mathbf{0},\varepsilon]} |u| |\phi| |\nu_i| \,dS \leqslant \Vert \phi \Vert_{\cL^\infty(\Omega)}\int_{\partial B[\mathbf{0},\varepsilon]} |u|dS \leqslant \Vert \phi \Vert_{\cL^\infty(\Omega)}\int_{\partial B[\mathbf{0},\varepsilon]} \varepsilon^{-\alpha} \,dS,
     \]
     onde essa ultima integral pode ser calculada por meio de coordenadas polares de forma análoga ao que foi feito anteriormente, resultando em
     \[
@@ -3178,7 +3213,7 @@ O próximo exemplo ilustra um caso em que uma função pode ou não possuir deri
         \int_{\Omega} u \dfrac{\partial \phi}{\partial x_i} \, dx = -\int_{\Omega} \phi \dfrac{\partial u}{\partial x_i} \,dx,
     \]
     para toda $\phi \in \cC^\infty_c(\Omega)$, desde que $0 < \alpha < n-1$. 
-    Além disso, $|Du| \in \cL^p(\Omega)$ se, e somente se, $(\alpha + 1)p < n$, esse cálculo é feito de forma análoga ao que foi feito para verificar quando $|Du| \in \cL^1(\Omega)$. Consequentemente, $u \in \cW^{1,p}(\Omega)$ se, e somente se $\alpha < \frac{n-p}{p}$.
+    Além disso, $\Vert Du \Vert \in \cL^p(\Omega)$ se, e somente se, $(\alpha + 1)p < n$, esse cálculo é feito de forma análoga ao que foi feito para verificar quando $\Vert Du \Vert \in \cL^1(\Omega)$. Consequentemente, $u \in \cW^{1,p}(\Omega)$ se, e somente se $\alpha < \frac{n-p}{p}$.
     Em particular $u \not\in \cW^{1,p}(\Omega)$ quando $p \geqslant n$.
 \end{ex}
 
@@ -3994,7 +4029,8 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
 
 \section{Extensões}
 
-(introdução)
+Em alguns casos é mais viável trabalhar com funções definidas no espaço euclidiano inteiro ao invés de funções definida em um aberto especifico.
+Nessa seção veremos uma forma de extender funções em $\cW^{1,p}(\Omega)$ em funções $\cW^{1,p}(\bR^n)$ por meio de um operador linear.
 
 \begin{tbox} \label{thm:extensao}
     Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e um $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$ com $1 \leqslant p < \infty$ tal que para cada $u \in \cW^{k,p}(\Omega)$
@@ -4295,7 +4331,8 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \[
         \Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
     \]
-    para todo $u \in \cW^{1,p}(\Omega)$ (\dots)
+    para todo $u \in \cW^{1,p}(\Omega)$
+    \textcolor{red}{esss demonstração tem uma parte final que eu não entendi direito}
 \end{prf}
 
 \begin{tbox}[Funções traço zero em $\cW^{1,p}$]
@@ -4375,7 +4412,7 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
             &\leqslant c  \int_{\bR^n_+} \left( \xi_k\left\Vert \dfrac{\partial u}{\partial x'} \right\Vert + \xi_k \left| \dfrac{\partial u}{\partial x_n}\right| + k |u| |\xi'|  \right)^p dx\\ 
         \end{aligned}
     \]
-    onde $c$ é uma constante que depende de $p$ e $n$. Daí (...)
+    onde $c$ é uma constante que depende de $p$ e $n$. Daí utilizando a desigualdade entre a derivada parcial e a norma do gradiente
     \[
         \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx \leqslant c \int_{\bR^n_+} \xi_k^p \Vert Du \Vert^p dx + ck^p \int_{\bR^n_+} |\xi'|^p |u|^p dx
     \]
@@ -4425,15 +4462,17 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
 
 \section{Desigualdades de Sobolev}
 
-Nosso objetivo nessa seção é descobrir formas de incorporar espaços de Sobolev em outros espaços (...)
+Nosso objetivo nessa seção é descobrir formas de incorporar espaços de Sobolev em outros espaços
 
 Dividiremos o estudo dessas desigualdades em dois casos, $1 \leqslant p < n$ e $n < p \leqslant \infty$.
-O caso $n = p$ não será apresentado nesse texto, aos interessados consultar (referência)
+O caso $n = p$ não será apresentado nesse texto, aos interessados consultar \cite{evans-pde} p.p. 275
 
 \subsection{Desigualdade de Gagliardo-Nirenberg-Sobolev}
 
 Seja $1 \leqslant p < n$.
-Queremos saber se é possível obter uma desigualdade do tipo
+Queremos saber se é possível obter uma desigualdade do tipo\footnote{
+    Lembrando que $D : \bR^n \to \bR^n$ representa o gradiente fraco, quando calculamos a norma do gradiente em $\cL^p(\Omega)$ estamos calculando a norma $\cL^p$ da norma euclidiana do gradiente.
+}
 \begin{equation} \label{eq:quase-gns}
     \Vert u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}
 \end{equation}
@@ -4693,10 +4732,7 @@ Um caso particular da desigualdade acima é a Desigualdade de Poincaré que ser�
     \[
         \Vert u \Vert_{\cL^{s^*}(\Omega)} \leqslant c \Vert Du \Vert_{\cL^{s}(\Omega)} \leqslant c \Vert Du \Vert_{\cL^\infty(\Omega)}.
     \]
-    Passando ao limite quando $s \to n^-$ temos que $s^* \to \infty$. Dessa forma
-    \[
-        \Vert u \Vert_{\cL^\infty(\Omega)} \leqslant c \Vert Du \Vert_{\cL^\infty(\Omega)}.
-    \]
+    Passando ao limite quando $s \to n^-$ temos que $s^* \to \infty$. Dessa forma $\Vert u \Vert_{\cL^\infty(\Omega)} \leqslant c \Vert Du \Vert_{\cL^\infty(\Omega)}$.
     Portanto
     \[
         \Vert u \Vert_{\cL^p(\Omega)} \leqslant c\Vert Du \Vert_{\cL^p(\Omega)}
@@ -4755,28 +4791,28 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     \end{equation}
     Com efeito, fixando $w \in \partial B(\bz,1)$, assim, se $0 < s < r$ segue que
     \[
-        |u(x + sw) - u(x)| = \left| \int_0^s u'(x + tw) \,dt \right| = \left|\int_0^s Du(x + tw) \cdot w \,dt \right| \leqslant \int_0^s |Du(x + tw)| \,dt
+        |u(x + sw) - u(x)| = \left| \int_0^s u'(x + tw) \,dt \right| = \left|\int_0^s Du(x + tw) \cdot w \,dt \right| \leqslant \int_0^s \Vert Du(x + tw) \Vert \,dt
     \]
     onde utilizamos a Desigualdade de Hölder (Cauchy-Schwarz) e o fato de $|w| = 1$. Daí integrando ambos os lados sobre $\partial B(\bz,1)$
     {\small
     \[
-        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{\partial B(\bz,1)} |Du(x + tw)| \,dSdt = \int_0^s \int_{\partial B(\bz,1)} |Du(x + tw)| \frac{t^{n-1}}{t^{n-1}} \,dSdt.
+        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{\partial B(\bz,1)} \Vert Du(x + tw) \Vert \,dSdt = \int_0^s \int_{\partial B(\bz,1)} \Vert Du(x + tw) \Vert \frac{t^{n-1}}{t^{n-1}} \,dSdt.
     \]}\!
     Seja $y = x + tw$, de forma que $t = \Vert x - y \Vert$. Assim, por meio de coordenadas polares obtemos
     \[
-        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{B(x,t)} \frac{Du(y)}{|x-y|^{n-1}} \,dSdt =  \int_{B(x,s)} \frac{|Du(y)|}{|x-y|^{n-1}} \,dy
+        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{B(x,t)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dSdt =  \int_{B(x,s)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dy
     \]
     e como $s < r$
     \[
-        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant   \int_{B(x,r)} \frac{|Du(y)|}{|x-y|^{n-1}} \,dy.
+        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant   \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dy.
     \]
     Multiplicando a equação acima por $s^{n-1}$ e integrando de $0$ a $r$ com respeito a $s$
     \[
-        \int_0^r s^{n-1} \int_{\partial B(\bz,1)} |u(x + sw) - u(x)| \,dSds \leqslant \int_0^r s^{n-1} \int_{B(x,r)} \frac{|Du(y)|}{|x-y|^{n-1}} \,dyds.
+        \int_0^r s^{n-1} \int_{\partial B(\bz,1)} |u(x + sw) - u(x)| \,dSds \leqslant \int_0^r s^{n-1} \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dyds.
     \]
     Fazendo $y = x + sw$, obtemos
     \[
-        \int_0^r \int_{\partial B(x,s)} |u(y) - u(x)|\, dSds \leqslant \left( \int_{B(x,r)} \frac{|Du(y)|}{|x-y|^{n-1}} \,dy \right) \left( \int_0^r s^{n-1} ds \right)
+        \int_0^r \int_{\partial B(x,s)} |u(y) - u(x)|\, dSds \leqslant \left( \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dy \right) \left( \int_0^r s^{n-1} ds \right)
     \]
     Utilizando coordenadas polares no lado esquerdo e resolvendo a última integral do lado direito, segue que
     \[
@@ -4805,7 +4841,7 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     \end{equation}
     Além disso
     \[
-        \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant \left( \int_{B(x,1)} |Du|^p \right)^{\frac{1}{p}} \left( \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} \right)^{\frac{1}{p'}}
+        \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant \left( \int_{B(x,1)} \Vert Du \Vert^p \right)^{\frac{1}{p}} \left( \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} \right)^{\frac{1}{p'}}
     \]
     onde a ultima integral é finita.
     De fato, utliizando coordenadas polares
@@ -4832,7 +4868,7 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     \]
     Calculando a primeira integral obtemos
     \[
-        \sint_B |u(x) - u(z)| \,dz \leqslant \sint_{B(x,r)} |u(x) - u(z)| \,dz \leqslant c \int_{B(x,r)} \frac{|Du(z)|}{|z-x|^{n-1}} \,dz
+        \sint_B |u(x) - u(z)| \,dz \leqslant \sint_{B(x,r)} |u(x) - u(z)| \,dz \leqslant c \int_{B(x,r)} \frac{\Vert Du(z) \Vert}{|z-x|^{n-1}} \,dz
     \]
     onde utilizando a Desigualdade de Hölder, como foi feito anteriormente obtemos
     \[
@@ -4968,7 +5004,7 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
 
 \begin{tbox}
     Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$. 
-    Se $kp > n$, então $u \in \cC^{k - \ell - 1,\gamma}(\overline\Omega)$, onde $l = \left\lfloor \frac{n}{p} \right\rfloor$ e
+    Se $kp > n$, então $u \in \cC^{k - \ell - 1,\gamma}(\overline\Omega)$, onde $\ell = \left\lfloor \frac{n}{p} \right\rfloor$ e
     \[
         \gamma = \left\lfloor \frac{n}{p} \right\rfloor + 1 - \frac{n}{p}
     \]
@@ -5041,8 +5077,6 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
 
 \section{Compacidade}
 
-(introdução) !
-
 \begin{dbox}
     Sejam $X, Y$ espaços de Banach com $X \subseteq Y$. Dizemos que $X$ está compactamente mergulhado em $Y$ e denotamos por $X \doublehookrightarrow Y$
     se para todo $x \in X$
@@ -5097,13 +5131,13 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
     \]
     Daí, passando o módulo em ambos os lados e Utilizando a Desigualdade de Hölder (Cauchy-Schwarz) obtemos
     \[
-        |u_k^\varepsilon(x) - u_k(x)| \leqslant \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 |Du_k(x - \varepsilon ty)| \,dtdy
+        |u_k^\varepsilon(x) - u_k(x)| \leqslant \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 \Vert Du_k(x - \varepsilon ty) \Vert \,dtdy
     \]
     e integrando ambos os lados sobre $V$
     \[
         \begin{aligned}
-            \int_{V} |u_k^\varepsilon(x) - u_k(x)|\,dx &\leqslant \int_{V} \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 |Du_k(x - \varepsilon ty) \,dtdydx\\
-            &\leqslant \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 \int_{V} |Du_k(x - \varepsilon ty)| \,dxdtdy \leqslant \varepsilon \int_{V} |Du_k(z)| \,dz.
+            \int_{V} |u_k^\varepsilon(x) - u_k(x)|\,dx &\leqslant \int_{V} \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 \Vert Du_k(x - \varepsilon ty) \Vert \,dtdydx\\
+            &\leqslant \varepsilon \int_{B(\bz,1)} \eta(y) \int_0^1 \int_{V} \Vert Du_k(x - \varepsilon ty) \Vert \,dxdtdy \leqslant \varepsilon \int_{V} \Vert Du_k(z) \Vert    \,dz.
         \end{aligned}
     \]
     Isto é
@@ -5136,7 +5170,7 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
     \end{equation}
     onde por (\ref{eq:supfinito}) $c$ não depende de $k$. De forma análoga, mostramos que
     \begin{equation} \label{eq:Dufin}
-        |Du_k^\varepsilon(x)|  \leqslant \frac{c}{\varepsilon^{n+1}} < \infty.
+        \Vert Du_k^\varepsilon(x) \Vert  \leqslant \frac{c}{\varepsilon^{n+1}} < \infty.
     \end{equation}
     Isso prova que $(u_k^\varepsilon)_{k=1}^\infty \subseteq \cW^{1,p}(V)$ é uniformemente limitada pois mostramos que $\Vert u_k^\varepsilon \Vert_{\cW^{1,p}(\Omega)}\leqslant M$ onde $M > 0$ não depende de $k$.
     Ademais, $(u_k^\varepsilon)_{k=1}^\infty$ é equicontínua pois, dado $\tilde\varepsilon > 0$ existe $\delta < \tilde\varepsilon / L$ tal que, pela Desigualdade do Valor Médio
@@ -5177,40 +5211,54 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
 \chapter{Algumas aplicações dos Espaços de Sobolev}
 
 \section{Preliminares}
-
-% O primeiro preliminar para esse capítulo é a Desigualdade de Gagliardo-Nirenberg, iremos apresentar o caso geral abaixo, mas utilizaremos apenas alguns casos particulares que serão mencionados após o teorema
-% \begin{tbox}[Desigualdade de Gagliardo-Nirenberg]
-%     Seja $1 \leqslant q \leqslant \infty$, $\ell,k \in \bN$ com $\ell < k$ e uma das condições abaixo é satisfeita
-%     \[
-%         r = 1 \;\text{ e }\; \frac{\ell}{k} \leqslant \theta \leqslant 1
-%     \]
-%     ou
-%     \[
-%         1 < r < \infty,\;\, k - \ell - \frac{n}{r} \in \bN \;\text{ e }\; \frac{\ell}{k} \leqslant \theta \leqslant 1 
-%     \]
-%     Além disso, se
-%     \[
-%         \frac{1}{p} = \frac{\ell}{n} + \theta \left( \frac{1}{r} - \frac{k}{n} \right) + \frac{1 - \theta}{q}
-%     \]
-%     então existe uma constante positiva $c$ que não depende de $u$ tal que
-%     \[
-%         \Vert D^\ell u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert D^k u \Vert_{\cL^r(\bR^n)}^\theta \Vert u \Vert_{\cL^q(\bR^n)}^{1-\theta}
-%     \]
-%     para toda função $u \in \cL^q(\bR^n) \cap \cW^{k,r}(\bR^n)$.    
-% \end{tbox}
-% \begin{prf}
-%     \cite{fiorenza-gns}
-% \end{prf}
-
-% A desigualdade de Ladyzhenskaya é um caso particular da desigualdade de Gagliardo-Nirenberg apresentada acima, quando $\ell = 0$, $m = 1$, $p = 4$, $q = r = 2$ e $\theta = \frac{3}{4}$, obtemos
-% \begin{equation}
-%     \Vert u \Vert_{\cL^4(\bR^n)} \leqslant c \Vert u \Vert_{\cL^2(\bR^n)}^{\frac{1}{4}} \Vert Du \Vert_{\cL^2(\bR^n)}^{\frac{3}{4}}
-% \end{equation}
-
 \subsection{Desigualdades}
+
+O primeiro preliminar para esse capítulo é a Desigualdade de Gagliardo-Nirenberg, iremos apresentar o caso geral abaixo, mas utilizaremos apenas alguns casos particulares que serão mencionados após o teorema
+\begin{tbox}[Desigualdade de Gagliardo-Nirenberg --- Caso 1]
+    Seja $1 \leqslant q \leqslant \infty$, $\ell,k \in \bN$ com $\ell < k$, $r = 1$ e $\frac{\ell}{k} \leqslant \theta \leqslant 1$.
+    Além disso, se
+    \[
+        \frac{1}{p} = \frac{\ell}{n} + \theta \left( \frac{1}{r} - \frac{k}{n} \right) + \frac{1 - \theta}{q}
+    \]
+    então existe uma constante positiva $c$ que não depende de $u$ tal que
+    \[
+        \Vert D^\ell u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert D^k u \Vert_{\cL^r(\bR^n)}^\theta \Vert u \Vert_{\cL^q(\bR^n)}^{1-\theta}
+    \]
+    para toda função $u \in \cL^q(\bR^n) \cap \cW^{k,r}(\bR^n)$.    
+\end{tbox}
+
+\begin{tbox}[Desigualdade de Gagliardo-Nirenberg --- Caso 2]
+    Seja $1 \leqslant q \leqslant \infty$, $\ell,k \in \bN$ com $\ell < k$, $1 < r < \infty$, $k - \ell - \frac{n}{r}$ e $\frac{\ell}{k} \leqslant \theta \leqslant 1$.
+    Além disso, se
+    \[
+        \frac{1}{p} = \frac{\ell}{n} + \theta \left( \frac{1}{r} - \frac{k}{n} \right) + \frac{1 - \theta}{q}
+    \]
+    então existe uma constante positiva $c$ que não depende de $u$ tal que
+    \[
+        \Vert D^\ell u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert D^k u \Vert_{\cL^r(\bR^n)}^\theta \Vert u \Vert_{\cL^q(\bR^n)}^{1-\theta}
+    \]
+    para toda função $u \in \cL^q(\bR^n) \cap \cW^{k,r}(\bR^n)$.  
+\end{tbox}
+\begin{prf}
+    \cite{fiorenza-gns}
+\end{prf}
+
+A desigualdade de Ladyzhenskaya é um caso particular da desigualdade de Gagliardo-Nirenberg apresentada acima, quando $\ell = 0$, $m = 1$, $p = 4$, $q = r = 2$ e $\theta = \frac{3}{4}$, obtemos
+\begin{equation}
+    \Vert u \Vert_{\cL^4(\bR^n)} \leqslant c \Vert u \Vert_{\cL^2(\bR^n)}^{\frac{1}{4}} \Vert Du \Vert_{\cL^2(\bR^n)}^{\frac{3}{4}}
+\end{equation}
+Outras formas da desigualdade de Gagliardo-Nirenberg que serão utilizadas são
+\begin{equation}
+    \Vert u \Vert_{\cL^\infty(\bR^3)} \leqslant c \Vert u \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D^2 u \Vert_{\cL^2(\bR^3)}^{\frac{3}{4}}
+\end{equation}
+onde $0 < c < 1$, e
+\begin{equation}
+    \Vert Du \Vert_{\cL^2(\bR^3)} \leqslant \Vert u \Vert_{\cL^2(\bR^3)} \Vert D^2 u \Vert_{\cL^2(\bR^3)}
+\end{equation}
+
 \subsection{Transformada de Fourier}
 
-(introdução)
+A transformada de Fourier é uma ferramenta indispensável para o estudo de equações diferenciais parciais, aqui apresentaremos as definições básicas e algumas propriedades elementares que serão utlizadas ao decorrer do texto.
 
 \begin{dbox}
     Seja $f \in \cL^1(\bR^n)$, definimos a transformada de Fourier de $u$ por
@@ -5358,23 +5406,46 @@ O resto dessa subseção será destinada a estudar algumas propriedades que ser�
     \end{enumerate}
 \end{pbox} 
 \begin{prf}
+    \textbf{(a)} Segue do fato da convolução ser um operador linear
 
+    \textbf{(b)} Análogo ao que foi mostrado no Teorema \ref{thm:aprox1}
 \end{prf}
 
 \begin{pbox}
+    Seja $1 \leqslant r \leqslant 2$ e $u \in \cL^2(\bR^n)$ então
     \begin{equation} \label{eq:estimativa-util}
         \Vert D^{\alpha} \big( e^{\nu\Delta\tau} u \big) \Vert_{\cL^2(\bR^n)} \leqslant c(n,k) (\nu\tau)^{-\frac{n}{2}\left( \frac{1}{r} - \frac{1}{2} \right) - \frac{k}{2}} \Vert u \Vert_{\cL^r(\bR^n)} 
     \end{equation} 
+    onde $k = |\alpha|$.
 \end{pbox}
 \begin{prf}
-    
+    \cite{lorenz-navier.stokes} p.p. 32
 \end{prf}
 
-\subsection{Projeção de Helmholtz}
+\subsection{Notação}
+
+Introduziremos a notação que será utliizada ao decorrer do texto
+
+Letras em negrito representam vetores $n$-dimensionais $\bu = (u_1,\dots,u_n)$ (na maioria dos casos $n = 3$).
+A $k$-ésima derivada parcial é denotada por $D_k$.
+Também vale ressaltar a definição da norma $\cL^p$ das funções vetoriais
+\[
+    \Vert \bu \Vert_{\cL^p(\bR^n)} = \left( \sum_{i=1}^n \Vert u_i \Vert_{\cL^p(\bR^n)}^p \right)^{\frac{1}{p}}
+\]
+\[
+    \Vert D\bu \Vert_{\cL^p(\bR^n)} = \left( \sum_{j=1}^n\sum_{i=1}^n \Vert D_ju_i \Vert_{\cL^p(\bR^n)}^p \right)^{\frac{1}{p}}
+\]
+e de forma geral
+\[
+    \Vert D^k\bu \Vert_{\cL^p(\bR^n)} = \left( \sum_{j_1 = 1}^n \cdots \sum_{j_k  =1}^{n}\sum_{i=1}^n \Vert D_{j_1} \cdots D_{j_k}u_i \Vert_{\cL^p(\bR^n)}^p \right)^{\frac{1}{p}}.
+\]
+Quando escrevemos $\bu(\cdot,t)$ estamos desconsiderando o tempo como uma variável (pense como um $t$ fixo) (escrever melhor)
 
 \section{Propriedades da soluções de Leray}
 
-Em 1934 \cite{leray-fluid}, Leray construiu soluções fracas globais de energia finita
+\subsection{Introdução e contexto histórico}
+
+Em 1934 no artigo \textit{``Sur le mouvement d'un liquide visqueux emplassement l'espace''} \cite{leray-fluid} Leray construiu soluções fracas de energia finita\footnote{i.e.,}
 \begin{equation} \label{eq:solucao-leray}
     \bu(\cdot,t) \in \cL^\infty\big([0,\infty), \cL^2_\sigma(\bR^3)\big) \cap \cC_W\left([0,\infty), \cL^2(\bR^3)\right) \cap \cL^2\big([0,\infty), \dot\cH(\bR^3)\big)\footnotemark
 \end{equation}
@@ -5387,7 +5458,6 @@ para as equações de Navier-Stokes em $\bR^3$
         \int_0^\infty \Vert \bu(\cdot,t) \Vert^2_{\cL^2(\bR^3)} \,dt < \infty
     \]
 }
-
 \begin{equation} \label{eq:navierstokes}
     \begin{aligned}
         &\bu_t + \bu \cdot \nabla \bu + \nabla p = \nu \Delta\bu\\
@@ -5395,28 +5465,43 @@ para as equações de Navier-Stokes em $\bR^3$
         &\bu(\cdot,0) = \bu_0 \in \cL^2_\sigma(\bR^3)
     \end{aligned}
 \end{equation}
-onde $\nu > 0$ é constante. Estas soluções reproduzem o estado inicial $\bu_0$ em $\cL^2$, ou seja, $\Vert \bu(\cdot,t) - \bu_0 \Vert_{\cL^2(\bR^3)} \to 0$ quando $t \to 0$ e satisfazem a desigualdade de energia
+onde $\nu > 0$ é constante.
+Estas soluções são tais que $\Vert \bu(\cdot,t) - \bu_0 \Vert_{\cL^2(\bR^3)} \to 0$ quando $t \to 0^+$ e satisfazem a desigualdade de energia
 \begin{equation} \label{eq:desigualdade-de-energia}
-    \Vert \bu(\cdot,t) \Vert_{L^2(\bR^3)}^2 + 2\nu \int_0^t \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds \leqslant \Vert \bu_0 \Vert_{\cL^2(\bR^3)}^2.
+    \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 \leqslant \Vert \bu(\cdot,t) \Vert_{L^2(\bR^3)}^2 + 2\nu \int_0^t \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds \leqslant \Vert \bu_0 \Vert_{\cL^2(\bR^3)}^2.
 \end{equation}
-A unicidade dessas soluções dada um estado inicial $\bu_0 \in \cL^2_\sigma(\bR^3)$ ainda é um problema em aberto, porem Leray mostrou que existe um instaante de tempo $0 < T_{**} < \infty$ (que depende de $\nu$ e $\bu_0$) tal que $\bu \in \cC^{\infty}(\bR^3 \times [T_{**}, \infty))$ e $\bu(\cdot,t) \in \cL^{\infty}_{\loc}([T_{**},\infty), \cH^k(\bR^3))$ para cada $k \geqslant 0$.
-No final do artigo \cite{leray-fluid}, Leray deixou um problema em aberto, perguntando se
+A unicidade desas soluções ainda é um problema em aberto, porem no mesmo artigo Leray motrou que existe um instante de tempo $T_{**}$ tal que a solução $\bu$ se torna suave em $\bR^3 \times [T_{**}, \infty)$ e $\bu(\cdot,t) \in \cL^{\infty}_{\loc}\big( [T_{**}, \infty), H^k(\bR^3) \big)$\footnote{i.e.,} para cada $k \geqslant 0$.
+Um problema importante que foi deixado em aberto por Leray no final de seu artigo diz a respeito <do decaimento de energia em $L^2$ da soluçao> matemáticamente, isto é entender o que acontece com $\Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ quando $t \to \infty$. Leray suspeitava que no limite, essa norma é igual a zero, e de fato foi provado que
 \[
-    \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0
+    \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0
 \]
-quando $t \to \infty$. A afirmação acima foi provada 50 anos depois por Kato [??] e depois por outros autores. Uma demonstração para o problema de Leray será apresentada no Teorema \ref{thm:problema-leray} no final dessa seção.
+quando $t \to \infty$. Uma demonstração para esse fato será apresentada no Teorema \ref{thm:problema-leray}.
 
-Dado $t_0 \geqslant 0$, podemos tentar aproximar as soluções $\bu(\cdot,t)$ de (\ref{eq:navierstokes}) para $t > t_0$ pelas soluções $\bv(\cdot,t) = e^{\nu \Delta(t-t_0)} \bu(\cdot,t_0)$ dos problemas lineares associados
+Uma outra forma de estudar propriedades das soluções das equações de Navier-Stokes é a partir das soluções $\bv(\cdot,t)$ do problema linearizado
 \[
     \begin{aligned}
-        &\bv_t = \nu \Delta \bv\\
-        &\bv(\cdot,t_0) = \bu(\cdot,t_0)
+        \bv_t = \nu \Delta \bv\\
+        \bv(\cdot,t_0) = \bu(\cdot,t_0)
     \end{aligned}
 \]
+com $t \geqslant t_0 \geqslant 0$. Aqui $\bv(\cdot,t) = e^{\nu \Delta (t-t_0)} \bu(\cdot,t_0)$ onde $e^{\nu \Delta (t-t_0)}$ é o semigrupo do calor visto no preliminares.
+Com essas soluções é possível estudar algumas estimativas de decaimento como
+\[
+    \Vert \bv(\cdot,t) \Vert_{\cL^2(\bR^n)} \to 0
+\]
+\[
+    t^{\frac{n}{4}}\Vert \bv(\cdot,t) \Vert_{\cL^\infty(\bR^n)} \to 0
+\]
+Uma outra pertunta importante (que não será trabalhada aqui) é sobre o erro ou diferença da solução de Leray e da solução do problema linearizado.
+Essa pergunta foi respondida por Weigner em \cite{wiegner-decay} onde foi provado que
+\[
+    t^{\frac{n}{4} - \frac{1}{2}} \Vert \bu(\cdot,t) - e^{\nu \Delta (t-t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} \to 0
+\]
+quando $t \to \infty$.
 
-(...)
+(texto para finalizar)
 
-\noindent\textbf{\textcolor{red}{(seção 2 :: paulo)}}
+\subsection{Resultados}
 
 (introdução)
 
@@ -5467,7 +5552,10 @@ A seguir, estudaremos algumas estimativas de $\BQ(\cdot,t)$
     \begin{equation} \label{eq:2.7}
         \Vert e^{\nu\Delta(t-s)} \bv(\cdot,s) \Vert_{\cL^2}\leqslant c \nu^{-\frac{3}{4}} (t-s)^{-\frac{3}{4}} \Vert \hat\bv(\cdot,s) \Vert_\infty.
     \end{equation}
-    O resultado é uma aplicação direta de (\ref{eq:2.7}) com $\bv(\cdot,s) = \BQ(\cdot,s)$, o restante da demonstração será dedicado a estimativa do valor de $\Vert \hat\BQ(\cdot,s) \Vert_\infty$. Note que utilizando a derivada da transformada, temos que $\cF[D^\alpha f] = (i\omega)^\alpha \hat f$, sendo assim se $\alpha = e_j$ para algum $j = 1,2,3$, $\cF [D^{e_j} f] = i\omega_j \hat f$. Dito isso $\cF[\nabla p(\cdot,s)] = i \hat p(\omega,s) \omega$ e $\omega \cdot \hat\BQ = 0$ pois $\nabla \cdot \BQ = 0$.
+    O resultado é uma aplicação direta de (\ref{eq:2.7}) com $\bv(\cdot,s) = \BQ(\cdot,s)$, o restante da demonstração será dedicado a estimativa do valor de $\Vert \hat\BQ(\cdot,s) \Vert_\infty$. Note que utilizando a derivada da transformada, temos que $\cF[D^\alpha f] = (i\omega)^\alpha \hat f$, sendo assim se $\alpha = e_j$ para algum $j = 1,2,3$, $\cF [D^{e_j} f] = i\omega_j \hat f$. Dito isso $\cF[\nabla p(\cdot,s)] = i \hat p(\omega,s) \omega$ e $\omega \cdot \hat\BQ = 0$ pois $\BQ = \bu_t - \nu \Delta \bu$ e $\nabla \cdot \BQ = (\nabla \cdot \bu)_t - \nu \Delta (\nabla \cdot \bu) = 0$ já que $\nabla \cdot \bu = 0$, dessa forma
+    \[
+        0 = \widehat{\nabla \cdot \BQ} = \sum_{j=1}^3 \widehat{\frac{\partial Q_j}{\partial x_j}} = \sum_{j=1}^3 i \omega_j \hat \BQ
+    \] 
     Além disso, pela definição de $\BQ(\cdot,s)$ temos que $\hat\BQ(\omega,s) + \cF[\nabla p(\cdot,s)](\omega) = -\cF[\bu(\cdot,s) \cdot \nabla\bu(\cdot,s)](\omega)$, sendo assim, fazendo o produto interno por $\hat\BQ$ em ambos os lados e utlizando a Desigualdade de Hölder (Cauchy-Schwarz) obtemos
     \[
         \hat\BQ(\omega,s) \cdot \hat\BQ(k,s) + i \hat p (\omega,s) \omega \cdot \hat\BQ(\omega,s) =  -\cF[\bu(\cdot,s) \cdot \nabla\bu(\cdot,s)](\omega) \cdot \hat\BQ(\omega,s)
@@ -5527,7 +5615,7 @@ onde $c$ é uma constante positíva e
 \end{prf}
 
 \begin{pbox}
-    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}). Então existe $t_{**} > T_{**}$ (com $t_{**}$ dependendo da solução $\bu$) suficientemente grande tal que $\Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ é uma funçao suave e monotonicamente decrescente de $t$ no intervalo $[t_{**}, \infty)$.
+    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}). Então existe $t_{**} > T_{**}$ (com $t_{**}$ dependendo da solução $\bu$) suficientemente grande tal que $\Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ é uma funçao monotonicamente decrescente de $t$ no intervalo $[t_{**}, \infty)$.
 \end{pbox}
 \begin{prf}
     Sejam $t_0 \geqslant T_{**}$ e $t > t_0$.
@@ -5554,27 +5642,42 @@ onde $c$ é uma constante positíva e
         \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 + 2 \! \int_{t_0}^t \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds.
     \]
     Em particular temos
-    \[
+    \begin{equation} \label{eq:maisumadesigualdade}
         \begin{aligned}
             \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} &+ 2 \nu \int_{t_0}^t \Vert D^2 \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds\\ &\leqslant \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + 2 \! \int_{t_0}^t \big[ \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \big]^\frac{1}{2} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2
         \end{aligned}
-    \]
-    para todo $t \geqslant t_0$. Daí, seja $t_0 > t_*$ tal que pela desigualdade de energia (\ref{eq:desigualdade-de-energia}) $\Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,t_0 ) \Vert_{\cL^2(\bR^3)} < \nu$.
+    \end{equation}
+    para todo $t \geqslant t_0$. Daí, seja $t_0 > t_*$ $\Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,t_0 ) \Vert_{\cL^2(\bR^3)} < \nu^2$.
     Dessa forma, segue que
-    \[
-        \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} < \nu
-    \]
+    \begin{equation} \label{eq:menor-que-ni}
+        \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} < \nu^2
+    \end{equation}
     para todo $s > t_0$.
-    Com efeito, (...)
-    De () e () temos
+    Com efeito, suponha que (\ref{eq:menor-que-ni}) é falso, dessa forma, existiria $t_1 > t_0$ tal que $\Vert \bu_0  \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \leqslant \nu^2$ para todo $t_0 \leqslant s < t_1$ com $\Vert \bu_0  \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} = \nu^2$. Tomando $t = t_1$ em () temos que $\Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} \leqslant \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}$. De fato
     \[
-        \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 + 2 \gamma \! \int_{t_0}^{t} \Vert D^2 \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds \leqslant \Vert D\bu(\cdot,t_2) \Vert_{\cL^2(\bR^3)}^2
+        \begin{aligned}
+            \Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} &+ 2 \nu \int_{t_0}^{t_1} \Vert D^2 \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds\\ &\leqslant \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + 2 \! \int_{t_0}^{t_1} \big[ \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \big]^\frac{1}{2} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2
+        \end{aligned}
+    \]
+    como $s \in [t_0,t_1]$ temos que $\Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \leqslant \nu^2$ obtemos
+    \[
+        \begin{aligned}
+            \Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} + 2 \nu \int_{t_0}^{t_1} \Vert D^2 \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds \leqslant \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + 2\nu  \! \int_{t_0}^{t_1} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2
+        \end{aligned}
+    \]
+    que resulta em $\Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} \leqslant \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}$ como desejado.
+    Então 
+    \[
+        \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} \leqslant \Vert \bu_0 \Vert_{\cL^2(\bR^3)}\Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} \leqslant \nu^2
+    \]
+    o que é uma contradição. Dessa forma (\ref{eq:menor-que-ni}) é válido.
+    De (\ref{eq:maisumadesigualdade}) e (\ref{eq:menor-que-ni}) temos
+    \[
+        \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 \leqslant \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 + 2 \gamma \! \int_{t_0}^{t} \Vert D^2 \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds \leqslant \Vert D\bu(\cdot,t_2) \Vert_{\cL^2(\bR^3)}^2
     \]
     para todo $t \geqslant t_2 \geqslant t_0$, onde $\gamma = \nu - \Vert \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}} \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}} > 0$ é uma constante.
     Tomando $t_{**} = t_0$, finalizamos a demonstração.
 \end{prf}
-
-\noindent\textbf{\textcolor{red}{(seção 3 :: paulo)}}
 
 \begin{pbox}
     Seja $\bu(\cdot,t)$ solução de Leray para (\ref{eq:navierstokes}).
@@ -5662,24 +5765,24 @@ onde $c$ é uma constante positíva e
     \[
         \Vert D^\alpha (e^{\nu\Delta\tau}[\bu(\cdot,\sigma) -  \bu_{\delta'}(\cdot,\sigma)]) \Vert_{\cL^2(K)} \to 0
     \]
-    quando $\delta' \to 0$. De fato, denotando $F_\delta(\cdot,\tau) = D^\alpha \big( e^{\nu \Delta \tau} [\bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma)] \big)$, tem-se
+    quando $\delta' \to 0$. De fato, denotando $\Phi_\delta(\cdot,\tau) = D^\alpha \big( e^{\nu \Delta \tau} [\bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma)] \big)$, tem-se
     \[
-        F_\delta(\cdot,\tau) =  H_\alpha(\cdot,\tau) * [\bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma)]
+        \Phi_\delta(\cdot,\tau) =  H_\alpha(\cdot,\tau) * [\bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma)]
     \]
     onde $H_\alpha(\cdot,\tau) \in \cL^1(\bR^3) \cap \cL^\infty(\bR^3)$ não depende de $\delta$. Como $\bu(\cdot,\sigma) - \bu_{\delta'}(\cdot,\sigma) \rightharpoonup 0$, segue que $F_{\delta'}(x,\tau) \to 0$ para cada $x \in \bR^3$.
     Por outro lado
     \[
         \begin{aligned}
-            |\Phi_\delta(x,t)| &\leqslant \int_{\bR^3} | \Theta_\alpha(x-y,\tau) [\bu(y,\sigma) - \bu_\delta(y,\sigma)]| \,dy\\
-            &\leqslant\int_{\bR^3} |\Theta_\alpha(x-y,\tau)|^2 \,dy \int_{\bR^3} |\bu(y,\sigma) - \bu_\delta(y,\sigma)|^2 \,dy\\[2pt] 
-            &= \Vert \Theta_\alpha(\cdot,\tau) \Vert_{\cL^2(\bR^3)} \Vert \bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma) \Vert_{\cL^2(\bR^3)}
+            |\Phi_\delta(x,t)| &\leqslant \int_{\bR^3} | H_\alpha(x-y,\tau) [\bu(y,\sigma) - \bu_\delta(y,\sigma)]| \,dy\\
+            &\leqslant\int_{\bR^3} |H_\alpha(x-y,\tau)|^2 \,dy \int_{\bR^3} |\bu(y,\sigma) - \bu_\delta(y,\sigma)|^2 \,dy\\[2pt] 
+            &= \Vert H_\alpha(\cdot,\tau) \Vert_{\cL^2(\bR^3)} \Vert \bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma) \Vert_{\cL^2(\bR^3)}
         \end{aligned}
     \]
     utilizando a desigualdade triangular e () obtemos
     \[
-        |\Phi_\delta(x,t)| \leqslant 2 \Vert \Theta_\alpha(\cdot,t) \Vert_{\cL^2(\bR^3)} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}
+        |\Phi_\delta(x,t)| \leqslant 2 \Vert H_\alpha(\cdot,t) \Vert_{\cL^2(\bR^3)} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}
     \]
-    para todo $x \in \bR^3$. Pelo Teorema da Convergência Dominada, segue que $\Vert \Phi_{\delta'}(\cdot,t) \Vert_{\cL^2(K)} \to 0$, quando $\delta'\to 0$ pelo fato de $K$ ser compacto.
+    para todo $x \in \bR^3$. Pelo Teorema da Convergência Dominada (pois $2 \Vert H_\alpha(\cdot,t) \Vert_{\cL^2(\bR^3)} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}$ é constante em relação a $x$ e $K$ é limitado, logo pertence a $\cL^1(K)$), segue que $\Vert \Phi_{\delta'}(\cdot,t) \Vert_{\cL^2(K)} \to 0$, quando $\delta'\to 0$ pelo fato de $K$ ser compacto.
     Dito isso, fazendo $\delta = \delta'\to 0$ em () temos que
     \[
         \Vert D^\alpha \tilde\bv - D^\alpha \bv(\cdot,t) \Vert_{\cL^2(K)} \leqslant c(k) \nu^{-\left( \frac{k}{2} + \frac{5}{4} \right)} \Vert \bu_0 \Vert^2_{\cL^2(\bR^3)} (\tilde t_0 - t_0)^{\frac{1}{2}} (t - \tilde t_0)^{-\left( \frac{k}{2} - \frac{3}{4} \right)}
@@ -5750,7 +5853,7 @@ onde $c$ é uma constante positíva e
     \[
         \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + \varepsilon\nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}.
     \]
-    Como $\Vert e^{\nu\Delta(t-t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} \to 0$ quando $t \to \infty$, temos que \textcolor{red}{(?)}
+    Como $\Vert e^{\nu\Delta(t-t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} \to 0$ quando $t \to \infty$, temos que
     \[
         \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant (1 +  \nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}) \,\varepsilon
     \]
@@ -5774,9 +5877,12 @@ Note que os Teoremas \ref{thm:Duto0} e \ref{thm:problema-leray} juntos mostram q
     \]
 \end{tbox}
 
-\section{Problema de Dirichlet}
+\section{Problema de Dirichlet} \label{sec:dirichlet}
 
-(introdução)
+Nessa seção retornamos ao problema visto na motivação do capítulo anterior
+
+O ponto principal dessa seção é o Teorema de Lax-Milgram que será utilizado para mostrar a existência de soluções fracas para o problema de Dirichet.
+Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para espaços de Hilbert, que será apresentado abaixo
 
 \begin{tbox}[Teorema da representação de Riesz para espaços de Hilbert]
     Sejam $H$ um espaço de Hilbert e $f : H \to \bR$ um funcional linear limitado.
@@ -5784,19 +5890,161 @@ Note que os Teoremas \ref{thm:Duto0} e \ref{thm:problema-leray} juntos mostram q
     Além disso $\Vert f \Vert = \Vert v \Vert$.
 \end{tbox}
 \begin{prf}
-    
+    Seja $f : H \to \bR$ um funcional linear limitado não nulo, então existe $z \in H$ tal que $f(z) \neq 0$, como $f$ é linear $z$ deve ser não nulo. Ou seja, $\ker f \neq H$.
+    Como $f$ é limitado segue que $\ker f$ é fechado, sendo assim (por \cite{cesar-analise.funcional} p.p. 129), $H = \ker f \oplus \ker f ^\perp$.
+    Portanto $\ker f ^\perp \neq \{0\}$ (pois caso contrário $\ker f = H$).
+    Dito isso, seja $w \in \ker f ^\perp$ não nulo, para cada $u \in H$, $f(u) w - f(w)u \in \ker f$ já que $f(f(u)w - f(w)u) = f(u) f(w) - f(w)f(u) = 0$.
+    Dessa forma
+    \[
+        0 = \left\langle f(u)w - f(w)u, w \right\rangle = f(u) \left\langle w,w \right\rangle - f(w) \left\langle u,w \right\rangle
+    \]
+    o que implica em
+    \[
+        f(u) = \left\langle u, \frac{f(w)}{\Vert w \Vert^2}w \right\rangle.
+    \]
+    Denotando $v := \frac{f(w)}{\Vert w \Vert^2} w \in H$ (note que $v$ não depende de $u$), temos que existe $v \in H$ tal que $f(u) = \left\langle u,v \right\rangle$ para todo $u \in H$.
+
+    Para mostrar que $v$ é único, suponha que exista $\tilde v \in H$ tal que $f(u) = \left\langle u, \tilde v \right\rangle$ para todo $u \in H$.
+    Dito isso $\left\langle u, v \right\rangle = f(u) = \left\langle u,\tilde v \right\rangle$ para todo $u \in H$, reescrevendo, temos $\left\langle u , v - \tilde v \right\rangle = 0$ para todo $u \in H$, em particular se $u = v - \tilde v \in H$, temos $\Vert v - \tilde v \Vert = 0$, ou seja $v = \tilde v$. Portanto $v$ é único.
+
+    Por fim, resta mostrar que $\Vert f \Vert = \Vert v \Vert$.
+    De fato, note que $f(v) = \left\langle v, v \right\rangle = \Vert v \Vert^2$. Ou seja
+    \[
+        \Vert v \Vert^2 = f(v) \leqslant |f(v)| \leqslant \Vert f \Vert \Vert v \Vert,
+    \]
+    como $v$ é não nulo, temos $\Vert v \Vert \leqslant \Vert f \Vert$.
+    Por outro lado, por Cauchy-Schawarz
+    \[
+        |f(u)| = |\left\langle u,v \right\rangle| \leqslant \Vert u \Vert \Vert v \Vert
+    \]
+    o que implica em $\Vert f \Vert \leqslant \Vert v \Vert$.
+    Portanto
+    \[
+        \Vert f \Vert = \Vert v \Vert
+    \]
+    finalizando a demonstração.
 \end{prf}
 
 \begin{tbox}[Teorema de Lax-Milgram]
     Sejam $H$ um espaço de Hilbert e $B : H \times H \to \bR$ uma aplicação bilinear tal que existem $\alpha, \beta > 0$ tais que
     \begin{enumerate}
         \item $| B(u,v)| \leqslant \alpha \Vert u \Vert \Vert v \Vert$ para todo $u,v \in H$ i.e., a forma bilinear é limitada;
-        \item $\beta \Vert u \Vert^2 \leqslant B(u,u)$ para todo $u \in H$ i.e., a forma bilinear é coerciva.
+        \item $\beta \Vert u \Vert^2 \leqslant B(u,u)$ para todo $u \in H$ i.e., a forma bilinear é coerciva,
     \end{enumerate}
-    Seja $f : H \to \bR$ um funcional linear limitado. Então existe um único $v \in H$ tal que $B(u,v) = f(u)$ para todo $u \in H$.
+    e $f : H \to \bR$ um funcional linear limitado. Então existe um único $v \in H$ tal que $B(u,v) = f(u)$ para todo $u \in H$.
 \end{tbox}
 \begin{prf}
-    \dots
+    Essa demonstração sera dividida em alguns passos
+
+    \underline{Passo 1:}
+
+    Para cada $v \in H$ defina $g_v : H \to \bR$ por
+    \[
+        g_v(u) = B(u,v).
+    \]
+    Claramente $g_v$ é linear (pois $B$ é uma forma bilinear).
+    Além disso $g_v$ é limitada, já que
+    \[
+        |g_v(u)| = |B(u,v)| \leqslant \alpha \Vert u \Vert \Vert v \Vert
+    \]
+    para todo $u \in H$, onde utilizamos o fato de $B$ ser limitada.
+    Sendo assim
+    \[
+        |g_v(u)| \leqslant \alpha \Vert u \Vert
+    \]
+    para todo $u \in H$.
+    Logo $g_v$ é limitada.
+    Dito isso, pelo Teorema da Representação de Riesz, existe um único $w_v \in H$ tal que
+    \[
+        B(u,v) = g_v(u) = \left\langle u, w_v \right\rangle
+    \]
+    para todo $u \in H$.
+    Agora, seja $A : H \to H$ dado por $Av = w_v$.
+    Dessa forma
+    \[
+        B(u,v) = g_v(u) = \left\langle u,w_v \right\rangle = \left\langle u, Av \right\rangle.
+    \]
+
+    \underline{Passo 2:} $A$ é um operador linear e limitado
+
+    Sejam $x, y \in H$ e $\lambda \in \bR$.
+    Sendo assim
+    \[
+        \left\langle u, A(\lambda x + y) \right\rangle = B(u, \lambda x + y) = \lambda B(u,x) + B(u,y) = \lambda \left\langle u, Ax \right\rangle + \left\langle u, Ay \right\rangle = \left\langle u, \lambda Ax + Ay \right\rangle
+    \]
+    pois $B$ é uma forma bilinear.
+    Logo $A$ é linear.
+    Além disso, dado $v \in H$
+    \[
+        \Vert Av \Vert^2 = \left\langle Av, Av \right\rangle = B(Av, v) \leqslant \alpha \Vert Av \Vert \Vert v \Vert
+    \]
+    como $Av \neq 0$ obtemos
+    \[
+        \Vert Av \Vert \leqslant \alpha \Vert v \Vert.
+    \]
+    Portanto $A$ é limitado
+
+    \underline{Passo 3:} $A$ é injetivo e $\mathrm{Im}A$ é fechado
+
+    Sabemos que existe $\beta > 0$ tal que $\beta \Vert u \Vert^2 \leqslant |B(u,u)|$. Dessa forma
+    \[
+        \beta \Vert u \Vert^2 \leqslant |B(u,u)| = | \left\langle u, Au \right\rangle | \leqslant \Vert u \Vert \Vert Au \Vert
+    \]
+    ou seja
+    \begin{equation} \label{eq:uau}
+        \beta \Vert u \Vert \leqslant \Vert Au \Vert
+    \end{equation}
+    para todo $u \in H$.
+    Seja $u \in \ker A$, então $Au = 0$, daí por (\ref{eq:uau})
+    \[
+        \beta \Vert u \Vert \leqslant \Vert Au \Vert = 0
+    \]
+    o que implica em $u = 0$.
+    Portanto $u$ é injetiva.
+    Além disso, seja $(Au_k) \subseteq \mathrm{Im} A$ tal que $A u_k \to v \in H$.
+    Mostremos que $v \in \mathrm{Im}A$.
+    Com efeito, $(Au_k)$ é de cauchy (porque converge). Dito isso, por (\ref{eq:uau})
+    \[
+        \beta \Vert u_k - u_\ell \Vert \leqslant \Vert Au_k - Au_\ell \Vert \to 0
+    \]
+    Ou seja, $(u_k) \subseteq H$ é de Cauchy.
+    Como $H$ é completo, existe $u_0 \in H$ tal que $u_n \to u_0$. Como $A$ é limitado (o que implica em $A$ ser contínuo) temos $Au_k \to Au_0$.
+    Pela unicidade do limite $v = Av_0 \in \mathrm{Im}A$.
+    Portanto $\mathrm{Im}A$ é fechado.
+
+    \underline{Passo 4:} $A$ é sobrejetivo
+
+    Sabemos que $H = \mathrm{Im}A \oplus \mathrm{Im}A^\perp$. Mostremos que $\mathrm{Im}A^\perp = \{0\}$.
+    Com efeito, se $w \in \mathrm{Im}A^\perp$, temos que
+    \[
+        \beta \Vert w \Vert^2 \leqslant | B(w,w) | = | \left\langle w, Aw \right\rangle | = 0
+    \]
+    Logo, $w = 0$ o que implica em $H = \mathrm{Im}A$.
+    Portanto $A$ é sobrejetiva.
+
+    \underline{Passo 5:} $f(u) = B(u,v)$
+
+    Como $f$ é um funcional linear limitado em $H$, pelo Teorema da Representação de Riesz existe $z \in H$ tal que $f(u) = \left\langle u, z \right\rangle$ para todo $u \in H$.
+    Como $A$ é uma bijeção, existe um único $v \in H$ tal que $z = Av$, dessa forma
+    \[
+        f(u) = \left\langle u,z \right\rangle = \left\langle u, Av \right\rangle = B(u,v)
+    \]
+    para todo $u \in H$.
+
+    \underline{Passo 6:} Unicidade
+
+    Por fim, para mostrar que $v$ é único, suponha que exista $\tilde v \in H$ tal que $f(u) = B(u, \tilde v)$ para todo $u \in H$.
+    Dessa forma
+    \[
+        B(u,v) = f(u) = B(u,\tilde v).
+    \]
+    Reescrevendo, temos $B(u, v - \tilde v) = 0$ para todo $u \in H$.
+    Dito isso por (\ref{eq:uau})
+    \[
+        \beta \Vert v - \tilde v \Vert \leqslant | B(v - \tilde v, v - \tilde v) | = 0
+    \]
+    Sendo assim, $v = \tilde v$.
+    Portanto $v$ é único.
 \end{prf}
 
 \noindent\textbf{Aplicação do Teorema de Lax-Milgram} (Existência de soluções fracas)\textbf{.} Considere o problema de Dirichlet
@@ -5807,16 +6055,56 @@ Note que os Teoremas \ref{thm:Duto0} e \ref{thm:problema-leray} juntos mostram q
     \end{aligned}
 \end{equation}
 onde $\Omega$ é um aberto limitado.
-Uma solução clássica para o problema de Dirichlet é uma função $u  \in \cC^2(\Omega)$ satisfazendo (\ref{eq:problema-de-dirichlet}).
-Uma solução fraca do problema de Dirichlet é uma função $u \in \cH_0^1(\Omega) = \cW^{1,2}_0(\Omega)$ satisfazendo
+Na motivação vimos que $u$ é uma solução fraca para o problema de Dirichlet se satisfaz
 \[
-    \int_\Omega -v \Delta u \, dx + \int_\Omega u v \, dx = \int_\Omega f v \, dx.
+    \int_\Omega Du \cdot D\phi \,dx + \int_\Omega u\phi \,dx = \int_\Omega f\phi \,dx
 \]
-Integrando por partes a primeira integral, temos a condição equivalente
+onde $\phi \in \cC^{\infty}_c(\Omega)$.
+Porem pela densidade das funções teste em $H^{1}_0(\Omega)$, podemos dizer que $u$ é uma solução fraca do problema de Dirichlet se satisfaz
 \[
-    \int_\Omega D u \cdot D v \, dx + \int_\Omega u v \, dx = \int_\Omega f v \, dx.
+    \int_\Omega Du \cdot Dv \,dx + \int_\Omega uv \,dx = \int_\Omega fv \,dx
 \]
+onde $v \in H_0^1(\Omega)$.
 
+Defina $B : H^1_0(\Omega) \times H^1_0(\Omega) \to \bR$ por
+\[
+    B[u,v]=\int_\Omega Du \cdot Dv \,dx + \int_{\Omega} uv \,dx
+\]
+e $\varphi : H^1_0(\Omega) \to \bR$ por
+\[
+    \varphi(v) = \int_\Omega fv \,dx. 
+\]
+Note que $B$ é bilinear limitado e coercivo. Com efeito, a bilinearidade de $B$ segue do fato do gradiente fraco $D$ e a integral serem operadores lineares. Além disso
+\[
+    B(u,u) = \int_\Omega Du \cdot Du \,dx + \int_\Omega u^2 \,dx
+    = \int_\Omega \Vert Du \Vert^2 \,dx + \int_\Omega |u|^2 \,dx 
+    = \Vert u \Vert_{H^1_0(\Omega)}
+\]
+Logo $B$ é coercivo, e utilizando a Desigualdade de Hölder segue que
+\[
+    \begin{aligned}
+        |B(u,v)| &\leqslant \int_\Omega |Du \cdot Dv | \,dx + \int_\Omega |u v | \,dx\\ &\leqslant \int_\Omega \Vert Du \Vert \Vert Dv \Vert \,dx + \int_\Omega |u| |v| \,dx \leqslant \Vert Du \Vert_{\cL^2(\Omega)}\Vert Dv \Vert_{\cL^2(\Omega)} + \Vert u \Vert_{\cL^2(\Omega)}\Vert v \Vert_{\cL^2(\Omega)},
+    \end{aligned}
+\]
+Porem, sabemos que $\Vert u \Vert_{\cL^2(\Omega)}, \Vert Du \Vert_{\cL^2(\Omega)} \leqslant \Vert u \Vert_{H^1_0(\Omega)}$.
+Dito isso, obtemos
+\[
+    |B(u,v)| \leqslant c \Vert u \Vert_{H^1_0(\Omega)} \Vert v \Vert_{H^1_0(\Omega)}
+\]
+para todo $u, v \in H^1_0(\Omega)$. Logo, $B$ é limitado.
+Por fim, temos que $\varphi$ é limitado.
+De fato
+\[
+    |\varphi(v)| \leqslant \int_\Omega |f| |v| \,dx \leqslant \Vert f \Vert_{\cL^2(\Omega)} \Vert v \Vert_{\cL^2(\Omega)} \leqslant \Vert f \Vert_{\cL^2(\Omega)} \Vert v \Vert_{H^1_0(\Omega)}
+\]
+para todo $v \in H^1_0(\Omega)$, onde $\Vert f \Vert_{\cL^2(\Omega)} < \infty$ pois por hípotese $f \in \cL^2(\Omega)$.
+
+Dessa forma, pelo Teorema de Lax-Milgram, existe um único $u \in H^1_0(\Omega)$ tal que
+\[
+    B(u,v) = \varphi(v)
+\]
+para todo $v \in H^1_0(\Omega)$.
+Portanto existe uma única solução fraca para o problema de Dirichlet.
 
 \nocite{*}
 \printbibliography
