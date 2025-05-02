@@ -3253,9 +3253,9 @@ O próximo exemplo ilustra um caso em que uma função pode ou não possuir deri
     \[
         \int_\Omega D^{\alpha} u D^{\beta} \phi \, dx = (-1)^{|\alpha|} \int_\Omega u D^{\alpha} D^{\beta} \phi \, dx = (-1)^{|\alpha|} \int_\Omega u D^{\alpha + \beta} \phi \,dx.
     \]
-    Note que a ultima igualdade é válida pelo fato de $\phi$ ser uma função infinitamente diferenciável, então o operador $D^\alpha$ é a $\alpha$-ésima derivada parcial no sentido usual.
+    para toda $\phi \in \cC^{\infty}_c(\Omega)$. Note que a ultima igualdade é válida pelo fato de $\phi$ ser uma função infinitamente diferenciável, então o operador $D^\alpha$ é a $\alpha$-ésima derivada parcial no sentido usual.
     Dessa forma $D^{\beta}D^{\alpha} u = D^{\alpha + \beta} u$.
-    Dito isso, utilizando a definição de derivada fraca obtemos
+    Dito isso, utilizando a definição de derivada fraca, obtemos
     \[
         (-1)^{|\alpha|} \int_\Omega u D^{\alpha + \beta} \phi \,dx = (-1)^{|\alpha|}(-1)^{|\alpha| + |\beta|} \int_\Omega \phi D^{\alpha+\beta} u \,dx = (-1)^{|\beta|} \int_\Omega \phi D^{\alpha + \beta} u \,dx.
     \]
@@ -3267,21 +3267,21 @@ O próximo exemplo ilustra um caso em que uma função pode ou não possuir deri
 
     \textbf{(c)} Note que
     \[
-        \int_\Omega (\gamma u + v) D^{\alpha}\phi \,dx = \int_\Omega \gamma u D^\alpha \phi \, dx + \int_\Omega v D^\alpha \phi \, dx = \gamma \int_\Omega u D^{\alpha} \phi \,dx + \int_\Omega v D^{\alpha} \phi \, dx.
+        \int_\Omega (\lambda u + v) D^{\alpha}\phi \,dx = \int_\Omega \lambda u D^\alpha \phi \, dx + \int_\Omega v D^\alpha \phi \, dx = \lambda \int_\Omega u D^{\alpha} \phi \,dx + \int_\Omega v D^{\alpha} \phi \, dx.
     \]
-    Utilizando a definição de derivada fraca nas duas integrais obtemos
+    Utilizando a definição de derivada fraca nas duas utlimas integrais acima, obtemos
     {\small
     \[
-        \lambda \int_\Omega u D^{\alpha} \phi \,dx + \int_\Omega v D^{\alpha} \phi \, dx = \lambda (-1)^{|\alpha|} \int_\Omega \phi D^{\alpha} u \, dx + (-1)^{|\alpha|}\int_\Omega \phi D^{\alpha} v \, dx = \int (\lambda D^{\alpha}u + D^{\alpha}v )\phi \,dx
+        \lambda \int_\Omega u D^{\alpha} \phi \,dx + \int_\Omega v D^{\alpha} \phi \, dx = \lambda (-1)^{|\alpha|} \int_\Omega \phi D^{\alpha} u \, dx + (-1)^{|\alpha|}\int_\Omega \phi D^{\alpha} v \, dx = \int_\Omega (\lambda D^{\alpha}u + D^{\alpha}v )\phi \,dx.
     \]}\!
-    Portanto $D^{\alpha}(\lambda u + v) = \lambda D^\alpha u + D^\alpha v$ no sentido fraco.
+    Portanto, $D^{\alpha}(\lambda u + v) = \lambda D^\alpha u + D^\alpha v$ no sentido fraco.
 
     \textbf{(d)} Seja $\Omega' \subseteq \Omega$ um aberto, queremos verificar que $u \in \cW^{k,p}(\Omega')$.
     De fato, basta verificar que as integrais
     \[
         \int_{\Omega'} |u|^p \, dx \;\text{ e }\; \int_{\Omega'} |D^{\alpha}u|^p \, dx \;\; (\forall \alpha \text{ multi-índice com }|\alpha| \leqslant k)
     \]
-    são finitas. De fato
+    são finitas. De fato, é verdade que
     \[
         \int_{\Omega'} |u|^p \, dx \leqslant \int_{\Omega} |u|^p \,dx < \infty
     \]
@@ -3292,69 +3292,68 @@ O próximo exemplo ilustra um caso em que uma função pode ou não possuir deri
     ambas pelo fato de $u \in \cW^{k,p}(\Omega)$.
     Assim $u \in \cW^{k,p}(\Omega')$.
 
-    \textbf{(e)} Para mostrar que (\ref{eq:regra-de-leibniz}) é válida, utilizaremos indução sobre $|\alpha|$. Com efeito para $|\alpha|= 1$, como $\eta$ e $\varphi$ são funções infinitamente diferenciáveis no sentido usual, temos que $D^{\alpha} (\eta \varphi) = \phi D^{\alpha}\eta + \eta D^{\alpha} \phi$.
-    Dessa forma
+    \textbf{(e)} Para mostrar que (\ref{eq:regra-de-leibniz}) é válida, utilizaremos indução sobre $|\alpha|$. 
+    
+    Com efeito, para $|\alpha|= 1$, como $\eta,\phi \in \cC^{\infty}_c(\Omega)$, temos que
+    \[
+        D^{\alpha} (\eta \phi) = \phi D^{\alpha}\eta + \eta D^{\alpha} \phi.
+    \]
+    Dessa forma,
     \[
         \int_\Omega \eta u D^{\alpha} \phi \, dx = \int_\Omega u D^{\alpha} (\eta \phi) - \int_\Omega u\phi D^{\alpha} \eta \, dx.
     \]
-    Como $\eta$ e $\phi$ tem suporte compacto, então $D^{\alpha}(\eta \phi)$ também tem. 
-    Dito isso, utilizando a definição de derivada fraca apenas na primeira integral do lado direito obtemos
+    Como $\eta$ e $\phi$ têm suporte compacto, então $D^{\alpha}(\eta \phi)$ também tem. 
+    Dito isso, utilizando a definição de derivada fraca apenas na primeira integral do lado direito, chegamos a
     \[
         \int_\Omega \eta u D^{\alpha} \phi \, dx = -\int_\Omega \eta \phi D^{\alpha} u \, dx - \int_\Omega u\phi D^{\alpha} \eta \, dx = -\int_\Omega (\eta D^{\alpha}u + uD^{\alpha}\eta) \phi \,dx.
     \]
-    Portanto $D^{\alpha}(\eta u) = \eta D^{\alpha}u + uD^{\alpha}\eta$ como queriamos mostrar.
+    Portanto, $D^{\alpha}(\eta u) = \eta D^{\alpha}u + uD^{\alpha}\eta$ como queriamos mostrar.
 
-    Agora seja $m < k$ e suponha que $(\ref{eq:regra-de-leibniz})$ é válida para todo multi-índice $\alpha$ com $|\alpha| \leqslant l$ e toda função de teste $\eta$.
+    Agora seja $m < k$ e suponha que $(\ref{eq:regra-de-leibniz})$ é válida para todo multi-índice $\alpha$ com $|\alpha| \leqslant m$ e toda função de teste $\eta$.
     Considere um multi-índice $\alpha$ com $|\alpha| = m + 1$.
     Então $\alpha$ é da forma $\alpha = \beta + \gamma$ com $|\beta| = m$ e $|\gamma| = 1$. 
-    Daí 
+    Deste modo, podemos escrever por \textbf{(a)} que
     \[
         \int_\Omega \eta u D^{\alpha}\phi \, dx = \int_\Omega \eta u D^{\beta + \gamma}\phi \, dx = \int_\Omega \eta u D^\beta(D^\gamma \phi) \, dx = (-1)^{|\beta|} \int_\Omega D^{\beta} (\eta u) D^{\gamma}\phi \,dx.
     \]
-    Como $|\beta| = m$ podemos utilizar a hipótese de indução em $D^{\beta}(\eta u)$ e a $\gamma$-ésima derivada fraca. Assim
+    Como $|\beta| = m$ podemos utilizar a hipótese de indução em $D^{\beta}(\eta u)$ e a $\gamma$-ésima derivada fraca. Assim, por \textbf{(c)}, deduzimos que
     {\small
     \[
-        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\beta - \sigma} u D^{\gamma}\phi \, dx = (-1)^{|\beta| + |\gamma|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\gamma}(D^{\sigma} \eta D^{\beta - \sigma} u)\right] \phi \, dx
+        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\sigma} \eta D^{\beta - \sigma} u D^{\gamma}\phi \, dx = (-1)^{|\beta| + |\gamma|} \int_\Omega \bigg[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} D^{\gamma}(D^{\sigma} \eta D^{\beta - \sigma} u)\bigg] \phi \, dx.
     \]}\!
     Além disso, como $|\gamma| = 1$, podemos aplicar a regra de Leibniz novamente, obtendo
     \begin{equation} \label{eq:integral-etau}
-        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\alpha|} \int_\Omega \left[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} \left(D^{\rho}\eta D^{\alpha - \rho} u + D^{\sigma} \eta D^{\alpha - \sigma} u\right)\right] \phi \,dx
+        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\alpha|} \int_\Omega \bigg[\sum_{\sigma \leqslant \beta} \binom{\beta}{\sigma} \left(D^{\rho}\eta D^{\alpha - \rho} u + D^{\sigma} \eta D^{\alpha - \sigma} u\right)\bigg] \phi \,dx
     \end{equation}
     onde $\rho = \sigma + \gamma$. 
-    Note que podemos escrever o somatório dentro da integral da seguinte forma
+    Note que podemos escrever o somatório acima da seguinte forma:
     \begin{equation*} \label{eq:somatorio}
-        \sum_{\gamma \leqslant \rho \leqslant \alpha} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{0 \leqslant\sigma \leqslant \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u
+        \sum_{\gamma \leqslant \rho \leqslant \alpha} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{0 \leqslant\sigma \leqslant \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u,
     \end{equation*}
-    que ainda pode ser expandido em quatro somatórios
+    que ainda pode ser expandido em quatro somatórios como abaixo:
     \begin{equation} \label{eq:somatorio-2}
         \begin{aligned}
             \sum_{\gamma \leqslant \rho \leqslant \beta} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u &+ \sum_{\beta < \rho \leqslant \alpha} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u \\
-            &+ \sum_{0 \leqslant \sigma < \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u + \sum_{\gamma \leqslant \sigma \leqslant \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u.
+            &+ \sum_{0 \leqslant \sigma < \gamma} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u + \sum_{\gamma \leqslant \sigma \leqslant \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u.
            \end{aligned}
     \end{equation}
-    Porem, note que $0 \leqslant \sigma < \gamma$ implica em $\sigma = 0$. Com efeito, $0 \leqslant \sigma$ significa que $0 \leqslant \sigma_i$ para todo $i = 1,\dots,n$ e $\sigma < \gamma$ significa que existe um $i = 1,\dots,n$ tal que $\sigma_i < \gamma_i$. Como $|\gamma| = 1$, suponha sem perda de generalidade que $\gamma = e_1$.
-    Dessa forma, para $i = 1$
-    \[
-        0 \leqslant \sigma_1 < 1
-    \]
-    como $\sigma_i \in \bN$ segue que $\sigma_1 = 0$. Por outro lado, para $i = 2,\dots,n$
-    \[
-        0 \leqslant \sigma_i < 0
-    \]
+    Porém, note que $0 \leqslant \sigma < \gamma$ implica em $\sigma = 0$. Com efeito, $0 \leqslant \sigma$ significa que $0 \leqslant \sigma_i$ para todo $i = 1,\dots,n$ e $\sigma < \gamma$ significa que existe um $j = 1,\dots,n$ tal que $\sigma_j < \gamma_j$. Como $|\gamma| = 1$, suponha sem perda de generalidade que $\gamma = e_1 = (1,0,\dots,0)$.
+    Dessa forma, para $j = 1$, concluimos que $0 \leqslant \sigma_1 < 1$.
+    Como $\sigma_1 \in \bN$ segue que $\sigma_1 = 0$. Por outro lado, para $i = 2,\dots,n$, vale $0 \leqslant \sigma_i < 0$,
     que implica em $\sigma_i = 0$. Portanto $\sigma = 0$.
-    Da mesma forma $\beta < \rho \leqslant \alpha$ implica em $\rho =\alpha$.
-    Assim, (\ref{eq:somatorio-2}) pode ser escrito da seguinte forma
+    Da mesma forma, $\beta < \rho \leqslant \alpha$ implica em $\rho =\alpha$.
+    Assim, (\ref{eq:somatorio-2}) pode ser escrito da seguinte forma:
     \begin{equation} \label{eq:somatorio-3}
         % \binom{\alpha - \gamma}{0}
         \eta D^{\alpha} u + \sum_{\gamma \leqslant \rho \leqslant \beta} \binom{\alpha - \gamma}{\rho - \gamma} D^{\rho}\eta D^{\alpha - \rho} u + \sum_{\gamma \leqslant \sigma \leqslant \beta} \binom{\alpha - \gamma}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u + 
         % \binom{\alpha - \gamma}{\alpha - \gamma}
         u D^{\alpha}\eta.
     \end{equation}
-    Por fim, ao menos de uma mudança de variaveis, escrevemos (\ref{eq:somatorio-3}) como
+    Por fim, a menos de uma mudança de variaveis, escrevemos (\ref{eq:somatorio-3}) como
     \[
-        \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u.
+        \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u,
     \]
-    Pois
+    pois
     \[
         \binom{\alpha - \gamma}{\sigma} + \binom{\alpha - \gamma}{\sigma - \gamma} = \binom{\alpha}{\sigma}
     \]
@@ -3362,9 +3361,9 @@ O próximo exemplo ilustra um caso em que uma função pode ou não possuir deri
     \[
         \binom{\alpha}{0} = 1 = \binom{\alpha}{\alpha}.
     \]
-    Sendo assim, voltando para a equação (\ref{eq:integral-etau}) temos que
+    Sendo assim, voltando para a equação (\ref{eq:integral-etau}), temos que
     \[
-        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\alpha|} \int_\Omega \left[\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u\right] \phi \,dx.
+        \int_\Omega \eta u D^{\alpha}\phi \, dx = (-1)^{|\alpha|} \int_\Omega \bigg[\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} D^{\sigma} \eta D^{\alpha - \sigma} u\bigg] \phi \,dx.
     \]
     Portanto
     \[
@@ -3376,33 +3375,31 @@ O próximo exemplo ilustra um caso em que uma função pode ou não possuir deri
 Com os resultados obtidos, agora é possível verificar que os espaços de Sobolev $W^{k,p}(\Omega)$ são espaços de Banach.
 
 \begin{tbox}
-    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$ com $1 \leqslant p \leqslant \infty$ é um espaço vetorial normado.
+    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$, com $1 \leqslant p \leqslant \infty$ é um espaço vetorial normado.
 \end{tbox}
 \begin{prf}
-    ~
-
-    ($1 \leqslant p < \infty$)
+    Observe que
     \begin{enumerate}[leftmargin=*]
         % \item $\Vert u \Vert_{\cW^{k,p}(\Omega)} = 0 \iff \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff D^\alpha u = 0$ para todo mutli-índice $\alpha$ com $|\alpha| \leqslant k$.
         \item Seja $u \in \cW^{k,p}(\Omega)$. Daí
         \[
-            \Vert u \Vert_{\cW^{k,p}(\Omega)} = 0 \iff \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff D^\alpha u = 0
+            \Vert u \Vert_{\cW^{k,p}(\Omega)} = 0 \iff \sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = 0 \iff D^\alpha u = 0,
         \]
         para todo multi-índice $\alpha$ com $|\alpha| \leqslant k$.
-        Em particular se $\alpha = (0,\dots,0)$, $u = D^\alpha u = 0$.
+        Em particular, se $\alpha = (0,\dots,0)$, $u = D^\alpha u = 0$.
 
         Por outro lado, se $u = 0$, $D^\alpha u = 0$ para todo multi-índice $\alpha$. Sendo assim $\Vert u \Vert_{\cW^{k,p}(\Omega)} = 0$.
 
-        \item Seja $\lambda \in \bR$ e $u \in \cW^{k,p}(\Omega)$. Daí
+        \item Sejam $\lambda \in \bR$ e $u \in \cW^{k,p}(\Omega)$. Sendo assim, pelo Teorema \ref{thm:propriedades-derivada-fraca}, podemos escrever
         \[
             \begin{aligned}
                 \Vert \lambda u \Vert_{\cW^{k,p}(\Omega)}^p = \sum_{|\alpha| \leqslant k} \Vert D^\alpha (\lambda u) \Vert_{\cL^p(\Omega)}^p &= \sum_{|\alpha| \leqslant k} \Vert \lambda D^\alpha u \Vert_{\cL^p(\Omega)}^p\\ 
                 &= |\lambda|^p\sum_{|\alpha| \leqslant k} \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p = |\lambda|^p\Vert u \Vert_{\cW^{k,p}(\Omega)}^p.
             \end{aligned}
         \]
-        Portanto $\Vert \lambda u \Vert_{\cW^{k,p}(\Omega)} = \lambda|\Vert u \Vert_{\cW^{k,p}(\Omega)}$.
+        Portanto, $\Vert \lambda u \Vert_{\cW^{k,p}(\Omega)} = |\lambda|\Vert u \Vert_{\cW^{k,p}(\Omega)}$.
 
-        \item Sejam $u, v \in \cW^{k,p}(\Omega)$. Daí
+        \item Sejam $u, v \in \cW^{k,p}(\Omega)$. Daí, pelo Teorema \ref{thm:propriedades-derivada-fraca}, segue que
         \[
             \Vert u + v \Vert_{\cW^{k,p}(\Omega)} = \left(\sum_{|\alpha| \leqslant k} \Vert D^\alpha u + D^\alpha v \Vert_{\cL^p(\Omega)}^p\right)^{\!\!\frac{1}{p}} \leqslant \left(\sum_{|\alpha| \leqslant k} \left(\Vert D^\alpha u \Vert_{\cL^p(\Omega)} + \Vert D^\alpha v \Vert_{\cL^p(\Omega)}\right)^p \right)^{\!\!\frac{1}{p}}
         \]
@@ -3415,18 +3412,14 @@ Com os resultados obtidos, agora é possível verificar que os espaços de Sobol
             \Vert u + v \Vert_{\cW^{k,p}(\Omega)} \leqslant \Vert u \Vert_{\cW^{k,p}(\Omega)} + \Vert v \Vert_{\cW^{k,p}(\Omega)}.
         \]
     \end{enumerate}
-    Portanto, $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ é uma norma em $\cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
-
-    ($p = \infty$)
-
-    \noindent O caso $p = \infty$ é análogo ao caso $1 \leqslant p < \infty$.
+    Portanto, $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ é uma norma em $\cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant \infty$.
 \end{prf}
 
-\begin{tbox}
-    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$ com $1 \leqslant p \leqslant \infty$ é completo
+\begin{tbox} \label{thm:sobolev-completo}
+    $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$, com $1 \leqslant p \leqslant \infty$, é completo
 \end{tbox}
 \begin{prf}
-    Seja $(u_n)$ uma sequência de Cauchy em $\cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$. Isto é, dado $\varepsilon > 0$ existe $n_0 \in \bN$ tal que
+    Seja $(u_n)$ uma sequência de Cauchy em $\cW^{k,p}(\Omega)$, com $1 \leqslant p < \infty$. Isto é, dado $\varepsilon > 0$ existe $n_0 \in \bN$ tal que
     \[
         \Vert u_n - u_m \Vert_{\cW^{k,p}(\Omega)} < \varepsilon
     \]
@@ -3439,10 +3432,10 @@ Com os resultados obtidos, agora é possível verificar que os espaços de Sobol
     % \end{aligned}
     % \]
     \[
-        \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^p(\Omega)}^p \leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^p(\Omega)}^p = \Vert u_n - u_m \Vert_{\cW^{k,p}(\Omega)}^p < \varepsilon^p
+        \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^p(\Omega)}^p \leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^p(\Omega)}^p = \Vert u_n - u_m \Vert_{\cW^{k,p}(\Omega)}^p < \varepsilon^p,
     \]
-    para todo $n,m > n_0$. Ou seja, $(D^\alpha u_n)$ é uma sequência de Cauchy em $\cL^p(\Omega)$, que é um espaço completo (Teorema \ref{thm:lp-completo}). 
-    Dito isso
+    para todo $n,m > n_0$ e $\alpha$ multi-índice com $|\alpha| \leqslant k$. Ou seja, $(D^\alpha u_n)$ é uma sequência de Cauchy em $\cL^p(\Omega)$, que é um espaço completo (Teorema \ref{thm:lp-completo}).
+    Dito isso, podemos escrever
     \[
         D^\alpha u_n \to u_\alpha \text{ em } \cL^p(\Omega).
     \]
@@ -3451,30 +3444,30 @@ Com os resultados obtidos, agora é possível verificar que os espaços de Sobol
     \[
         D^\alpha u = u_\alpha.
     \]
-Com efeito, pelo Teorema \ref{thm:teorema-do-brezis}, \nameref{thm:teorema-da-convergencia-dominada}, utlizando a definição de derivada fraca e passando a uma subsequência se necessário, obtemos
+Com efeito, pelo Teorema \ref{thm:teorema-do-brezis}, utlizando a definição de derivada fraca e passando a uma subsequência (se necessário), obtemos
     \[
         \begin{aligned}
             \int_\Omega u D^\alpha \phi \, dx 
-            = \int_\Omega \lim u_n D^\alpha \phi 
+            = \int_\Omega (\lim u_n) D^\alpha \phi 
             = \lim\! \int_\Omega u_n D^\alpha \phi \,dx
             &= \lim\, (-1)^{|\alpha|}\!\int_\Omega  D^\alpha u_n \phi\,dx \\
             &= (-1)^{|\alpha|}\!\int_\Omega \lim D^\alpha u_n \phi \,dx 
             = (-1)^{|\alpha|}\!\int_\Omega u_\alpha \phi \,dx.
         \end{aligned}
     \]
-    Portanto $D^\alpha u = u_\alpha$ e consequentemente $u_n \to u$ em $\cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
+    Portanto, $D^\alpha u = u_\alpha$, e consequentemente, $u_n \to u$ em $\cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
 
     Por outro lado, considere $(u_n)$ uma sequência de Cauchy em $\cW^{k,\infty}(\Omega)$. Então, dado $\varepsilon > 0$, existe $n_0 \in \bN$ tal que
     \[
-        \Vert u_n - u_m \Vert_{\cW^{k,\infty}(\Omega)} < \varepsilon
+        \Vert u_n - u_m \Vert_{\cW^{k,\infty}(\Omega)} < \varepsilon,
     \]
-    para todo $n,m > n_0$. Além disso
+    para todo $n,m > n_0$. Além disso, vale o seguinte:
     \[
-        \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^\infty(\Omega)} \leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^\infty(\Omega)} = \Vert u_n - u_m \Vert_{\cW^{k,\infty}(\Omega)} < \varepsilon
+        \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^\infty(\Omega)} \leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_n - D^\alpha u_m \Vert_{\cL^\infty(\Omega)} = \Vert u_n - u_m \Vert_{\cW^{k,\infty}(\Omega)} < \varepsilon,
     \]
-    para todo $n,m > n_0$. Isto nos diz que $(D^\alpha u_n)$ é uma sequência de Cauchy em $\cL^\infty$ que é um espaço completo (Teorema \ref{thm:linf-completo}). Sendo assim
+    para todo $n,m > n_0$ e $\alpha$ multi-índice com $|\alpha| \leqslant k$. Isto nos diz que $(D^\alpha u_n)$ é uma sequência de Cauchy em $\cL^\infty(\Omega)$ que é um espaço completo (Teorema \ref{thm:linf-completo}). Sendo assim, obtemo
     \[
-        D^{\alpha} u_n \to u_\alpha \text{ em } \cL^\infty(\Omega)
+        D^{\alpha} u_n \to u_\alpha \text{ em } \cL^\infty(\Omega),
     \]
     De forma análoga ao caso $1 \leqslant p < \infty$, mostramos que $D^\alpha u = u_\alpha$ e portanto $u_n \to u$ em $\cW^{k,\infty}(\Omega)$.
 \end{prf}
@@ -3485,109 +3478,78 @@ Com efeito, pelo Teorema \ref{thm:teorema-do-brezis}, \nameref{thm:teorema-da-co
 
 A definição de derivada fraca, em muitos casos não é suficiente para mostrar propriedades mais profundas dos espaços de Sobolev.
 Uma forma de contornar esse problema é procurando formas de aproximar em $\cW^{k,p}$ por uma sequência de funções suaves.
-Esse processo é conhecido como molificação ou regularização é feito por meio de uma convolução da função a ser aproximada e uma função especial chamada função molificadora. 
-Nesse capítulo apresentaremos alguns teoremas e exemplos da teoria de aproximação, que é de extrema importância no estudo de equações diferenciais parciais.
+Esse processo é conhecido como molificação ou regularização e é feito por meio de uma convolução da função a ser aproximada e uma função especial chamada função molificadora. 
+Nesse capítulo, apresentaremos alguns resultados e exemplos da teoria de aproximação, que é de extrema importância no estudo de equações diferenciais parciais.
 
 Um exemplo de função molificadora é
 \begin{equation} \label{eq:molificador-friedrich}
     \eta(x) =
     \left\{
         \begin{array}{lr}
-            c \exp \left( \frac{1}{|x|^2 - 1} \right) & \text{se }\; |x| < 1\\
-            0 & \text{se }\; |x| \geqslant 1
+            c \exp \left( \frac{1}{|x|^2 - 1} \right) & \text{se }\; |x| < 1;\\
+            0 & \text{se }\; |x| \geqslant 1,
         \end{array}
     \right.
 \end{equation}
 conhecida como molificador de Friedrich, onde $c > 0$ é uma constante tal que
 \[
-    \int_{\bR^n} \eta \,dx = 1
+    \int_{\bR^n} \eta \,dx = 1.
 \]
 De forma geral, uma função molificadora é uma função $\eta$ de classe $\cC^\infty$ com suporte compacto satifazendo. 
-\begin{itemize}[leftmargin=*, label=\textbf{--}]
+\begin{itemize}[leftmargin=*]
     \item $\displaystyle \int_{\bR^n} \eta \,dx = 1$
-    \item $\displaystyle \lim_{\varepsilon \to 0} \varepsilon^{-n}\eta(x/\varepsilon) = \delta(x)$ onde $\delta$ é a função delta de Dirac.
+    \item $\displaystyle \lim_{\varepsilon \to 0} \varepsilon^{-n}\eta(x/\varepsilon) = \delta(x)$, onde $\delta$ é a função delta de Dirac.
 \end{itemize}
-Dada uma função molificadora, para cada $\varepsilon > 0$ definimos
+Dada uma função molificadora, para cada $\varepsilon > 0$, definimos
 \begin{equation} \label{eq:eta-epsilon}
     \eta_\varepsilon(x) = \frac{1}{\varepsilon^n} \eta\left( \frac{x}{\varepsilon} \right)
 \end{equation}
-essa função $\eta_\varepsilon$ é de classe $\cC^\infty$, $\supp \eta_\varepsilon \subseteq B[0,\varepsilon]$ e
+para todo $x \in \bR^3$. Essa função $\eta_\varepsilon$ é de classe $\cC^\infty$, $\supp \eta_\varepsilon \subseteq B[0,\varepsilon]$ e
 \[
     \int_{\bR^n} \eta_\varepsilon \,dx = 1.
 \]
-Essa função será utilizada para realizar as convoluções que aproximam as funções em $\cW^{k,p}(\Omega)$. Se $u$ é uma função locamente integrável, definimos a molificação de $u$ por $u^\varepsilon = \eta_\varepsilon * u$, isto é
+Essa aplicação será utilizada para realizar as convoluções que aproximam as funções em $\cW^{k,p}(\Omega)$. Se $u$ é uma função locamente integrável, definimos a molificação de $u$ por $u^\varepsilon = \eta_\varepsilon * u$, isto é
 \[
-    u^\varepsilon(x) = \int_\Omega \eta_\varepsilon(x-y) u(y) = \int_{B[0,\varepsilon]} \eta_\varepsilon(y) u(x-y) \,dy
+    u^\varepsilon(x) = \int_\Omega \eta_\varepsilon(x-y) u(y) = \int_{B[0,\varepsilon]} \eta_\varepsilon(y) u(x-y) \,dy,
 \]
+para todo $x \in \bR^n$.
 
 O primeiro teorema que vamos estudar demonstra algumas propriedades importantes sobre essas aproximações.
 
 \begin{tbox}[Aproximação local por funções suaves] \label{thm:aprox1}
     Seja $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$ e defina
     \[
-        u^{\varepsilon} = \eta_{\varepsilon} * u \;\text{ em } \Omega_\varepsilon
+        u^{\varepsilon} = \eta_{\varepsilon} * u \;\text{ em } \Omega_\varepsilon,
     \]
     onde
     \[
         \Omega_\varepsilon = \{ x \in \Omega \,; d(x,\partial\Omega) > \varepsilon\}.
     \]
-    Então
+    Então,
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
-        \item $u^\varepsilon \in \cC^{\infty}(\Omega_\varepsilon)$ para cada $\varepsilon > 0$
-        \item $u^\varepsilon \to u$ em $\cW^{k,p}_{\mathrm{loc}}(\Omega)$ quando $\varepsilon \to 0$
+        \item $u^\varepsilon \in \cC^{\infty}(\Omega_\varepsilon)$, para cada $\varepsilon > 0$;
+        \item $u^\varepsilon \to u$ em $\cW^{k,p}_{\mathrm{loc}}(\Omega)$, quando $\varepsilon \to 0$.
     \end{enumerate}
 \end{tbox}
 \begin{prf}
     ~
 
-    % \textbf{(a)} Sejam $x \in \Omega_\varepsilon$, $i = 1,\dots,n$ e $h$ de forma que $x + he_i \in \Omega_\varepsilon$. Daí
-    % \[
-    %     \begin{aligned}
-    %         \frac{u^\varepsilon(x + he_i) - u^\varepsilon(x)}{h} 
-    %         &= \frac{1}{\varepsilon^n} \int_\Omega \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] u(y)\\
-    %         &= \frac{1}{\varepsilon^n} \int_V \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] u(y)\\
-    %     \end{aligned}
-    % \]
-    % para algum aberto $V \Subset \Omega$. Note que
-    % \[
-    %     \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] \to \frac{1}{\varepsilon}\dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right)
-    % \]
-    % quando $h \to 0$. Isto é
-    % \[
-    %     \dfrac{\partial u^\varepsilon}{\partial x_i} = \int_\Omega \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right) u(y) \,dy.
-    % \]
-    % Por outro lado, seja $g(x) = \frac{x -y }{\varepsilon} $, daí
-    % \[
-    %     \dfrac{\partial \eta_\varepsilon}{\partial x_i} (x-y) = \frac{1}{\varepsilon^n}\dfrac{\partial \eta}{\partial x}\left( \frac{x - y}{\varepsilon} \right) = \frac{1}{\varepsilon^n} \sum_{k =1}^n \dfrac{\partial \eta}{\partial x_k}\left( \frac{x - y}{\varepsilon} \right) \dfrac{\partial g_k}{\partial x_i}(x) = \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right).
-    % \]
-    % Portanto
-    % \[
-    %     \dfrac{\partial u^\varepsilon}{\partial x_i} = \int_\Omega \dfrac{\partial \eta_\varepsilon}{\partial x_i} (x-y) u(y) \,dy.
-    % \]
-    % Indutivamente, mostramos que $D^\alpha u^\varepsilon$ existe e
-    % \[
-    %     D^\alpha u^\varepsilon = D^\alpha\eta_\varepsilon * u.
-    % \]
-    % O fato de $u^\varepsilon$ ser de classe $\cC^\infty$ segue do fato de $\eta_\varepsilon$ ser de classe $\cC^\infty$ por definição.
-
-    \textbf{(a)} Seja $g(x) = (x-y)/\varepsilon $, daí, pela regra da cadeia
-    \[
-        \dfrac{\partial \eta_\varepsilon}{\partial x_i} (x-y) = \frac{1}{\varepsilon^n}\dfrac{\partial \eta}{\partial x}\left( \frac{x - y}{\varepsilon} \right) = \frac{1}{\varepsilon^n} \sum_{k =1}^n \dfrac{\partial \eta}{\partial x_k}\left( \frac{x - y}{\varepsilon} \right) \dfrac{\partial g_k}{\partial x_i}(x) = \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right).
-    \]
-    Por outro lado, sejam $x \in \Omega_\varepsilon$, $i = 1,\dots,n$ e $h$ de forma que $x + he_i \in \Omega_\varepsilon$. Daí
-    \[
+    \textbf{(a)} Seja $g(x) = (x-y)/\varepsilon $. Logo, pela Regra da cadeia
+    \begin{equation} \label{eq:l}
         \begin{aligned}
-            \frac{u^\varepsilon(x + he_i) - u^\varepsilon(x)}{h} 
-            &= \frac{1}{\varepsilon^n} \int_\Omega \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] u(y) \,dy\\
-            % &= \frac{1}{\varepsilon^n} \int_V \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] u(y) \,dy\\
+            \dfrac{\partial}{\partial x_i} \big[\eta_\varepsilon(x-y)\big] &= \frac{1}{\varepsilon^n}\dfrac{\partial }{\partial x_i}\left[\eta\left( \frac{x - y}{\varepsilon} \right) \right]\\ &= \frac{1}{\varepsilon^n} \sum_{k =1}^n \dfrac{\partial \eta}{\partial x_k}\left( \frac{x - y}{\varepsilon} \right) \dfrac{\partial g_k}{\partial x_i}(x) = \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right),
         \end{aligned}
-    \]
-    % para algum aberto $V \Subset \Omega$. 
-    Note que, novamente utilizando a regra da cadeia
-    \[
+    \end{equation}
+    para todo $i = 1,\dots,n$ Por outro lado, sejam $x \in \Omega_\varepsilon$, $i = 1,\dots,n$ e $h$ de forma que $x + he_i \in \Omega_\varepsilon$. Deste modo,
+    \begin{equation} \label{eq:m}
+        \frac{u^\varepsilon(x + he_i) - u^\varepsilon(x)}{h} 
+            = \frac{1}{\varepsilon^n} \int_\Omega \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] u(y) \,dy.
+    \end{equation} 
+    Note que, novamente utilizando a regra da cadeia e (\ref{eq:l})
+    \begin{equation} \label{eq:n}
         \frac{1}{h}\left[  \eta\left( \frac{x + he_i - y}{\varepsilon} \right) - \eta\left( \frac{x -y}{\varepsilon} \right) \right] \to \frac{1}{\varepsilon}\dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right)
-    \]
-    quando $h \to 0$. Isto é
+    \end{equation}
+    quando $h \to 0$. Consequentemente, por (\ref{eq:m}), (\ref{eq:n}) e o Teorema da converência dominada, temos que
     \[
         \dfrac{\partial u^\varepsilon}{\partial x_i} = \int_\Omega \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right) u(y) \,dy = \int_\Omega \dfrac{\partial \eta_\varepsilon}{\partial x_i} (x-y) u(y) \,dy.
     \]
@@ -3598,7 +3560,7 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     O fato de $u^\varepsilon$ ser de classe $\cC^\infty$ segue do fato de $\eta_\varepsilon$ ser de classe $\cC^\infty$ por definição e $u$ ser integrável.
 
     \textbf{(b)} Afirmamos que a $\alpha$-ésima derivada parcial de $u^\varepsilon$ no sentido usual é igual a convulução de $\eta_\varepsilon$ com a $\alpha$-ésima derivada parcial fraca de $u$ para todo $\alpha$ com $|\alpha| \leqslant k$. 
-    Isto é
+    Consequentemente
     \[
         D^\alpha u^\varepsilon = \eta_\varepsilon * D^\alpha u.
     \]
@@ -3608,9 +3570,9 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \]
     Por outro lado, se $h(y) = x - y$, obtemos
     \[
-        D^{e_i}_y \eta_\varepsilon (x-y) = \dfrac{\partial}{\partial x_i} (\eta_\varepsilon \circ h)(x) = \sum_{k=1}^n \dfrac{\partial \eta_\varepsilon}{\partial y_k} (x - y) \dfrac{\partial h_k}{\partial y_i}(x) = -\dfrac{\partial \eta_\varepsilon}{\partial y_i}(x-y).
+        D^{e_i}_y \eta_\varepsilon (x-y) = \dfrac{\partial}{\partial y_i} (\eta_\varepsilon \circ h)(x) = \sum_{k=1}^n \dfrac{\partial \eta_\varepsilon}{\partial y_k} (x - y) \dfrac{\partial h_k}{\partial y_i}(y) = -\dfrac{\partial \eta_\varepsilon}{\partial y_i}(x-y).
     \]
-    Dessa forma, ao menos de uma mudança de notação
+    Dessa forma, ao menos de uma mudança de notação, chegamos a
     \[
         D^{e_i}_x \eta_\varepsilon (x-y) = -D^{e_i}_y \eta_\varepsilon (x-y).
     \]
@@ -3618,47 +3580,49 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \[
         D^\alpha_x \eta_\varepsilon (x-y) = (-1)^{|\alpha|} D^\alpha_y \eta_\varepsilon (x-y).
     \]
-    Dessa forma
+    Deste modo, podemos escrever
     \[
         D^{\alpha} u^\varepsilon (x) = \int_\Omega D^\alpha_x \eta_\varepsilon (x-y) u(y) \,dy = (-1)^{|\alpha|} \int_\Omega D^{\alpha}_y \eta_\varepsilon (x-y) u(y) \,dy.
     \]
     Fixando $x \in \Omega_\varepsilon$, a função $\phi_x(y) =\eta_\varepsilon(x-y)$ é suave e tem suporte compacto em $\Omega$.
-    Aplicando a definição de derivada fraca com função de teste $\eta_\varepsilon(x-y)$, segue que
+    Aplicando a definição de derivada fraca com função teste $\eta_\varepsilon(x-y)$, segue que
     \[
-        (-1)^{|\alpha|} \int_\Omega D^{\alpha}_y \eta_\varepsilon (x-y) u(y) \,dy. = (-1)^{|\alpha| + |\alpha|}  \int_\Omega \eta_\varepsilon(x-y) D^{\alpha} u(y) \,dy
+        (-1)^{|\alpha|} \int_\Omega D^{\alpha}_y \eta_\varepsilon (x-y) u(y) \,dy. = (-1)^{|\alpha| + |\alpha|}  \int_\Omega \eta_\varepsilon(x-y) D^{\alpha} u(y) \,dy.
     \]
-    Portanto
-    \[
+    Portanto, deduzimos que
+    \begin{equation}
         D^\alpha u^\varepsilon = \eta_\varepsilon * D^\alpha u.
-    \]
+    \end{equation}
 
-    Além disso, afirmamos que dados abertos $V, W$ tais que $V \Subset W \Subset \Omega$, uma função $v \in \cL^p_\loc(\Omega)$ e $\varepsilon > 0$ suficientemente pequeno
-    \[
+    Além disso, afirmamos que dados abertos $V, W$ tais que $V \Subset W \Subset \Omega$, uma função $v \in \cL^p_\loc(\Omega)$ e $\varepsilon > 0$ suficientemente pequeno, inferimos
+    \begin{equation}
         \Vert v^\varepsilon \Vert_{\cL^p(V)} \leqslant \Vert v \Vert_{\cL^p(W)}.
-    \]
-    Com efeito, note que se $1 < p < \infty$ e $x \in V$
+    \end{equation}
+    Com efeito, note que se $1 < p < \infty$ e $x \in V$, é verdade que
     \[
         |v^\varepsilon(x)| = \left| \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) v (y) \,dy \right| \leqslant \int_{B[x,\varepsilon]} \left| \eta_\varepsilon^{1-\frac{1}{p}}(x-y) \eta_\varepsilon^{\frac{1}{p}}(x-y) v(y) \right| \,dy.
     \]
     Utilizando a desigualdade de Hölder na ultima integral, obtemos
     \[
-        \int_{B[x,\varepsilon]} \left| \eta_\varepsilon^{1-\frac{1}{p}}(x-y) \eta_\varepsilon^{\frac{1}{p}}(x-y) v(y) \right|dy \leqslant \left( \int_{B[x,\varepsilon]} \eta_\varepsilon (x-y) \,dy\right)^{\!1-\frac{1}{p}} \left( \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)|^p \right)^{\frac{1}{p}}
+        \begin{aligned}
+            \int_{B[x,\varepsilon]} \left| \eta_\varepsilon^{1-\frac{1}{p}}(x-y) \eta_\varepsilon^{\frac{1}{p}}(x-y) v(y) \right|dy \leqslant &\left( \int_{B[x,\varepsilon]} \eta_\varepsilon (x-y) \,dy\right)^{\!1-\frac{1}{p}}\\ &\left( \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)|^p \,dy \right)^{\frac{1}{p}}.
+        \end{aligned}
     \]
     Como $\int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dy = 1$ e utilizando o Teorema de Fubini, segue que
     \[
-        \int_V |v^\varepsilon(x)|^p \,dx = \int_V \int_{B(x,\varepsilon)} \eta_\varepsilon(x-y) |v(y)|^p \,dy \,dx \leqslant \int_W |v(y)|^p \int_{B(y,\varepsilon)} \eta_\varepsilon(x-y) \,dx \,dy.
+        \int_V |v^\varepsilon(x)|^p \,dx = \int_V \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)|^p \,dy \,dx \leqslant \int_W |v(y)|^p \int_{B[y,\varepsilon]} \eta_\varepsilon(x-y) \,dx \,dy.
     \]
-    Isto é
+    Isto é,
     \[
         \Vert v^\varepsilon \Vert_{\cL^p(V)} \leqslant \Vert v \Vert_{\cL^p(W)}.
     \]
 
     Por fim, seja $V \Subset \Omega$ um aberto. Afirmamos que
-    \[
+    \begin{equation}
         D ^\alpha u^\varepsilon \to D^\alpha u \text{ em } \cL^p(V)
-    \]
+    \end{equation}
     quando $\varepsilon \to 0$, para todo $\alpha$ com $|\alpha| \leqslant k$.
-    De fato, seja $W$ um aberto de forma que $V \Subset W \Subset \Omega$, $\delta > 0$, utilizando a afirmação anterior com $v ^\varepsilon = D^\alpha u^\varepsilon$ e $v = D^\alpha u$ escolhendo $w \in \cC(W)$ tal que
+    De fato, seja $W$ um aberto de forma que $V \Subset W \Subset \Omega$, $\delta > 0$. Utilizando a afirmação anterior com $v ^\varepsilon = D^\alpha u^\varepsilon$ e $v = D^\alpha u$ escolhendo $w \in \cC(W)$ tal que
     \[
         \Vert D^\alpha u - w \Vert_{\cL^p(W)} < \delta.
     \]
@@ -3672,15 +3636,15 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
             &\leqslant 2\delta + \Vert w^\varepsilon - w \Vert_{\cL^p(V)}
         \end{aligned}
     \]
-    Como $w \in \cC(W)$, então $w^\varepsilon \to w$ uniformemente em $V$. 
-    Portanto $D^\alpha u^\varepsilon \to D^\alpha u$ em $\cL^p(V)$.
-    Dessa forma
+    Como $w \in \cC(W)$, então $w^\varepsilon \to w$ uniformemente em $V$ quando $\varepsilon \to 0$. 
+    Portanto, $D^\alpha u^\varepsilon \to D^\alpha u$ em $\cL^p(V)$.
+    Dessa forma,
     \[
         \Vert u^\varepsilon - u \Vert^p_{\cW^{k,p}(V)} = \sum_{|\alpha| \leqslant k} \Vert D^\alpha u^\varepsilon - D^\alpha u \Vert^p_{\cL^p(V)} \to 0 
     \]
-    quando $\varepsilon \to 0$. Portanto
+    quando $\varepsilon \to 0$. Portanto,
     \[
-        u^\varepsilon \to u \text{ em } \cW^{k,p}_\loc(\Omega)
+        u^\varepsilon \to u \text{ em } \cW^{k,p}_\loc(\Omega),
     \]
     como queriamos mostrar
 \end{prf}
@@ -3700,7 +3664,7 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \]
     Portanto
     \[
-        u'= \sgn(x)
+        u'= \sgn
     \]
     no sentido fraco, onde
     \[
@@ -3715,41 +3679,41 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \]
     Além disso
     \[
-        \int_\Omega |\sgn(x)|^p \,dx = \int_{\text{-}1}^1 1^p \,dx =  \mu((-1,1)) = 2 < \infty
+        \int_\Omega |\sgn(x)|^p \,dx = \int_{\text{-}1}^1 1^p \,dx =  \mu((-1,1)) = 2 < \infty,
     \]
-    Assim $u'\in \cL^p(\Omega)$ e portanto $u \in \cW^{1,p}(\Omega)$ para para $1 \leqslant p < \infty$.
+    onde $\mu$ é a medida de Lebesgue. Assim, $u'\in \cL^p(\Omega)$ e, portanto, $u \in \cW^{1,p}(\Omega)$ para para $1 \leqslant p < \infty$.
     Vamos utiizar a convolução para encontrar uma aproximação suave de $u$. 
     Seja $\eta : \bR \to \bR$ dada por
     \[
         \eta(x) = \left\{ 
             \begin{array}{lr}
-                c \exp\left(\frac{1}{x^2 - 1} \right) & \text{se }\; |x| \leqslant 1\\
-                0 & \text{se }\; |x| > 1
+                c \exp\left(\frac{1}{x^2 - 1} \right) & \text{se }\; |x| \leqslant 1;\\
+                0 & \text{se }\; |x| > 1,
             \end{array}
         \right.
     \]
     onde $c$ é determinado de forma que
     \[
-        \int_{\bR} \eta = 1
+        \int_{\bR} \eta \,dx = 1,
     \]
-    isto é
+    isto é,
     \[
         c = \left( \int_\bR \exp \left(\frac{1}{x^2 - 1} \right) \, dx\right)^{-1}.
     \]
     Infelizmente, a função $\eta$ não tem primitiva que pode ser expressa por meio de funções elementares, então é necessário utilizar um método numérico, ou expansão em Taylor.
-    Daí definimos a função molificadora $\eta_\varepsilon : \bR \to \bR$ por
+    Logo, definimos a função molificadora $\eta_\varepsilon : \bR \to \bR$ por
     \[
         \eta_\varepsilon(x) = \frac{1}{\varepsilon} \eta\left( \frac{x}{\varepsilon} \right).
     \]
-    Note que
+    para todo $x \in \bR^n$. Note que
     \[
         \int_\bR \eta_\varepsilon \, dx = 1 \;\text{ e }\; \supp \eta = [-\varepsilon,\varepsilon].
     \]
-    Portanto, podemos utilizar essa função para aproximar $u$. Com efeito
+    Portanto, podemos utilizar essa função para aproximar $u$. Com efeito,
     \[
-        u^\varepsilon(x) = \int_{[-\varepsilon,\varepsilon]} \eta_\varepsilon(x) u(x-y) \,dy
+        u^\varepsilon(x) = \int_{[-\varepsilon,\varepsilon]} \eta_\varepsilon(x) u(x-y) \,dy.
     \]
-    A Figura \ref{fig:convolucao} foi feita utilizando um método numérico para resolver essa integral para diferentes valores de $\varepsilon$ 
+    A Figura \ref{fig:convolucao} foi feita utilizando um método numérico para resolver essa integral para diferentes valores de $\varepsilon$.
 
     \begin{figure}
         \centering
@@ -3789,71 +3753,121 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
         u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}
     \]
     não possui derivada no sentido usual pelo fato de $|\,\cdot\,|$ não ser diferenciável.
-    Por outro lado, $u$ possui derivadas parciais fracas em $\cL^p(\Omega)$ quando $0 < p < 2$ dada por
+    Por outro lado, $u$ possui derivadas parciais fracas em $\cL^p(\Omega)$, quando $0 < p < 2$, dada por
     \[
-        D^{e_i}u(x_1,x_2) = \frac{1}{2}\sgn(x_i) |x_i|^{-\frac{1}{2}}
+        D^{e_i}u(x_1,x_2) = \frac{1}{2}\sgn(x_i) |x_i|^{-\frac{1}{2}}.
     \]
-    Com efeito, vamos calcular a derivada parcial fraca em relação a $i$-ésima coordenada. Utilizando integração por partes obtemos
-    \[
-        \int_\Omega u D^{e_i} \phi = \int_{\partial\Omega} u \phi \nu^i \,ds - \int_\Omega \phi D^{e_i}u \,dx
-    \]
-    onde $\phi \in \cC^\infty_c(\Omega)$.
-    Para calcular $D^{e_i} u$ precisamos dividir o domínio $\Omega$ em $\Omega_1$, $\Omega_2$, $\Omega_3$ e $\Omega_4$, onde $\Omega_i$ é a restrição ao $i$-ésimo quadrante.
+    Com efeito, vamos calcular a derivada parcial fraca em relação a $i$-ésima coordenada. Utilizando integração por partes, obtemos
+    \begin{equation} \label{eq:derivada-fraca-exemplo-legal}
+        \int_\Omega u D^{e_i} \phi \,dx = \int_{\partial\Omega} u \phi \nu^i \,ds - \int_\Omega \phi D^{e_i}u \,dx,
+    \end{equation}
+    onde $\phi \in \cC^\infty_c(\Omega)$ e $\nu = (\nu_1, \nu_2)$ é o vetor normal unitário que aponta para dentro em $\partial \Omega$.
+    Para calcular $D^{e_i} u$ precisamos dividir o domínio $\Omega$ em $\Omega_1$, $\Omega_2$, $\Omega_3$ e $\Omega_4$, onde $\Omega_i$ é a restrição ao $i$-ésimo quadrante (ver Figura \ref{fig:dominio}).
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \filldraw[ForestGreen!30] (2,2) rectangle (0,0);
+            \filldraw[ForestGreen!30] (-2,-2) rectangle (0,0);
+            \filldraw[ForestGreen!40] (-2,2) rectangle (0,0);
+            \filldraw[ForestGreen!40] (2,-2) rectangle (0,0);
+            
+            \draw[thick] (2,2) rectangle (-2,-2);
+            \draw[very thick, -stealth] (-3,0) to (3,0) node [right] {$x_1$};
+            \draw[very thick, -stealth] (0,-3) to (0,3) node [above] {$x_2$};
+        
+            \node[align=center] at (1,1) {
+                $\Omega_1$\\
+                $x_1 > 0$\\
+                $x_2 > 0$
+            };
+        
+            \node[align=center] at (-1,1) {
+                $\Omega_2$\\
+                $x_1 < 0$\\
+                $x_2 > 0$
+            };
+        
+            \node[align=center] at (1,-1) {
+                $\Omega_4$\\
+                $x_1 > 0$\\
+                $x_2 < 0$
+            };
+        
+            \node[align=center] at (-1,-1) {
+                $\Omega_3$\\
+                $x_1 < 0$\\
+                $x_2 < 0$
+            };
+        
+            \filldraw (0,2) circle (0.05);
+            \filldraw (0,-2) circle (0.05);
+            \filldraw (2,0) circle (0.05);
+            \filldraw (-2,0) circle (0.05);
+        
+            \node[below right] at (2,0) {$1$};
+            \node[above right] at (0,2) {$1$};
+            \node[above left] at (-2,0) {$-1$};
+            \node[below left] at (0,-2) {$-1$};
+        \end{tikzpicture}
+        \caption{Domínio da função $u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}$\\
+        Fonte: Autoral}
+        \label{fig:dominio}
+    \end{figure}
     Note que em $\Omega_1 = (0,1) \times (0,1)$, $u(x_1,x_2) = x_1^{\frac{1}{2}} + x_2^{\frac{1}{2}}$. Logo, nesse conjunto $D^{e_i} u$ existe no sentido usual e é dada por
     \[
         D^{e_i} u = \frac{1}{2} x_i^{-\frac{1}{2}}.
     \]
-    De forma análoga
+    De forma análoga, deduzimos que
     \[
         \begin{array}{ll}
-            D^{e_i} u(x_1,x_2) = \frac{1}{2} (-x_i)^{-\frac{1}{2}} &\text{ em } \Omega_2 \text{ e } \Omega_3 \\
+            D^{e_i} u(x_1,x_2) = \frac{1}{2} (-x_i)^{-\frac{1}{2}} &\text{ em } \Omega_2 \text{ e } \Omega_3, \\
             D^{e_i} u(x_1,x_2) = \frac{1}{2} x_i^{-\frac{1}{2}} &\text{ em } \Omega_4.
         \end{array}
     \]
-    Dito isso
+    Dito isso, concluimos que
     \[
         \int_\Omega \phi D^{e_i}u \,dx = \int_{\Omega_1}  \frac{1}{2} x_i^{-\frac{1}{2}}\phi \,dx + \int_{\Omega_2} \frac{1}{2} (-x_i)^{-\frac{1}{2}} \phi \,dx + \int_{\Omega_3} \frac{1}{2} (-x_i)^{-\frac{1}{2}} \phi \,dx + \int_{\Omega_4} \frac{1}{2} x_i^{-\frac{1}{2}} \phi \,dx
     \]
     que podemos escrever como
     \[
-        \int_\Omega \phi D^{e_i} u \,dx = \int_{\Omega_1 \cup \Omega_4}  \frac{1}{2} x_i^{-\frac{1}{2}}\phi \,dx + \int_{\Omega_2 \cup \Omega_3} \frac{1}{2} (-x_i)^{-\frac{1}{2}} \phi \,dx = \int_\Omega \sgn(x_i) |x_i|^{-\frac{1}{2}} \phi \,dx
+        \int_\Omega \phi D^{e_i} u \,dx = \int_{\Omega_1 \cup \Omega_4}  \frac{1}{2} x_i^{-\frac{1}{2}}\phi \,dx + \int_{\Omega_2 \cup \Omega_3} \frac{1}{2} (-x_i)^{-\frac{1}{2}} \phi \,dx = \frac{1}{2}\int_\Omega \sgn(x_i) |x_i|^{-\frac{1}{2}} \phi \,dx
     \]
     Por fim, como $\phi$ tem suporte compacto em $\Omega$, $\phi$ se anula em $\partial\Omega$.
     Dessa forma
     \[
         \int_{\partial\Omega} u \phi \nu^i \,ds = 0.
     \]
-    Portanto
+    Portanto, por (\ref{eq:derivada-fraca-exemplo-legal}) chegamos a
     \[
-        \int_\Omega  u D^{e_i} \phi \,dx = - \int_\Omega \sgn(x_i) |x_i|^{-\frac{1}{2}} \phi \,dx.
+        \int_\Omega  u D^{e_i} \phi \,dx = - \int_\Omega \frac{1}{2}\sgn(x_i) |x_i|^{-\frac{1}{2}} \phi \,dx.
     \]
-    Isto é
+    Isto é,
     \[
-        D^{e_i} u(x_1,x_2) = \sgn(x_i) |x_i|^{-\frac{1}{2}} \,dx
+        D^{e_i} u(x_1,x_2) = \frac{1}{2}\sgn(x_i) |x_i|^{-\frac{1}{2}}
     \]
     como queriamos mostrar.
-    Além disso
+    Além disso,
     \[
         \int_\Omega |D^{e_i} (x_1,x_2)|^p \, dx = \int_{\text{-}1}^1 \int_{\text{-}1}^1 \left| \frac{1}{2} \sgn(x_i) |x_i|^{-\frac{1}{2}} \right|^p \, dx_i dx_j = \frac{1}{2^p}\int_{\text{-}1}^1 \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i dx_j.
     \]
-    Utilizando o Teorema de Fubini
+    Utilizando o Teorema de Fubini, encontramos
     {\small
     \[
         \frac{1}{2^p}\int_{\text{-}1}^1\int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i dx_j = \frac{1}{2^p}\int_{\text{-}1}^1 dx_j \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i.
     \]}\!
-    Dito isso, precisamos ver para quais valores de $p$ essa integral é finita, sendo assim
+    Dito isso, precisamos ver para quais valores de $p$ essa integral é finita. Sendo assim
     \[
-        \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-2}}\int_0^1 x_i^{\frac{p}{2}+1} \,dx = \frac{1}{2^{p-2}} \left[ -\frac{1^{-\frac{p}{2}+1} - 0^{-\frac{p}{2}+1}}{\tfrac{p}{2} - 1} \right]
+        \frac{1}{2^{p-1}} \int_{\text{-}1}^1 |\sgn(x_i)|^p |x_i|^{-\frac{p}{2}} \,dx_i = \frac{1}{2^{p-2}}\int_0^1 x_i^{-\frac{p}{2}} \,dx = \frac{1}{2^{p-2}} \left[ -\frac{1^{-\frac{p}{2}+1} - 0^{-\frac{p}{2}+1}}{\tfrac{p}{2} - 1} \right]
     \]
-    $0^{-\frac{p}{2} + 1} < \infty$ quando $p < 2$. Portanto $u \in \cW^{1,p}(\Omega)$ desde que $0 < p < 2$.
+    $0^{-\frac{p}{2} + 1} < \infty$ quando $p < 2$. Portanto, $u \in \cW^{1,p}(\Omega)$ desde que $0 < p < 2$.
 
     Agora defina $\eta: \bR^2 \to \bR$ por
     \[
         \eta(x) = 
         \left\{ 
             \begin{array}{lr}
-                c \exp\left(\frac{1}{|x|^2 - 1} \right) & \text{se } |x| < 1\\
-                0 & \text{se } |x| \geqslant 1
+                c \exp\left(\frac{1}{|x|^2 - 1} \right) & \text{se } |x| < 1;\\
+                0 & \text{se } |x| \geqslant 1,
             \end{array}
         \right.
     \]
@@ -3862,8 +3876,8 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
         u^{\varepsilon}(x_1,x_2) = \int_\Omega \eta(x_1,x_2) u(x_1 - y_1, x_2 - y_2) \,dy.
     \]
 
-    Utilizando um metodo numérico para integrais duplas, podemos encontrar uma solução aproximada para $u^\varepsilon$.
-    A figura \ref{fig:aproximacao-suave-R2} mostra o gráfico de $u$, onde é possível ver os pontos onde a função não é diferenciável, e a sua aproximação suave $u^\varepsilon$.
+    Utilizando um método numérico para integrais duplas, podemos encontrar uma solução aproximada para $u^\varepsilon$.
+    A Figura \ref{fig:aproximacao-suave-R2} mostra o gráfico de $u$, onde é possível ver os pontos onde a função não é diferenciável, e a sua aproximação suave $u^\varepsilon$.
 
     \begin{figure}
         \centering
@@ -3885,8 +3899,8 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
 \end{ex}
 
 \begin{tbox}[Meyers-Serrin]
-    Sejam $\Omega$ um aberto limitado e $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
-    Então existem funções $u_n \in \cC^{\infty}(\Omega) \cap \cW^{k,p}(\Omega)$ tais que
+    Sejam $\Omega$ um aberto limitado e $u \in \cW^{k,p}(\Omega)$, com $1 \leqslant p < \infty$.
+    Então, existe uma sequência $(u_n) \subseteq \cC^{\infty}(\Omega) \cap \cW^{k,p}(\Omega)$ tal que
     \[
         u_n \to u \;\text{ em } \cW^{k,p}(\Omega).
     \] 
@@ -3894,21 +3908,22 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
 \begin{prf}
     Primeiramente, temos que
     \[
-        \Omega = \bigcup_{i=1}^\infty \Omega_i   
+        \Omega = \bigcup_{i=1}^\infty \Omega_i,
     \]
     onde $\Omega_i = \{x \in \Omega \,; d(x, \partial\Omega) > \tfrac{1}{i}\}$. Defina $\Omega'_i = \Omega_{i+3} \setminus \overline{\Omega_{i+1}}$.
     Além disso, escolha qualquer aberto $\Omega'_0 \Subset \Omega$ de forma que
     \[
         \Omega = \bigcup_{i=0}^\infty \Omega'_i
     \]
-    e seja $\{\phi_i\}_{i=0}^\infty$ uma partição da unidade suave subordinada aos abertos $\{\Omega'_i\}_{i=0}^\infty$, isto é
+    e seja $\{\phi_i\}_{i=0}^\infty$ uma partição da unidade suave subordinada aos abertos $\{\Omega'_i\}_{i=0}^\infty$, isto é,
     \[
        0 \leqslant \phi_i \leqslant 1 \text{ com } \phi_i \in \cC^\infty_c(\Omega'_i) \;\text{ e }\; \sum_{i=0}^\infty \phi_i = 1 \text{ em } \Omega.
     \]
-    Agora escolha uma função $u \in \cW^{k,p}(\Omega)$, vimos que
+    Como, por hipótese, $u \in \cW^{k,p}(\Omega)$, temos pelo Teorema \ref{thm:propriedades-derivada-fraca}
     \[
-        \phi_i u \in \cW^{k,p}(\Omega) \;\text{ e }\; \supp \phi_i u \subseteq \Omega'_i.
+        \phi_i u \in \cW^{k,p}(\Omega).
     \]
+    Além disso, $\supp(\phi_i u) \subseteq \Omega'_i$.
     Fixando $\delta > 0$, escolha um $\varepsilon_i > 0$ de forma que $u^i := \eta_{\varepsilon_i} * \phi_i u \in \cC^{\infty}(\Omega)$ satisfaça
     \[
         \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \frac{\delta}{2^{i+1}} \;\text{ e }\; \supp u^i \subseteq \Omega''_i
@@ -3916,60 +3931,60 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     com $\Omega''_i = \Omega_{i+4} \setminus \overline{\Omega_{i}} \supseteq \Omega'_i$.
 
     Seja $v = \sum_{i=1}^\infty u^i \in \cC^{\infty}(\Omega) \cap \cW^{k,p}(\Omega)$.
-    Como $u = u \sum_{i=1}^\infty \phi_i = \sum_{i=1}^n \phi_i u$ para cada $V \Subset \Omega$ temos
+    Como $u = u \sum_{i=1}^\infty \phi_i = \sum_{i=1}^n \phi_i u$, então, para cada $V \Subset \Omega$, inferimos que
     \[
-        \Vert v - u \Vert_{\cW^{k,p}(V)} \leqslant \sum_{i=1}^\infty \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \sum_{i=1}^\infty \frac{\delta}{2^{i+1}} = \delta.
+        \Vert v - u \Vert_{\cW^{k,p}(V)} \leqslant \sum_{i=1}^\infty \Vert u^i - \phi_i u \Vert_{\cW^{k,p}(\Omega)} \leqslant \sum_{i=1}^\infty \frac{\delta}{2^{i+1}} = \frac{\delta}{2}.
     \]
-    Passando o supremo sobre os conjuntos $V \Subset \Omega$ obtemos
+    Passando ao supremo sobre os conjuntos $V \Subset \Omega$ obtemos
     \[
-        \Vert v - u \Vert_{\cW^{k,p}(\Omega)} < \delta.
+        \Vert v - u \Vert_{\cW^{k,p}(\Omega)} < \frac{\delta}{2} < \delta.
     \]
     Isto mostra que $u$ pertence ao fecho de $\cC^\infty(\Omega) \cap \cW^{k,p}(\Omega)$ em $\cW^{k,p}(\Omega)$. Logo é equivalente dizer que existe uma sequência $(u_n) \subseteq \cC^\infty(\Omega) \cap \cW^{k,p}(\Omega)$ tal que $u_n \to u$ em $\cW^{k,p}(\Omega)$
 \end{prf}
 
 \begin{dbox} \label{def:fronteira-ck}
-    Seja $\Omega \subseteq \bR^n$ um aberto limitado. 
+    Sejam $\Omega \subseteq \bR^n$ um aberto limitado e $k \in \bN$. 
     Dizemos que sua fronteira $\partial \Omega$ é de classe $\cC^k$ se para cada ponto $\tilde x \in \partial \Omega$ existe um raio $r > 0$ e uma função de classe $\cC^k$ $\gamma : \bR^{n-1} \to \bR$ tal que, fazendo uma mudança de coordenadas se necessário, obtemos
     \[
-        \Omega \cap B[\tilde x,r] = \{x \in B[\tilde x,r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}
+        \Omega \cap B[\tilde x,r] = \{x \in B[\tilde x,r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}.
     \]
     De forma análoga, $\partial\Omega$ é de classe $\cC^\infty$ se é de classe $\cC^k$ para todo $k \in \bN$.
 \end{dbox}
 
-\begin{tbox}
-    Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p < \infty$.
-    Então existem funções $u_n \in \cC^\infty(\overline\Omega)$ tais que
+\begin{tbox} \label{thm:aprox3}
+    Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$, com $1 \leqslant p < \infty$.
+    Então, existe uma sequência $(u_n) \subseteq \cC^\infty(\overline\Omega)$ tal que
     \[
         u_n \to u \;\text{ em } \cW^{k,p}(\Omega).
     \]
 \end{tbox}
 \begin{prf}
-    Seja $\tilde x \in \partial \Omega$, como $\Omega$ tem fronteira de classe $\cC^1$, existe um raio $r > 0$ e uma função $\gamma : \bR^{n-1} \to \bR$ tal que
-    \[
+    Seja $\tilde x \in \partial \Omega$, como $\Omega$ tem fronteira de classe $\cC^1$, existe um raio $r > 0$ e uma função $\gamma : \bR^{n-1} \to \bR$ de classe $\cC^1$ tal que
+    \begin{equation} \label{eq:E}
         \Omega \cap B[\tilde x, r] = \{x \in B[\tilde x, r] \,; x_n > \gamma(x_1,\dots,x_{n-1})\}.
-    \]
-    Definimos $V = \Omega \cap B[\tilde x, \sfrac{r}{2}]$.
+    \end{equation}
+    Definimos $V = \Omega \cap B[\tilde x, \sfrac{r}{2}]$ (ver Figura \ref{fig:conjunto-demonstracao-aprox-3}).
     Além disso, definimos para cada $\varepsilon > 0$, $\lambda > 0$ e $x \in V$
-    \[
+    \begin{equation} \label{eq:D}
         x^\varepsilon = x + \lambda \varepsilon e_n = (x_1,\dots,x_{n-1}, x_n + \lambda\varepsilon).
-    \]
+    \end{equation}
     Observe que, para um $\lambda > 0$ suficientemente grande e $\varepsilon > 0$ suficientemente pequeno, a bola $B[x^\varepsilon\!,\varepsilon]$ está contída em $\Omega \cap B[\tilde x,r]$ para todo $x \in V$.
     De fato, por definição, dado $x \in V$ temos que $x \in \Omega$ e $\Vert x - \tilde x \Vert \leqslant \sfrac{r}{2}$.
-    Note que $x^\varepsilon \in \Omega \cap B[\tilde x, r]$ para todo $\varepsilon > 0$ suficientemente pequeno e $\lambda > 0$ suficientemente grande.
+    Note que $x^\varepsilon \in \Omega \cap B(\tilde x, r)$ para todo $\varepsilon > 0$ suficientemente pequeno e $\lambda > 0$ suficientemente grande.
     Com efeito, como $x \in V$, em particular $x \in \Omega \cap B[\tilde x, r]$.
     Como $\Omega$ tem fronteira de classe $\cC^1$, temos que $x_n > \gamma(x_1,\dots,x_{n-1})$, daí
     \[
-        x^\varepsilon_n = x_n + \lambda \varepsilon > x_n >  \gamma(x_{1},\dots,x_{n-1}).
+        x^\varepsilon_n = x_n + \lambda \varepsilon > x_n >  \gamma(x_{1},\dots,x_{n-1}),
     \]
-    Além disso
+    e por (\ref{eq:D}) deduzimos que
     \[
         \Vert x^\varepsilon - \tilde x \Vert = \Vert x + \lambda \varepsilon e_n - \tilde x \Vert \leqslant \Vert x - \tilde x \Vert + \Vert \lambda \varepsilon e_n  \Vert \leqslant \frac{r}{2} + \lambda\varepsilon < r
     \]
     desde que $0 <\varepsilon < \sfrac{r}{2\lambda}$.
-    Logo $x^\varepsilon \in \Omega \cap B[\tilde x, r]$ para todo $\varepsilon > 0$ suficientemente pequeno.
-    De forma análoga, verificamos que
-    $B[x^\varepsilon\!, \varepsilon] \subseteq \Omega \cap B[\tilde x,r]$.
-    \begin{figure}
+    Logo, $x^\varepsilon \in \Omega \cap B(\tilde x, r)$ para todo $\varepsilon > 0$ suficientemente pequeno.
+    Por isso,
+    $B[x^\varepsilon\!, \varepsilon] \subseteq \Omega \cap B[\tilde x,r]$, diminuindo $\varepsilon > 0$ se necessário.
+    \begin{figure} \label{fig:conjunto-demonstracao-aprox-3}
         \centering
         \input{mollifiers/bola.tex}
         \caption{Fonte: Autoral. Baseada em \cite{evans-pde} p.p. 253}
@@ -3984,23 +3999,24 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \[
         \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \leqslant \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} + \Vert D^\alpha u_\varepsilon - D^\alpha u \Vert_{\cL^p(V)}.
     \]
-    O segundo termo do lado direito da equação a cima vaí a $0$ quando $\varepsilon \to 0$ pois a translação é contínua na norma do espaço $\cL^p$ e
+   A segunda norma do lado direito da desigualdade acima vaí a $0$ quando $\varepsilon \to 0$, pois a translação é contínua na norma do espaço $\cL^p$ e
     \[
-        \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} = \Vert D^\alpha (\eta_\varepsilon * u_\varepsilon) - u_\varepsilon \Vert_{\cL^p(V)} \to 0
+        \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} = \Vert D^\alpha (\eta_\varepsilon * u_\varepsilon) - u_\varepsilon \Vert_{\cL^p(V)} \to 0,
     \]
-    quando $\varepsilon \to 0$. Ou seja
+    quando $\varepsilon \to 0$ (ver Teorema \ref{thm:aprox1}). Ou seja, é verdade que
     \[
         \begin{aligned}
             \Vert v^\varepsilon - u \Vert_{\cW^{k,p}(V)} &= \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \\
             &\leqslant \sum_{|\alpha| \leqslant k} \Vert D^\alpha v^\varepsilon - D^\alpha u_\varepsilon \Vert_{\cL^p(V)} + \sum_{|\alpha| \leqslant k} \Vert D^\alpha u_\varepsilon - D^\alpha u \Vert_{\cL^p(V)} \to 0.
         \end{aligned}
     \]
+    quando $\varepsilon \to 0$.
 
-    Note que todos os cálculos form feitos em uma vizinhança de um ponto $\tilde x \in \partial\Omega$. Dito isso, como $\partial \Omega$ é compacto, pelo Teorema de Heine-Borel, podemos encontrar uma quantidade finita de pontos $\tilde x_i \in \partial \Omega$, raios $r_i > 0$, conjuntos $V_i = \Omega \cap B[\tilde x_i,\sfrac{r_i\,}{2}]$ e funções $v_i^\varepsilon$ com $i = 1,\dots,N$ tal que $\Vert v_i - u \Vert_{\cW^{k,p}(V_i)} \to 0$ e 
+    Note que todos os cálculos foram feitos em uma vizinhança de um ponto $\tilde x \in \partial\Omega$. Dito isso, como $\partial \Omega$ é compacto (pois $\Omega$ é limitado), pelo Teorema de Heine-Borel\footnote{Toda cobertura aberta de um conjunto compacto possui subcobertura finita.}, podemos encontrar uma quantidade finita de pontos $\tilde x_i \in \partial \Omega$, raios $r_i > 0$, conjuntos $V_i = \Omega \cap B[\tilde x_i,\sfrac{r_i\,}{2}]$ e funções $v_i^\varepsilon$, com $i = 1,\dots,N \in \bN$ tal que $\Vert v_i^\varepsilon - u \Vert_{\cW^{k,p}(V_i)} \to 0$, quando $\varepsilon \to 0$, e 
     \[
         \partial\Omega \subseteq \bigcup_{i=1}^N B(\tilde x_i, \sfrac{r_i}{2}).
     \]
-    Além disso, considere um aberto $V_0$ da forma $\Omega \cap B(\tilde x_0, \sfrac{r_0\,}{2})$ e uma função $v^\varepsilon_0$ com $\Vert v^\varepsilon_0 - u \Vert_{\cW^{k,p}(V_0)} \to 0$ e
+    Além disso, considere um aberto limitado $V_0$ da forma $\Omega \cap B(\tilde x_0, \sfrac{r_0\,}{2})$ e uma função $v^\varepsilon_0$ com $\Vert v^\varepsilon_0 - u \Vert_{\cW^{k,p}(V_0)} \to 0$ e
     \[
         \Omega \subseteq \bigcup_{i=0}^N V_i
     \]
@@ -4009,7 +4025,7 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \[
         v^\varepsilon = \sum_{i=0}^N \phi_i v_i^\varepsilon \in \cC^{\infty}(\overline\Omega)
     \]
-    e novamente denotando $u$ por $\sum_{i=1}^N \phi_i u$. Dito isso, obtemos
+    e observando que $u = \sum_{i=1}^N \phi_i u$, obtemos
     \[
         \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(\Omega)} \leqslant \sum_{i=0}^N \Vert D^\alpha (\phi_i v_i^\varepsilon) - D^\alpha(\phi_i u) \Vert_{\cL^p(\Omega)}.
     \]
@@ -4017,49 +4033,49 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \[
         \begin{aligned}
             \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(\Omega)} &\leqslant \sum_{i=0}^N\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \left\Vert  D^{\sigma} \phi_i \left[ D^{\alpha - \sigma} \left( v_i^\varepsilon - u \right) \right] \right\Vert _{\cL^p(V_i)}\\ 
-            &\leqslant c\sum_{i=0}^N\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha-\sigma}(v^\varepsilon_i - u) \Vert_{\cL^p(V_i)}
+            &\leqslant c\sum_{i=0}^N\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha-\sigma}(v^\varepsilon_i - u) \Vert_{\cL^p(V_i)},
         \end{aligned}
     \]
-    onde utilizamos o fato de $\phi_i$ (e por consequência $D^\sigma \phi_i$) ter suporte compacto na ultima desigualdade. 
-    Ademais, como $|\alpha - \sigma| \leqslant k$ temos que
+    onde utilizamos o fato de $\phi_i$ (e por consequência $D^\sigma \phi_i$) ter suporte compacto e ser suave na ultima desigualdade. 
+    Ademais, como $|\alpha - \sigma| \leqslant k$, temos que
     \[
         \Vert D^\alpha v^\varepsilon - D^\alpha u \Vert_{\cL^p(\Omega)} \leqslant c \sum_{i=0}^N\sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert v_i^\varepsilon - u \Vert_{\cW^{k,p}(V_i)} \leqslant c\sum_{i=0}^N \Vert v_i^\varepsilon - u \Vert_{\cW^{k,p}(V_i)} \to 0 
     \]
-    Por fim, definindo $u_n := v^{\frac{1}{n}}$ temos que
+    Por fim, definindo $u_n := v^{\frac{1}{n}} \in \cC^{\infty}(\overline\Omega)$ chegamos a 
     \[
-        \Vert u_n - u \Vert_{\cW^{k,p}(\Omega)} \to 0
+        \Vert u_n - u \Vert_{\cW^{k,p}(\Omega)} \to 0,
     \]
-    como era desejado.
+    quando $n \to \infty$, como era desejado.
 \end{prf}
 
 \section{Extensões}
 
-Em alguns casos é mais viável trabalhar com funções definidas no espaço euclidiano inteiro ao invés de funções definida em um aberto especifico.
-Nessa seção veremos uma forma de extender funções em $\cW^{1,p}(\Omega)$ em funções $\cW^{1,p}(\bR^n)$ por meio de um operador linear.
+Em alguns casos é mais viável trabalhar com funções definidas no espaço Euclidiano inteiro ao invés de funções definida em um aberto especifico.
+Nessa seção, veremos uma forma de estender funções em $\cW^{1,p}(\Omega)$ para funções em $\cW^{1,p}(\bR^n)$ por meio de um operador linear.
 
 \begin{tbox} \label{thm:extensao}
-    Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e um $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$ com $1 \leqslant p < \infty$ tal que para cada $u \in \cW^{k,p}(\Omega)$
+        Sejam $\Omega$ um aberto limitado, com fronteira de classe $\cC^1$ e $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então existe um operador linear limitado $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR ^n)$, com $1 \leqslant p < \infty$, tal que para cada $u \in \cW^{k,p}(\Omega)$, tem-se que
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
-        \item $Eu = u$ qtp em $\Omega$
-        \item $\supp Eu \subseteq \Omega'$
-        \item $\Vert Eu \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$, onde a constante $c$ depende apenas de $p$, $\Omega$ e $\Omega'$
+        \item $Eu = u$ qtp em $\Omega$;
+        \item $\supp Eu \subseteq \Omega'$;
+        \item $\Vert Eu \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$, onde a constante $c$ depende apenas de $p$, $\Omega$ e $\Omega'$.
     \end{enumerate}
 \end{tbox}
 \begin{prf}
-    Seja $\tilde x \in \partial\Omega$ e suponha que $\partial\Omega$ esteja contido no plano $\{x_n = 0\}$ perto de $\tilde x$.
+    Seja $\tilde x \in \partial\Omega$ e considere inicialmente que $\partial\Omega$ esteja contido no plano $\{x_n = 0\}$ perto de $\tilde x$.
     Dessa forma, podemos supor que existe uma bola $B = B(\tilde x, r)$ tal que
-    \[
+    \begin{equation} \label{eq:reflexao}
         \begin{aligned}
-            B^+ &= B \cap \{x_n \geqslant 0\} \subseteq \overline\Omega\\
+            B^+ &= B \cap \{x_n \geqslant 0\} \subseteq \overline\Omega;\\
             B^- &= B \cap \{x_n \leqslant 0\} \subseteq \bR^n \smallsetminus \Omega.
         \end{aligned}
-    \]
-    Além disso, suponha inicialmente que $u \in \cC^\infty(\overline\Omega)$ e defina
+    \end{equation}
+    Além disso, assuma que $u \in \cC^\infty(\overline\Omega)$ e defina
     \[
         \bar u(x) =
         \left\{ 
             \begin{array}{ll}
-                u(x) & \text{se } x\in B^+\\
+                u(x), & \text{se } x\in B^+\\
                 -3u(x_1,\dots,x_{n-1}, -x_n) + 4u(x_1,\dots,x_{n-1},\frac{x_n}{2}) & \text{se } x \in B^-
             \end{array}
         \right.
@@ -4070,31 +4086,30 @@ Nessa seção veremos uma forma de extender funções em $\cW^{1,p}(\Omega)$ em 
     \[
         \dfrac{\partial u^-}{\partial x_n} = \dfrac{\partial u^+}{\partial x_n} \;\text{ em }\; \{x_n = 0\}.
     \]
-    De fato, pela regra da cadeia
+    De fato, pela regra da cadeia, podemos escrever
     \[
-        \dfrac{\partial u^-}{\partial x_n} = 3 u_{x_n}(x_1,\dots,x_{n-1}, -x_n)  - 2u_{x_n}(x_1,\dots,x_{n-1},\tfrac{x_n}{2})
+        \dfrac{\partial u^-}{\partial x_n} = 3 \frac{\partial u}{\partial x_n}(x_1,\dots,x_{n-1}, -x_n)  - 2\frac{\partial u}{\partial x_n}(x_1,\dots,x_{n-1},\tfrac{x_n}{2})
     \]
     quando $x_n = 0$, obtemos
     \[
-        \dfrac{\partial u^-}{\partial x_n} \Bigg|_{\{x_n = 0\}} = 3u_{x_n}(x_1,\dots,x_{n-1},0) - 2u_{x_n}(x_1,\dots,x_{n-1},0) = u_{x_n}(x_1,\dots,x_{n-1},0) = \dfrac{\partial u^+}{\partial x_n} \Bigg|_{\{x_n =0\}}
+        \dfrac{\partial u^-}{\partial x_n} \Bigg|_{\{x_n = 0\}} = 3\frac{\partial u}{\partial x_n}(x_1,\dots,x_{n-1},0) - 2\frac{\partial u}{\partial x_n}(x_1,\dots,x_{n-1},0) = \frac{\partial u}{\partial x_n}(x_1,\dots,x_{n-1},0) = \dfrac{\partial u^+}{\partial x_n} \Bigg|_{\{x_n =0\}}
     \]
-    Além disso
+    Também é verdade que
     \[
-        u^+ = u^- \;\text{ e }\; \dfrac{\partial u^-}{\partial x_i} = \dfrac{\partial u^+}{\partial x_i}
+        u^+ = u^- \,\text{ e }\, \dfrac{\partial u^-}{\partial x_i} = \dfrac{\partial u^+}{\partial x_i}  \;\text{ em }\; \{x_n = 0\},
     \]
-    quando $x_n = 0$.
-    Portanto $D^\alpha u^- = D^\alpha u^+$ em $\{x_n = 0\}$ com $|\alpha| \leqslant 1$. Sendo assim, $\bar u \in \cC^1 (B)$, pois fora de $\{x_n = 0\}$, as componentes de $\bar u$ já eram de classe $\cC^\infty$, então apenas restava verificar que em $B^+ \cap B^- = B \cap \{x_n = 0\}$ as componentes em $B^+$ e $B^-$ se igualavam, implicando a continuidade $\bar u$ e suas derivadas.
+    para todo $i = 1,2,\dots,n-1$ Portanto $D^\alpha u^- = D^\alpha u^+$ em $\{x_n = 0\}$ com $|\alpha| \leqslant 1$. Sendo assim, $\bar u \in \cC^1 (B)$, pois fora de $\{x_n = 0\}$, as componentes de $\bar u$ já eram de classe $\cC^\infty$, então apenas restava verificar que em $B^+ \cap B^- = B \cap \{x_n = 0\}$ as componentes em $B^+$ e $B^-$ se igualavam, implicando a continuidade $\bar u$ e suas derivadas.
 
     Agora, desejamos mostrar que 
     \begin{equation} \label{eq:desigualdade-B-Bmais}
-        \Vert \bar u \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u \Vert_{\cW^{1,p}(B^+)}
+        \Vert \bar u \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u \Vert_{\cW^{1,p}(B^+)},
     \end{equation}
     onde $c$ é uma constante\footnote{Durante essa e outras demonstrações, mesmo se o valor da constante $c$ mudar, ainda continuaremos denotando por $c$, então por exemplo $c + 2^p$, $c(1 + n)$, etc, ainda serão denotados por $c$.} positiva que não depende de $u$.
-    De fato
+    De fato, sabemos que
     \[
         \Vert \bar u \Vert_{\cW^{1,p}(B)}^p = \sum_{|\alpha| \leqslant 1} \Vert D^\alpha\bar u \Vert_{\cL^P(B)}^p = \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right].
     \]
-    Como $B = B^+ \cup B^-$, e denotando $(x_1,\dots,x_{n-1})$ por $x'$ podemos reescrever o ultimo somatório da seguinte forma
+    Como $B = B^+ \cup B^-$, e denotando $(x_1,\dots,x_{n-1})$ por $x'$ podemos reescrever o último somatório da seguinte forma
     % \small{
     % \[
     %     \begin{aligned}
@@ -4103,78 +4118,82 @@ Nessa seção veremos uma forma de extender funções em $\cW^{1,p}(\Omega)$ em 
     %     \end{aligned}
     % \]}
     \[
-        \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] = \sum_{|\alpha| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + \int_{B^-} |4D^\alpha u(x',-\tfrac{x_n}{2}) - 3D^\alpha u(x',-x_n) |^p \,dx \right]
+        \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] = \sum_{|\alpha| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + \int_{B^-} |4D^\alpha [u(x',-\tfrac{x_n}{2})] - 3D^\alpha [u(x',-x_n)] |^p \,dx \right]
     \]
-    que é menor ou igual a
     \[
-        \sum_{|\alpha| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + 3 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx + 4 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx   \right] 
+        \leqslant \sum_{|\alpha| \leqslant 1} \left[ \int_{B^+} |D^\alpha u(x)|^p \,dx + 3 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx + 4 \cdot 2^p\int_{B^-} |D^\alpha u(x',-x_n)|^p \,dx   \right] 
     \]
-    Porem, $-x_n, -\tfrac{x_n}{2} \geqslant 0$, então podemos considerar que as integrais em $B^-$ são integrais sobre $B^+$. Dito isso, ao menos de uma mudança de variáveis, obtemos
+    onde usamos o fato de que
     \[
-        \Vert \bar u \Vert_{\cW^{1,p}(B)}^p = \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] \leqslant c\sum_{|\alpha| \leqslant 1} \left[ \int_{B^+}|D^\alpha u|^p \,dx \right] = c \Vert u \Vert_{\cW^{1,p}(B^+)}^p
+        (a + b)^p \leqslant (2 \max\{a,b\})^p = 2^p \max\{a,b\}^p \leqslant 2^p (a^p + b^p)
     \]
-    Portanto
+    para todo $a,b \geqslant 0$. Porem, $-x_n, -\tfrac{x_n}{2} \geqslant 0$, então podemos considerar que as integrais em $B^-$ são integrais sobre $B^+$, através de uma mudança de variáveis, para encontrar
     \[
-        \Vert \bar u \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u \Vert_{\cW^{1,p}(B^+)}
+        \Vert \bar u \Vert_{\cW^{1,p}(B)}^p = \sum_{|\alpha| \leqslant 1} \left[\int_B |D^\alpha \bar u| ^p \,dx\right] \leqslant c\sum_{|\alpha| \leqslant 1} \left[ \int_{B^+}|D^\alpha u|^p \,dx \right] = c \Vert u \Vert_{\cW^{1,p}(B^+)}^p.
+    \]
+    Portanto,
+    \[
+        \Vert \bar u \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u \Vert_{\cW^{1,p}(B^+)}.
     \]
 
-    Por outro lado, se $\partial\Omega$ não está necessáriamente contido no plano $\{x_n = 0\}$ perto de $\tilde x$, temos que existe um homeomorfismo $\Phi$ com inversa $\Psi$ que planifica $\partial \Omega$ perto de $\tilde x$. Utilizando a função $\gamma$ da Definição \ref{def:fronteira-ck}, definimos o homemorfismo $\Phi$ por
-    \[
+    Por outro lado, se $\partial\Omega$ não está necessáriamente contido no plano $\{x_n = 0\}$ perto de $\tilde x$, temos que existe um homeomorfismo $\Phi$ com inversa $\Psi$ que planifica $\partial \Omega$ perto de $\tilde x$, basta usar a função $\gamma$ de classe $\cC^1$ da Definição \ref{def:fronteira-ck} e definir $\Phi$ por
+    \begin{equation} \label{eq:Phi}
         \Phi(x) = (x_1,x_2,...,x_{n-1}, x_n - \gamma(x_1,\dots,x_{n-1})).
-    \]
+    \end{equation}
     De forma análoga definimos $\Psi$ por
-    \[
+    \begin{equation} \label{eq:Psi}
         \Psi(y) = (y_1,y_2,\dots,y_{n-1},y_n + \gamma(y_1,\dots,y_{n-1})).
-    \]
+    \end{equation}
     \begin{figure}
         \centering
         \input{mollifiers/homeomorfismo.tex}
         \caption{Representação gráfica do homemorfismo $\Phi$\\Fonte: Autoral. Baseada em \cite{evans-pde} p.p. 256}
     \end{figure}
-    Dessa forma $\Psi^{-1} = \Phi$. Sendo assim, seja $y = \Phi(x)$ (ou seja $x = \Psi(y)$) e definimos $u'(y) = u(\Psi(y))$, daí como foi feito anteriormente, podemos escolher uma bola $B = B(\tilde y, r)$ e definimos $\bar u'$ de forma que $\bar u' \in \cC^1(B)$ e
-    \begin{equation}
+    Dete modo, é fácil ver que $\Psi^{-1} = \Phi$ e que $\Phi$ e $\Psi$ são de classe $\cC^1$ (por definição) . Sendo assim, seja $y = \Phi(x)$ (ou seja $x = \Psi(y)$) e definimos $u' \equiv u \circ \Psi$. Logo como foi feito anteriormente ($u'$ é de classe $\cC^1$), podemos escolher uma bola $B = B(\tilde y, r)$ e definimos $\bar u'$ de forma que $\bar u' \in \cC^1(B)$ e
+    \begin{equation} \label{eq:BBBB}
         \Vert \bar u' \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u' \Vert_{\cW^{1,p}(B^+)}.
     \end{equation}
     Seja $B' = \Psi(B)$, assim conseguimos obter uma extensão $\bar u$ de $u$ para $B'$ com
     \[
         \Vert \bar u \Vert_{\cW^{1,p}(B')} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
-    De fato, para $\bar u (w) = \bar u'(\Phi(w))$, obtemos, utilizando o Teorema de Mudança de Variáveis
+    De fato, para $\bar u \equiv \bar u' \circ \Phi$, obtemos, utilizando o Teorema de Mudança de Variáveis
     \[
         \Vert D^\alpha \bar u' \Vert_{\cL^p(B)}^p = \int_B |D^\alpha \bar u'(y)|^p \,dy = \int_B |D^\alpha \bar u (\Psi (y))|^p \,dy = \int_{B'} |D^\alpha \bar u (x)|^p \,dx = \Vert D^\alpha \bar u \Vert_{\cL^p(B')}^p.
     \]
-    Dessa forma, passando o somatório
+    Dessa forma, passando ao somatório, quando $|\alpha| \leqslant 1$, chegamos a
     \begin{equation} \label{eq:normaBigualnormaW}
         \Vert \bar u' \Vert_{\cW^{1,p}(B)} = \Vert  \bar u \Vert_{\cW^{1,p}(B')}.
     \end{equation}
-    Além disso
+    Além disso, é verdade
     \[
         \begin{aligned}
             \Vert D^\alpha u' \Vert_{\cL^p(B^+)}^p = \int_{B^+} |D^\alpha u'(y) |^p \,dy &= \int_{B^+} |D^\alpha u (\Psi(y))|^p \,dy\\ &= \int_{\Psi(B^+)} |D^\alpha u(x)|^p \,dx \leqslant \int_{\Omega} |D^\alpha u(x)|^p \,dx = \Vert D^\alpha u \Vert_{\cL^p(\Omega)}^p.
         \end{aligned}
     \]
-    Isto significa que
+    Consequentemente, podemos escrever
     \begin{equation} \label{eq:normadesigualdadeBmais}
         \Vert u' \Vert_{\cW^{1,p}(B^+)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)}
     \end{equation}
-    Portanto, por (\ref{eq:normaBigualnormaW}) e (\ref{eq:normadesigualdadeBmais}) obtemos
+    Portanto, por (\ref{eq:BBBB}), (\ref{eq:normaBigualnormaW}) e (\ref{eq:normadesigualdadeBmais}), obtemos
     \begin{equation} \label{eq:desigualdadeWO}
-        \Vert \bar u \Vert_{\cW^{1,p}(B')} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+        \Vert \bar u \Vert_{\cW^{1,p}(B')} = \Vert \bar u' \Vert_{\cW^{1,p}(B)} \leqslant c \Vert u' \Vert_{\cW^{1,p}(B^+)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)},
     \end{equation}
-    como queriamos mostrar.
+    como queríamos mostrar.
 
-    Como $\partial\Omega$ é compacto, e $\partial \Omega \subseteq \bigcup_{x \in \partial\Omega} B'_x$,
-    que é uma cobertura aberta, pois $B'_x = \Psi(B(\tilde y, r))$, e imagem de um conjunto aberto por um homeomorfismo também é aberto.Pelo Teorema de Heine-Borel, existe uma subcobertura finita de $\partial\Omega$,
-    sendo assim, existem uma quantidade finita de pontos $\tilde x_i \in \partial\Omega$, abertos $B'_i$ e extensões $\bar u_i$ de $u$ em $B'_i$ de forma que $\partial\Omega \subseteq \bigcup_{i=1}^N B'_i$
-    daí considere um aberto $B'_0 \Subset \Omega$ tal que
+    Como $\partial\Omega$ é compacto (pois $\Omega$ é limitado) e $\partial \Omega \subseteq \bigcup_{x \in \partial\Omega} B'_x$,
+    que é uma cobertura aberta, pois $B'_x = \Psi(B(\tilde y, r))$, e imagem de um conjunto aberto por um homeomorfismo também é aberto.Pelo Teorema de Heine-Borel, existe uma subcobertura finita de $\partial\Omega$.
+    Sendo assim, existem uma quantidade finita de pontos $\tilde x_i \in \partial\Omega$, abertos $B'_i$ e extensões $\bar u_i$ de $u$ em $B'_i$ de forma que $\partial\Omega \subseteq \bigcup_{i=1}^N B'_i$.
+    Por outro lado, considere um aberto $B'_0 \Subset \Omega$ tal que
     \[
         \Omega \subseteq \bigcup_{i=0}^N B'_i.
     \]
+
     Seja $\{\phi_i\}_{i=0}^N$ uma partição da unidade suave subordinada aos abertos $\{B'_i\}_{i=0}^N$ e defina
     \[
         \bar u = \sum_{i=0}^N \phi_i \bar u_i
     \]
-    onde $\bar u_i$ está associada a $B'_i$ e $\bar u_0 = u$. Daí obtemos a desigualdade
+    onde $\bar u_i$ está associada a $B'_i$ e $\bar u_0 = u$. Deste modo, obtemos a desigualdade
     \[
         \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
@@ -4184,68 +4203,66 @@ Nessa seção veremos uma forma de extender funções em $\cW^{1,p}(\Omega)$ em 
         % = \sum_{|\alpha| \leqslant 1} \left\Vert \sum_{i=0}^N D^\alpha(\phi_i \bar u_i) \right\Vert _{\cL^p(\bR^n)}^p 
         \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^N \Vert D^\alpha (\phi_i \bar u_i) \Vert_{\cL^p(\bR)}^p
     \]
-    onde $c$ é uma constante positiva que depende de $p$. Daí utuliziando a regra de Leibniz para derivada do produto em $\phi_i \bar u_i$ obtemos
+    onde $c$ é uma constante positiva que depende de $p$. Logo, utilizando a Regra de Leibniz (ver Teorema \ref{thm:propriedades-derivada-fraca}), inferimos
     \[
         c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^N \Vert D^\alpha (\phi_i \bar u_i) \Vert_{\cL^p(\bR)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^\sigma \phi_i D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(\bR^n)}^p.
     \]
-    Como $\supp D^\sigma \phi_i \subseteq \supp \phi_i \subseteq B'_i$, então o suporte de $D^\sigma \phi_i$ também é compacto (pois $B'_i$ é limitado), sendo assim $\max |D^\sigma \phi_i|$ existe.
-    Portanto
+    Como $\supp D^\sigma \phi_i \subseteq \supp \phi_i \subseteq B'_i$, então o suporte de $D^\sigma \phi_i$ também é compacto (pois $B'_i$ é limitado), sendo assim $\max |D^\sigma \phi_i|$ existe em $B'_i$.
+    Portanto, vale a desigualdade
     \[
         c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^\sigma \phi_i D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(\bR^n)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(B'_i)}^p
     \]
-    onde agora a constante $c$ também depende de $B'_i$. Além disso
+    onde agora a constante $c$ também depende de $B'_i$. Além disso,
     \[
         c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert D^{\alpha - \sigma} \bar u_i \Vert_{\cL^p(B'_i)}^p \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(B'_i)}^p.
     \]
-    Por fim, utilizando (\ref{eq:desigualdadeWO})
+    Por fim, utilizando (\ref{eq:desigualdadeWO}), chegamos a
     \[
-         \Vert \bar u \Vert^p_{\cW^{1,p}(\bR^n)} \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(B'_i)}^p \leqslant c\Vert \bar u_i \Vert_{\cW^{1,p}(\Omega)}
+         \Vert \bar u \Vert^p_{\cW^{1,p}(\bR^n)} \leqslant c\sum_{|\alpha| \leqslant 1} \sum_{i=0}^{N} \sum_{\sigma \leqslant \alpha} \binom{\alpha}{\sigma} \Vert \bar u_i \Vert_{\cW^{1,p}(B'_i)}^p \leqslant c\Vert \bar u_i \Vert_{\cW^{1,p}(\Omega)},
     \]
     onde $c$ depende de $B'_i$, $p$ e $N$.
-    Portanto
-    \[
-        \Vert \bar u \Vert_{\cW^{1,p}(W)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
-    \]
+    Portanto, deduzimos que
+    \begin{equation} \label{eq:Mm}
+        \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+    \end{equation}
 
-    Defina $\Omega'$ de forma que $\bigcup_{i=0}^N B'_i \subseteq \Omega'$.
-    Dessa forma $\supp \bar u \in \Omega'$.
-    
-    Defina $\bar E: \cC^\infty(\overline\Omega) \to C^\infty(\bR^n)$ dada por $\bar E u = \bar u$.
+    Defina $\Omega'$ aberto de forma que $\bigcup_{i=0}^N B'_i \subseteq \Omega'$.
+    Dessa forma, $\supp \bar u \subseteq \Omega'$.
+    Defina também $\bar E: \cC^\infty(\overline\Omega) \to C^\infty(\bR^n)$ dada por $\bar E u = \bar u$.
     Temos que $\bar E$ é linear,
     \[
         \Vert \bar E u \Vert_{\cW^{1,p}(\bR^n)} = \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
-    e $\supp \bar E u \subseteq \Omega'$
-    Sendo assim definimos $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR^n)$ com $1 \leqslant p < \infty$ por
+    e $\supp \bar E u \subseteq \Omega'.$
+    Sendo assim, definimos $E : \cW^{1,p}(\Omega) \to \cW^{1,p}(\bR^n)$ por
     \[
-        E u = 
-        \left\{ 
-            \begin{array}{ll}
-                \bar u & \text{se } u \in \cC^\infty(\overline \Omega)\\
-                \lim \overline {u_k} &\text{se } u \not\in \cC^\infty(\overline\Omega)
-            \end{array}
-        \right.
+        Eu = \lim \overline{u_k}
     \]
-    onde $(u_k)$ é uma sequência de funções em $\cC^\infty(\overline\Omega)$ que converge para $u$, sabemos que essa sequência existe pois mostramos que $\cC^\infty(\overline\Omega)$ é denso em $\cW^{1,p}(\Omega)$.
-    Além disso
+    onde $(u_k)$ é uma sequência de funções em $\cC^\infty(\overline\Omega)$ que converge para $u$ (sabemos que essa sequência existe pois mostramos no Teorema \ref{thm:aprox3} que $\cC^\infty(\overline\Omega)$ é denso em $\cW^{1,p}(\Omega)$).
+    Podemos afirmar que o limite converge em $\cW^{1,p}(\bR^n)$, já que
+    \[
+        \Vert \overline{u_k} - \overline{u_\ell} \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u_k - u_\ell \Vert_{\cW^{1,p}(\Omega)} \to 0.
+    \]
+    Logo $(\overline{u_n})$ é de Cauchy em $\cW^{1,p}(\bR^n)$.
+    Como $\cW^{1,p}(\bR^n)$ é completo (ver Teorema \ref{thm:sobolev-completo}), deduzimos que $\lim \overline{u_k}$ existe em $\cW^{1,p}(\bR^n)$.
+    Além disso, é verdade que
     \[
         \begin{aligned}
             \Vert Eu - u \Vert_{\cW^{1,p}(\Omega)} &\leqslant \Vert Eu - \overline{u_k} \Vert_{\cW^{1,p}(\Omega)} + \Vert \overline{u_k} - u_k \Vert_{\cW^{1,p}(\Omega)} + \Vert u_k - u\Vert_{\cW^{1,p}(\Omega)}\\
             &\leqslant \Vert Eu - \overline{u_k} \Vert_{\cW^{1,p}(\bR^n)} + \Vert u_k - u \Vert_{\cW^{1,p}(\Omega)} \to 0
         \end{aligned}
     \]
-    pois $u_k \to u$.
-    Portanto $Eu = u$ qtp em $\Omega$, provando o item \textbf{(a)}.
+    pois $u_k \to u$ e $\overline{u_k} = u_k$ em $\Omega$ (ver ()).
+    Portanto, $Eu = u$ qtp em $\Omega$, provando o item \textbf{(a)}.
 
-    Para verificar o ítem \textbf{(b)}, basta ver que por definição $\supp \overline{u_k} \subseteq \Omega'$.
-    Dessa forma $\supp Eu \subseteq \Omega'$
+    Para verificar o ítem \textbf{(b)}, basta ver que, por definição, $\supp \overline{u_k} \subseteq \Omega'$.
+    Dessa forma, $\supp Eu \subseteq \Omega'$.
 
-    Por fim, para mostrar o item \textbf{(c)}.
-    Note que $E$ é um operador limitado, pois
+    Por fim, para mostrar o item \textbf{(c)}, note que $E$ é um operador limitado, pois
     \[
-        \Vert E \Vert = \Vert \bar E \Vert \leqslant c
+        \Vert Eu \Vert_{\cW^{1,p}(\bR^n)} = \Vert \lim \overline{u_k} \Vert_{\cW^{1,p}(\bR^n)} = \lim \Vert \overline{u_k} \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \lim \Vert u_k \Vert_{\cW^{1,p}(\Omega)} = c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
-    Portanto
+    Portanto,
     \[
         \Vert Eu \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
@@ -4256,29 +4273,29 @@ Nessa seção veremos uma forma de extender funções em $\cW^{1,p}(\Omega)$ em 
 (introdução)
 
 \begin{tbox}
-    Seja $\Omega$ um aberto limitado com fronteira de classe $\cC^1$. Então existe um operador linear limitado $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$ com $1 \leqslant p < \infty$ tal que
+    Seja $\Omega$ um aberto limitado com fronteira de classe $\cC^1$. Então, existe um operador linear limitado $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$, com $1 \leqslant p < \infty$, tal que
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
-        \item $Tu = u \big|_{\partial \Omega}$ se $u \in \cW^{1,p}(\Omega) \cap \cC(\Omega)$
-        \item $\Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{W^{1,p}(\Omega)}$ onde $c$ depende apenas de $p$ e $\Omega$.
+        \item $Tu = u \big|_{\partial \Omega}$ se $u \in \cW^{1,p}(\Omega) \cap \cC(\Omega)$;
+        \item $\Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{W^{1,p}(\Omega)}$, onde $c$ depende apenas de $p$ e $\Omega$.
     \end{enumerate}
 \end{tbox} 
 \begin{prf}
     Incialmente suponha que $u \in \cC^1(\overline{\Omega})$. Da mesma forma que foi feito no Teorema \ref{thm:extensao} considere $\tilde x \in \partial\Omega$ e suponhamos que $\partial\Omega$ está contido no plano $\{x_n = 0\}$ perto de $\tilde x$.
-    Sendo assim, seja $B = B(\tilde x, r)$ (e defina $B^+$ e $B^-$ como feito anteriormente) e $\widehat B = B(\tilde x, \sfrac{r}{2})$.
-    Além disso, considere $\xi \in \cC^{\infty}_c(B)$ de forma que $\xi \geqslant 0$ em $B$ e $\xi \equiv 1$ em $\widehat B$, e denote $\Gamma = \partial \Omega \cap \widehat B$ e $x' = (x_1,\dots,x_{n-1}) \in \bR^{n-1}$.
-    Note que utilizando integração por partes
+    Sejam $B = B(\tilde x, r)$ (e defina $B^+$ e $B^-$ como em (\ref{eq:reflexao})) e $\widehat B = B(\tilde x, \sfrac{r}{2})$,
+    e considere $\xi \in \cC^{\infty}_c(B)$ de forma que $\xi \geqslant 0$ em $B$ e $\xi \equiv 1$ em $\widehat B$, e denote $\Gamma = \partial \Omega \cap \widehat B$ e $x' = (x_1,\dots,x_{n-1}) \in \bR^{n-1}$.
+    Note que, utilizando integração por partes (ver Teorema \ref{thm:integracao-por-partes})
     \[
-        \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n}\,dx = \int_{\partial B^+} \xi |u|^p \, \nu_n dS
+        \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n}\,dx = \int_{\partial B^+} \xi |u|^p \, \nu_n dx'
     \]
-    onde $\nu$ é o vetor unitário que aponta para baixo em $\partial B^+$, isto é $\nu = (0,\dots,0,-1)$. Sendo assim, $\nu_n = -1$ e 
+    onde $\nu$ é o vetor normal unitário que aponta para baixo em $\partial B^+$, isto é $\nu =  (0,\dots,0,-1)$. Sendo assim, $\nu_n = -1$ e 
     \[
         \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx = -\int_{\partial B^+} \xi(x') |u(x')|^p \,dx'.
     \]
-    Dessa forma, como $\Gamma \subseteq \partial B^+$ e $\xi(x) = 1$ para todo $x \in B^+$
+    Dessa forma, como $\Gamma \subseteq \partial B^+$ e $\xi(x) = 1$ para todo $x \in \hat B$, concluimos que
     \[
         \int_{\Gamma} |u|^p \,dx' \leqslant \int_{\partial B^+} \xi|u|^p \,dx' = -\int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx.
     \]
-    Calculando a derivada, obtemos
+    Calculando a derivada acima, obtemos
     \[
         \int_\Gamma |u|^p \,dx' \leqslant - \int_{B^+} \dfrac{\partial \xi}{\partial x_n} |u|^p + p|u|^{p-1} \sgn\,u\,\dfrac{\partial u}{\partial x_n} \xi \,dx \leqslant c \int_{B^+} |u|^p + |u|^{p-1} \Vert Du \Vert \,dx
     \]
@@ -5680,7 +5697,7 @@ onde $c$ é uma constante positíva e
         &= \sum_{i=1}^3 \sum_{j=1}^3\sum_{k=1}^3 \int_{t_0}^{t}\int_{\bR^3} u_j D_k u_i D_i D_k u_j \,dxds.
         \end{aligned}
     \]
-    Lembrando da definição das normas vistas nos preliminares, multiplicando ambos os lados por $2$ e reorganizando os termos, podemos reescrever a equaçao acima como
+    Lembrando da definição das normas vistas nos preliminares, multiplicando ambos os lados por $2$ e reorganizando os termos, podemos reescrever a equaçao acima como:
     \[
         \begin{aligned}
             \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 &+ 2\nu \int_{t_0}^t \Vert D^2 \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 \,ds\\ &= \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + 2 \sum_{i=1}^3 \sum_{j=1}^3\sum_{k=1}^3 \int_{t_0}^t \int_{\bR^3} u_i D_k u_j D_j D_k u_i \,dxds.
@@ -5706,7 +5723,7 @@ onde $c$ é uma constante positíva e
         \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} < \nu^2
     \end{equation}
     para todo $s > t_0$.
-    Com efeito, suponha que (\ref{eq:menor-que-ni}) é falso, dessa forma, existiria $t_1 > t_0$ tal que $\Vert \bu_0  \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \leqslant \nu^2$ para todo $t_0 \leqslant s < t_1$ com $\Vert \bu_0  \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} = \nu^2$. Tomando $t = t_1$ em () temos que $\Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} \leqslant \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}$. De fato
+    Com efeito, suponha que (\ref{eq:menor-que-ni}) é falso, dessa forma, existiria $t_1 > t_0$ tal que $\Vert \bu_0  \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \leqslant \nu^2$ para todo $t_0 \leqslant s < t_1$ com $\Vert \bu_0  \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} = \nu^2$. Tomando $t = t_1$ em (\ref{eq:maisumadesigualdade}) temos que $\Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} \leqslant \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}$. De fato
     \[
         \begin{aligned}
             \Vert D\bu(\cdot,t_1) \Vert_{\cL^2(\bR^3)} &+ 2 \nu \int_{t_0}^{t_1} \Vert D^2 \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds\\ &\leqslant \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + 2 \! \int_{t_0}^{t_1} \big[ \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \big]^\frac{1}{2} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2
@@ -5949,12 +5966,12 @@ A demonstração do lema abaixo é bastante extensa, porem é de extrema import�
         \bu(\cdot,t) = e^{\nu \Delta(t-t_0)} \bu(\cdot,t_0) + \int_{t_0}^{t} e^{\nu \Delta (t-s)} \BQ(\cdot,s) \,ds.
     \]
     Dessa forma, para cada multi-índice $\alpha$ temos que
-    \begin{equation}
+    \begin{equation} \label{eq:aaa}
         \Vert D^\alpha \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \Vert D^\alpha [ e^{\nu \Delta(t-t_0)} \bu(\cdot,t_0)] \Vert_{\cL^2(\bR^3)} + \int_{t_0}^t \Vert D^\alpha [e^{\nu \Delta (t-s)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds
     \end{equation}
     para todo $t \geqslant t_0 + 1$
     Defina $U^\alpha(t) := t^{\frac{k}{2}} \Vert D^\alpha \bu(\cdot,t) \Vert$ com $k = |\alpha|$.
-    De () segue que
+    De (\ref{eq:aaa}) segue que
     \[
         U^\alpha(t) \leqslant I_1(\alpha,t) + I_2(\alpha,t) + J_\alpha(t)
     \]
@@ -6003,9 +6020,9 @@ A demonstração do lema abaixo é bastante extensa, porem é de extrema import�
     \]
     para todo $t \geqslant t_0 + 1$.
     Assim, obtemos
-    \[
+    \begin{equation} \label{eq:4.10}
         U^\alpha(t) \leqslant c(k,\nu,t_0,M_1,\bu_0) + J_\alpha(t).
-    \]
+    \end{equation}
     Logo, ainda resta estimar $J_\alpha$, porem não conseguimos estimar $J_\alpha$ de forma geral para todo $\alpha$, então faremos essa estimativa para o caso em que $|\alpha| = 2$ e depois utilizaremos indução para mostrar a estimativa de forma geral.
     Com efeito, considerando $D^\alpha = D_iD_j$ (consequentemente denotando $J_\alpha(t)$ por $J_{ij}(t)$) temos por (\ref{eq:estimativa-util}) que
     \[
@@ -6069,9 +6086,9 @@ A demonstração do lema abaixo é bastante extensa, porem é de extrema import�
         J_{i\ell}(t) \leqslant c(\nu, M_1) (t + t_0)^{-\frac{1}{4}} + c(\nu,M_1, \bu_0) (t+t_0)^{-\frac{3}{8}} \int_{t'}^t (t - s)^{-\frac{7}{8}} U_2(s)\,ds
     \]
     para todo $i, \ell$ e $t \geqslant t_0 + 1$. Dessa forma
-    \[
+    \begin{equation} \label{eq:4.13}
         U_2(t) \leqslant c_* (k, \nu, t_0, M_1, \bu_0) + c_{**} (\nu, M_1, \bu_0)(t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t-s)^{-\frac{7}{8}} U_2(s) \,ds
-    \]
+    \end{equation}
     para todo $ t \geqslant t_0 + 1$.
     Considere agora, $t_2, \mathbf{M}_2$ dados por
     \[
@@ -6083,7 +6100,7 @@ A demonstração do lema abaixo é bastante extensa, porem é de extrema import�
     \]
     para todo $t\geqslant t_2$.
     De fato, definindo $\mathbf{U}_2(t) := \sup\{ U_2(s): t_2 \leqslant s \leqslant t\}$.
-    Se $t' \geqslant t_2$, então por () temos
+    Se $t' \geqslant t_2$, então por (\ref{eq:4.13}) temos
     \[
         \begin{aligned}
             U_2(t) &\leqslant c_* (k, \nu, t_0, M_1, \bu_0) + c_{**} (\nu,M_1, \bu_0) \, \mathbf{U}_2(t) \int_{t'}^t (t -s)^{-\frac{7}{8}} \,ds\\
@@ -6094,7 +6111,7 @@ A demonstração do lema abaixo é bastante extensa, porem é de extrema import�
     \[
         U_2(t) < c_*(k,\nu,t_0,M_1, \bu_0) + \frac{1}{2} \mathbf{U}_2(t).
     \]
-    Por outro lado, se $t'< t_2$, podemos reescrever (\small{4.13}) como
+    Por outro lado, se $t'< t_2$, podemos reescrever (\ref{eq:4.13}) como
     \[
         U_2(t) \leqslant c_* + c_{**} (t + t_0)^{-\frac{3}{8}} \left( \int_{t'}^{t_2} (t - s)^{-\frac{7}{8}} U_2(s) \,ds + \int_{t_2}^t (t - s)^{-\frac{7}{8}}U_2(s) \,ds \right).
     \]
@@ -6175,7 +6192,7 @@ A demonstração do lema abaixo é bastante extensa, porem é de extrema import�
             &\leqslant c(\nu,k) M_1 M_{k-1}^{\frac{1}{4}} (t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t - s)^{-\frac{7}{8}} U_k(s)^{\frac{3}{4}}\,ds.
         \end{aligned}
     \]
-    Lembrando que $U_k(s)^{\frac{3}{4}} \leqslant 1 + U_k(s)$, segue por () que
+    Lembrando que $U_k(s)^{\frac{3}{4}} \leqslant 1 + U_k(s)$, segue por (\ref{eq:4.10}) e pelas estimativas acima que
     \[
         U^\alpha(t) \leqslant c(k,\nu, t_0, \bu_0, M_1,\dots,M_1) + c(k,\nu,\bu_0, M_1) (t + t_0) \int_{t'}^t (t-s)^{-\frac{7}{8}} U_k(s)\,ds
     \]
