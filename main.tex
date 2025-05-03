@@ -4289,127 +4289,130 @@ Nessa seção, veremos uma forma de estender funções em $\cW^{1,p}(\Omega)$ pa
     \]
     onde $\nu$ é o vetor normal unitário que aponta para baixo em $\partial B^+$, isto é $\nu =  (0,\dots,0,-1)$. Sendo assim, $\nu_n = -1$ e 
     \[
-        \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx = -\int_{\partial B^+} \xi(x') |u(x')|^p \,dx'.
+        \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx = -\int_{\partial B^+} \xi |u|^p \,dx',
     \]
-    Dessa forma, como $\Gamma \subseteq \partial B^+$ e $\xi(x) = 1$ para todo $x \in \hat B$, concluimos que
+    pois $\supp \xi |u|^p \subseteq \supp \xi  \subseteq B$.
+    Dessa forma, como $\Gamma \subseteq \hat B$ e $\xi(x) = 1$ para todo $x \in \hat B$, concluimos que
     \[
-        \int_{\Gamma} |u|^p \,dx' \leqslant \int_{\partial B^+} \xi|u|^p \,dx' = -\int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx.
+        \int_{\Gamma} |u|^p \,dx' = \int_{\Gamma} \xi|u|^p \,dx' \leqslant \int_{\partial B^+} \xi|u|^p \,dx' = -\int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n} \,dx.
     \]
     Calculando a derivada acima, obtemos
     \[
-        \int_\Gamma |u|^p \,dx' \leqslant - \int_{B^+} \dfrac{\partial \xi}{\partial x_n} |u|^p + p|u|^{p-1} \sgn\,u\,\dfrac{\partial u}{\partial x_n} \xi \,dx \leqslant c \int_{B^+} |u|^p + |u|^{p-1} \Vert Du \Vert \,dx
+        \int_\Gamma |u|^p \,dx' \leqslant - \int_{B^+} \Big[ \dfrac{\partial \xi}{\partial x_n} |u|^p + p|u|^{p-1} \sgn\,u\,\dfrac{\partial u}{\partial x_n} \xi \Big] \,dx \leqslant c \int_{B^+} \Big[ |u|^p + |u|^{p-1} \Vert Du \Vert \Big] \,dx
     \]
     onde utilizamos o fato de $\xi$ e suas derivadas parciais terem suporte compacto para a ultima desigualdade. Por fim utilizando a Desigualdade de Young
     \begin{equation} \label{eq:umaisdu}
-        \int_\Gamma |u|^p \,dx' \leqslant c \int_{B^+} |u|^p + \frac{|u|^{(p-1)p'}}{p'} + \frac{\Vert Du \Vert^p}{p} \,dx \leqslant c \int_{B^+} |u|^p + \Vert Du \Vert^p \,dx
+        \int_\Gamma |u|^p \,dx' \leqslant c \int_{B^+} \bigg[ |u|^p + \frac{|u|^{(p-1)p'}}{p'} + \frac{\Vert Du \Vert^p}{p} \bigg] \,dx \leqslant c \int_{B^+} |u|^p + \Vert Du \Vert^p \,dx.
     \end{equation}
 
-    Caso $\tilde x$ não esteja necessáriamente contido em $\{x_n =0 \}$, considere o homeomorfismo $\Phi$ com inversa $\Psi$ da demonstração do Teorema \ref{thm:extensao} e defina $u'(y) = u(\Psi(y))$, daí, utilizando o Teorema de Mudança de Variáveis
+    Caso $\partial \Omega$ não esteja necessáriamente contido em $\{x_n =0 \}$ perto de $\tilde x$, considere o homeomorfismo $\Phi$  com inversa $\Psi$ da demonstração do Teorema \ref{thm:extensao} (ver (\ref{eq:Phi}) e (\ref{eq:Psi})) e defina $u' \equiv u \circ \Psi$. Logo, utilizando o Teorema de Mudança de Variáveis (ver Teorema \ref{thm:mudanca-de-variaveis}), inferimos
     \[
-        \int_\Gamma |u'(y)|^p \,dy' = \int_{\Psi(\Gamma)} |u(x)|^p \,dx'
+        \int_\Gamma |u'|^p \,dy' = \int_\Gamma |u \circ \Psi| \, dy' = \int_{\Psi(\Gamma)} |u|^p \,dx'
     \]
     e
     \[
-        \int_{B^+} |u'(y)|^p + \Vert Du'(y) \Vert^p \,dy \leqslant c\int_{\Psi(B^+)} |u(x)|^p + \Vert Du(x) \Vert^p \,dx
+        \int_{B^+} \big[ |u'(y)|^p + \Vert Du'(y) \Vert^p \big] \,dy \leqslant c\int_{\Psi(B^+)} \big[ |u(x)|^p + \Vert Du(x) \Vert^p \big] \,dx,
     \]
-    onde $c$ é uma constante que depende de $\gamma$ que surge devido a regra da cadeia. Dessa forma por (\ref{eq:umaisdu})
+    onde $c$ é uma constante que depende de $\gamma$ que surge devido a regra da cadeia. Dessa forma, por (\ref{eq:umaisdu}), podemos escrever
     \[
         \begin{aligned}
-            \Vert u \Vert^p_{\cL^p(\Psi(\Gamma))} = \int_{\Psi(\Gamma)} |u|^p \,dx' = \int_{\Gamma} |u'|^p \,dy' &\leqslant c\int_{B^+} |u'|^p + \Vert Du' \Vert^p \,dy\\ 
-            &\leqslant c \int_{\Psi(B^+)} |u|^p + \Vert Du \Vert^p \,dx = \Vert u \Vert_{\cW^{1,p}(\Psi(B^+))}^p
+            \Vert u \Vert^p_{\cL^p(\Psi(\Gamma))} = \int_{\Psi(\Gamma)} |u|^p \,dx' = \int_{\Gamma} |u'|^p \,dy' &\leqslant c\int_{B^+} \big[ |u'|^p + \Vert Du' \Vert^p \big]\,dy\\ 
+            &\leqslant c \int_{\Psi(B^+)} \big[ |u|^p + \Vert Du \Vert^p \big] \,dx = \Vert u \Vert_{\cW^{1,p}(\Psi(B^+))}^p.
         \end{aligned}
     \]
-    como $\Psi(B^+) \subseteq \Omega$, obtemos 
+    Como $\Psi(B^+) \subseteq \Omega$, obtemos 
     \[
         \Vert u \Vert_{\cL^p(\Psi(\Gamma))} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
 
-    Como $\partial\Omega$ é compacto, pelo Teorema de Heine-Borel, existe uma quantidade finita de abertos $\Psi(\Gamma_i)$ tal que
+    Como $\partial\Omega$ é compacto, pelo Teorema de Heine-Borel, existe uma quantidade finita de abertos (em $\partial \Omega$) $\Psi(\Gamma_i)$ tal que
     \[
         \partial\Omega \subseteq \bigcup_{i=1}^N \Psi(\Gamma_i)
     \]
-    e $\Vert u \Vert_{\cL^p(\Psi(\Gamma_i))} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}$.
+    e
+    \begin{equation} \label{eq:1111}
+        \Vert u \Vert_{\cL^p(\Psi(\Gamma_i))} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+    \end{equation}
     Considere uma partição da unidade $\{\phi_i\}_{i=1}^N$ subordinada a cobertura $\{\Psi(\Gamma_i)\}_{i=1}^N$, e denote $u = \sum_{i=1}^N \phi_i u$.
 
     Defina $\widetilde T : \cC^1(\overline \Omega) \to \cL^p(\partial\Omega)$ por $\widetilde T u = u |_{\partial \Omega}$.
-    Dessa forma
-    \[
+    Dessa forma, podemos escrever por (\ref{eq:1111}), que
+    \begin{equation} \label{eq:2222}
         \begin{aligned}
             \Vert \widetilde Tu \Vert_{\cL^p(\partial \Omega)}^p = \int_{\partial\Omega} | \widetilde T u|^p \,dx = \int_{\partial\Omega} |u|^p \,dx &\leqslant c \sum_{i=1}^{N} \int_{\partial \Omega} \phi_i^p |u|^p \,dx\\ 
             &= c \sum_{i=1}^N \int_{\Psi(\Gamma_i)} |u|^p \,dx \leqslant c\Vert u \Vert_{\cW^{1,p}(\Omega)}^p
         \end{aligned}
-    \]
+    \end{equation}
     onde $c$ é uma constante que depende de $p$ e $\Omega$. Isto mostra que $\widetilde T$ é um operador limitado.
     Por fim, defina $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$ por
     \[
-        T u = \left\{  
-            \begin{array}{ll}
-                \widetilde Tu &\text{se } u \in \cC^{\infty}(\overline\Omega)\\
-                \lim \widetilde Tu_k &\text{se } u \not \in \cC^{\infty}(\overline\Omega)
-            \end{array}
-        \right.
+        T u = \lim \widetilde T u_k
     \]
-    onde $(u_k)$ é uma sequência de funções em $\cC^{\infty}(\overline\Omega)$ que converge para $u \in \cW^{1,p}(\Omega)$. Sendo assim
+    onde $(u_k)$ é uma sequência de funções em $\cC^{\infty}(\overline\Omega)$ que converge para $u \in \cW^{1,p}(\Omega)$. 
+    Observe que
     \[
-        \Vert Tu \Vert_{\cL^p(\partial\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+        \Vert Tu \Vert_{\cL^p(\partial \Omega)} = \Vert \lim \widetilde T u_k \Vert_{\cL^p(\partial \Omega)} = \lim \Vert \widetilde T u_k \Vert_{\cL^p(\partial \Omega)} \leqslant c \lim \Vert u_k \Vert_{\cW^{1,p}(\Omega)} = c \Vert u \Vert_{\cW^{1,p}(\Omega)},
     \]
-    para todo $u \in \cW^{1,p}(\Omega)$
-    \textcolor{red}{esss demonstração tem uma parte final que eu não entendi direito}
+    para todo $u \in \cW^{1,p}(\Omega)$. Isto prova \textbf{(b)}.
 \end{prf}
 
 \begin{tbox}[Funções traço zero em $\cW^{1,p}$]
-    Seja $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{1,p}(\Omega)$ com $1 \leqslant p < \infty$.
+    Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{1,p}(\Omega)$, com $1 \leqslant p < \infty$. Então
     \[
-        u \in \cW_0^{1,p}(\Omega) \iff Tu = 0 \text{ em } \partial \Omega
+        u \in \cW_0^{1,p}(\Omega) \iff Tu = 0 \text{ sobre } \partial \Omega,
     \]
     onde $\cW_0^{1,p}(\Omega)$ é o fecho de $\cC^{\infty}_c(\Omega)$ em $\cW^{1,p}(\Omega)$.
 \end{tbox}
 \begin{prf}
     Suponha que $u \in \cW_0^{1,p}(\Omega)$. Por definição existe uma sequência de funções $(u_k) \subseteq \cC^{\infty}_c(\Omega)$ tal que
     \[
-        \Vert u_k - u \Vert_{\cW^{1,p}(\Omega)} \to 0.
+        \Vert u_k - u \Vert_{\cW^{1,p}(\Omega)} \to 0,
     \]
-    Como $u_k$ tem suporte compacto em $\Omega$ então $u_k$ se anula em $\partial \Omega$ para todo $k \in \bN$. Sendo assim $Tu_k = 0$ em $\partial\Omega$ para todo $k \in \bN$ e $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$ é um operador linear limitado.
-    Portanto
+    quando $k \to \infty$. Como $u_k$ tem suporte compacto em $\Omega$ então $u_k$ se anula em $\partial \Omega$ para todo $k \in \bN$. Sendo assim, $Tu_k = 0$ sobre $\partial\Omega$, para todo $k \in \bN$ e como $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$ é um operador linear limitado, então
     \[
-        Tu = T (\lim u_k) = \lim T u_k = 0 \text{ em } \partial\Omega.
+        0 = \lim \Vert Tu_k - Tu \Vert_{\cL^p(\partial \Omega)} = \Vert Tu \Vert_{\cL^p(\partial \Omega)}.
     \]
-    
+    Portanto $Tu =0$ qtp sobre $\partial \Omega$
     Reciprocamente, suponha que $Tu = 0$ em $\partial \Omega$. Utilizando partições da unidade e o homeomorfismo $\Phi$ que planifica $\partial \Omega$ como foi feito anteriormente, podemos supor que
-    \[
+    \begin{equation} \label{eq:hh}
         \begin{aligned}
-            &u \in \cW^{1,p}(\bR^n)\\
+            &u \in \cW^{1,p}(\bR^n_+)\\
             &u \text{ tem suporte compacto em } \overline{\bR^n_+}\\
             &Tu = 0 \text{ em } \partial \bR^n_+ = \bR^{n-1}
         \end{aligned}
-    \]
+    \end{equation}
     onde $\bR^n_+$ denota o semiplano superior de $\bR^n$.
-    Como $Tu = 0$ em $\bR^{n-1}$ então existe um sequência de funções $(u_k) \in \cC^1(\overline{\bR^n_+})$ tal que $u_k \to u$ em $\cW^{1,p}(\bR^n_+)$ e $Tu_k = u_k |_{\bR^{n-1}} \to 0$ em $\cL^p(\bR^{n-1})$. 
-    
-    DIto isso, seja $x' \in \bR^{n-1}$ e $x_n \geqslant 0$.
+    Como $u \in \cW^{1,p}(\bR^n_+)$ então existe um sequência de funções $(u_k) \subseteq \cC^{\infty}(\overline{\bR^n_+}) \subseteq \cC^1(\overline{\bR^n_+})$ tal que $u_k \to u$ em $\cW^{1,p}(\bR^n_+)$ (ver Teorema \ref{thm:aprox3}). Como $(u_k) \subseteq \cW^{1,p}(\bR^n_+) \cap \cC^\infty(\bR^n_+)$, então $T u_k = u_k |_{\partial \bR^n_+} = u_k |_{\bR^{n-1}}$.
+    Assim por (\ref{eq:hh}) e usando que $T$ é limitado, temos que
+    \[
+        0 = \lim \Vert Tu_k - Tu \Vert_{\cL^p(\partial \bR^n)} = \lim \Vert Tu_k - Tu \Vert_{\cL^p(\bR^{n-1})} = \lim \Vert Tu_k \Vert_{\cL^p(\bR^{n-1})}.
+    \]
+    Isto é, $T u_k \to 0$ em $\cL^p(\bR^{n-1})$.
+
+    Dito isso, seja $x' \in \bR^{n-1}$ e $x_n \geqslant 0$.
     Pelo teorema fundamental do cálculo, podemos escrever $u_k$ da seguinte forma
     \[
         u_k(x'\!,x_n) = u_k(x'\!,0) + \int_0^{x_n} \dfrac{\partial u_k}{\partial x_n} (x'\!,t) \,dt
     \]
-    e daí
+    e, consequentemente,
     \[
         |u_k(x'\!,x_n)|^p \leqslant c \left(  |u_k(x'\!,0)|^p + \left(  \int_0^{x_n} \left|\dfrac{\partial u_k}{\partial x_n} (x'\!,t)\right| \,dt\right)^{\!p\,} \right)
     \]
-    onde aqui a constante $c$ depende de $p$. Integrando ambos os lados sobre $\bR^{n-1}$ obtemos
+    onde a constante $c$ depende de $p$ (aqui, utlizamos a desigualdade $(a + b)^p \leqslant 2^p (a^p + b^p)$). Integrando ambos os lados sobre $\bR^{n-1}$ obtemos
     \[
-        \int_{\bR^{n-1}} |u_k(x',x_n)|^p \,dx' \leqslant c \left( \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left(  \int_0^{x_n} \Vert Du_k(x',t) \Vert \,dt\right)^{\!p\,} dx' \right).
+        \int_{\bR^{n-1}} |u_k(x',x_n)|^p \,dx' \leqslant c \left( \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left(  \int_0^{x_n} \Vert Du_k(x',t) \Vert \,dt\right)^{\!p\,} dx' \right)
     \]
-    Utlizando a Desigualdade de Hölder na ultima integral, temos que o lado direito da equação acima é menor ou igual a
     \[
-        c \left( \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left( \int_0^{x_n} \Vert Du_k (x',t) \Vert^p \,dt \right)\left( \int_0^{x_n} 1^{p'} \,dt \right)^{p/p'} dx'\right).
+        \leqslant  c \left( \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + \int_{\bR^{n-1}} \left( \int_0^{x_n} \Vert Du_k (x',t) \Vert^p \,dt \right)\left( \int_0^{x_n} 1^{p'} \,dt \right)^{p/p'} dx'\right),
     \]
-    Porem $p/p' = p-1$, sendo assim, resolvendo a ultima integral e utlizando o Teorema de Fubini, obtemos que o lado direito da equação acima é igual a
+    onde utilizamos a desigualdade de Hölder.
+    Como $p/p' = p-1$ (pois $p$ e $p'$ são expoentes conjugados), tem-se pelo Teorema de Fubini que
     \[
-        c \left( \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + x_n^{p-1} \int_{0}^{x_n} \int_{\bR^{n-1}} \Vert Du_k (x',t) \Vert^p  \,dx'dt \right).
+        \int_{\bR^{n-1}} |u_k(x',x_n)|^p \,dx' \leqslant c \left( \int_{\bR^{n-1}} |u_k(x',0)|^p \,dx' + x_n^{p-1} \int_{0}^{x_n} \int_{\bR^{n-1}} \Vert Du_k (x',t) \Vert^p  \,dx'dt \right).
     \]
-    Por fim, como $\Vert u_k |_{\bR^{n-1}} \Vert_{\cL^p(\bR^{n-1})} \to 0$ e utlizando o Teorema da Convergência Dominada quando $k \to \infty$.
+    Por fim, como $\Vert u_k |_{\bR^{n-1}} \Vert_{\cL^p(\bR^{n-1})} = \Vert Tu_k \Vert_{\cL^p(\bR^{n-1})} \to 0$ quando $k \to \infty$, e utlizando o Teorema da Convergência Dominada, concluimos que
     \begin{equation} \label{eq:uuuuu}
-        \int_{\bR^{n-1}} |u(x',x_n)|^p \,dx' \leqslant  c x_n^{p-1}\int_0^{x_n} \Vert Du(x',t) \Vert^p \,dx'dt
+        \int_{\bR^{n-1}} |u(x',x_n)|^p \,dx' \leqslant  c x_n^{p-1}\int_0^{x_n} \Vert Du(x',t) \Vert^p \,dx'dt.
     \end{equation}
     
     Seja $\xi \in \cC^{\infty}_c(\bR_+)$ tal que
@@ -4420,29 +4423,30 @@ Nessa seção, veremos uma forma de estender funções em $\cW^{1,p}(\Omega)$ pa
             &0 \leqslant \xi \leqslant 1
         \end{aligned}
     \]
-    e defina $\xi_k = \xi(kx_n)$ e $v_k = u(x) (1 - \xi_k(x))$ para todo $x \in \bR^n_+$. Dessa forma
+    e defina $\xi_k(x) = \xi(kx_n)$ e $v_k(x) = u(x) (1 - \xi_k(x))$ para todo $x \in \bR^n_+$ e $k \in \bN$. Dessa forma, podemos escrever
     \[
         \begin{aligned}
-            &\dfrac{\partial v_k}{\partial x_n} = (1 - \xi_k)\dfrac{\partial u}{\partial x_n} - ku\xi'\\
-            &\dfrac{\partial v_k}{\partial x'} = (1-\xi_k)\dfrac{\partial u}{\partial x'}.
+            &\dfrac{\partial v_k}{\partial x_n}(x) = (1 - \xi_k(x))\dfrac{\partial u}{\partial x_n}(x) - ku\xi'\\
+            &\dfrac{\partial v_k}{\partial x'}(x) = (1-\xi_k(x))\dfrac{\partial u}{\partial x'}(x).
         \end{aligned}
     \]
-    Consequentemente
+    Consequentemente, as seguintes desigualdades valem:
     \[
         \begin{aligned}
             \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx &\leqslant c \int_{\bR^n_+} \left( \left\Vert \dfrac{\partial v_k}{\partial x'} - \dfrac{\partial u}{\partial x'} \right\Vert + \left| \dfrac{\partial v_k}{\partial x_n} - \dfrac{\partial u}{\partial x_n} \right| \right)^p dx\\
-            &\leqslant c  \int_{\bR^n_+} \left( \xi_k\left\Vert \dfrac{\partial u}{\partial x'} \right\Vert + \xi_k \left| \dfrac{\partial u}{\partial x_n}\right| + k |u| |\xi'|  \right)^p dx\\ 
+            &\leqslant c  \int_{\bR^n_+} \left( \xi_k\left\Vert \dfrac{\partial u}{\partial x'} \right\Vert + \xi_k \left| \dfrac{\partial u}{\partial x_n}\right| + k |u| |\xi'|  \right)^p dx,\\ 
         \end{aligned}
     \]
-    onde $c$ é uma constante que depende de $p$ e $n$. Daí utilizando a desigualdade entre a derivada parcial e a norma do gradiente
-    \[
+    onde $c$ é uma constante que depende de $p$ e $n$. Deste modo, chegamos a
+    \begin{equation} \label{eq:asxa}
         \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx \leqslant c \int_{\bR^n_+} \xi_k^p \Vert Du \Vert^p dx + ck^p \int_{\bR^n_+} |\xi'|^p |u|^p dx
-    \]
-    Observe que $\supp \xi' \subseteq \supp \xi \subseteq [0,2]$. Isto nos diz que $\xi'(x) = \xi'(kx_n) = 0$ quando $kx_n > 2$ ou $x_n > 2/k$.
+    \end{equation}
+    Observe que $\supp \xi' \subseteq \supp \xi \subseteq [0,2]$. Isto nos diz que $\xi'(kx_n) = 0$ quando $kx_n > 2$ ou $x_n > 2/k$.
     Logo podemos escrever a ultima desigualdade como
     \[
-        \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx \leqslant c \int_{\bR^{n}_+} |\xi_k|^p \Vert Du \Vert^p \,dx + ck^p \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u|^p \,dx'dt.
+        \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx \leqslant c \int_{\bR^{n}_+} \xi_k^p \Vert Du \Vert^p \,dx + ck^p \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u|^p \,dx'dx_n,
     \]
+    onde ?? $\xi'$ pelo seu máximo em $[0,2]$.
     Note que
     \[
         \begin{aligned}
@@ -4450,44 +4454,45 @@ Nessa seção, veremos uma forma de estender funções em $\cW^{1,p}(\Omega)$ pa
             &\leqslant c \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} \Vert Du \Vert^p dx' dx_n \longrightarrow 0
         \end{aligned}
     \]
-    quando $k \to \infty$ pois $\xi$ tem suporte compacto e $2/k \to 0$.
-    Além disso, utlizando (\ref{eq:uuuuu})
+    quando $k \to \infty$, onde estimamos $\xi$ pelo seu máximo em $[0,2]$, e usamos que $u \in \cW^{1,p}(\Omega)$ 
+    Além disso, utlizando (\ref{eq:uuuuu}), podemos ecrever
     \[
         ck^p \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u|^p dx'dt \leqslant ck^p \int_{0}^{\frac{2}{k}} t^{p-1} \int_{0}^{t} \int_{\bR^{n-1}} \Vert Du \Vert^p dx'ds dt \leqslant c \int_0^{\frac{2}{k}} \int_{\bR^{n-1}} \Vert Du \Vert^p dx'ds \to 0
     \]
     quando $k \to \infty$.
-    Portanto
+    Portanto, por (\ref{eq:asxa}), deduzimos que
     \[
         \int_{\bR^n_+} \Vert Dv_k - Du \Vert^p \,dx \to 0
     \]
     isto é $\Vert Dv_k - Du \Vert_{\cL^p(\bR^n_+)} \to 0$ quando $k \to \infty$.
 
-    Por fim
+    Por fim, pela definição de $v_k$ inferimos que
     \[
         \Vert v_k - u \Vert_{\cL^p(\bR^n_+)}^p = \int_{\bR^n_+} |v_k - u|^p \,dx = \int_{\bR^n_+} \xi_k|u|^p \,dx.
     \]
-    De forma análoga ao que foi feito anteriormente
+    De forma análoga ao que foi feito anteriormente, chegamos a
     \[
-        \Vert v_k - u \Vert_{\cL^p(\bR^n_+)}^p = \int_{0}^{\frac{2}{k}} \xi(kx_n) \int_{\bR^{n-1}} |u(x)|^p \,dx'dx_n \leqslant c \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u(x)|^p \, dx'dx_n \to 0.
+        \Vert v_k - u \Vert_{\cL^p(\bR^n_+)}^p = \int_{0}^{\frac{2}{k}} \xi(kx_n)^p \int_{\bR^{n-1}} |u(x)|^p \,dx'dx_n \leqslant c \int_{0}^{\frac{2}{k}} \int_{\bR^{n-1}} |u(x)|^p \, dx'dx_n \to 0,
     \]
-    Dessa forma
+    quando $k \to \infty$. Dessa forma
     \[
         \Vert v_k - u \Vert_{\cW^{1,p}(\bR^n_+)}^p \leqslant \Vert v_k - u \Vert_{\cL^{p}(\bR^n_+)}^p + \Vert Dv_k - Du \Vert_{\cL^{p}(\bR^n_+)}^p \to 0
     \]
 
-    Defina $u_k = \eta_{\frac{1}{k}} * v_k$. Assim, para $k$ grande $u_k \in \cC^{\infty}_c(\bR^n_+)$ e 
+    Defina $u_k = \eta_{\frac{1}{k}} * v_k$. Assim, $u_k \in \cC^{\infty}_c(\bR^n_+)$ para $k$ suficientemente grande (ver Teorema ??) e 
     \[
         \Vert u_k - u \Vert_{\cW^{1,p}(\bR^n_+)} \leqslant \Vert u_k - v_k \Vert_{\cW^{1,p}(\bR^n_+)} + \Vert v_k - u \Vert_{\cW^{1,p}(\bR^n_+)} \to 0
     \]
-    Portanto $u \in \cW^{1,p}_0(\bR^n_+)$.
+    quando $k \to \infty$.
+    Portanto, $u \in \cW^{1,p}_0(\bR^n_+)$.
 \end{prf}
 
 \section{Desigualdades de Sobolev}
 
-Nosso objetivo nessa seção é descobrir formas de incorporar espaços de Sobolev em outros espaços
+Nosso objetivo nessa seção é descobrir formas de incorporar espaços de Sobolev em outros espaços.
 
 Dividiremos o estudo dessas desigualdades em dois casos, $1 \leqslant p < n$ e $n < p \leqslant \infty$.
-O caso $n = p$ não será apresentado nesse texto, aos interessados consultar \cite{evans-pde} p.p. 275
+O caso $n = p$ não será apresentado nesse texto, aos interessados consultar \cite{evans-pde} p.p. 275.
 
 \subsection{Desigualdade de Gagliardo-Nirenberg-Sobolev}
 
@@ -4496,12 +4501,12 @@ Queremos saber se é possível obter uma desigualdade do tipo\footnote{
     Lembrando que $D : \bR^n \to \bR^n$ representa o gradiente fraco, quando calculamos a norma do gradiente em $\cL^p(\Omega)$ estamos calculando a norma $\cL^p$ da norma euclidiana do gradiente.
 }
 \begin{equation} \label{eq:quase-gns}
-    \Vert u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}
+    \Vert u \Vert_{\cL^q(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)},
 \end{equation}
 onde $c$ é uma constante positiva, $1 \leqslant q < \infty$ e $u \in \cC^\infty_c(\bR^n)$, de forma que $c$ e $q$ não dependam de $u$.
 
-Primeiramente vamos mostrar que se uma desigualdade do tipo (\ref{eq:quase-gns}) existe, o valor de $q$ não é arbitrário, mas sim admite uma forma especifica.
-Para isso seja $u \in \cC^\infty_c(\bR^n)$ não-nula e $\lambda > 0$.
+Primeiramente, vamos mostrar que se uma desigualdade do tipo (\ref{eq:quase-gns}) é válida, o valor de $q$ não é arbitrário, mas sim admite uma forma especifica.
+Para isso, seja $u \in \cC^\infty_c(\bR^n)$ não nula e $\lambda > 0$.
 Sendo assim, definimos
 \[
     u_\lambda(x) := u(\lambda x).
@@ -4512,7 +4517,7 @@ Aplicando (\ref{eq:quase-gns}) a $u_\lambda$, obtemos
 \end{equation}
 Note que
 \[
-    \Vert u_\lambda^q \Vert_{\cL^q(\bR^n)} = \int_{\bR^n} |u_\lambda|^q \,dx = \int_{\bR^n} |u(\lambda x)|^p \,dx = \frac{1}{\lambda^n} \int_{\bR^n} |u(y)|^q \,dx = \frac{1}{\lambda^n}\Vert u \Vert_{\cL^q(\bR^n)}
+    \Vert u_\lambda \Vert_{\cL^q(\bR^n)}^q = \int_{\bR^n} |u_\lambda|^q \,dx = \int_{\bR^n} |u(\lambda x)|^p \,dx = \frac{1}{\lambda^n} \int_{\bR^n} |u(y)|^q \,dx = \frac{1}{\lambda^n}\Vert u \Vert_{\cL^q(\bR^n)}
 \]
 e
 \[
@@ -4521,241 +4526,246 @@ e
         &= \int_{\bR^n} |\lambda Du(\lambda x)|^p \,dx = \frac{\lambda^p}{\lambda^n} \int_{\bR^n} |Du(y)|^p \,dy = \frac{\lambda^p}{\lambda^n}\Vert Du \Vert_{\cL^p(\bR^n)}
     \end{aligned}
 \]
-Utilizando essas igualdades em (\ref{eq:ulgns}), observamos que
+Utilizando essas duas igualdades acima em (\ref{eq:ulgns}), observamos que
 \[
-    \frac{1}{\lambda^{\frac{n}{q}}} \Vert u \Vert_{\cL^q(\bR^n)} \leqslant c \frac{\lambda}{\lambda^{\frac{n}{p}}}\Vert Du \Vert_{\cL^p(\bR^n)}
+    \frac{1}{\lambda^{\frac{n}{q}}} \Vert u \Vert_{\cL^q(\bR^n)} \leqslant c \frac{\lambda}{\lambda^{\frac{n}{p}}}\Vert Du \Vert_{\cL^p(\bR^n)},
 \]
-que podemos reescrever como
+a qual podemos reescrever como
 \begin{equation}
-    \Vert u \Vert_{\cL^q(\bR^n)} \leqslant c\lambda^{1 - \frac{n}{p}  + \frac{n}{q}}\Vert Du \Vert_{\cL^p(\bR^n)}
+    \Vert u \Vert_{\cL^q(\bR^n)} \leqslant c\lambda^{1 - \frac{n}{p}  + \frac{n}{q}}\Vert Du \Vert_{\cL^p(\bR^n)}.
 \end{equation}
 Observe que se $1 - \frac{n}{p} + \frac{n}{q} > 0$, obtemos uma contradição quando $\lambda \to 0$, pois isso implicaria em $\Vert u \Vert_{\cL^q(\bR^n)} = 0$,
-que só acontece se $u = 0$ que é uma contradição.
+que só acontece se $u = 0$ (o que é uma contradição).
 De forma análoga se $1 - \frac{n}{p} + \frac{n}{q} < 0$ obtemos uma contradição quando $\lambda \to \infty$.
 Sendo assim, para que a igualdade (\ref{eq:quase-gns}) seja válida, precisamos que
 \[
-    1 - \frac{n}{p} + \frac{n}{q} = 0
+    1 - \frac{n}{p} + \frac{n}{q} = 0,
 \]
-ou seja
+ou seja,
 \[
-    q = \frac{np}{n - p}
+    q = \frac{np}{n - p}.
 \]
 
-Isso motiva a definição abaixo
+Isso motiva a definição abaixo.
 \begin{dbox}
     Se $1 \leqslant p < n$ o expoente conjugado de Sobolev de $p$ é dado por
     \[
-        p^* = \frac{np}{n - p}
+        p^* = \frac{np}{n - p}.
     \]
 \end{dbox}
 
-Os calculos no início da seção mostram que a desigualdade (\ref{eq:quase-gns}) somente é válida quando $q = p^*$. O resultado abaixo mostra que de fato a desigualdade é veridica
+Os cálculos no início da seção mostram que a desigualdade (\ref{eq:quase-gns}), somente é válida quando $q = p^*$. O resultado abaixo mostra que de fato a desigualdade é verídica.
 
-\begin{tbox}[Desigualdade de Gagliardo-Nirenberg-Sobolev] Seja $1 \leqslant p < n$. Então existe uma constante $c$ que depende apenas de $p$ e $n$, tal que
-\begin{equation}
-    \Vert u \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}
+\begin{tbox}[Desigualdade de Gagliardo-Nirenberg-Sobolev] Seja $1 \leqslant p < n$. Então, existe uma constante $c$, que depende apenas de $p$ e $n$, tal que
+\begin{equation} \label{eq:gns}
+    \Vert u \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)},
 \end{equation}
 para toda função $u \in \cC^1_c(\bR^n)$.
 \end{tbox}
 \begin{prf}
     Consideremos dois casos
 
-    ($p = 1$)\\
-    Como por hipótese, $u$ tem suporte compacto, temos que
+    \underline{Caso 1:} Considere que $p = 1$\\
+    Como por hipótese, $u$ tem suporte compacto, temos, pelo Teorema Fundamental do Cálculo, que
     \[
         u(x) = \int_{\m\infty}^{x_i} \dfrac{\partial u}{\partial x_i}(x_1,\dots,y_i,\dots,x_n) \, dy_i
     \]
-    e daí
+    e assim
     \[
-        |u(x)| \leqslant \int_{\m\infty}^{x_i} \left|\dfrac{\partial u}{\partial x_i}(x_1,\dots,y_i,\dots,x_n)\right| \, dy_i  \leqslant \int_{\m\infty}^{\infty} \left| Du(x_1,\dots,y_i,\dots,x_n) \right| \,dy_i
+        |u(x)| \leqslant \int_{\m\infty}^{x_i} \left|\dfrac{\partial u}{\partial x_i}(x_1,\dots,y_i,\dots,x_n)\right| \, dy_i  \leqslant \int_{\m\infty}^{\infty} \left| Du(x_1,\dots,y_i,\dots,x_n) \right| \,dy_i.
     \]
-    e elevando ambos os lados a $\frac{1}{n-1}$ e passando ao produtório de $i = 1$ até $n$ obtemos
+    Elevando ambos os lados a $\frac{1}{n-1}$ e passando ao produtório de $i = 1$ até $n$ obtemos
     \[
-        |u(x)|^{\frac{n}{n-1}} \leqslant \prod_{i=1}^n \left( \int_{\m\infty}^{\infty} |Du(x_1,\dots,y_i,\dots,x_n)| \,dy_i \right)^{\frac{1}{n-1}}.
+        |u(x)|^{\frac{1}{n-1}} \leqslant \prod_{i=1}^n \left( \int_{\m\infty}^{\infty} |Du(x_1,\dots,y_i,\dots,x_n)| \,dy_i \right)^{\frac{1}{n-1}}.
     \]
-    Denotando $(x_1,\dots,y_i,\dots,x_n)$ por $X_i$ e  Integrando ambos os lados em relação a $x_1$ de $-\infty$ a $\infty$.
+    Denotando $(x_1,\dots,y_i,\dots,x_n)$ por $X_i$ e integrando ambos os lados da desigualdade a cima, em relação a $x_1$, de $-\infty$ a $\infty$, chegamos a
     \[
         \begin{aligned}
             \int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1 &\leqslant \int_{\m\infty}^{\infty} \prod_{i=1}^n \left( \int_{\m\infty}^{\infty} |Du(X_i)| \,dy_i \right)^{\frac{1}{n-1}}  dx_1\\ 
             &= \int_{\m\infty}^{\infty} \left( \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \right)^{\frac{1}{n-1}}  \prod_{i=2}^n \left(\int_{\m\infty}^{\infty} |Du(X_i)| \, dy_i\right)^{\frac{1}{n-1}} dx_1.
         \end{aligned}
     \]
-    Porém, $Du(X_1)$ não depende de $x_1$, então a sua integral é constante em relação a $x_1$ e pode ``sair'' da integral, sendo assim
+    Porém, $Du(X_1)$ não depende de $x_1$, então a sua integral é constante em relação a $x_1$. Sendo assim
     \[
         \int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1 \leqslant \left( \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \right)^{\frac{1}{n-1}}\int_{\m\infty}^{\infty}   \prod_{i=2}^n \left(\int_{\m\infty}^{\infty} |Du(X_i)| \, dy_i\right)^{\frac{1}{n-1}} dx_1.
     \]
-    Por fim, utilizando a Desigualdade de Hölder Generalizada e o Teorema de Fubini, a desigualdade se torna
+    Por fim, utilizando a Desigualdade de Hölder Generalizada e o Teorema de Fubini, a desigualdade acima se torna
     \[
         \int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1 \leqslant \left( \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \right)^{\frac{1}{n-1}}\prod_{i=2}^n \left(\int_{\m\infty}^{\infty}   \int_{\m\infty}^{\infty} |Du(X_i)| \, dx_1dy_i\right)^{\frac{1}{n-1}}.
     \]
-    Agora integrando a desigualdade acima em relação a $x_2$ de $-\infty$ a $\infty$ obtemos
+    Agora integrando a desigualdade acima em relação a $x_2$ de $-\infty$ a $\infty$, obtemos
     \[
-        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1dx_2 \leqslant \int_{\infty}^{\infty}\!\!\left( \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \right)^{\frac{1}{n-1}}\prod_{i=2}^n \left(\int_{\m\infty}^{\infty} \!\int_{\m\infty}^{\infty} |Du(X_i)| \, dx_1dy_i\right)^{\frac{1}{n-1}} \!dx_2.
+        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1dx_2 \leqslant \int_{\m\infty}^{\infty}\!\!\left( \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \right)^{\frac{1}{n-1}}\prod_{i=2}^n \left(\int_{\m\infty}^{\infty} \!\int_{\m\infty}^{\infty} |Du(X_i)| \, dx_1dy_i\right)^{\frac{1}{n-1}} dx_2.
     \]
-    que podemos reescrever da seguinte forma
+    onde podemos reescrever a ultima integral da seguinte forma:
     \[
-        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1dx_2 \leqslant \int_{\infty}^{\infty} I_1^{\frac{1}{n-1}}I_2^{\frac{1}{n-1}}\prod_{i=3}^n I_i^{\frac{1}{n-1}} \!dx_2
+        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1dx_2 \leqslant \int_{\m\infty}^{\infty} I_1^{\frac{1}{n-1}}I_2^{\frac{1}{n-1}}\prod_{i=3}^n I_i^{\frac{1}{n-1}} dx_2,
     \]
     onde
     \[
         I_1 = \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 \text{ e } I_i = \int_{\m\infty}^{\infty} \!\int_{\m\infty}^{\infty} |Du(X_i)| \, dx_1dy_i \quad(i = 2,\dots,n).
     \]
-    Porem, $I_2$ é constante em relação a $x_2$ então
+    Porém, $I_2$ é constante em relação a $x_2$ então
     \[
-        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1dx_2 \leqslant I_2^{\frac{1}{n-1}}\int_{\infty}^{\infty} I_1^{\frac{1}{n-1}}\prod_{i=3}^n I_i^{\frac{1}{n-1}} \!dx_2
+        \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{1}{n-1}} \,dx_1dx_2 \leqslant I_2^{\frac{1}{n-1}}\int_{\m\infty}^{\infty} I_1^{\frac{1}{n-1}}\prod_{i=3}^n I_i^{\frac{1}{n-1}} dx_2.
     \]
-    Novamente, utilizando a Desigualdade de Hölder Generalizada e o Teorema de Fubini, obtemos
-    \small{
+    Novamente, utilizando a Desigualdade de Hölder Generalizada e o Teorema de Fubini, inferimos
+    {\small
     \[
         \begin{aligned}
-            \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{n}{n-1}} \,dx_1dx_2 \leqslant &\left( \int_{\m\infty}^{\infty} \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 dx_2 \right)^{\frac{1}{n-1}}\\ &\left( \int_{\m\infty}^{\infty} \int_{\m\infty}^{\infty} |Du(X_2)| \,dx_1 dy_2 \right)^{\frac{1}{n-1}} \prod_{i=3}^n \left( \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |Du(X_i)| \,dx_1dx_2dy_i \right)^{\frac{1}{n-1}} 
+            \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |u(x)|^{\frac{n}{n-1}} \,dx_1dx_2 \leqslant &\left( \int_{\m\infty}^{\infty} \int_{\m\infty}^{\infty} |Du(X_1)| \,dy_1 dx_2 \right)^{\frac{1}{n-1}}\\ &\left( \int_{\m\infty}^{\infty} \int_{\m\infty}^{\infty} |Du(X_2)| \,dx_1 dy_2 \right)^{\frac{1}{n-1}} \prod_{i=3}^n \left( \int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty}\int_{\m\infty}^{\infty} |Du(X_i)| \,dx_1dx_2dy_i \right)^{\frac{1}{n-1}} \!\!.
         \end{aligned}
     \]\!}
-    Indutivamente, repetindo esse processo de integração, temos
+    Indutivamente, repetindo esse processo de integração, chegamos a
     \[
         \begin{aligned}
             \Vert u \Vert_{\cL^{p^*}(\bR^n)}^{p^*} &= \int_{\bR^n} |u|^{\frac{n}{n-1}} \, dx \\
             &\leqslant \prod_{i=1}^n \left( \int_{\m\infty}^{\infty} \cdots \int_{\m\infty}^\infty |Du| dx_1\dots dy_i \dots dx_n \right)^{\frac{1}{n-1}}
-            = \left(\int_{\bR^n} |Du|\,dx\right)^{\frac{n}{n-1}} = \Vert Du \Vert_{\cL^1(\bR^n)}^{p^*}
+            = \left(\int_{\bR^n} |Du|\,dx\right)^{\frac{n}{n-1}} = \Vert Du \Vert_{\cL^1(\bR^n)}^{p^*}.
         \end{aligned}
     \]
-    Ou seja
+    Ou seja,
     \begin{equation} \label{eq:desigualdadegnss}
-        \Vert u \Vert_{\cL^{p^*}(\bR^n)} \leqslant\Vert Du \Vert_{\cL^1(\bR^n)}
+        \Vert u \Vert_{\cL^{p^*}(\bR^n)} \leqslant\Vert Du \Vert_{\cL^1(\bR^n)},
     \end{equation}
     como queriamos mostrar.
 
-    ($1 < p < n$)\\
-    Considere a função $|u|^\gamma$ com $\gamma > 1$ a ser decidido. Utilizando a desigualdade no caso $p = 1$ temos
+    \underline{Caso 2:} Assuma que $1 < p < n$\\
+    Considere a função $|u|^\gamma$ com $\gamma > 1$ a ser escolhido a seguir. Utilizando a desigualdade obtida no caso $p = 1$, podemos escrever
     \[
-        \left( \int_{\bR^n} |u|^{\frac{\gamma n}{n - 1}}  \, dx\right)^{\frac{n-1}{n}} \leqslant \int_{\bR^n} |D(|u|^{\gamma})| \,dx = \gamma \int_{\bR^n} |u|^{\gamma-1} |Du| \,dx
+        \left( \int_{\bR^n} |u|^{\frac{\gamma n}{n - 1}}  \, dx\right)^{\frac{n-1}{n}} = \left( \int_{\bR^n} \Big[ |u|^\gamma \Big]^{\frac{n}{n-1}} \,dx \right)^{\frac{n-1}{n}} \leqslant \int_{\bR^n} |D(|u|^{\gamma})| \,dx = \gamma \int_{\bR^n} |u|^{\gamma-1} |Du| \,dx.
     \]
-    utilizando a desigualdade de Hölder na ultima integral obtemos
+    Utilizando a desigualdade de Hölder na ultima integral obtemos
     \[
         \left( \int_{\bR^n} |u|^{\frac{\gamma n}{n - 1}}  \, dx\right)^{\frac{n-1}{n}} \leqslant \gamma\left( \int_{\bR^n} |u|^{(\gamma-1)\frac{p}{p-1}} \,dx \right)^{\frac{p-1}{p}} \left( \int_{\bR^n} |Du|^p \,dx \right)^{\frac{1}{p}}.
     \]
-    Escolhendo $\gamma$ de forma que $\frac{\gamma n}{n - 1} = (\gamma -1)\frac{p}{p-1}$. Isto é
+    Escolhendo $\gamma$ de forma que $\displaystyle\frac{\gamma n}{n - 1} = (\gamma -1)\frac{p}{p-1}$, isto é,
     \[
         \gamma = \frac{p(n-1)}{n-p}
     \]
-    nesse caso, $\frac{\gamma n}{n-1} = p^*$. Sendo assim
+    nesse caso, $\displaystyle\frac{\gamma n}{n-1} = p^*$. Sendo assim, podemos escrever
     \[
-        \Vert u \Vert_{\cL^{p^*}(\bR^n)} = \left( \int_{\bR^n} |u|^{p^*} \,dx \right)^{\frac{1}{p^*}} \leqslant c \left( \int_{\bR^n} |Du|^p \,dx\right)^{\frac{1}{p}} = \Vert Du \Vert_{\cL^p(\bR^n)}.
+        \Vert u \Vert_{\cL^{p^*}(\bR^n)} = \left( \int_{\bR^n} |u|^{p^*} \,dx \right)^{\frac{1}{p^*}} \leqslant c \left( \int_{\bR^n} |Du|^p \,dx\right)^{\frac{1}{p}} = \Vert Du \Vert_{\cL^p(\bR^n)},
     \]
-    Finalizando a demonstração
+    finalizando a demonstração.
 \end{prf}
 
-\obs Note que o suporte compato é necessário, como exemplo tome a função $u(x) = 1$ para todo $x \in \bR^n$. Dessa forma $|Du| = 0$.
+\obs Note que o suporte compato é necessário, como exemplo tome a função $u(x) = 1$ para todo $x \in \bR^n$. Dessa forma $|Du| \equiv 0$. Consequentemente
 \[
-    \Vert u \Vert_{\cL^{p^*}(\bR^n)} \leqslant 0 \implies u \equiv 0
+    \Vert u \Vert_{\cL^{p^*}(\bR^n)} \leqslant 0 \implies u \equiv 0,
 \]
 que é uma contradição.
 
 \begin{tbox} \label{thm:desigualdade-teorema-2}
-    Seja $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{1,p}(\Omega)$ então $u \in \cL^{p^*}(\Omega)$ e
+    Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{1,p}(\Omega)$. Então $u \in \cL^{p^*}(\Omega)$ e, além disso
     \[
-        \Vert u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
+        \Vert u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)},
     \]
-    onde $c$ é uma constante que depende apenas de $n$, $p$ e $\Omega$
+    onde $c > 0$ é uma constante que depende apenas de $n$, $p$ e $\Omega$.
 \end{tbox}
 \begin{prf}
     Utilizando o Teorema \ref{thm:extensao}, podemos considerar a extensão de $u$ $Eu = \bar u$ tal que
-    \[
+    \begin{equation} \label{eq:man}
         \begin{aligned}
             &\bar u = u \text{ qtp em } \Omega\\
             &\bar u \text{ tem suporte compacto}\\
-            &\Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+            &\Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c\Vert u \Vert_{\cW^{1,p}(\Omega)}.
         \end{aligned}
-    \]
-    Como $\bar u$ tem suporte compacto, sabemos que existe uma sequência $(u_k)$ dada por $\eta_{\frac{1}{k}} * \bar u$ tal que
-    \[
+    \end{equation}
+    Como $\bar u$ tem suporte compacto, sabemos que existe uma sequência $(u_k)$, dada por $\eta_{\frac{1}{k}} * \bar u$, tal que
+    \begin{equation} \label{eq:mna}
         \Vert u_k - \bar u \Vert_{\cW^{1,p}(\Omega)} \to 0
-    \]
-    e para $k$ grande $u_k \in \cC^{\infty}_c(\bR^n)$.
-    Pela Desigaldade de Gagliardo-Nirenberg-Sobolev
+    \end{equation}
+    e para $k$ grande $u_k \in \cC^{\infty}_c(\bR^n)$ (ver Teorema ??).
+    Pela Desigaldade de Gagliardo-Nirenberg-Sobolev (\ref{eq:gns}), concluimos que
     \begin{equation} \label{eq:iiii}
         \Vert u_k - u_\ell \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert Du_k - Du_\ell \Vert_{\cL^p(\bR^n)}.
     \end{equation}
     Note que
     \[
-        \Vert Du_k - D\bar u \Vert_{\cL^p(\bR^n)} \leqslant \Vert u_k - \bar u \Vert_{\cW^{1,p}(\bR^n)} \to 0
+        \Vert Du_k - D\bar u \Vert_{\cL^p(\bR^n)} \leqslant \Vert u_k - \bar u \Vert_{\cW^{1,p}(\bR^n)} \to 0,
     \]
-    isso mostra que $(Du_k)$ é convergente (e portanto de Cauchy) em $\cL^p(\bR^n)$.
-    Consequentemente, por (\ref{eq:iiii}) observamos que $(u_k)$ é de Cauchy em $\cL^{p^*}(\bR^n)$ que é um espaço completo, logo existe $v \in \cL^{p^*}(\bR^n)$ tal que $u_k \to v$ em $\cL^{p^*}(\bR^n)$. Portanto, pelo Teorema \ref{thm:teorema-do-brezis}, ao menos de uma subsequência $u_k(x) \to v(x)$ qtp em $\bR^n$. Análogamente, $u_k(x) \to \bar u(x)$ qtp em $\bR^n$, desde que $\Vert u_k - \bar u \Vert_{\cL^p(\bR^n)} \leqslant \Vert u_k - \bar u \Vert_{\cW^{1,p}(\bR^n)} \to 0$. Com isso $v(x) = \bar u(x)$ qtp em $\bR^n$.
+    quando $k \to \infty$.
+    Isso mostra que $(Du_k)$ é convergente (e portanto de Cauchy) em $\cL^p(\bR^n)$.
+    Consequentemente, por (\ref{eq:iiii}), observamos que $(u_k)$ é de Cauchy em $\cL^{p^*}(\bR^n)$ que é um espaço completo. Logo, existe $v \in \cL^{p^*}(\bR^n)$ tal que $u_k \to v$ em $\cL^{p^*}(\bR^n)$. Portanto, pelo Teorema \ref{thm:teorema-do-brezis}, a menos de uma subsequência $u_k(x) \to v(x)$ qtp em $\bR^n$, quando $k \to \infty$. Análogamente, por (\ref{eq:mna}) $u_k(x) \to \bar u(x)$ qtp em $\bR^n$, quando $k \to \infty$ desde que $\Vert u_k - \bar u \Vert_{\cL^p(\bR^n)} \leqslant \Vert u_k - \bar u \Vert_{\cW^{1,p}(\bR^n)} \to 0$, quando $k \to \infty$. Com isso $v(x) = \bar u(x)$ qtp em $\bR^n$.
     Dessa forma
     \[
-        \Vert u_k - \bar u \Vert_{\cL^{p^*}(\bR^n)} \to 0.
+        \Vert u_k - \bar u \Vert_{\cL^{p^*}(\bR^n)} \to 0,
     \]
+    quando $k \to \infty$.
     A Desigualdade de Gagliardo-Nirenberg-Sobolev também implica em
     \[  
         \Vert u_k \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert Du_k \Vert_{\cL^p(\bR^n)}
     \]
-    Passando ao limite obtemos
+    para todo $k \in \bR^n$.
+    Passando ao limite, quando $k \to \infty$, obtemos
     \[
-        \Vert \bar u \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert D u \Vert_{\cL^p(\bR^n)}
+        \Vert \bar u \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert D \bar u \Vert_{\cL^p(\bR^n)}.
     \]
-    Essa desigualdade finaliza a demonstração, já que
+    Essa desigualdade finaliza a demonstração, já que, por (\ref{eq:man})
     \[
-        \Vert u \Vert_{\cL^{p^*}(\Omega)} = \Vert \bar u \Vert_{\cL^{p^*}(\Omega)} \leqslant \Vert \bar u \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert D \bar u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
+        \Vert u \Vert_{\cL^{p^*}(\Omega)} = \Vert \bar u \Vert_{\cL^{p^*}(\Omega)} \leqslant \Vert \bar u \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert D \bar u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)},
     \]
-    Como queriamos mostrar
+    como queriamos mostrar.
 \end{prf}
 
 \begin{tbox}
-    Sejam $\Omega$ um aberto limitado e $u \in \cW^{1,p}_0(\Omega)$ com $1 \leqslant p < n$, então a desigualdade
+    Sejam $\Omega$ um aberto limitado e $u \in \cW^{1,p}_0(\Omega)$, com $1 \leqslant p < n$, então a desigualdade
     \[
         \Vert u \Vert_{\cL^q(\Omega)} \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}
     \]
     é válida para $1 \leqslant q \leqslant p^*$ e $c$ é uma constante que depende de $p, q$ e $n$.
 \end{tbox}
 \begin{prf}
-    Como $u \in \cW^{1,p}_0(\Omega)$, conseguimos uma sequência de funções $(u_k)$ em $\cC^{\infty}_c(\Omega)$ tal que $u_k \to u$ em $\cW^{1,p}(\Omega)$.
-    Além disso, podemos extender cada $u_k$ para ser $0$ em $\bR^n \setminus \Omega$.
-    Sendo assim, aplicamos a Desigualdade de Gagliardo-Nirenberg-Sobolev para obter
+    Como $u \in \cW^{1,p}_0(\Omega)$, conseguimos uma sequência de funções $(u_k)$ em $\cC^{\infty}_c(\Omega)$ tal que $u_k \to u$ em $\cW^{1,p}(\Omega)$, quando $k \to \infty$.
+    Além disso, podemos estender cada $u_k$ para ser $0$ em $\bR^n \setminus \Omega$.
+    Sendo assim, aplicamos a Desigualdade de Gagliardo-Nirenberg-Sobolev (\ref{eq:gns}) para obter
     \[
         \Vert u_k \Vert_{\cL^{p*}(\Omega)} \leqslant c \Vert Du_k \Vert_{\cL^p(\Omega)}
     \]
-    Passando ao limite
+    para todo $k \in \bN$.
+    Passando ao limite, chegamos a
     \[
         \Vert u \Vert_{\cL^{p^*}}(\Omega) \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}
     \]
     Provando o caso em que $q = p^*$. Agora considere $1 \leqslant q < p^*$.
-    Como $\Omega$ é limitado, temos que
+    Como $\Omega$ é limitado, temos, pelos Teoremas ?? e ??, que
     \[
-        \Vert u \Vert_{\cL^q(\Omega)} \leqslant \Vert u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}
+        \Vert u \Vert_{\cL^q(\Omega)} \leqslant c\Vert u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}
     \]
     Portanto, a desigualdade é válida para todo $1 \leqslant p < n$ e $1 \leqslant q \leqslant p^*$.
 \end{prf}
 
-Um caso particular da desigualdade acima é a Desigualdade de Poincaré que será apresentada no corolário abaixo
+Um caso particular da desigualdade acima é a Desigualdade de Poincaré que será apresentada no resultado abaixo.
 
 \begin{cbox}[Desigualdade de Poincaré]
-   Sejam $\Omega$ um aberto limitado e $u \in \cW^{1,p}_0(\Omega)$ com $1 \leqslant p \leqslant \infty$. Então a desigualdade
+   Sejam $\Omega$ um aberto limitado e $u \in \cW^{1,p}_0(\Omega)$ com $1 \leqslant p \leqslant \infty$. Então, a desigualdade
    \[
         \Vert u \Vert_{\cL^p(\Omega)} \leqslant c\Vert Du \Vert_{\cL^p(\Omega)}
    \]
+   é válida
    onde $c$ é uma constante que depende de $p, q$ e $n$.
 \end{cbox}
 \begin{prf}
-    Primeiramente considere $1 \leqslant p < n$
-    Por definição, $1 \leqslant p < p^*$, pelo teorema anterior
+    Primeiramente considere $1 \leqslant p < n$.
+    Por definição, $1 \leqslant p < p^*$, pelo Teorema \ref{thm:desigualdade-teorema-2}, concluimos que
     \[
         \Vert u \Vert_{\cL^p(\Omega)} \leqslant c \Vert Du \Vert_{\cL^p}.
     \]
 
-    Agora considere $n \leqslant p < \infty$
-    Considere $1 \leqslant s < n$ tal que $p < s^*$.
-    Note que
+    Agora considere que $n \leqslant p < \infty$ e $1 \leqslant s < n$ tal que $p < s^*$ (isto é possível pois $s^* \to \infty$ se $s \to n^-$).
+    Note que, pelo Teorema ??, podemos escrever
     \[
-        \Vert u \Vert_{\cL^p(\Omega)} \leqslant \Vert u \Vert_{\cL^{s^*}(\Omega)} \leqslant c \Vert Du \Vert_{\cL^s(\Omega)} \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}.
+        \Vert u \Vert_{\cL^p(\Omega)} \leqslant \Vert u \Vert_{\cL^{s^*}(\Omega)} \leqslant c \Vert Du \Vert_{\cL^s(\Omega)} \leqslant c \Vert Du \Vert_{\cL^p(\Omega)},
     \]
+    já que $1 \leqslant p < s^*$, $s < p$ e $\Omega$ é limitado
     Por fim, considere $p = \infty$.
     Pelo que foi visto acima, temos que
     \[
         \Vert u \Vert_{\cL^{s^*}(\Omega)} \leqslant c \Vert Du \Vert_{\cL^{s}(\Omega)} \leqslant c \Vert Du \Vert_{\cL^\infty(\Omega)}.
     \]
-    Passando ao limite quando $s \to n^-$ temos que $s^* \to \infty$. Dessa forma $\Vert u \Vert_{\cL^\infty(\Omega)} \leqslant c \Vert Du \Vert_{\cL^\infty(\Omega)}$.
-    Portanto
+    Passando ao limite quando $s \to n^-$, temos que $s^* \to \infty$. Dessa forma, $\Vert u \Vert_{\cL^\infty(\Omega)} \leqslant c \Vert Du \Vert_{\cL^\infty(\Omega)}$.
+    Portanto,
     \[
         \Vert u \Vert_{\cL^p(\Omega)} \leqslant c\Vert Du \Vert_{\cL^p(\Omega)}
     \]
@@ -4773,9 +4783,9 @@ isto é o mesmo que dizer que $\cW^{1,p}_0(\Omega) \subseteq \cL^q(\Omega)$ com 
 Para estudar essa próxima classe de desigualdades, precisamos de algumas definições relacionadas aos espaços de Hölder.
 
 \begin{dbox}
-    Uma função $u : \Omega \to \bR$ é dita ser Hölder continua com expoente $\gamma \in (0,1]$ quando
+    Uma função $u : \Omega \to \bR$ é dita ser Hölder continua com expoente $\gamma \in (0,1]$, quando
     \[
-        |u(x) - u(y)| \leqslant c \Vert x - y \Vert^\gamma
+        |u(x) - u(y)| \leqslant c \Vert x - y \Vert^\gamma,
     \]
     para todo $x,y \in \Omega$. Além disso, denotamos o espaço dessas funções por $\cC^{0,\gamma}(\overline\Omega)$.
 \end{dbox}
@@ -4783,18 +4793,18 @@ Para estudar essa próxima classe de desigualdades, precisamos de algumas defini
 \begin{dbox}
     Se $u : \Omega \to \bR$ é uma função contínua e limitada, escrevemos
     \[
-        \Vert u \Vert_{\cC^{0,\gamma}(\overline\Omega)} = \Vert u \Vert_{\cC(\overline\Omega)} + [u]_{\cC^{0,\gamma}(\overline\Omega)}
+        \Vert u \Vert_{\cC^{0,\gamma}(\overline\Omega)} = \Vert u \Vert_{\cC(\overline\Omega)} + [u]_{\cC^{0,\gamma}(\overline\Omega)},
     \]
     onde
     \[
-        \Vert u \Vert_{\cC(\overline\Omega)} = \sup_{x \in \Omega} |u(x)| \;\text{ e }\; [u]_{\cC^{0,\gamma}(\overline\Omega)} = \sup_{\substack{x,y \in \Omega\\x \neq y}} \left\{ \frac{|u(x) - u(y)|}{\Vert x - y \Vert^\gamma} \right\}
+        \Vert u \Vert_{\cC(\overline\Omega)} = \sup_{x \in \Omega} |u(x)| \;\text{ e }\; [u]_{\cC^{0,\gamma}(\overline\Omega)} = \sup_{\substack{x,y \in \Omega\\x \neq y}} \left\{ \frac{|u(x) - u(y)|}{\Vert x - y \Vert^\gamma} \right\},
     \]
     para denotar a norma de $u$ no espaço de Hölder $\cC^{0,\gamma}(\overline\Omega)$.
 \end{dbox}
 
-Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdade de Morrey
+Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdade de Morrey.
 
-\begin{tbox} \label{thm:holdersobolev1}
+\begin{tbox}[Desigualdade de Morrey] \label{thm:holdersobolev1}
     Seja $u \in \cC^1(\bR^n)$ e $n < p \leqslant \infty$. Então
     \[
         \Vert u \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}
@@ -4811,109 +4821,111 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     \begin{equation} \label{eq:desigualdade-uyux}
         \sint_{B(x,r)} |u(y) - u(x)| \,dy \leqslant c \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|y-x|^{n-1}} \,dy.
     \end{equation}
-    Com efeito, fixando $w \in \partial B(\bz,1)$, assim, se $0 < s < r$ segue que
+    Com efeito, fixando $w \in \partial B(\bz,1)$, e $0 < s < r$, segue do Teorema Fundamental do Cálculo e da Regra da cadeia, que
     \[
-        |u(x + sw) - u(x)| = \left| \int_0^s u'(x + tw) \,dt \right| = \left|\int_0^s Du(x + tw) \cdot w \,dt \right| \leqslant \int_0^s \Vert Du(x + tw) \Vert \,dt
+        |u(x + sw) - u(x)| = \left| \int_0^s \frac{du}{dt} (x + tw) \,dt \right| = \left|\int_0^s Du(x + tw) \cdot w \,dt \right| \leqslant \int_0^s \Vert Du(x + tw) \Vert \,dt,
     \]
-    onde utilizamos a Desigualdade de Hölder (Cauchy-Schwarz) e o fato de $|w| = 1$. Daí integrando ambos os lados sobre $\partial B(\bz,1)$
-    {\small
+    onde utilizamos a Desigualdade de Cauchy-Schwarz e o fato de $|w| = 1$. Logo, integrando ambos os lados sobre $\partial B(\bz,1)$ e aplicando o Teorema de Fubini, obtemos
     \[
-        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{\partial B(\bz,1)} \Vert Du(x + tw) \Vert \,dSdt = \int_0^s \int_{\partial B(\bz,1)} \Vert Du(x + tw) \Vert \frac{t^{n-1}}{t^{n-1}} \,dSdt.
-    \]}\!
-    Seja $y = x + tw$, de forma que $t = \Vert x - y \Vert$. Assim, por meio de coordenadas polares obtemos
-    \[
-        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant \int_0^s \int_{B(x,t)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dSdt =  \int_{B(x,s)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dy
+        \begin{aligned}
+            \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS_w &\leqslant  \int_0^s \int_{\partial B(\bz,1)} \Vert Du(x + tw) \Vert \,dS_wdt\\ 
+            &= \int_0^s \int_{\partial B(\bz,1)} \Vert Du(x + tw) \Vert \frac{t^{n-1}}{t^{n-1}} \,dS_wdt.
+        \end{aligned}
     \]
-    e como $s < r$
+    Seja $y = x + tw$, de forma que $t = \Vert x - y \Vert$. Assim, por meio de coordenadas polares e mudança de variáveis obtemos
     \[
-        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS \leqslant   \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dy.
+        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS_w \leqslant \int_0^s \int_{B(x,t)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dS_wdt =  \int_{B(x,s)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dy
     \]
-    Multiplicando a equação acima por $s^{n-1}$ e integrando de $0$ a $r$ com respeito a $s$
+    e, como $s < r$, tem-se
+    \[
+        \int_{\partial B(\bz,1)} |u(x + sw) - u(x)|\,dS_w \leqslant   \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dy.
+    \]
+    Multiplicando a equação acima por $s^{n-1}$ e integrando de $0$ a $r$, com respeito a $s$, chegamos a
     \[
         \int_0^r s^{n-1} \int_{\partial B(\bz,1)} |u(x + sw) - u(x)| \,dSds \leqslant \int_0^r s^{n-1} \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dyds.
     \]
-    Fazendo $y = x + sw$, obtemos
+    Fazendo a mudança de variáveis $y = x + sw$, obtemos
     \[
-        \int_0^r \int_{\partial B(x,s)} |u(y) - u(x)|\, dSds \leqslant \left( \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dy \right) \left( \int_0^r s^{n-1} ds \right)
+        \int_0^r \int_{\partial B(x,s)} |u(y) - u(x)|\, dSds \leqslant \left( \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{|x-y|^{n-1}} \,dy \right) \left( \int_0^r s^{n-1} ds \right).
     \]
     Utilizando coordenadas polares no lado esquerdo e resolvendo a última integral do lado direito, segue que
     \[
-        \int_{B(x,r)} |u(y) - u(x)| \leqslant \frac{r^n}{n} \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy
+        \int_{B(x,r)} |u(y) - u(x)|\,dy \leqslant \frac{r^n}{n} \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy.
     \]
-    Por fim dividindo ambos os lados por $\sigma(n) r^n$ (volume da $n$-esfera de raio $r$), temos
+    Por fim, dividindo ambos os lados por $\sigma(n) r^n$ (volume da $n$-esfera de raio $r$), temos
     \[
         \sint_{B(x,r)} |u(y) - u(x)| \,dy \leqslant \frac{1}{n\sigma(n)} \int_{B(x,r)} \frac{\Vert Du(y) \Vert}{\Vert x-y \Vert^{n-1}} \,dy.
     \]
     como era desejado.
 
-    Agora, fixe $x \in \bR^n$. Note que
+    Agora, fixe $x \in \bR^n$. Note que, podemos escrever
     \[
         |u(x)| = \frac{|u(x)|}{\sigma(n)}\int_{B(x,1)} dy = \sint_{B(x,1)} |u(x)| \,dy.
     \]
-    Dito isso
+    Dito isso, deduzimos que
     \begin{equation} \label{eq:ux}
         |u(x)| \leqslant \sint_{B(x,1)} |u(x) - u(y)| \,dy + \sint_{B(x,1)} |u(y)|\,dy.
     \end{equation}
-    Observe que
+    Observe que, pela desigualdade de Hölder, inferimos
     \begin{equation} \label{eq:uylp}
         \begin{aligned}
             \sint_{B(x,1)} |u(y)| \,dy &= \frac{1}{\sigma(n)} \int_{B(x,1)} |u(y)| \,dy\\ 
             &\leqslant \frac{1}{\sigma(n)} \left( \int_{B(x,1)} |u(y)|^p\,dy \right)^{\frac{1}{p}} \left( \int_{B(x,1)} 1^{p'} \,dy \right)^{\frac{1}{p'}} \leqslant c \Vert u \Vert_{\cL^p(\bR^n)}
         \end{aligned}
     \end{equation}
-    Além disso
+    onde $p$ e $p'$ são expoentes conjugados.
+    Além disso, utilizando a desigualdade de Hölder novamente, chegamos a
     \[
-        \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant \left( \int_{B(x,1)} \Vert Du \Vert^p \right)^{\frac{1}{p}} \left( \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} \right)^{\frac{1}{p'}}
+        \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant \left( \int_{B(x,1)} \Vert Du \Vert^p \right)^{\frac{1}{p}} \left( \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} \right)^{\frac{1}{p'}},
     \]
-    onde a ultima integral é finita.
+    onde $p$ e $p'$ são expoentes conjugados e a última integral é finita.
     De fato, utliizando coordenadas polares
     \[
-        \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} = \int_0^1 \int_{\partial B(x,r)} \frac{1}{r^{(n-1)p'}} dSdr = n\sigma(n)\int_0^1 r^{(n-1)(1-p')} \,dr = n \sigma(n)  \frac{p-1}{p-n}
+        \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} = \int_0^1 \int_{\partial B(x,r)} \frac{1}{r^{(n-1)p'}} dSdr = n\sigma(n)\int_0^1 r^{(n-1)(1-p')} \,dr = n \sigma(n)  \frac{p-1}{p-n} < \infty,
     \]
-    que é finito pois $n < p$.
-    Dito isso
+    pois $n < p$.
+    Dito isso, segue que
     \begin{equation} \label{eq:duxy}
         \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant c\Vert Du \Vert_{\cL^p(\bR^n)}.
     \end{equation}
-    Dessa forma, por (\ref{eq:desigualdade-uyux}), (\ref{eq:ux}), (\ref{eq:uylp}) e (\ref{eq:duxy})
+    Dessa forma, por (\ref{eq:desigualdade-uyux}), (\ref{eq:ux}), (\ref{eq:uylp}) e (\ref{eq:duxy}), deduzimos que
     \[
         |u(x)| \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}.
     \]
     Como $x$ é arbitrário, também obtemos
     \begin{equation} \label{eq:normac}
-        \Vert u \Vert_{\cC(\bR^n)} = \sup_{x \in \bR^n} |u(x)| \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}
+        \Vert u \Vert_{\cC(\bR^n)} = \sup_{x \in \bR^n} |u(x)| \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}.
     \end{equation}
 
-    Agora, considere $x, y \in \bR^n$ e denote $r = \Vert x - y \Vert$. Daí, seja $B = B(x,r) \cap B(y,r)$, sendo assim
+    Agora, considere $x, y \in \bR^n$ e denote $r = \Vert x - y \Vert$. Portando, seja $B = B(x,r) \cap B(y,r)$, sendo assim
+    \begin{equation} \label{eq:abcd}
+        |u(x) - u(y)| = \sint_{B} |u(x) - u(y)| \,dz \leqslant \sint_{B} |u(x) - u(z)| \,dz + \sint_B |u(y) - u(z)| \,dz.
+    \end{equation}
+    Calculando a primeira acima integral obtemos, por (\ref{eq:ux}), que
     \[
-        |u(x) - u(y)| \leqslant \sint_{B} |u(x) - u(z)| \,dz + \sint_B |u(y) - u(z)| \,dz.
+        \sint_B |u(x) - u(z)| \,dz \leqslant \sint_{B(x,r)} |u(z) - u(x)| \,dz \leqslant c \int_{B(x,r)} \frac{\Vert Du(z) \Vert}{|z-x|^{n-1}} \,dz.
     \]
-    Calculando a primeira integral obtemos
-    \[
-        \sint_B |u(x) - u(z)| \,dz \leqslant \sint_{B(x,r)} |u(x) - u(z)| \,dz \leqslant c \int_{B(x,r)} \frac{\Vert Du(z) \Vert}{|z-x|^{n-1}} \,dz
-    \]
-    onde utilizando a Desigualdade de Hölder, como foi feito anteriormente obtemos
+    Analogamente a (\ref{eq:duxy}), inferimos que
     \[
         \sint_B |u(x) - u(z)| \,dz \leqslant cr^{1 - \frac{n}{p}} \Vert Du \Vert_{\cL^p(\bR^n)}.
     \]
-    De forma análoga
+    Da mesma forma, segue que
     \[
         \sint_B |u(y) - u(z)| \,dz \leqslant cr^{1 - \frac{n}{p}} \Vert Du \Vert_{\cL^p(\bR^n)}.
     \]
 
-    Sendo assim
+    Sendo assim, por (\ref{abcd}), podemo escrever
     \[
         |u(x) - u(y)| \leqslant c \Vert x - y \Vert^{1 - \frac{n}{p}} \Vert Du \Vert_{\cL^p(\bR^n)}.
     \]
     Isso mostra que
     \begin{equation} \label{eq:seminormau}
-        [u]_{\cC^{0,\gamma}(\bR^n)} = \sup \left\{ \frac{|u(x) - u(y)|}{\Vert x - y \Vert^{\gamma}} \right\} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}
+        [u]_{\cC^{0,\gamma}(\bR^n)} = \sup_{\substack{x,y \in \bR^n\\x \neq y}} \left\{ \frac{|u(x) - u(y)|}{\Vert x - y \Vert^{\gamma}} \right\} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)}
     \end{equation}
     Portanto por (\ref{eq:normac}) e (\ref{eq:seminormau})
     \[
-        \Vert u \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}
+        \Vert u \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}.
     \]
-    Assim, demonstrada a Desigualdade de Morrey.
 \end{prf}
 
 \begin{dbox}
@@ -4923,10 +4935,10 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
     \]
 \end{dbox}
 
-Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
+Para demonstrar a próxima desigualdade de Sobolev, precisamos do seguinte resultado
 
 \begin{tbox}
-    O espaço de Hölder $\cC^{0,\gamma}(\overline\Omega)$ é um espaço de Banach
+    O espaço de Hölder $(\cC^{0,\gamma}(\overline\Omega), \Vert \cdot \Vert_{\cC^{0,\gamma}(\overline\Omega)})$ é um espaço de Banach
 \end{tbox}
 \begin{prf}
     \textcolor{red}{verificar (ainda não consegui)}
@@ -4935,49 +4947,51 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
 \begin{tbox}
     Seja $\Omega$ um aberto limitado com $\partial\Omega$ de classe $\cC^1$.
     Considere $u \in \cW^{1,p}(\Omega)$ com $n < p \leqslant \infty$.
-    Então $u$ tem uma versão contínua $u^* \in \cC^{0,\gamma}(\overline\Omega)$ com $\gamma = 1 - \frac{n}{p}$ e
+    Então $u$ tem uma versão contínua $u^* \in \cC^{0,\gamma}(\overline\Omega)$ com $\gamma = 1 - \frac{n}{p}$, tal que
     \[
-        \Vert u^*  \Vert_{\cC^{0,\gamma}(\overline\Omega)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)}
+        \Vert u^*  \Vert_{\cC^{0,\gamma}(\overline\Omega)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)},
     \]
-    onde $c$ é um constnte que depende de $n$, $p$ e $\Omega$
+    onde $c$ é um constnte que depende de $n$, $p$ e $\Omega$.
 \end{tbox}
 \begin{prf}
-    Utilizando o Teorema \ref{thm:extensao}, podemos considerar a extensão de $u$ $Eu = \bar u$ tal que
-    \[
+    Utilizando o Teorema \ref{thm:extensao}, podemos considerar a extensão de $u$, $Eu = \bar u$, tal que
+    \begin{equation} \label{eq:oll}
         \begin{aligned}
             &\bar u = u \text{ qtp em } \Omega\\
             &\bar u \text{ tem suporte compacto}\\
             &\Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)}.
         \end{aligned}
-    \]
-    Além disso, como $\supp \bar u$ é compcto, temos pelo Teorema \ref{thm:aprox1} que existem funções $(u_k) \subseteq \cC^\infty_c(\bR^n) \subseteq \cC^1(\bR^n)$ tal que
-    \[
+    \end{equation}
+    Além disso, como $\supp \bar u$ é compcto, temos pelo Teorema \ref{thm:aprox1}, que existe uma sequência $(u_k) \subseteq \cC^\infty_c(\bR^n) \subseteq \cC^1(\bR^n)$, para $k$ suficientemente grande, tal que
+    \begin{equation} \label{eq:oll1}
         \Vert u_k - \bar u \Vert_{\cW^{1,p}(\bR^n)} \to 0.
-    \]
-    Além disso, pelo Teorema \ref{thm:holdersobolev1}
+    \end{equation}
+    quando $k \to \infty$
+    Além disso, pelo Teorema \ref{thm:holdersobolev1}, podemos escrever
     \[
-        \Vert u_k -u_l \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u_k - u_l \Vert_{\cW^{1,p}(\bR^n)}.
+        \Vert u_k -u_l \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u_k - u_l \Vert_{\cW^{1,p}(\bR^n)},
     \]
-    Isto nos diz que $(u_k)$ é de Cauchy em $\cC^{0,\gamma}(\bR^n)$, já que $(u_k)$ é convergente em ds $\cW^{1,p}(\bR^n)$.
-    Como $\cC^{0,\gamma}(\bR^n)$ é commpleto, existe uma função $u^* \in \cC^{0,\gamma}(\bR^n)$ tal que
-    \[
+    para todo $k, \ell \in \bN$.
+    Isto nos diz que $(u_k)$ é de Cauchy em $\cC^{0,\gamma}(\bR^n)$ (pois é de Cauchy em $\cW^{1,p}(\bR^n)$).
+    Como $\cC^{0,\gamma}(\bR^n)$ é completo (ver Teorema \ref{thm:sobolev-completo}), existe uma função $u^* \in \cC^{0,\gamma}(\bR^n)$ tal que
+    \begin{equation} \label{eq:oll2}
         \Vert u_k - u^* \Vert_{\cC^{0,\gamma}(\bR^n)} \to 0.
-    \]
-    Note que $u^* = \bar u$ qtp em $\bR^n$ e $u = \bar u$ qtp em $\Omega$.
-    Logo $u = u^*$ qtp em $\Omega$, ou seja $u^*$ é uma versão de $u$.
+    \end{equation}
+    Note que $u^* = \bar u$ qtp em $\bR^n$ (análogo ao que foi feito na demonstração do Teorema \ref{thm:desigualdade-teorema-2}) e $u = \bar u$ qtp em $\Omega$ (por (\ref{eq:oll})).
+    Logo $u = u^*$ qtp em $\Omega$, ou seja $u^*$ é uma versão contínua de $u$.
     O Teorema \ref{thm:holdersobolev1} também implica em
     \[
         \Vert u_k \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert u_k \Vert_{\cW^{1,p}(\bR^n)}.
     \]
-    Isto nos leva a
+    Passando ao limite, quando $k \to \infty$, chegamos por (\ref{eq:oll1}) e (\ref{eq:oll2}) a
     \[
         \Vert u^* \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)}.
     \]
-    Por fim
+    Por fim, por (\ref{eq:oll}) é verdade que
     \[
         \Vert u^* \Vert_{\cC^{0,\gamma}(\overline \Omega)} \leqslant \Vert u^* \Vert_{\cC^{0,\gamma}(\bR^n)} \leqslant c \Vert \bar u \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}.
     \]
-    Portanto
+    Portanto, concluimos que
     \[
         \Vert u^* \Vert_{\cC^{0,\gamma}(\overline\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}(\Omega)}
     \]
@@ -4987,7 +5001,7 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
 \subsection{Desigualdades gerais de Sobolev}
 
 \begin{tbox}
-    Sejam $\Omega$ um aberto limitado com fronteira $\partial\Omega$ de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$.
+    Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$.
     Se $kp < n$, então $u \in \cL^q(\Omega)$ onde
     \[
         \frac{1}{q} = \frac{1}{p} - \frac{k}{n}.
@@ -4999,12 +5013,20 @@ Para demonstrar a próxima desigualdade, precisamos do seguinte resultado
     é valida, onde $c$ depende apenas de $k, p, n$ e $\Omega$.
 \end{tbox}
 \begin{prf}
-    Como $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant kp < n$ temos que $D^\alpha u \in \cL^p(\Omega)$ para todo multi-índice $\alpha$ com $|\alpha| \leqslant k$.
+    Como $u \in \cW^{k,p}(\Omega)$ com $1 \leqslant p \leqslant kp < n$ temos que $D^\alpha u \in \cL^p(\Omega)$ para todo multi-índice $\alpha$ com $|\alpha| \leqslant k$. 
+    Como $\Omega$ é limitado e $\partial\Omega$ é de classe $\cC^1$, pelo Teorema \ref{thm:extensao} podemos considerar uma extenão $\overline{D^\beta u}$ de $D^\beta u$ com $|\beta| \leqslant k -1$. 
     Utilizando a Desigualdade de Gagliardo-Nirenberg-Sobolev obtemos
     \[
-        \Vert D^\beta u \Vert_{\cL^{p^*}(\Omega)} \leqslant c\Vert u \Vert_{\cL^p(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}
+        \Vert \overline{D^\beta u} \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert D (\overline{D^\beta u}) \Vert_{\cL^p(\bR^ n)}
     \]
-    com $|\beta| \leqslant k-1$.
+    Dessa forma, como $\overline{D^\beta u} = D^\beta u$ qtp em $\Omega$, podemos escrever
+    \[
+        \Vert D^\beta u \Vert_{\cL^{p^*}(\Omega)} = \Vert \overline{D^\beta u} \Vert_{\cL^{p*}(\Omega)} \leqslant \Vert \overline{D^\beta u} \Vert_{\cL^{p*}(\bR^n)} \leqslant c \Vert D (\overline{D^\beta}u) \Vert_{\cL^p(\bR^ n)} \leqslant c \Vert \overline{D^\beta u} \Vert_{\cW^{1,p}(\Omega)},
+    \]
+    porém a extensão é um operador linear limitado, sendo assim, temos que $\Vert \bar v \Vert_{\cW^{1,p}(\bR^n)} \leqslant c \Vert v \Vert_{\cW^{1,p}(\Omega)}$ para todo $v \in \cW^{1,p}(\Omega)$. Dito isso, inferimos que
+    \[
+        \Vert D^\beta u \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert D^\beta u \Vert_{\cW^{1,p}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}.
+    \]
     Dessa forma $u \in \cW^{k-1,p^*}(\Omega)$ e $\Vert u \Vert_{\cW^{k-1,p^*}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)}$.
     De forma análoga temos que $u \in \cW^{k-2,p^{**}}(\Omega)$ onde
     \[
@@ -6255,115 +6277,138 @@ A demonstração do lema abaixo é bastante extensa, porem é de extrema import�
 Nessa seção retornamos ao problema visto na motivação do capítulo anterior.
 
 O ponto principal dessa seção é o Teorema de Lax-Milgram que será utilizado para mostrar a existência de soluções fracas para o problema de Dirichet.
-Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para espaços de Hilbert, que será apresentado abaixo
+Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para espaços de Hilbert, que será apresentado abaixo.
 
 \begin{tbox}[Teorema da representação de Riesz para espaços de Hilbert]
     Sejam $H$ um espaço de Hilbert e $f : H \to \bR$ um funcional linear limitado.
-    Então existe um único $v \in H$ tal que $f(u) = \left\langle u, v\right\rangle$ para todo $u \in H$.
+    Então existe um único $v \in H$ tal que
+    \[
+        f(u) = \left\langle u, v\right\rangle
+    \]
+    para todo $u \in H$.
     Além disso $\Vert f \Vert = \Vert v \Vert$.
 \end{tbox}
 \begin{prf}
-    Seja $f : H \to \bR$ um funcional linear limitado não nulo, então existe $z \in H$ tal que $f(z) \neq 0$, como $f$ é linear $z$ deve ser não nulo. Ou seja, $\ker f \neq H$.
+    Seja $f : H \to \bR$ um funcional linear limitado não nulo, então existe $z \in H$ tal que $f(z) \neq 0$. 
+    Como $f$ é linear $z$ deve ser não nulo. Ou seja, $\ker f \neq H$.
     Como $f$ é limitado segue que $\ker f$ é fechado, sendo assim (por \cite{cesar-analise.funcional} p.p. 129), $H = \ker f \oplus \ker f ^\perp$.
-    Portanto $\ker f ^\perp \neq \{0\}$ (pois caso contrário $\ker f = H$).
-    Dito isso, seja $w \in \ker f ^\perp$ não nulo, para cada $u \in H$, $f(u) w - f(w)u \in \ker f$ já que $f(f(u)w - f(w)u) = f(u) f(w) - f(w)f(u) = 0$.
+    Portanto, $\ker f ^\perp \neq \{0\}$ (pois caso contrário $\ker f = H$).
+    Dito isso, seja $w \in \ker f ^\perp$ não nulo, então, para cada $u \in H$, $f(u) w - f(w)u \in \ker f$ já que
+    \[
+        f(f(u)w - f(w)u) = f(u) f(w) - f(w)f(u) = 0.
+    \]
     Dessa forma
     \[
-        0 = \left\langle f(u)w - f(w)u, w \right\rangle = f(u) \left\langle w,w \right\rangle - f(w) \left\langle u,w \right\rangle
+        0 = \left\langle f(u)w - f(w)u, w \right\rangle = f(u) \left\langle w,w \right\rangle - f(w) \left\langle u,w \right\rangle,
     \]
-    o que implica em
+    ou seja
     \[
         f(u) = \left\langle u, \frac{f(w)}{\Vert w \Vert^2}w \right\rangle.
     \]
-    Denotando $v := \frac{f(w)}{\Vert w \Vert^2} w \in H$ (note que $v$ não depende de $u$), temos que existe $v \in H$ tal que $f(u) = \left\langle u,v \right\rangle$ para todo $u \in H$.
+    Escolhendo $v := \dfrac{f(w)}{\Vert w \Vert^2} w \in H$ (note que $v$ não depende de $u$), temos que existe $v \in H$ tal que $f(u) = \left\langle u,v \right\rangle$ para todo $u \in H$.
 
     Para mostrar que $v$ é único, suponha que exista $\tilde v \in H$ tal que $f(u) = \left\langle u, \tilde v \right\rangle$ para todo $u \in H$.
-    Dito isso $\left\langle u, v \right\rangle = f(u) = \left\langle u,\tilde v \right\rangle$ para todo $u \in H$, reescrevendo, temos $\left\langle u , v - \tilde v \right\rangle = 0$ para todo $u \in H$, em particular se $u = v - \tilde v \in H$, temos $\Vert v - \tilde v \Vert = 0$, ou seja $v = \tilde v$. Portanto $v$ é único.
+    Dito isso
+    \[
+        \left\langle u, v \right\rangle = f(u) = \left\langle u,\tilde v \right\rangle
+    \] 
+    para todo $u \in H$. Logo é verdade que
+    \[
+        \left\langle u , v - \tilde v \right\rangle = 0
+    \]
+    para todo $u \in H$, Em particular se $u = v - \tilde v \in H$, temos $\Vert v - \tilde v \Vert = 0$, ou seja, $v = \tilde v$. Portanto $v$ é único.
 
     Por fim, resta mostrar que $\Vert f \Vert = \Vert v \Vert$.
     De fato, note que $f(v) = \left\langle v, v \right\rangle = \Vert v \Vert^2$. Ou seja
     \[
-        \Vert v \Vert^2 = f(v) \leqslant |f(v)| \leqslant \Vert f \Vert \Vert v \Vert,
+        \Vert v \Vert^2 = f(v) \leqslant |f(v)| \leqslant \Vert f \Vert \Vert v \Vert.
     \]
-    como $v$ é não nulo, temos $\Vert v \Vert \leqslant \Vert f \Vert$.
-    Por outro lado, por Cauchy-Schawarz
+    Como $v$ é não nulo, temos $\Vert v \Vert \leqslant \Vert f \Vert$.
+    Por outro lado, pela desigualdade de Cauchy-Schawarz
     \[
         |f(u)| = |\left\langle u,v \right\rangle| \leqslant \Vert u \Vert \Vert v \Vert
     \]
     o que implica em $\Vert f \Vert \leqslant \Vert v \Vert$.
-    Portanto
+    Portanto, vale a igualdade:
     \[
         \Vert f \Vert = \Vert v \Vert
     \]
-    finalizando a demonstração.
 \end{prf}
 
 \begin{tbox}[Teorema de Lax-Milgram]
     Sejam $H$ um espaço de Hilbert e $B : H \times H \to \bR$ uma aplicação bilinear tal que existem $\alpha, \beta > 0$ tais que
     \begin{enumerate}
-        \item $| B(u,v)| \leqslant \alpha \Vert u \Vert \Vert v \Vert$ para todo $u,v \in H$ i.e., a forma bilinear é limitada;
-        \item $\beta \Vert u \Vert^2 \leqslant B(u,u)$ para todo $u \in H$ i.e., a forma bilinear é coerciva,
+        \item $| B(u,v)| \leqslant \alpha \Vert u \Vert \Vert v \Vert$ para todo $u,v \in H$, i.e., a forma bilinear é limitada;
+        \item $\beta \Vert u \Vert^2 \leqslant B(u,u)$ para todo $u \in H$, i.e., a forma bilinear é coerciva,
     \end{enumerate}
-    e $f : H \to \bR$ um funcional linear limitado. Então existe um único $v \in H$ tal que $B(u,v) = f(u)$ para todo $u \in H$.
+    e $f : H \to \bR$ um funcional linear limitado. Então, existe um único $v \in H$ tal que
+    \[
+        B(u,v) = f(u)
+    \]
+    para todo $u \in H$.
 \end{tbox}
 \begin{prf}
-    Essa demonstração sera dividida em alguns passos
+    Essa demonstração sera dividida em seis passos
 
-    \underline{Passo 1:}
+    \underline{Passo 1:} Mostremos que existe uma aplicação $A : H \to H$ tal que $B(u,v) = \left\langle u, Av \right\rangle$ para todo $u,v \in H$.
 
     Para cada $v \in H$ defina $g_v : H \to \bR$ por
     \[
         g_v(u) = B(u,v).
     \]
+    para todo $u \in H$
     Claramente $g_v$ é linear (pois $B$ é uma forma bilinear).
-    Além disso $g_v$ é limitada, já que
+    Além disso, $g_v$ é limitada, já que
     \[
         |g_v(u)| = |B(u,v)| \leqslant \alpha \Vert u \Vert \Vert v \Vert
     \]
-    para todo $u \in H$, onde utilizamos o fato de $B$ ser limitada.
-    Sendo assim
+    para todo $u \in H$, onde utilizamos o fato de $B$ ser limitada (ver ítem 1).
+    Sendo assim,
     \[
-        |g_v(u)| \leqslant \alpha \Vert u \Vert
+        \Vert g_v \Vert \leqslant \alpha \Vert v \Vert.
     \]
-    para todo $u \in H$.
     Logo $g_v$ é limitada.
-    Dito isso, pelo Teorema da Representação de Riesz, existe um único $w_v \in H$ tal que
+    Dito isso, pelo Teorema da Representação de Riesz (ver Teorema ??), existe um único $w_v \in H$ tal que
     \[
         B(u,v) = g_v(u) = \left\langle u, w_v \right\rangle
     \]
     para todo $u \in H$.
     Agora, seja $A : H \to H$ dado por $Av = w_v$.
-    Dessa forma
-    \[
+    Dessa forma, podemos escrever
+    \begin{equation} \label{eq:anmm}
         B(u,v) = g_v(u) = \left\langle u,w_v \right\rangle = \left\langle u, Av \right\rangle.
-    \]
+    \end{equation}
+    para todo $u,v \in H$
 
-    \underline{Passo 2:} $A$ é um operador linear e limitado
+    \underline{Passo 2:} Afirmamos que $A$ é um operador linear e limitado
 
     Sejam $x, y \in H$ e $\lambda \in \bR$.
-    Sendo assim
+    Sendo assim, por (\ref{eq:anmm}), obtemos
     \[
-        \left\langle u, A(\lambda x + y) \right\rangle = B(u, \lambda x + y) = \lambda B(u,x) + B(u,y) = \lambda \left\langle u, Ax \right\rangle + \left\langle u, Ay \right\rangle = \left\langle u, \lambda Ax + Ay \right\rangle
+        \left\langle u, A(\lambda x + y) \right\rangle = B(u, \lambda x + y) = \lambda B(u,x) + B(u,y) = \lambda \left\langle u, Ax \right\rangle + \left\langle u, Ay \right\rangle = \left\langle u, \lambda Ax + Ay \right\rangle,
     \]
+    para tudo $u \in H$,
     pois $B$ é uma forma bilinear.
-    Logo $A$ é linear.
-    Além disso, dado $v \in H$
+    Com isso $A(\lambda x + y) = \lambda Ax + Ay$, para todo $x,y \in H$ e $\lambda \in \bR$
+    Logo, $A$ é linear.
+    Além disso, dado $v \in H$, inferimos por (\ref{eq:anmm}) que
     \[
-        \Vert Av \Vert^2 = \left\langle Av, Av \right\rangle = B(Av, v) \leqslant \alpha \Vert Av \Vert \Vert v \Vert
+        \Vert Av \Vert^2 = \left\langle Av, Av \right\rangle = B(Av, v) \leqslant |B(Av, v)| \leqslant \alpha \Vert Av \Vert \Vert v \Vert
     \]
-    como $Av \neq 0$ obtemos
+    pelo item 1. Deste modo, a seguinte desigualdade é válida:
     \[
         \Vert Av \Vert \leqslant \alpha \Vert v \Vert.
     \]
+    para todo $v \in H$.
     Portanto $A$ é limitado
 
-    \underline{Passo 3:} $A$ é injetivo e $\mathrm{Im}A$ é fechado
+    \underline{Passo 3:} É verdade que $A$ é injetivo e $\mathrm{Im}A$ é fechado
 
-    Sabemos que existe $\beta > 0$ tal que $\beta \Vert u \Vert^2 \leqslant |B(u,u)|$. Dessa forma
+    Sabemos que existe $\beta > 0$ tal que $\beta \Vert u \Vert^2 \leqslant |B(u,u)|$ para todo $u \in H$. Dessa forma, por (\ref{eq:anmm}), concluimos que
     \[
         \beta \Vert u \Vert^2 \leqslant |B(u,u)| = | \left\langle u, Au \right\rangle | \leqslant \Vert u \Vert \Vert Au \Vert
     \]
-    ou seja
+    para todo $u \in H$, ou seja
     \begin{equation} \label{eq:uau}
         \beta \Vert u \Vert \leqslant \Vert Au \Vert
     \end{equation}
@@ -6373,51 +6418,54 @@ Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para
         \beta \Vert u \Vert \leqslant \Vert Au \Vert = 0
     \]
     o que implica em $u = 0$.
-    Portanto $u$ é injetiva.
-    Além disso, seja $(Au_k) \subseteq \mathrm{Im} A$ tal que $A u_k \to v \in H$.
+    Portanto $A$ é injetiva.
+
+    Além disso, seja $(Au_k) \subseteq \mathrm{Im} A$ tal que $A u_k \to v \in H$, quando $k \to \infty$.
     Mostremos que $v \in \mathrm{Im}A$.
     Com efeito, $(Au_k)$ é de cauchy (porque converge). Dito isso, por (\ref{eq:uau})
     \[
         \beta \Vert u_k - u_\ell \Vert \leqslant \Vert Au_k - Au_\ell \Vert \to 0
     \]
     Ou seja, $(u_k) \subseteq H$ é de Cauchy.
-    Como $H$ é completo, existe $u_0 \in H$ tal que $u_n \to u_0$. Como $A$ é limitado (o que implica em $A$ ser contínuo) temos $Au_k \to Au_0$.
-    Pela unicidade do limite $v = Av_0 \in \mathrm{Im}A$.
-    Portanto $\mathrm{Im}A$ é fechado.
+    Como $H$ é completo, existe $u_0 \in H$ tal que $u_n \to u_0$. Como $A$ é limitado (o que implica em $A$ ser contínuo) temos que $Au_k \to Au_0$, quando $k \to \infty$.
+    Pela unicidade do limite, deduzimos que $v = Av_0 \in \mathrm{Im}A$.
+    Portanto Vamos mostrar que $\mathrm{Im}A$ é fechado.
 
     \underline{Passo 4:} $A$ é sobrejetivo
 
-    Sabemos que $H = \mathrm{Im}A \oplus \mathrm{Im}A^\perp$. Mostremos que $\mathrm{Im}A^\perp = \{0\}$.
-    Com efeito, se $w \in \mathrm{Im}A^\perp$, temos que
+    Sabemos que $H = \mathrm{Im}A \oplus \mathrm{Im}A^\perp$ (pois $\mathrm{Im}A$ é fechado). Mostremos que $\mathrm{Im}A^\perp = \{0\}$.
+    Com efeito, se $w \in \mathrm{Im}A^\perp$, temos pelo item 2, e por (\ref{eq:anmm}) que
     \[
-        \beta \Vert w \Vert^2 \leqslant | B(w,w) | = | \left\langle w, Aw \right\rangle | = 0
+        \beta \Vert w \Vert^2 \leqslant B(w,w) \leqslant | B(w,w) | = | \left\langle w, Aw \right\rangle | = 0
     \]
-    Logo, $w = 0$ o que implica em $H = \mathrm{Im}A$.
-    Portanto $A$ é sobrejetiva.
+    pois $Aw \in \mathrm{Im}A$ e $w \in \mathrm{Im}A^\perp$.
+    Logo, $w = 0$, o que implica em $H = \mathrm{Im}A$.
+    Portanto, $A$ é sobrejetiva.
 
-    \underline{Passo 5:} $f(u) = B(u,v)$
+    \underline{Passo 5:} É verdade que existe $v \in H$ tal que $f(u) = B(u,v)$ para todo $u \in H$.
 
-    Como $f$ é um funcional linear limitado em $H$, pelo Teorema da Representação de Riesz existe $z \in H$ tal que $f(u) = \left\langle u, z \right\rangle$ para todo $u \in H$.
-    Como $A$ é uma bijeção, existe um único $v \in H$ tal que $z = Av$, dessa forma
-    \[
+    Como $f$ é um funcional linear limitado em $H$, pelo Teorema da Representação de Riesz (ver Teorema ??), existe $z \in H$ tal que $f(u) = \left\langle u, z \right\rangle$ para todo $u \in H$.
+    Como $A$ é uma bijeção, existe um único $v \in H$ tal que $z = Av$. Dessa forma, podemos escrever
+    \begin{equation} \label{eq:annn}
         f(u) = \left\langle u,z \right\rangle = \left\langle u, Av \right\rangle = B(u,v)
-    \]
+    \end{equation}
     para todo $u \in H$.
 
-    \underline{Passo 6:} Unicidade
+    \underline{Passo 6:} Vamos mostrar que $v$ em (\ref{eq:annn}) é único
 
-    Por fim, para mostrar que $v$ é único, suponha que exista $\tilde v \in H$ tal que $f(u) = B(u, \tilde v)$ para todo $u \in H$.
-    Dessa forma
+    Suponha que existe $\tilde v \in H$ tal que $f(u) = B(u, \tilde v)$ para todo $u \in H$.
+    Dessa forma, as igualdades abaixo são válidas
     \[
         B(u,v) = f(u) = B(u,\tilde v).
     \]
-    Reescrevendo, temos $B(u, v - \tilde v) = 0$ para todo $u \in H$.
-    Dito isso por (\ref{eq:uau})
+    para todo $u \in H$.
+    Por isso, pela linearidade de B, segue que $B(u, v - \tilde v) = 0$ para todo $u \in H$.
+    Dito isso, pelo item 2, chegamos a
     \[
-        \beta \Vert v - \tilde v \Vert \leqslant | B(v - \tilde v, v - \tilde v) | = 0
+        \beta \Vert v - \tilde v \Vert^2 \leqslant | B(v - \tilde v, v - \tilde v) | = 0.
     \]
     Sendo assim, $v = \tilde v$.
-    Portanto $v$ é único.
+    Portanto, $v$ é único.
 \end{prf}
 
 \noindent\textbf{Aplicação do Teorema de Lax-Milgram} (Existência de soluções fracas)\textbf{.} Considere o problema de Dirichlet
@@ -6427,57 +6475,66 @@ Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para
         u = 0 &\text{ em } \partial\Omega
     \end{aligned}
 \end{equation}
-onde $\Omega$ é um aberto limitado.
+onde $\Omega \subseteq \bR^n$ é um aberto limitado.
 Na motivação vimos que $u$ é uma solução fraca para o problema de Dirichlet se satisfaz
 \[
     \int_\Omega Du \cdot D\phi \,dx + \int_\Omega u\phi \,dx = \int_\Omega f\phi \,dx
 \]
-onde $\phi \in \cC^{\infty}_c(\Omega)$.
-Porem pela densidade das funções teste em $H^{1}_0(\Omega)$, podemos dizer que $u$ é uma solução fraca do problema de Dirichlet se satisfaz
+para todo $\phi \in \cC^{\infty}_c(\Omega)$.
+Porem, pela densidade das funções teste em $H^{1}_0(\Omega)$ (ver Teorema ??), podemos dizer que $u$ é uma solução fraca do problema de Dirichlet se esta satisfaz a igualdade
 \[
     \int_\Omega Du \cdot Dv \,dx + \int_\Omega uv \,dx = \int_\Omega fv \,dx
 \]
-onde $v \in H_0^1(\Omega)$.
+para todo $v \in H_0^1(\Omega)$\footnote{Vale ressaltar que $H_0^1(\Omega) = \cW^{1,2}_0(\Omega)$ é um espaço com produto interno
+\[
+    \left\langle u, v \right\rangle _{H^1_0(\Omega)} := \sum_{|\alpha| \leqslant 1}\int_\Omega D^\alpha u D^\alpha v \,dx.
+\]
+Mais precisamente, pelo Teorema \ref{thm:sobolev-completo}, $H^1_0(\Omega)$ é um espaço de Hilbert.
+}.
 
-Defina $B : H^1_0(\Omega) \times H^1_0(\Omega) \to \bR$ por
+Defina a forma $B : H^1_0(\Omega) \times H^1_0(\Omega) \to \bR$ por
 \[
-    B[u,v]=\int_\Omega Du \cdot Dv \,dx + \int_{\Omega} uv \,dx
+    B(u,v)=\int_\Omega Du \cdot Dv \,dx + \int_{\Omega} uv \,dx
 \]
-e $\varphi : H^1_0(\Omega) \to \bR$ por
+para todo $u, v \in H^1_0(\Omega)$,
+e o funcional $\varphi : H^1_0(\Omega) \to \bR$ por
 \[
-    \varphi(v) = \int_\Omega fv \,dx. 
+    \varphi(v) = \int_\Omega fv \,dx,
 \]
-Note que $B$ é bilinear limitado e coercivo. Com efeito, a bilinearidade de $B$ segue do fato do gradiente fraco $D$ e a integral serem operadores lineares. Além disso
+para todo $v \in H^1_0(\Omega)$.
+Note que $B$ é uma forma bilinear limitada e coerciva. Com efeito, a bilinearidade de $B$ segue do fato do gradiente fraco $D$ e a integral serem operadores lineares. Além disso, é verdade que
 \[
     B(u,u) = \int_\Omega Du \cdot Du \,dx + \int_\Omega u^2 \,dx
     = \int_\Omega \Vert Du \Vert^2 \,dx + \int_\Omega |u|^2 \,dx 
-    = \Vert u \Vert_{H^1_0(\Omega)}
+    = \Vert u \Vert_{H^1_0(\Omega)}^2
 \]
-Logo $B$ é coercivo, e utilizando a Desigualdade de Hölder segue que
+Logo, $B$ é coercivo e, utilizando a Desigualdade de Hölder, segue que
 \[
     \begin{aligned}
         |B(u,v)| &\leqslant \int_\Omega |Du \cdot Dv | \,dx + \int_\Omega |u v | \,dx\\ &\leqslant \int_\Omega \Vert Du \Vert \Vert Dv \Vert \,dx + \int_\Omega |u| |v| \,dx \leqslant \Vert Du \Vert_{\cL^2(\Omega)}\Vert Dv \Vert_{\cL^2(\Omega)} + \Vert u \Vert_{\cL^2(\Omega)}\Vert v \Vert_{\cL^2(\Omega)},
     \end{aligned}
 \]
-Porem, sabemos que $\Vert u \Vert_{\cL^2(\Omega)}, \Vert Du \Vert_{\cL^2(\Omega)} \leqslant \Vert u \Vert_{H^1_0(\Omega)}$.
+Porém, sabemos que $\Vert u \Vert_{\cL^2(\Omega)}, \Vert Du \Vert_{\cL^2(\Omega)} \leqslant \Vert u \Vert_{H^1_0(\Omega)}$.
 Dito isso, obtemos
 \[
     |B(u,v)| \leqslant c \Vert u \Vert_{H^1_0(\Omega)} \Vert v \Vert_{H^1_0(\Omega)}
 \]
 para todo $u, v \in H^1_0(\Omega)$. Logo, $B$ é limitado.
-Por fim, temos que $\varphi$ é limitado.
-De fato
+
+Por fim, temos que $\varphi$ é um funcional linear limitado.
+De fato, a linearidade de $\varphi$ segue da distributividade do produto e da linearidade da integral.
+Por outro lado,
 \[
     |\varphi(v)| \leqslant \int_\Omega |f| |v| \,dx \leqslant \Vert f \Vert_{\cL^2(\Omega)} \Vert v \Vert_{\cL^2(\Omega)} \leqslant \Vert f \Vert_{\cL^2(\Omega)} \Vert v \Vert_{H^1_0(\Omega)}
 \]
-para todo $v \in H^1_0(\Omega)$, onde $\Vert f \Vert_{\cL^2(\Omega)} < \infty$ pois por hípotese $f \in \cL^2(\Omega)$.
+para todo $v \in H^1_0(\Omega)$, onde $\Vert f \Vert_{\cL^2(\Omega)} < \infty$ pois, por hípotese, $f \in \cL^2(\Omega)$.
 
 Dessa forma, pelo Teorema de Lax-Milgram, existe um único $u \in H^1_0(\Omega)$ tal que
 \[
     B(u,v) = \varphi(v)
 \]
 para todo $v \in H^1_0(\Omega)$.
-Portanto existe uma única solução fraca para o problema de Dirichlet.
+Portanto, existe $u$ é a única solução fraca para o problema de Dirichlet.
 
 \nocite{*}
 \printbibliography
