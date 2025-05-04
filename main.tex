@@ -2792,7 +2792,49 @@ A definição abaixo será âmplamente utilizada nesse capítulo
     que é o conjunto das funções $f : \Omega \to \bR$ de classe $\cC^k$ com suporte compacto.
 \end{dbox}
 
+\begin{dbox}[Espaços $\cL^p$]
+    
+\end{dbox}
+
+\begin{dbox}[Espaços $\cL^\infty$]
+    
+\end{dbox}
+
 Os resultados abaixos são de extrema importância no estudo de espaços de Sobolev.
+
+\begin{tbox}
+    O espaço $(\cL^p(\Omega), \Vert \cdot \Vert_{\cL^p(\Omega)})$, com $1 \leqslant p \leqslant \infty$, é um espaço de Banach\footnote{Espaço vetorial normado completo, i.e., toda sequência de Cauchy é convergente.}
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+\begin{tbox}[Desigualdade de Hölder]
+    Sejam $f \in \cL^p$ e $g \in \cL^q$ onde $1 \leqslant p < \infty$ e $q \in \bR$ tal que $p$ e $q$ são expoentes conjugados\footnote{$p$ e $q$ são ditos expoentes conjugados se $\frac{1}{p} + \frac{1}{q} = 1$.}.
+    Então $fg \in \cL^1$ e
+    \[
+        \Vert fg \Vert_1 \leqslant \Vert f \Vert_p + \Vert g \Vert_q.
+    \]
+\end{tbox}
+\begin{prf}
+    
+\end{prf}
+
+Uma generalização desse resultado será apresentada abaixo
+
+\begin{pbox}[Desigualdade de Hölder Generalizada]
+    Sejam $0 < p_1,\dots,p_N \leqslant \infty$ tais que $\frac{1}{p} = \frac{1}{p_1} + \cdots + \frac{1}{p_N}$ e $f = f_1 f_2 \cdots f_N$ onde $f_j \in \cL^{p_j}$ para todo $j = 1,\dots,N$. 
+    Então $f \in \cL^p$ e 
+    \[
+        \Vert f \Vert_p \leqslant \Vert f_1 \Vert_{p_1} \cdots \Vert f_N \Vert_{p_N}.
+    \] 
+\end{pbox}
+\begin{prf}
+    
+\end{prf}
+
+\obs Por convenção $1$ e $\infty$ são expoentes conjugados.
+
 
 \begin{tbox}[Integração por partes em $\bR ^n$] \label{thm:integracao-por-partes}
     Seja $\Omega \subseteq \bR^n$ uma região regular e $u, v : \overline\Omega \to \bR$ de classe $\cC^1$. 
@@ -2840,7 +2882,18 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
     Ver \cite{elon-espacos.metricos}, p.p 240.
 \end{prf}
 
-\begin{tbox}[Mudança de variáveis]
+\begin{tbox}[Teorema de Fubini] \label{thm:fubini}
+    Sejam $\Omega_1 \subseteq \bR^n$, $\Omega_2  \subseteq \bR^d$ e $f : \Omega_1 \times \Omega_2 \to \bR$ uma função integrável.
+    Então
+    \[
+        \int_{\Omega_1 \times \Omega_2} f \,dX = \int_{\Omega_1} \int_{\Omega_2} f \, dydx = \int_{\Omega_2} \int_{\Omega_1} f \,dxdy.
+    \]
+\end{tbox}
+\begin{prf}
+    Ver \cite{munkres-analysis.on.manifolds} p.p. ??
+\end{prf}
+
+\begin{tbox}[Mudança de variáveis] \label{thm:mudanca-de-variaveis}
     Seja $\Psi : A \to B$ um difeomorfismo entre abertos de $\bR^n$. Seja $f : B \to \bR$ uma função contínua. Então $f$ é integrável sobre $B$ se, e somente se, $(f \circ \Psi) |\det D\Psi|$ é integrável sobre $A$. Neste caso,
     \[
         \int_B f \,dx = \int_A (f \circ \Psi) |\det D\Psi| \,dy.
@@ -3692,6 +3745,7 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
             \end{array}
         \right.
     \]
+    (ver Figura \ref{fig:eta})
     onde $c$ é determinado de forma que
     \[
         \int_{\bR} \eta \,dx = 1,
@@ -3722,7 +3776,7 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
         \label{fig:convolucao}
     \end{figure}
 
-    \begin{figure}
+    \begin{figure} 
         \centering
         \begin{tikzpicture}
             \begin{scope}[shift={(-4,0)}, scale=0.8]
@@ -3744,6 +3798,7 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
             \end{scope}
         \end{tikzpicture}
         \caption{Funções $\eta$ e $\eta_{\varepsilon}$ com $\varepsilon = 0.3$\\ Fonte: Autoral}
+        \label{fig:eta}
     \end{figure}
 \end{ex}
 
@@ -3766,10 +3821,10 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \begin{figure}[H]
         \centering
         \begin{tikzpicture}
-            \filldraw[ForestGreen!30] (2,2) rectangle (0,0);
-            \filldraw[ForestGreen!30] (-2,-2) rectangle (0,0);
-            \filldraw[ForestGreen!40] (-2,2) rectangle (0,0);
-            \filldraw[ForestGreen!40] (2,-2) rectangle (0,0);
+            \filldraw[ProcessBlue!30] (2,2) rectangle (0,0);
+            \filldraw[ProcessBlue!30] (-2,-2) rectangle (0,0);
+            \filldraw[ProcessBlue!40] (-2,2) rectangle (0,0);
+            \filldraw[ProcessBlue!40] (2,-2) rectangle (0,0);
             
             \draw[thick] (2,2) rectangle (-2,-2);
             \draw[very thick, -stealth] (-3,0) to (3,0) node [right] {$x_1$};
@@ -3809,7 +3864,7 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
             \node[above left] at (-2,0) {$-1$};
             \node[below left] at (0,-2) {$-1$};
         \end{tikzpicture}
-        \caption{Domínio da função $u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}$\\
+        \caption{Domínio da função $u(x_1,x_2) = |x_1|^{\frac{1}{2}} + |x_2|^{\frac{1}{2}}$.\\
         Fonte: Autoral}
         \label{fig:dominio}
     \end{figure}
@@ -3950,6 +4005,25 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     \]
     De forma análoga, $\partial\Omega$ é de classe $\cC^\infty$ se é de classe $\cC^k$ para todo $k \in \bN$.
 \end{dbox}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=1.5]
+        \draw[thick, dashed, ProcessBlue!30!black, fill=ProcessBlue!30] (-2.076,1.929) .. controls (-1.374,-0.882) and (-0.462,2.304) .. (0.81,1.5) .. controls (2.112,0.549) and (2.121,1.836) .. (2.136,1.941) to (2.136,1.929);
+    
+        \draw[thick, -stealth, draw=black!70] (-2.2,0) to (2.2,0) node[right] {$\mathbb R^{n-1}$};
+        \draw[thick, -stealth, draw=black!70] (0,-1) to (0,2.1) node[above] {$x_n$};
+    
+        \draw[stealth-stealth, thick, NavyBlue!50!black, font=\small] (0.5616,0) to node[right] {$\gamma(x_1,\dots,x_{n-1})$} (0.5616,1.6102);
+        \node[below=2pt,font=\footnotesize, fill=white] at (0.5616,0) {$(x_1,\dots,x_{n-1})$};
+        \filldraw (0.5616,0) circle (0.05);
+
+        \node[NavyBlue] at (-1.419,1.524) {$\Omega$};
+        \node[ProcessBlue!30!black] at (-0.5,0.8) {$\partial\Omega$};
+    \end{tikzpicture}
+    \caption{Função $\gamma$ da definição \ref{def:fronteira-ck}\\
+    Fonte: Autoral. Baseada em \cite{evans-pde} p.p. 626.}
+\end{figure}
 
 \begin{tbox} \label{thm:aprox3}
     Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$, com $1 \leqslant p < \infty$.
@@ -4270,7 +4344,7 @@ Nessa seção, veremos uma forma de estender funções em $\cW^{1,p}(\Omega)$ pa
 
 \section{Traços}
 
-(introdução)
+Em alguns casos, no estudo de equações diferenciais parciais, é necessário impor condições de contorno na fronteira de um domínio. Para isso, precisamos entender o que significa restringir uma função em $\cW^{1,p}(\Omega)$ à fronteira de $\Omega$. Nesta seção, veremos como isso pode ser feito por meio do operador traço.
 
 \begin{tbox}
     Seja $\Omega$ um aberto limitado com fronteira de classe $\cC^1$. Então, existe um operador linear limitado $T : \cW^{1,p}(\Omega) \to \cL^p(\partial \Omega)$, com $1 \leqslant p < \infty$, tal que
@@ -4282,7 +4356,7 @@ Nessa seção, veremos uma forma de estender funções em $\cW^{1,p}(\Omega)$ pa
 \begin{prf}
     Incialmente suponha que $u \in \cC^1(\overline{\Omega})$. Da mesma forma que foi feito no Teorema \ref{thm:extensao} considere $\tilde x \in \partial\Omega$ e suponhamos que $\partial\Omega$ está contido no plano $\{x_n = 0\}$ perto de $\tilde x$.
     Sejam $B = B(\tilde x, r)$ (e defina $B^+$ e $B^-$ como em (\ref{eq:reflexao})) e $\widehat B = B(\tilde x, \sfrac{r}{2})$,
-    e considere $\xi \in \cC^{\infty}_c(B)$ de forma que $\xi \geqslant 0$ em $B$ e $\xi \equiv 1$ em $\widehat B$, e denote $\Gamma = \partial \Omega \cap \widehat B$ e $x' = (x_1,\dots,x_{n-1}) \in \bR^{n-1}$.
+    e considere $\xi \in \cC^{\infty}_c(B)$ de forma que $\xi \geqslant 0$ em $B$ e $\xi \equiv 1$ em $\widehat B$, e denote $\Gamma = \partial \Omega \cap \widehat B$ (ver Figura \ref{fig:tracos}) e $x' = (x_1,\dots,x_{n-1}) \in \bR^{n-1}$.
     Note que, utilizando integração por partes (ver Teorema \ref{thm:integracao-por-partes})
     \[
         \int_{B^+} \dfrac{\partial (\xi |u|^p)}{\partial x_n}\,dx = \int_{\partial B^+} \xi |u|^p \, \nu_n dx'
@@ -4304,6 +4378,32 @@ Nessa seção, veremos uma forma de estender funções em $\cW^{1,p}(\Omega)$ pa
     \begin{equation} \label{eq:umaisdu}
         \int_\Gamma |u|^p \,dx' \leqslant c \int_{B^+} \bigg[ |u|^p + \frac{|u|^{(p-1)p'}}{p'} + \frac{\Vert Du \Vert^p}{p} \bigg] \,dx \leqslant c \int_{B^+} |u|^p + \Vert Du \Vert^p \,dx.
     \end{equation}
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[thick, -stealth, draw=black!70] (-3,0) to (3,0) node[right] {$\mathbb R^{n-1}$};
+            \draw[thick, -stealth, draw=black!70] (0,-2) to (0,2) node[above] {$x_n$};
+        
+            \node[above=-1pt] at (-2.25,0) {$\{x_n = 0\}$};
+        
+            \draw[thick, dashed, fill=Periwinkle, fill opacity=0.2, draw=black!70] (1.5,0) circle (1.25);
+            \draw[thick, dashed, fill=Periwinkle, fill opacity=0.3, draw=black!70] (1.5,0) circle (0.625);
+        
+            \draw[Cerulean, thick] (0.25,0) to (2.75,0);
+            \node[above=-1pt, Cerulean] at (2.4,0) {$\partial \Omega$};
+        
+            \draw[PineGreen, thick, dash pattern=on 4.5pt off 1.5pt] (0.875,0) to (2.125,0);
+            \node[above=-1pt, PineGreen] at (1.1875,0) {$\Gamma$};
+        
+            \filldraw (1.5,0) circle (0.03) node[below=1pt] {$\tilde x$};
+        
+            \node[above] at (1.5,0.625) {$\hat B$};
+            \node[above] at (1.5,1.25) {$B$};
+        \end{tikzpicture}
+        \caption{}
+        \label{fig:tracos}
+    \end{figure}
 
     Caso $\partial \Omega$ não esteja necessáriamente contido em $\{x_n =0 \}$ perto de $\tilde x$, considere o homeomorfismo $\Phi$  com inversa $\Psi$ da demonstração do Teorema \ref{thm:extensao} (ver (\ref{eq:Phi}) e (\ref{eq:Psi})) e defina $u' \equiv u \circ \Psi$. Logo, utilizando o Teorema de Mudança de Variáveis (ver Teorema \ref{thm:mudanca-de-variaveis}), inferimos
     \[
@@ -4415,15 +4515,29 @@ Nessa seção, veremos uma forma de estender funções em $\cW^{1,p}(\Omega)$ pa
         \int_{\bR^{n-1}} |u(x',x_n)|^p \,dx' \leqslant  c x_n^{p-1}\int_0^{x_n} \Vert Du(x',t) \Vert^p \,dx'dt.
     \end{equation}
     
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[thick, -stealth] (0,0) to (6,0);
+            \filldraw (2,0) circle (0.035) node[below=2pt] {1};
+            \filldraw (4,0) circle (0.035) node[below=2pt] {2};
+        
+            \node[above=2pt] at (1,0) {$\xi \equiv 1$};
+            \node[above=2pt] at (3,0) {$0 \leq \xi \leq 1$};
+            \node[above=2pt] at (5,0) {$\xi \equiv 0$};
+        \end{tikzpicture}
+        \caption{$\xi$ definido em (\ref{eq:xi}).}
+        \label{fig:xi}
+    \end{figure}
     Seja $\xi \in \cC^{\infty}_c(\bR_+)$ tal que
-    \[
+    \begin{equation} \label{eq:xi}
         \begin{aligned}
             &\xi \equiv 1 \text{ em } [0,1]\\
             &\xi \equiv 0 \text{ em } \bR_+ \setminus [0,2]\\
             &0 \leqslant \xi \leqslant 1
         \end{aligned}
-    \]
-    e defina $\xi_k(x) = \xi(kx_n)$ e $v_k(x) = u(x) (1 - \xi_k(x))$ para todo $x \in \bR^n_+$ e $k \in \bN$. Dessa forma, podemos escrever
+    \end{equation}
+    (ver Figura \ref{fig:xi}) e defina $\xi_k(x) = \xi(kx_n)$ e $v_k(x) = u(x) (1 - \xi_k(x))$ para todo $x \in \bR^n_+$ e $k \in \bN$. Dessa forma, podemos escrever
     \[
         \begin{aligned}
             &\dfrac{\partial v_k}{\partial x_n}(x) = (1 - \xi_k(x))\dfrac{\partial u}{\partial x_n}(x) - ku\xi'\\
@@ -4724,6 +4838,25 @@ que é uma contradição.
         \Vert u_k \Vert_{\cL^{p*}(\Omega)} \leqslant c \Vert Du_k \Vert_{\cL^p(\Omega)}
     \]
     para todo $k \in \bN$.
+    Como $\Vert u_k - u \Vert_{\cW^{1,p}(\Omega)} \to 0$ quando $k \to \infty$, segue que $\Vert u_k - u \Vert_{\cL^p(\Omega)}, \Vert Du_k - Du \Vert_{\cL^p(\Omega)} \to 0$, quando $k \to \infty$.
+    Sendo assim, pelo Teorema \ref{thm:teorema-do-brezis}, passando a uma subsequência (se necessário), chegamos a
+    \begin{equation} \label{eq:uku}
+        u_k(x) \to u(x) \text{ qtp em } \Omega.
+    \end{equation}
+    Por outro lado, pela Desigualdade de Gagliardo-Nirenberg-Sobolev (\ref{eq:gns}), inferimos que
+    \[
+        \Vert u_k - u_\ell \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert Du_k - Du_\ell \Vert_{\cL^p(\Omega)} \to 0
+    \]
+    quando $k,\ell \to \infty$, pois $(Du_k)$ é convergente (em particular, de Cauchy) em $\cL^p(\Omega)$. Isto nos diz que $(u_k)$ é de Cauchy em $\cL^{p^*}(\Omega)$, que é um espaço completo (ver Teorema ??). Dito isso, existe $v \in \cL^{p^*}(\Omega)$ tal que $u_k \to v$ em $\cL^{p^*}(\Omega)$.
+    Novamente, utliizando o Teorema \ref{thm:teorema-do-brezis}, passando a uma subsequência (se necessário), segue que,
+    \begin{equation} \label{eq:ukv}
+        u_k(x) \to v(x) \text{ qtp em } \Omega.
+    \end{equation}
+    Logo, por (\ref{eq:uku}) e (\ref{eq:ukv}), $v \equiv u$ qtp em $\Omega$.
+    Dessa forma
+    \[
+        \Vert u_k - u \Vert_{\cL^{p*}(\Omega)} \to 0.
+    \]
     Passando ao limite, chegamos a
     \[
         \Vert u \Vert_{\cL^{p^*}}(\Omega) \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}
@@ -4750,7 +4883,7 @@ Um caso particular da desigualdade acima é a Desigualdade de Poincaré que ser�
     Primeiramente considere $1 \leqslant p < n$.
     Por definição, $1 \leqslant p < p^*$, pelo Teorema \ref{thm:desigualdade-teorema-2}, concluimos que
     \[
-        \Vert u \Vert_{\cL^p(\Omega)} \leqslant c \Vert Du \Vert_{\cL^p}.
+        \Vert u \Vert_{\cL^p(\Omega)} \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}.
     \]
 
     Agora considere que $n \leqslant p < \infty$ e $1 \leqslant s < n$ tal que $p < s^*$ (isto é possível pois $s^* \to \infty$ se $s \to n^-$).
@@ -4777,6 +4910,18 @@ O resultado acima nos diz que
     \cW^{1,p}_0(\Omega) \hookrightarrow \cL^q(\Omega) \quad (1 \leqslant q \leqslant p^*) \;\text{ e }\; \cW^{1,s}_0(\Omega) \hookrightarrow \cL^{s^*}(\Omega) \quad (1 \leqslant s \leqslant \infty)
 \]
 isto é o mesmo que dizer que $\cW^{1,p}_0(\Omega) \subseteq \cL^q(\Omega)$ com $1 \leqslant q \leqslant p^*$, $\cW^{1,s}(\Omega) \subseteq \cL^{s^*}(\Omega)$ com $1 \leqslant s \leqslant \infty$ e o operador inclusão $\iota$ (em cada um dos casos) é um operados linear limitado.
+
+Além disso, podemos mostrar que a norma $\Vert u \Vert_{\cW_0^{1,p}(\Omega)} := \Vert Du \Vert_{\cL^p(\Omega)}$, é equivalente a norma usual dos espaços de Sobolev $\Vert u \Vert_{\cW^{1,p}(\Omega)}$. Com efeito,
+\[
+    \Vert u \Vert_{\cW^{1,p}(\Omega)} = \Vert u \Vert_{\cL^p(\Omega)}^p + \Vert Du \Vert_{\cL^p(\Omega)}^p \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}^p + \Vert Du \Vert_{\cL^p(\Omega)}^p \leqslant c \Vert Du \Vert_{\cL^p(\Omega)}.
+\]
+para todo $u \in \cW^{1,p}_0(\Omega)$.
+Dessa forma, concluimos que
+\[
+    \Vert u \Vert_{\cW^{1,p}_0(\Omega)} = \Vert Du \Vert_{\cL^p(\Omega)} \leqslant \Vert u \Vert_{\cW^{1,p}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{1,p}_0(\Omega)}
+\]
+para todo $u \in \cW^{1,p}_0(\Omega)$.
+Portanto, as normas $\Vert \cdot \Vert_{\cW^{1,p}(\Omega)}$ e $\Vert \cdot \Vert_{\cW^{1,p}_0(\Omega)}$, são equivalentes.
 
 \subsection{Desigualdade de Morrey}
 
@@ -4897,7 +5042,38 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
         \Vert u \Vert_{\cC(\bR^n)} = \sup_{x \in \bR^n} |u(x)| \leqslant c \Vert u \Vert_{\cW^{1,p}(\bR^n)}.
     \end{equation}
 
-    Agora, considere $x, y \in \bR^n$ e denote $r = \Vert x - y \Vert$. Portando, seja $B = B(x,r) \cap B(y,r)$, sendo assim
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \def\CA{(0,0) circle (2)}
+            \def\CB{(2,0) circle (2)}
+            \draw[dashed, thick, black!45] \CA \CB;
+            \begin{scope}
+                \clip \CA;
+                \fill[ProcessBlue!25] \CB;
+            \end{scope}     
+            \begin{scope}
+                \clip \CA;
+                \draw[ProcessBlue, dashed, very thick] \CB;
+            \end{scope}
+            \begin{scope}
+                \clip \CB;
+                \draw[ProcessBlue, dashed, very thick] \CA;
+            \end{scope}    
+    
+            \node[above=2pt] at (0,2) {$B(x,r)$};
+            \node[above=2pt] at (2,2) {$B(y,r)$};
+    
+            \draw (0,0) to node[above] {$r$} (2,0);
+    
+            \filldraw (0,0) circle (0.05) node[below=2pt] {$x$};
+            \filldraw (2,0) circle (0.05) node[below=2pt] {$y$};
+        \end{tikzpicture}
+        \caption{$B = B(x,r) \cap B(y,r)$.\\
+        Fonte: Autoral}
+        \label{fig:B}
+    \end{figure}
+    Agora, considere $x, y \in \bR^n$ e denote $r = \Vert x - y \Vert$. Portando, seja $B = B(x,r) \cap B(y,r)$ (ver Figura \ref{fig:B}), sendo assim
     \begin{equation} \label{eq:abcd}
         |u(x) - u(y)| = \sint_{B} |u(x) - u(y)| \,dz \leqslant \sint_{B} |u(x) - u(z)| \,dz + \sint_B |u(y) - u(z)| \,dz.
     \end{equation}
@@ -4914,7 +5090,7 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
         \sint_B |u(y) - u(z)| \,dz \leqslant cr^{1 - \frac{n}{p}} \Vert Du \Vert_{\cL^p(\bR^n)}.
     \]
 
-    Sendo assim, por (\ref{abcd}), podemo escrever
+    Sendo assim, por (\ref{eq:abcd}), podemos escrever
     \[
         |u(x) - u(y)| \leqslant c \Vert x - y \Vert^{1 - \frac{n}{p}} \Vert Du \Vert_{\cL^p(\bR^n)}.
     \]
