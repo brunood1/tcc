@@ -72,7 +72,6 @@
       \field{labeltitlesource}{title}
       \field{title}{The Elements of Integration and Lebesgue Measure}
       \field{year}{1995}
-      \true{nocite}
     \endentry
     \entry{brezis-functional.analysis}{book}{}{}
       \name{author}{1}{}{%
@@ -268,6 +267,35 @@
       \field{year}{2011}
       \true{nocite}
     \endentry
+    \entry{irina-holder.spaces}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=7293035f6e19a897ed3dd6a34066bf63}{%
+           family={Kmit},
+           familyi={K\bibinitperiod},
+           given={Irina\bibnamedelima A.},
+           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7293035f6e19a897ed3dd6a34066bf63}
+      \strng{fullhash}{7293035f6e19a897ed3dd6a34066bf63}
+      \strng{fullhashraw}{7293035f6e19a897ed3dd6a34066bf63}
+      \strng{bibnamehash}{7293035f6e19a897ed3dd6a34066bf63}
+      \strng{authorbibnamehash}{7293035f6e19a897ed3dd6a34066bf63}
+      \strng{authornamehash}{7293035f6e19a897ed3dd6a34066bf63}
+      \strng{authorfullhash}{7293035f6e19a897ed3dd6a34066bf63}
+      \strng{authorfullhashraw}{7293035f6e19a897ed3dd6a34066bf63}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Hölder Spaces}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.math.kit.edu/iana1/lehre/pdeclassical2021w/media/hoelderspaces.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.math.kit.edu/iana1/lehre/pdeclassical2021w/media/hoelderspaces.pdf
+      \endverb
+    \endentry
     \entry{leray-fluid}{article}{}{}
       \name{author}{1}{}{%
         {{hash=d1c85ad391835096e0ab05bb90e4a799}{%
@@ -394,6 +422,7 @@
       \field{edition}{6\textsuperscript{a} edição}
       \field{title}{Espaços Métricos}
       \field{year}{2020}
+      \true{nocite}
     \endentry
     \entry{lorenz-navier.stokes}{misc}{}{}
       \name{author}{2}{}{%
