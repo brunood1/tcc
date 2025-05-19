@@ -4973,7 +4973,7 @@ O teorema acima mostra que $\cW^{1,p}(\Omega) \subseteq \cL^{p^*}(\Omega)$, esse
         \Vert u_k - u_\ell \Vert_{\cL^{p^*}(\Omega)} \leqslant c \Vert Du_k - Du_\ell \Vert_{\cL^p(\Omega)} \to 0,
     \]
     quando $k,\ell \to \infty$, pois $(Du_k)$ é convergente (em particular, de Cauchy) em $\cL^p(\Omega)$. Isto nos diz que $(u_k)$ é de Cauchy em $\cL^{p^*}(\Omega)$, que é um espaço completo (ver Teorema \ref{thm:lp-completo-pre}). Dito isso, existe $v \in \cL^{p^*}(\Omega)$ tal que $u_k \to v$ em $\cL^{p^*}(\Omega)$.
-    Novamente, utliizando o Teorema \ref{thm:teorema-do-brezis}, passando a uma subsequência (se necessário), segue que,
+    Novamente, utilizando o Teorema \ref{thm:teorema-do-brezis}, passando a uma subsequência (se necessário), segue que,
     \begin{equation} \label{eq:ukv}
         u_k(x) \to v(x) \text{ qtp em } \Omega.
     \end{equation}
@@ -5149,7 +5149,7 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
         \int_{B(x,1)} \frac{\Vert Du(y) \Vert}{\Vert x - y \Vert^{n-1}} \,dy \leqslant \left( \int_{B(x,1)} \Vert Du \Vert^p \right)^{\frac{1}{p}} \left( \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} \right)^{\frac{1}{p'}},
     \]
     onde $p$ e $p'$ são expoentes conjugados e a última integral é finita.
-    De fato, utliizando coordenadas polares, concluimos que
+    De fato, utilizando coordenadas polares, concluimos que
     \[
         \begin{aligned}
             \int_{B(x,1)} \frac{dy}{\Vert x - y \Vert^{(n-1)p'}} &= \int_0^1 \int_{\partial B(x,r)} \frac{1}{r^{(n-1)p'}} dSdr\\
@@ -5743,21 +5743,22 @@ Nessa seção, vamos estudar um caso particular do mergulho visto no Teorema \re
 \subsection{Desigualdades}
 
 O primeiro preliminar para esse capítulo é a Desigualdade de Gagliardo-Nirenberg, iremos apresentar o caso geral abaixo, mas utilizaremos apenas alguns casos particulares que serão mencionados após o teorema.
-\begin{tbox}[Desigualdade de Gagliardo-Nirenberg --- Caso 1]
-    Seja $1 \leqslant q \leqslant \infty$, $\ell,k \in \bN$ com $\ell < k$, $r = 1$ e $\frac{\ell}{k} \leqslant \theta \leqslant 1$.
-    Além disso, se
+\begin{tbox}[Desigualdade de Gagliardo-Nirenberg]
+    Sejam $1 \leqslant q \leqslant \infty$, $\ell,k \in \bN$, com $\ell < k$, e satisfazendo uma das hipóteses abaixo
     \[
-        \frac{1}{p} = \frac{\ell}{n} + \theta \left( \frac{1}{r} - \frac{k}{n} \right) + \frac{1 - \theta}{q},
+        \left\{ \begin{aligned}
+            &\,r = 1\\
+            &\frac{\ell}{k} \leqslant \theta \leqslant 1
+        \end{aligned} \right.
+        \quad
+        \text{ou}
+        \quad
+        \left\{ \begin{aligned}
+            &1 < r < \infty\\[4pt]
+            &k - \ell - \frac{n}{r} \in \bN\\
+            &\frac{\ell}{k} \leqslant \theta < 1.
+        \end{aligned} \right.
     \]
-    então existe uma constante positiva $c$ que não depende de $u$ tal que
-    \[
-        \Vert D^\ell u \Vert_{\cL^p(\bR^n)} \leqslant c \Vert D^k u \Vert_{\cL^r(\bR^n)}^\theta \Vert u \Vert_{\cL^q(\bR^n)}^{1-\theta}
-    \]
-    para toda função $u \in \cL^q(\bR^n) \cap \cW^{k,r}(\bR^n)$.    
-\end{tbox}
-
-\begin{tbox}[Desigualdade de Gagliardo-Nirenberg --- Caso 2]
-    Seja $1 \leqslant q \leqslant \infty$, $\ell,k \in \bN$ com $\ell < k$, $1 < r < \infty$, $k - \ell - \frac{n}{r}$ e $\frac{\ell}{k} \leqslant \theta \leqslant 1$.
     Além disso, se
     \[
         \frac{1}{p} = \frac{\ell}{n} + \theta \left( \frac{1}{r} - \frac{k}{n} \right) + \frac{1 - \theta}{q},
@@ -5769,21 +5770,22 @@ O primeiro preliminar para esse capítulo é a Desigualdade de Gagliardo-Nirenbe
     para toda função $u \in \cL^q(\bR^n) \cap \cW^{k,r}(\bR^n)$.  
 \end{tbox}
 \begin{prf}
-    Ver \cite{fiorenza-gns}
+    O artigo \cite{fiorenza-gns} é destinado a demonstração dessa desigualdade.
 \end{prf}
 
-A desigualdade de Ladyzhenskaya é um caso particular da desigualdade de Gagliardo-Nirenberg apresentada acima. Quando $\ell = 0$, $m = 1$, $p = 4$, $q = r = 2$ e $\theta = \frac{3}{4}$, obtemos
+A desigualdade de Ladyzhenskaya é um caso particular da desigualdade de Gagliardo-Nirenberg apresentada acima. Mais precisamente, quando $\ell = 0$, $k = 1$, $p = 4$, $q = r = 2$ e $\theta = \frac{3}{4}$, obtemos
 \begin{equation} \label{eq:gagliardoL4}
-    \Vert u \Vert_{\cL^4(\bR^n)} \leqslant c \Vert u \Vert_{\cL^2(\bR^n)}^{\frac{1}{4}} \Vert Du \Vert_{\cL^2(\bR^n)}^{\frac{3}{4}}
+    \Vert u \Vert_{\cL^4(\bR^n)} \leqslant c \Vert u \Vert_{\cL^2(\bR^n)}^{\frac{1}{4}} \Vert Du \Vert_{\cL^2(\bR^n)}^{\frac{3}{4}}.
 \end{equation}
-Outras formas da desigualdade de Gagliardo-Nirenberg que serão utilizadas são
+Outras formas da desigualdade de Gagliardo-Nirenberg que serão utilizadas são as seguintes:
 \begin{equation} \label{eq:gagliardoinf}
     \Vert u \Vert_{\cL^\infty(\bR^3)} \leqslant c \Vert u \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D^2 u \Vert_{\cL^2(\bR^3)}^{\frac{3}{4}},
 \end{equation}
-onde $0 < c < 1$, e
+onde $\ell = 0$, $k = 2$, $p = \infty$, $q = r = 2$ e $\theta = \frac{3}{4}$, e
 \begin{equation} \label{eq:gagliardoDu}
-    \Vert Du \Vert_{\cL^2(\bR^3)} \leqslant \Vert u \Vert_{\cL^2(\bR^3)} \Vert D^2 u \Vert_{\cL^2(\bR^3)}.
+    \Vert Du \Vert_{\cL^2(\bR^3)} \leqslant \Vert u \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}} \Vert D^2 u \Vert_{\cL^2(\bR^3)}^{\frac{1}{2}},
 \end{equation}
+onde $\ell = 1$, $k = p = q = r = 2$ e $\theta = \frac{1}{2}$.
 
 \subsection{Transformada de Fourier}
 
@@ -5805,15 +5807,17 @@ Como $|e^{\pm ix \cdot \omega}| = 1$ e $u \in \cL^1(\bR^n)$ as integrais acima c
 \begin{tbox}[Identidade de Planchael] \label{thm:norma-transformada}
     Sejam $f \in \cL^1(\bR^n) \cap \cL^2(\bR^n)$, então $\hat f, \check f \in \cL^2(\bR^n)$ e
     \[
-        \Vert f \Vert_{\cL^2(\bR^n)} = \Vert \hat f \Vert_{\cL^2(\bR^n)} = \Vert \check f \Vert_{\cL^2(\bR^n)}
+        \Vert f \Vert_{\cL^2(\bR^n)} = \Vert \hat f \Vert_{\cL^2(\bR^n)} = \Vert \check f \Vert_{\cL^2(\bR^n)}.
     \]
 \end{tbox}
 \begin{prf}
     Ver \cite{evans-pde} p.p. 183.
 \end{prf}
 
+O teorema abaixo explora as propriedades elementares da transformada de Fourier.
+
 \begin{tbox}[Propiedades da transformada de Fourier] \label{thm:propriedades-transformada}
-    Seja $u, v \in \cL^2(\bR^n)$. Então, são válidas as seguintes igualdades
+    Sejam $u, v \in \cL^2(\bR^n)$. Então, são válidas as seguintes igualdades
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
         \item $\widehat{\lambda u + v} = \lambda \hat u + \hat v$;
         \item $\left\langle u, v\right\rangle = \left\langle \hat u, \hat v\right\rangle$;
@@ -5832,7 +5836,7 @@ Os exemplos abaixo serão úteis para definir um operador que será utilizado ex
 \begin{ex}[Transformada da derivada temporal]
     Considere uma função $u : \bR^n \times \bR \to \bR$ e considere sua derivada temporal. Dessa forma, podemos escrever
     \[
-        \widehat{\frac{\partial u}{\partial t}} = \frac{1}{(2\pi)^\frac{n}{2}} \int_{\bR^n}  e^{-i \omega \cdot x} \frac{\partial u}{\partial t}(x,t) \,dx = \frac{\partial u}{\partial t} \left[ \frac{1}{(2\pi)^{\frac{n}{2}}} \int_{\bR^n} e^{-i \omega \cdot x} u(x,t) \, dx \right] = \frac{\partial \hat u}{\partial t}
+        \widehat{\frac{\partial u}{\partial t}} = \frac{1}{(2\pi)^\frac{n}{2}} \int_{\bR^n}  e^{-i \omega \cdot x} \frac{\partial u}{\partial t}(x,t) \,dx = \frac{\partial u}{\partial t} \left[ \frac{1}{(2\pi)^{\frac{n}{2}}} \int_{\bR^n} e^{-i \omega \cdot x} u(x,t) \, dx \right] = \frac{\partial \hat u}{\partial t},
     \]
     onde a penultima igualdade é válida pois $e^{-i \omega \cdot x}$ não depende de $t$. 
 \end{ex}
@@ -5853,6 +5857,8 @@ Os exemplos abaixo serão úteis para definir um operador que será utilizado ex
 \end{ex}
 
 \subsection{Semigrupo do calor}
+
+Agora, introduziremos o conceito de semigrupo, que será utlizado para explorar propriedades das soluções de Leray
 
 \begin{dbox}
     Seja $X$ um espaço de Banach. Uma família de operadores lineares limitados $(T(t))_{t > 0}$, onde $T : \bR_+ \to X$, é um semigrupo se
@@ -5893,16 +5899,16 @@ Dito isso
 \[
     \begin{aligned}
         \int_{\m\infty}^{\infty} e^{i \omega_k x_k - \nu t\omega_k^2} \,d\omega_k &= \int_{\m\infty}^{\infty} \exp \left(-\nu t\omega_k^2 + i x_k\omega_k + \frac{x_k^2}{4\nu t} - \frac{x_k^2}{4\nu t}\right) \, d\omega_k\\
-        &= \int_{\m\infty}^\infty \exp\left( -\frac{x_k^2}{4\nu t} \right) \exp \left( - \left( \sqrt{\nu t}\omega_k - \frac{ix_k}{4\nu t} \right)^2 \right) \,d\omega_k.
+        &= \int_{\m\infty}^\infty \exp\left( -\frac{x_k^2}{4\nu t} \right) \exp \left( - \left( \sqrt{\nu t}\omega_k - \frac{ix_k}{2\sqrt{\nu\tau}} \right)^2 \right) \,d\omega_k.
     \end{aligned}
 \] 
 Fazendo a substituição $s_k = \sqrt{\nu t}\omega_k - \frac{ix_k}{2\nu t}$ obtemos $ds_k = \sqrt{\nu t} \,d\omega_k$ e, consequentemente
-\begin{equation} \ref{eq:SSSSS}
+\begin{equation} \label{eq:SSSSS}
     \int_{\m\infty}^{\infty} e^{i \omega_k x_k - \nu t\omega_k^2} \,d\omega_k = \frac{1}{(\nu t)^{\frac{1}{2}}} e^{\frac{-x_k^2}{4\nu t}} \int_{\m\infty}^\infty e^{-s_k^2} \,ds_k = \left( \frac{\pi}{\nu t} \right)^{\frac{1}{2}} e^{-\frac{x_k^2}{4\nu t}}.
 \end{equation}
 Sendo assim, por (\ref{eq:ssss}) e (\ref{eq:SSSSS}), chegamos a
 \[
-    F(x,t)  =  \frac{1}{(2\pi)^\frac{n}{2}}\prod_{k=1}^n \left( \frac{\pi}{\nu t} \right)^{\frac{1}{2}} e^{-\frac{x_k^2}{4\nu t}} = \frac{1}{(2\nu t)^\frac{n}{2}} e^{^{-\frac{\Vert x \Vert^2}{4\nu t}}}
+    F(x,t)  =  \frac{1}{(2\pi)^\frac{n}{2}}\prod_{k=1}^n \left( \frac{\pi}{\nu t} \right)^{\frac{1}{2}} e^{-\frac{x_k^2}{4\nu t}} = \frac{1}{(2\nu t)^\frac{n}{2}} e^{^{-\frac{\Vert x \Vert^2}{4\nu t}}}.
 \]
 Portanto, por (\ref{eq:ls}), concluímos que
 \[
@@ -5911,26 +5917,56 @@ Portanto, por (\ref{eq:ls}), concluímos que
 
 O semigrupo do calor, denotado por $e^{\nu \Delta \tau}$, com $\tau > 0$, é uma família de operadores dada por
 \[
-    e^{\nu \Delta \tau} \mathbf{x} = \frac{\mathbf{x} * E(\cdot,\tau)}{(4\pi \nu \tau)^{\frac{n}{2}}}
+    e^{\nu \Delta \tau} \bv = \frac{\bv * E(\cdot,\tau)}{(4\pi \nu \tau)^{\frac{n}{2}}},
 \]
 onde $E(x,\tau) = e^{-\frac{\Vert x \Vert^2}{4 \nu \tau}}$.
 O resto dessa subseção será destinado a estudar algumas propriedades que serão utlizadas neste trabalho.
 
-\begin{pbox}[Priopriedades do semigrupo do calor]
+\begin{pbox}[Priopriedades do semigrupo do calor] \label{thm:propriedades-semi-grupo-calor}
     Considere o semigrupo do calor $e^{\nu\Delta\tau}$ então são válidas
     \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
-        \item $e^{\nu\Delta\tau}(\lambda u + v) = \lambda e^{\nu\Delta\tau} u + e^{\nu\Delta\tau} v$
-        \item $D^\alpha (e^{\nu\Delta\tau} u) = e^{\nu\Delta\tau} (D^\alpha u)$
+        \item $e^{\nu\Delta\tau}(\lambda u + v) = \lambda e^{\nu\Delta\tau} u + e^{\nu\Delta\tau} v$;
+        \item $D^\alpha (e^{\nu\Delta\tau} u) = e^{\nu\Delta\tau} (D^\alpha u)$;
+        \item $\widehat{e^{\nu\Delta \tau} u} = \hat u e^{-\nu \tau \Vert \omega \Vert^2}$.
     \end{enumerate}
 \end{pbox} 
 \begin{prf}
     \textbf{(a)} segue do fato da convolução ser um operador linear,
     e
-    \textbf{(b)} análogo ao que foi mostrado no Teorema \ref{thm:aprox1}.
+    \textbf{(b)} é análogo ao que foi mostrado no Teorema \ref{thm:aprox1}.
+    O item \textbf{(c)} segue do Teorema \ref{thm:propriedades-transformada} \textbf{(d)}, já que
+    \[
+        e^{\nu \Delta \tau} u = \frac{u * E(\cdot,\tau)}{(4\pi \nu \tau)^{\frac{n}{2}}},
+    \]
+    segue que
+    \begin{equation} \label{eq:euhat}
+        \widehat{e^{\nu \Delta \tau} u} = \frac{(2\pi)^{\frac{n}{2}} \hat u \hat E(\cdot,\tau)}{(4\pi\nu\tau)^{\frac{n}{2}}}.
+    \end{equation}
+    Sendo assim, resta calcular a transformada de Fourier de $E(x,\tau) = e^{-\frac{\Vert x \Vert^2}{4\nu\tau}}$.
+    Com efeito, denotando $\frac{1}{4\nu\tau}$ por $c$, obtemos
+    \begin{equation} \label{eq:Ehat}
+        \hat{E}(\omega,\tau) = \frac{1}{(2\pi)^{\frac{n}{2}}}\int_{\bR^n} e^{-i\omega\cdot x} e^{-\frac{\Vert x \Vert^2}{4\nu\tau}} \,dx = \frac{1}{(2\pi)^{\frac{n}{2}}} \prod_{k=1}^n \int_{\m\infty}^\infty e^{-i\omega_k x_k - cx_k^2} \,dx_k.
+    \end{equation}
+    De forma análoga ao que foi feito quando resolvemos a equação do calor, podemos completar o quadrado no expoente. Dessa forma, concluimos que
+    \[
+        \int_{\m\infty}^\infty e^{-i\omega_k x_k - cx_k^2} \,dx_k = e^{-\frac{\omega_k^2}{4c}}\int_{\m\infty}^\infty e^{-c\left( x_k + \frac{i\omega_k}{2c} \right)^2} \,dx_k. 
+    \]
+    Fazendo a substituição $s_k = x_k - \frac{i\omega_k}{2c}$, obtemos $ds_k = dx_k$. Logo, podemos escrever
+    \[
+        \int_{\m\infty}^\infty e^{-i\omega_k x_k - cx_k^2} \,dx_k = e^{-\frac{\omega_k^2}{4c}}\int_{\m\infty}^\infty e^{-cs_k^2} \,ds_k = \left( \frac{\pi}{c} \right)^{\frac{1}{2}} e^{-\frac{\omega_k^2}{4c}}. 
+    \]
+    Sendo assim, por (\ref{eq:Ehat}) e lembrando que $c = \frac{1}{4\nu\tau}$, segue que
+    \[
+        \hat E(\omega,\tau) = \frac{1}{(2\pi)^{\frac{n}{2}}} \prod_{k=1}^n (4\pi \nu \tau)^{\frac{1}{2}} e^{-\nu \tau \omega_k^2} = \frac{(4\pi\nu\tau)^{\frac{n}{2}}}{(2\pi)^{\frac{n}{2}}} e^{-\nu\tau \Vert \omega \Vert^2},
+    \]
+    e por (\ref{eq:euhat}), concluimos que
+    \[
+        \widehat{e^{\nu\Delta \tau} u} = \hat u e^{-\nu\tau \Vert \omega \Vert^2}.
+    \]
 \end{prf}
 
 \begin{pbox}
-    Sejam $1 \leqslant r \leqslant 2$ e $u \in \cL^2(\bR^n)$ com $n \in \bN$, então
+    Sejam $1 \leqslant r \leqslant 2$ e $u \in \cL^2(\bR^n)$, com $n \in \bN$, então
     \begin{equation} \label{eq:estimativa-util}
         \Vert D^{\alpha} \big( e^{\nu\Delta\tau} u \big) \Vert_{\cL^2(\bR^n)} \leqslant c(n,k) (\nu\tau)^{-\frac{n}{2}\left( \frac{1}{r} - \frac{1}{2} \right) - \frac{k}{2}} \Vert u \Vert_{\cL^r(\bR^n)},
     \end{equation} 
@@ -5944,8 +5980,8 @@ O resto dessa subseção será destinado a estudar algumas propriedades que ser�
 
 Introduziremos a notação que será utliizada ao decorrer do texto.   
 
-Letras em negrito representam vetores $n$-dimensionais $\bu = (u_1,\dots,u_n)$ (na maioria dos casos $n = 3$).
-A $k$-ésima derivada parcial é denotada por $D_k$.
+Letras em negrito representam vetores $n$-dimensionais $\bu = (u_1,\dots,u_n)$ (na maioria dos casos $n = 3$),
+A $k$-ésima derivada parcial é denotada por $D_k$ (ou $D^{e_k}$), enquanto $D^k$ representa o gradiente $k$-dimensional.
 Também vale ressaltar a definição da norma $\cL^p$ das funções vetoriais
 \[
     \Vert \bu \Vert_{\cL^p(\bR^n)} = \left( \sum_{i=1}^n \Vert u_i \Vert_{\cL^p(\bR^n)}^p \right)^{\frac{1}{p}}
@@ -5962,22 +5998,26 @@ Além disso, a norma em $\cL^\infty(\bR^n)$ é dada por
     \Vert \bu(\cdot,t) \Vert_{\cL^\infty(\bR^n)} = \max_{1 \leqslant i \leqslant n} \Vert u_i(\cdot,t) \Vert_{\cL^\infty(\bR^n)}.
 \]
 
-\section{Propriedades da soluções de Leray}
+\section{Propriedades das soluções de Leray}
 
-\subsection{Introdução e contexto histórico}
+\subsection{Introdução e contexto histórico} \label{sec:intro}
 
-Em 1934 no artigo \textit{``Sur le mouvement d'un liquide visqueux emplassement l'espace''} (ver \cite{leray-fluid}) Leray construiu soluções fracas de energia finita\footnote{i.e., \textcolor{red}{qual é o significado de energia finita?}}
+Em 1934, no artigo \textit{``Sur le mouvement d'un liquide visqueux emplassement l'espace''} (ver \cite{leray-fluid}) Leray construiu soluções fracas de energia finita\footnote{i.e., $\Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} < \infty$.}
 \begin{equation} \label{eq:solucao-leray}
     \bu(\cdot,t) \in \cL^\infty\big([0,\infty), \cL^2_\sigma(\bR^3)\big) \cap \cC_w\left([0,\infty), \cL^2(\bR^3)\right) \cap \cL^2\big([0,\infty), \dot H^1(\bR^3)\big)\footnotemark
 \end{equation}
 para as equações de Navier-Stokes em $\bR^3$ 
 \footnotetext{
-    $\cL^\infty\big( [0,\infty), \cL^2_\sigma(\bR^3) \big)$ é o espaço das funções $\bu = (u_1, u_2, u_3)\in \cL^2(\bR^3)$ (i.e., $u_i \in \cL^2(\bR^3)$ para todo $i = 1,2,3$) com $\nabla \cdot \bu = 0$ tais que $\Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ é limitada qtp.
-    $\cC_W\left([0,\infty), \cL^2(\bR^3)\right)$ é o espaço das funções $\bu(\cdot,t) : [0,\infty) \to \cL^2(\bR^n)$ fracamente contínuas e 
-    $\cL^2\big([0,\infty), \dot\cH(\bR^3)\big)$ é o espaço das funções tais que
-    \[
-        \int_0^\infty \Vert \bu(\cdot,t) \Vert^2_{\cL^2(\bR^3)} \,dt < \infty
-    \]
+    As definições desses espaços são dadas abaixo:
+    \begin{itemize}[label=$\cdot$]
+        \item $\cL^\infty\big([0,\infty), \cL^2_\sigma(\bR^3)\big)$ é o espaço das funções $\bu(\cdot,t) : [0,\infty) \to \cL^2(\bR^3)$ tal que $\nabla \cdot \bu =0$ e $\Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} < \infty$.
+        \item $\cC_w\left([0,\infty), \cL^2(\bR^3)\right)$ é o espaço das funções $\bu(\cdot,t) : [0,\infty) \to \cL^2(\bR^3)$ fracamente contínuas.
+        \item $\cL^2\big([0,\infty), \dot H^1(\bR^3)\big)$ é o espaço das funções $\bu(\cdot,t) : [0,\infty) \to \dot H^1(\bR^3)$ tal que
+        \[
+            \int_0^\infty \Vert \bu(\cdot,t) \Vert_{\dot H^1(\bR^3)}^2 \,dt < \infty.
+        \]
+    \end{itemize}
+    \vspace{3pt}
 }
 \begin{equation} \label{eq:navierstokes}
     \begin{aligned}
@@ -5987,12 +6027,12 @@ para as equações de Navier-Stokes em $\bR^3$
     \end{aligned}
 \end{equation}
 onde $\nu > 0$ é constante.
-Estas soluções são tais que $\Vert \bu(\cdot,t) - \bu_0 \Vert_{\cL^2(\bR^3)} \to 0$, quando $t \to 0^+$ e satisfazem a desigualdade de energia
+Estas soluções são tais que $\Vert \bu(\cdot,t) - \bu_0 \Vert_{\cL^2(\bR^3)} \to 0$, quando $t \to 0^+$, e satisfazem a desigualdade de energia
 \begin{equation} \label{eq:desigualdade-de-energia}
     \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 \leqslant \Vert \bu(\cdot,t) \Vert_{L^2(\bR^3)}^2 + 2\nu \int_0^t \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds \leqslant \Vert \bu_0 \Vert_{\cL^2(\bR^3)}^2.
 \end{equation}
 para todo $t > 0$.
-A unicidade desas soluções ainda é um problema em aberto, porém, no mesmo artigo Leray mostrou que existe um instante de tempo $T_{**}$ tal que a solução $\bu$ se torna suave em $\bR^3 \times [T_{**}, \infty)$ e $\bu(\cdot,t) \in \cL^{\infty}_{\loc}\big( [T_{**}, \infty), H^k(\bR^3) \big)$\footnote{i.e., \textcolor{red}{qual é a definição desse espaço}} para cada $k \geqslant 0$.
+A unicidade desas soluções ainda é um problema em aberto, porém, no mesmo artigo Leray mostrou que existe um instante de tempo $T_{**}$ tal que a solução $\bu$ se torna suave em $\bR^3 \times [T_{**}, \infty)$ e $\bu(\cdot,t) \in \cL^{\infty}_{\loc}\big( [T_{**}, \infty), H^k(\bR^3) \big)$\footnote{i.e., $\Vert \bu(\cdot,t) \Vert_{H^k(K)} < \infty$, onde $K \subseteq [T_{**},\infty)$ é compacto.} para cada $k \geqslant 0$.
 Um problema importante que foi deixado em aberto por Leray no final de seu artigo diz a respeito do decaimento de energia em $L^2$ da solução. Matematicamente, isto é entender o que acontece com $\Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ quando $t \to \infty$. Leray suspeitava que
 \[
     \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0
@@ -6035,24 +6075,24 @@ Tomando uma função molificadora $\eta \in \cC^{\infty}_c(\bR^3)$ e sua versão
         &\bu_\delta(\cdot,0) = \bar \bu_{0,\delta},
        \end{aligned}
 \end{equation}
-onde $\bar\bu_\delta = \eta_\delta * \bu_\delta$. Em seu artigo, Leray mostrou que existe uma sequência apropriada $\delta' \to 0$ tal que conseguimos a convergência fraca em $\cL^2(\bR^3)$
+onde $\bar\bu_\delta = \eta_\delta * \bu_\delta$. Em seu artigo, Leray mostrou que existe uma sequência apropriada $\delta' \to 0$ tal que conseguimos a convergência fraca\footnote{Dado um espaço de Banach $X$, dizemos que uma sequência $(x_n) \subseteq X$ converge fracamente para $x \in X$ ($x_n \rightharpoonup x$) se $f(x_n) \to f(x)$, para todo $f \in X'$, onde $X'$ é o espaço de todos funcionais lineares limitados de $X$ em $\bR$.} em $\cL^2(\bR^3)$
 \begin{equation} \label{eq:b1}
-    \bu_{\delta'} \rightharpoonup \bu
+    \bu_{\delta'} \rightharpoonup \bu,
 \end{equation}
-para todo $t \geqslant 0$, onde $\bu(\cdot,t)$ apresentada em (\ref{eq:solucao-leray}) contínua no instante $t = 0$.
+para todo $t \geqslant 0$, onde $\bu(\cdot,t)$ apresentada em (\ref{eq:solucao-leray}) é contínua no instante $t = 0$.
 Além disso, a desigualdade de energia (\ref{eq:desigualdade-de-energia}) é satisfeita para todo $t \geqslant 0$ e em particular
 \begin{equation} \label{eq:2.3}
-    \int_0^\infty \Vert D\bu_\delta(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 \,dt \leqslant \frac{1}{2\nu} \Vert \bu_{0} \Vert_{\cL^2(\bR^3)}
+    \int_0^\infty \Vert D\bu_\delta(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 \,dt \leqslant \frac{1}{2\nu} \Vert \bu_{0} \Vert_{\cL^2(\bR^3)}.
 \end{equation}
-Outros resultados importantes se referem à projeção de Helmholtz de $-\bu(\cdot,t) \cdot \nabla \bu(\cdot,t)$ em $\cL^2_\sigma(\bR^3)$ isto é, o campo $\BQ(\cdot,t) \in \cL^2_\sigma(\bR^3)$ dado por
+Outros resultados importantes se referem à projeção de Helmholtz\footnote{A projeção de Helmholtz é uma forma de escrever um campo vetorial $F$ como $F = G + H$, onde $G, H$ são campos vetoriais tais que $\nabla \cdot G = 0$ e $H = \nabla \Phi$ para alguma função $\Phi : \bR^n \to \bR$.} de $-\bu(\cdot,t) \cdot \nabla \bu(\cdot,t)$ em $\cL^2_\sigma(\bR^3)$ isto é, o campo $\BQ(\cdot,t) \in \cL^2_\sigma(\bR^3)$ dado por
 \begin{equation} \label{eq:defQ}
-    \BQ(\cdot,t) := -\bu(\cdot,t) \cdot \nabla \bu(\cdot,t) - \nabla p(\cdot,t)
+    \BQ(\cdot,t) := -\bu(\cdot,t) \cdot \nabla \bu(\cdot,t) - \nabla p(\cdot,t),
 \end{equation}
 para todo $t > 0$.
 A seguir, estudaremos algumas estimativas para $\BQ(\cdot,t)$.
 
 \begin{pbox} \label{pr:nsei}
-    Para quase todo $s > 0$ (e todo $s \geqslant T_{**}$), tem-se
+    Para quase todo $s > 0$ (e para todo $s \geqslant T_{**}$), tem-se
     \[
         \Vert e^{\nu\Delta(t-s)}\BQ(\cdot,s) \Vert_{\cL^2(\bR^3)} \leqslant c \nu^{-\frac{3}{4}} (t-s)^{-\frac{3}{4}} \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)},
     \]
@@ -6067,7 +6107,7 @@ A seguir, estudaremos algumas estimativas para $\BQ(\cdot,t)$.
     \[
         \Vert e^{\nu\Delta(t-s)} \bv(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 = \Vert \cF [e^{\nu\Delta(t-s)} \bv(\cdot,s)] \Vert_{\cL^2(\bR^3)}^2 = \int_{\bR^3} e^{-2\nu \Vert \omega \Vert^2 (t-s)}\Vert \hat\bv(\omega,s) \Vert^2 \,d\omega,
     \]
-    onde utlizamos o resultado sobre a transformada de Fourier do semigrupo do calor visto nos preliminares. Além disso, $\Vert \hat \bv(\omega,s) \Vert^2 \leqslant \Vert \hat\bv(\cdot,s) \Vert_\infty = \sup\{ \Vert \hat\bv(\omega,s) \Vert \,; \omega \in \bR^3 \}$. Logo
+    onde utlizamos o resultado sobre a transformada de Fourier do semigrupo do calor (ver Teorema \ref{thm:propriedades-semi-grupo-calor} \textbf{(c)}). Além disso, $\Vert \hat \bv(\omega,s) \Vert^2 \leqslant \Vert \hat\bv(\cdot,s) \Vert_\infty = \sup\{ \Vert \hat\bv(\omega,s) \Vert \,; \omega \in \bR^3 \}$. Logo
     \[
         \Vert e^{\nu\Delta(t-s)} \bv(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \leqslant \Vert \hat\bv(\cdot,s) \Vert_\infty \int_{\bR^3} e^{-2\nu (t-s) \Vert \omega \Vert^2} d\omega,
     \]
@@ -6079,9 +6119,9 @@ A seguir, estudaremos algumas estimativas para $\BQ(\cdot,t)$.
     
     Note que utilizando a derivada da transformada de Fourier, temos que $\cF[D^\alpha f] = (i\omega)^\alpha \hat f$, sendo assim se $\alpha = e_j$ para algum $j = 1,2,3$, $\cF [D^{e_j} f] = i\omega_j \hat f$. Dito isso,
     \[
-        \cF[\nabla p(\cdot,s)] = i \hat p(\omega,s) \omega
+        \cF[\nabla p(\cdot,s)] = i \hat p(\omega,s) \omega,
     \] 
-    e $\omega \cdot \hat\BQ = 0$ pois por (\ref{eq:defQ}) e (\ref{eq:navierstokes}), $\BQ = \bu_t - \nu \Delta \bu$ e 
+    e $\omega \cdot \hat\BQ = 0$ pois, por (\ref{eq:defQ}) e (\ref{eq:navierstokes}), $\BQ = \bu_t - \nu \Delta \bu$ e 
     \[
         \nabla \cdot \BQ = (\nabla \cdot \bu)_t - \nu \Delta (\nabla \cdot \bu) = 0,
     \]
@@ -6089,11 +6129,19 @@ A seguir, estudaremos algumas estimativas para $\BQ(\cdot,t)$.
     \[
         0 = \widehat{\nabla \cdot \BQ} = \sum_{j=1}^3 \widehat{\frac{\partial Q_j}{\partial x_j}} = \sum_{j=1}^3 i \omega_j \hat \BQ,
     \] 
-    ou seja, $\omega \cdot \hat\BQ = 0$. Além disso, pela definição de $\BQ(\cdot,s)$ temos que $\hat\BQ(\omega,s) + \cF[\nabla p(\cdot,s)](\omega) = -\cF[\bu(\cdot,s) \cdot \nabla\bu(\cdot,s)](\omega)$. Com isso, fazendo o produto interno por $\hat\BQ$ em ambos os lados da igualdade acima obtemos
+    ou seja, $\omega \cdot \hat\BQ = 0$. Além disso, pela definição de $\BQ(\cdot,s)$ temos que
+    \[
+        \hat\BQ(\omega,s) + \cF[\nabla p(\cdot,s)](\omega) = -\cF[\bu(\cdot,s) \cdot \nabla\bu(\cdot,s)](\omega).
+    \]
+    Com isso, fazendo o produto interno por $\hat\BQ$ em ambos os lados da igualdade acima obtemos
     \[
         \hat\BQ(\omega,s) \cdot \hat\BQ(\omega,s) + i \hat p (\omega,s) \omega \cdot \hat\BQ(\omega,s) =  -\cF[\bu(\cdot,s) \cdot \nabla\bu(\cdot,s)](\omega) \cdot \hat\BQ(\omega,s)
     \]
-    Deste modo, pela desigualde de Cauchy-Schwarz, podemos escrever, $\Vert \hat\BQ(\omega,s) \Vert^2 \leqslant \Vert \cF [\bu(\cdot,s) \cdot \nabla \bu(\cdot,s)] \Vert \Vert \hat\BQ \Vert$. Ou seja,
+    Deste modo, pela desigualde de Cauchy-Schwarz, podemos escrever,
+    \[
+        \Vert \hat\BQ(\omega,s) \Vert^2 \leqslant \Vert \cF [\bu(\cdot,s) \cdot \nabla \bu(\cdot,s)] \Vert \Vert \hat\BQ \Vert.
+    \]
+    Ou seja,
     \[
         \Vert \hat\BQ(\omega,s) \Vert \leqslant \Vert \cF[\bu(\cdot,s) \cdot \nabla\bu(\cdot,s)](\omega) \Vert.
     \]
@@ -6106,7 +6154,7 @@ A seguir, estudaremos algumas estimativas para $\BQ(\cdot,t)$.
         | \cF[\bu (\cdot,s) \cdot \nabla u_i(\cdot,s)](\omega)| \leqslant \sum_{j=1}^{3} | \cF[u_j (\cdot,s) D_j\, u_i(\cdot,s)](\omega)| \leqslant (2\pi)^{-\frac{3}{2}} \sum_{j=1}^3 \Vert u_j(\cdot,s) D_j\,u_i(\cdot,s) \Vert_{\cL^1(\bR^3)},
     \]
     para todo $\omega \in \bR^3$.
-    Por fim, novamente utliizando a Desigualdade de Hölder (Cauchy-Schwarz) e a definição das normas, chegamos a
+    Por fim, novamente utilizando a Desigualdade de Hölder (Cauchy-Schwarz) e a definição das normas, chegamos a
     \[
         | \cF[\bu (\cdot,s) \cdot \nabla u_i(\cdot,s)](\omega)| \leqslant c \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert \nabla u_j(\cdot,s) \Vert_{\cL^2(\bR^3)}.
     \]
@@ -6123,11 +6171,11 @@ A seguir, estudaremos algumas estimativas para $\BQ(\cdot,t)$.
 
 Repetindo o argumento utilizado na demonstração acima para as soluções do problema regularizado (\ref{eq:navier-stokes-regularizado}), obtemos
 \begin{equation} \label{eq:2.11}
-    \Vert e^{\nu\Delta(t-s)} \BQ_\delta \Vert_{\cL^2(\bR^3)} \leqslant c \nu^{-\frac{3}{4}}(t - s)^{-\frac{3}{4}} \Vert \bu_\delta(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D\bu_\delta(\cdot,s) \Vert_{\cL^2(\bR^3)}
+    \Vert e^{\nu\Delta(t-s)} \BQ_\delta \Vert_{\cL^2(\bR^3)} \leqslant c \nu^{-\frac{3}{4}}(t - s)^{-\frac{3}{4}} \Vert \bu_\delta(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D\bu_\delta(\cdot,s) \Vert_{\cL^2(\bR^3)},
 \end{equation}
 onde $c$ é uma constante positíva e
 \[
-    \BQ_\delta(\cdot,s) = \bar\bu_\delta(\cdot,s) \cdot \nabla \bu_\delta(\cdot,s) - \nabla p_\delta(\cdot,s)
+    \BQ_\delta(\cdot,s) = -\bar\bu_\delta(\cdot,s) \cdot \nabla \bu_\delta(\cdot,s) - \nabla p_\delta(\cdot,s).
 \]
 
 \obs Vale ressaltar que as soluções do probblema regularizado também satisfazem a desigualdade de energia
@@ -6148,7 +6196,7 @@ para todo $t > 0$.
     \[
         \begin{aligned}
             \Vert D^\alpha [e^{\nu \Delta (t - s)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} &= \Vert D^\alpha \big[e^{\nu \Delta (t - s)/2} [ e^{\nu \Delta (t - s)/2} \BQ(\cdot,s) ] \big] \Vert_{\cL^2(\bR^3)}\\ 
-            &\leqslant c(k) \nu^{-\frac{k}{2}} (t - s)^{-\frac{k}{2}} \Vert e^{\nu\Delta(t-s)/2} \BQ(\cdot,s) \Vert_{\cL^2(\bR^3)}
+            &\leqslant c(k) \nu^{-\frac{k}{2}} (t - s)^{-\frac{k}{2}} \Vert e^{\nu\Delta(t-s)/2} \BQ(\cdot,s) \Vert_{\cL^2(\bR^3)},
         \end{aligned}
     \]
     e pela Proposição \ref{pr:nsei}, podemos escrever
@@ -6158,7 +6206,7 @@ para todo $t > 0$.
 \end{prf}
 
 \begin{pbox} \label{pr:tstar}
-    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}). Então existe $t_{**} > T_{**}$ (com $t_{**}$ dependendo da solução $\bu$) suficientemente grande tal que $\Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ é uma funçao monotonicamente decrescente de $t$ no intervalo $[t_{**}, \infty)$.
+    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}). Então existe $t_{**} > T_{**}$ (com $t_{**}$ dependendo da solução $\bu$) suficientemente grande tal que $\Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ é uma funçao monotonicamente decrescente de $t$ no intervalo $[t_{**}, \infty)$. (rever)
 \end{pbox}
 \begin{prf}
     Sejam $t_0 \geqslant T_{**}$ e $t > t_0$.
@@ -6227,6 +6275,7 @@ para todo $t > 0$.
             \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 &+ 2\nu \int_{t_0}^t \Vert D^2 \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 \,ds\\ &= \Vert D\bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + 2 \sum_{i=1}^3 \sum_{j=1}^3\sum_{k=1}^3 \int_{t_0}^t \int_{\bR^3} u_i D_k u_j D_j D_k u_i \,dxds.
         \end{aligned}
     \]
+    (posso começar a correção daqui)
     Utilizando a Desigualdade de Hölder e a definição das normas, temos que o lado direito da equação acima é menor ou igual a \textcolor{red}{aqui precisa detalhar, a gente fez mas não consegui entender pelas fotos}
     \[
         \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 + 2 \! \int_{t_0}^t \Vert \bu(\cdot,s) \Vert_{\infty} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds
@@ -6273,6 +6322,8 @@ para todo $t > 0$.
     Tomando $t_{**} = t_0$, finalizamos a demonstração.
 \end{prf}
 
+A proposição abaixo utiliza a solução do problema linearizado para estabelecer uma estimativa importante
+
 \begin{pbox} \label{pr:dav}
     Seja $\bu(\cdot,t)$ solução de Leray para (\ref{eq:navierstokes}).
     Dados $\tilde t_0 > t_0 > 0$ tem-se
@@ -6284,18 +6335,18 @@ para todo $t > 0$.
 \begin{prf}
     Primeiramente, reescrevemos $\bv(\cdot,t)$ como
     \[
-        \bv(\cdot,t) = e^{\nu\Delta(t-t_0)} \left[\bu(\cdot,t) - \bu_\delta(\cdot,t)\right] + e^{\nu\Delta(t-t_0)}\bu_\delta(\cdot,t_0)
+        \bv(\cdot,t) = e^{\nu\Delta(t-t_0)} \left[\bu(\cdot,t_0) - \bu_\delta(\cdot,t_0)\right] + e^{\nu\Delta(t-t_0)}\bu_\delta(\cdot,t_0),
     \]
-    onde $t > t_0$ e $\bu_\delta(\cdot,t)$ é. dada em (\ref{eq:navier-stokes-regularizado}).
+    onde $t > t_0$ e $\bu_\delta(\cdot,t)$ é dada em (\ref{eq:navier-stokes-regularizado}).
     Ademais, temos que
     \begin{equation} \label{eq:5}
         \bu_\delta(\cdot,t_0) = e^{\nu\Delta t_0}\bar\bu_{0,\delta} + \int_0^{t_0} e^{\nu\Delta(t_0 - s)}\BQ_\delta(\cdot,s)\,ds.
     \end{equation}
     Com efeito, considere a equação
     \[
-        \partial_g \bu_\delta = \BQ_\delta + \nu\Delta\bu_\delta,
+        \partial_s \bu_\delta = \BQ_\delta + \nu\Delta\bu_\delta,
     \]
-    onde $\BQ_\delta = - \bar\bu_\delta \cdot \nabla \bu_\delta - \nabla p\delta$.
+    onde $\BQ_\delta = - \bar\bu_\delta \cdot \nabla \bu_\delta - \nabla p_\delta$.
     Aplique o semigrupo do calor $e^{\nu\Delta(t_0 - s)}$ em ambos os lados e integre sobre $[0,t_0]$, para obter
     \begin{equation} \label{eq:4}
         \int_0^{t_0} e^{\nu\Delta(t_0 - s)} \partial_s \bu_\delta \,ds = \int_0^{t_0} e^{\nu\Delta(t_0 - s)}\BQ_\delta \,ds + \nu\int_0^{t_0} e^{\nu\Delta(t_0 - s)} \Delta \bu_\delta \, ds.
@@ -6317,7 +6368,7 @@ para todo $t > 0$.
         \bu_\delta(\cdot,t_0) - e^{\nu \Delta t_0} \bar\bu_{0,\delta} = \int_0^{t_0} e^{\nu\Delta(t_0 - s)}\BQ_\delta \,ds,
     \]
     por (\ref{eq:navierstokes}). Isto prova (\ref{eq:5}).
-    Dito isso
+    Dito isso, é verdade que
     \[
         \bv(\cdot,t) = e^{\nu\Delta(t - t_0)} \left[ \bu(\cdot,t_0) - \bu_\delta(\cdot,t_0) \right] + e^{\nu\Delta t}\bar\bu_{0,\delta} + \int_0^{t_0} e^{\nu\Delta(t-s)} \BQ_\delta(\cdot,s)\,ds,
     \]
@@ -6360,9 +6411,9 @@ para todo $t > 0$.
     \begin{equation} \label{eq:B}
         \int_{t_0}^{\tilde t_0} \Vert D\bu_\delta(\cdot,s) \Vert_{\cL^2(\bR^3)}\,ds \leqslant \left( \int_{t_0}^{\tilde t_0} \Vert D\bu_\delta \Vert^2_{\cL^2(\bR^3)} \,ds \right)^{\frac{1}{2}} \left( \int_{t_0}^{\tilde t_0} ds \right)^{\frac{1}{2}} \leqslant \frac{(\tilde t_0 - t_0)^{\frac{1}{2}}}{(2\nu)^{\frac{1}{2}}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}.
     \end{equation}
-    Portanto, por (\ref{eq:C}) e (\ref{eq:C}), obtemos
+    Portanto, por (\ref{eq:C}) e (\ref{eq:B}), obtemos
     \[
-        \Vert D^\alpha\tilde\bv(\cdot,t) -  D^\alpha\bv(\cdot,t) \Vert_{\cL^2(K)} \leqslant J_{\alpha,\delta}(t) + c(k) \nu^{-\left( \frac{k}{2} - \frac{5}{4} \right)}(t-\tilde t_0)^{-\left( \frac{k}{2} + \frac{3}{4} \right)} (\tilde t_0 - t_0)^{\frac{1}{2}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}^2.
+        \Vert D^\alpha\tilde\bv(\cdot,t) -  D^\alpha\bv(\cdot,t) \Vert_{\cL^2(K)} \leqslant J_{\alpha,\delta}(t) + c(k) \nu^{-\left( \frac{k}{2} + \frac{5}{4} \right)}(t-\tilde t_0)^{-\left( \frac{k}{2} + \frac{3}{4} \right)} (\tilde t_0 - t_0)^{\frac{1}{2}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}^2.
     \]
     Tomando $\delta = \delta'$ (ver (\ref{eq:b1})), temos que $J_{\alpha,\delta}(t)\to0$, quando $\delta \to 0$, pois, dados $\sigma,\tau >0$, é verdade que
     \[
@@ -6370,7 +6421,7 @@ para todo $t > 0$.
     \]
     quando $\delta \to 0$. De fato, denotando $\Phi_\delta(\cdot,\tau) = D^\alpha \big( e^{\nu \Delta \tau} [\bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma)] \big)$, tem-se
     \[
-        \Phi_\delta(\cdot,\tau) =  H_\alpha(\cdot,\tau) * [\bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma)]
+        \Phi_\delta(\cdot,\tau) =  H_\alpha(\cdot,\tau) * [\bu(\cdot,\sigma) - \bu_\delta(\cdot,\sigma)],
     \]
     onde $H_\alpha(\cdot,\tau) = D^\alpha E(\cdot,\tau) \in \cL^1(\bR^3) \cap \cL^\infty(\bR^3)$, com $E(x,\tau) = e^{-\frac{\Vert x \Vert^2}{4 \nu \tau}}$, não depende de $\delta$. Como $\bu(\cdot,\sigma) - \bu_{\delta}(\cdot,\sigma) \rightharpoonup 0$, segue que $\Phi_{\delta}(x,\tau) \to 0$ para cada $x \in \bR^3$, quando $\delta \to 0$.
     Por outro lado, as seguintes estimativas valem  pela desigualdade de Hölder e mudança de variáveis
@@ -6385,63 +6436,67 @@ para todo $t > 0$.
     \[
         |\Phi_\delta(x,\tau)| \leqslant 2 \Vert H_\alpha(\cdot,\tau) \Vert_{\cL^2(\bR^3)} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}
     \]
-    para todo $x \in \bR^3$. Pelo Teorema da Convergência Dominada (pois $2 \Vert H_\alpha(\cdot,\tau) \Vert_{\cL^2(\bR^3)} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}$ é constante em relação a $x$ e $K$ é limitado, logo pertence a $\cL^1(K)$), segue que $\Vert \Phi_{\delta}(\cdot,t) \Vert_{\cL^2(K)} \to 0$, quando $\delta\to 0$ pelo fato de $K$ ser compacto.
+    para todo $x \in \bR^3$. Pelo Teorema da Convergência Dominada (pois $2 \Vert H_\alpha(\cdot,\tau) \Vert_{\cL^2(\bR^3)} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}$ é constante em relação a $x$ e $K$ é limitado, logo pertence a $\cL^1(K)$), segue que $\Vert \Phi_{\delta}(\cdot,t) \Vert_{\cL^2(K)} \to 0$, quando $\delta\to 0$ (pelo fato de $K$ ser compacto).
     Dito isso, fazendo $\delta \to 0$ em (\ref{eq:3.3}) inferimos que
     \[
-        \Vert D^\alpha \tilde\bv - D^\alpha \bv(\cdot,t) \Vert_{\cL^2(K)} \leqslant c(k) \nu^{-\left( \frac{k}{2} + \frac{5}{4} \right)} \Vert \bu_0 \Vert^2_{\cL^2(\bR^3)} (\tilde t_0 - t_0)^{\frac{1}{2}} (t - \tilde t_0)^{-\left( \frac{k}{2} + \frac{3}{4} \right)},
+        \Vert D^\alpha \tilde\bv(\cdot,t) - D^\alpha \bv(\cdot,t) \Vert_{\cL^2(K)} \leqslant c(k) \nu^{-\left( \frac{k}{2} + \frac{5}{4} \right)} \Vert \bu_0 \Vert^2_{\cL^2(\bR^3)} (\tilde t_0 - t_0)^{\frac{1}{2}} (t - \tilde t_0)^{-\left( \frac{k}{2} + \frac{3}{4} \right)},
     \]
     para todo $t_0 > \tilde t_0$. Tomando o supremo de todos $K \subseteq \bR^3$ compactos, obtemos a desigualdade desejada.
 \end{prf}
 
+O restante dessa seção será destinado a estudar estimativas de decaimento de energia das soluções de Leray
+
 \begin{tbox} \label{thm:Duto0}
-    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}), então
+    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}), então,
     \[
-        t^{\frac{1}{2}} \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0
+        t^{\frac{1}{2}} \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0,
     \]
     quando $t \to \infty$.
 \end{tbox}
 \begin{prf}
-    Seja $t_{**}$ o instante de tempo encontrado na Proposição \ref{pr:tstar}. Suponha que a afirmação é falsa, nesse caso existem uma sequência crescente $t_\ell \to \infty$ (com $t_\ell \geqslant t_{**}$ e $t_\ell \geqslant 2 t_{\ell -1}$ para todo $\ell$) e um $\varepsilon > 0$ fixo tais que
+    Seja $t_{**}$ o instante de tempo encontrado na Proposição \ref{pr:tstar}. Suponha que a afirmação é falsa, nesse caso existem uma sequência crescente $t_\ell \to \infty$ (com $t_\ell \geqslant t_{**}$ e $t_\ell \geqslant 2 t_{\ell -1}$ para todo $\ell$) e um $\varepsilon > 0$ fixo tais que,
     \[
         t_\ell \Vert D\bu(\cdot,t_\ell) \Vert_{\cL^2(\bR^3)}^2 \geqslant \varepsilon
     \]
     para todo $\ell$.
     Em particular, é verdade, pela Proposição \ref{pr:tstar}
     \[
-        \int_{t_{\ell-1}}^{t_\ell} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds \geqslant (t_\ell - t_{\ell-1}) \Vert D\bu(\cdot,t_\ell) \Vert_{\cL^2(\bR^3)}^2 \geqslant \frac{1}{2}t_\ell \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)^2} \geqslant \frac{1}{2}\varepsilon
+        \int_{t_{\ell-1}}^{t_\ell} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds \geqslant (t_\ell - t_{\ell-1}) \Vert D\bu(\cdot,t_\ell) \Vert_{\cL^2(\bR^3)}^2 \geqslant \frac{1}{2}t_\ell \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)^2} \geqslant \frac{1}{2}\varepsilon,
     \]
     para todo $\ell \in \bN$, o que contradiz a desigualdade de energia (\ref{eq:2.3}), pois
     \[
-        \int_0^\infty \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds < \infty
+        \int_0^\infty \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^2 \,ds < \infty,
     \]
     e passando ao limite quando $\ell \to \infty$, encontramos $\varepsilon \leqslant 0$.
     Portanto, a afirmação do teorema é válida.
 \end{prf}
 
+O teorema abaixo foi conjecturado por Leray no final do seu artigo (ver \cite{leray-fluid}), e foi somente resolvido 50 anos depois por Kato (ver \cite{kato-navier.stokes}). Uma simples demonstração será apresentada abaixo utilizando conceitos que já eram conhecidos em 1934.
+
 \begin{tbox}[Solução do problema clássico de Leray] \label{thm:problema-leray}
-    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}), então
+    Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}), então,
     \[
-        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}\to 0
+        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}\to 0,
     \]
     quando $t \to \infty$.
 \end{tbox}
 \begin{prf}
     Seja $t_{**}$ como definido na Proposição \ref{pr:tstar}.
     Dado $\varepsilon > 0$ tomemos $t_0 \geqslant t_{**}$ suficientemente grande tal que pelo Teorema \ref{thm:Duto0}, podemos inferir
-    \begin{equation}
+    \begin{equation} \label{eq:xxx}
         t^{\frac{1}{2}} \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \varepsilon
     \end{equation}
     para todo $t \geqslant t_0$.
-    Como $\bu(\cdot,t)$ é suave em $[t_0,\infty)$ (ver Seção ??) obtemos, de forma análoga ao que foi feito na demonstração da Proposição \ref{pr:dav}
+    Como $\bu(\cdot,t)$ é suave em $[t_0,\infty)$ (ver Seção \ref{sec:intro}) obtemos, de forma análoga ao que foi feito na demonstração da Proposição \ref{pr:dav}, que
     \[
-        \bu(\cdot,t) = e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) + \int_{t_0}^{t} e^{\nu\Delta(t-s)}\BQ(\cdot,s) \, ds
+        \bu(\cdot,t) = e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) + \int_{t_0}^{t} e^{\nu\Delta(t-s)}\BQ(\cdot,s) \, ds,
     \]
     para todo $t \geqslant t_0$
     Dito isso, utlizando a Proposição \ref{pr:nsei}, podemos escrever
     \[
         \begin{aligned}
             \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} &\leqslant \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + \int_{t_0}^t \Vert e^{\nu\Delta(t-s)} \BQ(\cdot,s) \Vert_{\cL^2(\bR^3)}\,ds\\
-            &\leqslant \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + c \nu^{-\frac{3}{4}} \int_{t_0}^t (t - s)^{-\frac{3}{4}} \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds
+            &\leqslant \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + c \nu^{-\frac{3}{4}} \int_{t_0}^t (t - s)^{-\frac{3}{4}} \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds.
         \end{aligned}
     \]
     Pela desigualdade de energia (\ref{eq:desigualdade-de-energia}), concluimos que
@@ -6449,7 +6504,7 @@ para todo $t > 0$.
         \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant\Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + c \nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \int_{t_0}^t (t - s)^{-\frac{3}{4}}\Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds,
     \]
     para todo $t \geqslant t_0$.
-    Por (*), deduzimos que
+    Por (\ref{eq:xxx}), deduzimos que
     \[
         \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \Vert e^{\nu\Delta(t - t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} + c \nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}\, \varepsilon \! \int_{t_0}^t (t - s)^{-\frac{3}{4}} s^{-\frac{1}{2}} \,ds.
     \]
@@ -6467,41 +6522,42 @@ para todo $t > 0$.
             \Vert e^{\nu \Delta (t-t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 &= \Vert \cF [ e^{\nu \Delta (t-t_0) }\bu(\cdot,t_0)] \Vert_{\cL^2(\bR^3)}^2\\ &= \int_{\bR^3} \Vert \cF[ e^{\nu \Delta (t-t_0)} \bu(\omega,t_0)]\Vert^2 \,d\omega = \int_{\bR^3} e^{-2\nu (t-t_0) \Vert \omega \Vert^2} \Vert \hat\bu (\omega,t_0) \Vert^2 \,d\omega.
         \end{aligned}
     \]
-    Como $e^{-2\nu (t-t_0) \Vert \omega \Vert^2} \Vert \hat\bu(\omega,t_0) \Vert^2 \leqslant \Vert \hat\bu(\omega,t_0) \Vert^2 \in \cL^1(\bR^3)$, então, pelo Teorema da Convergência Dominada
+    Como $e^{-2\nu (t-t_0) \Vert \omega \Vert^2} \Vert \hat\bu(\omega,t_0) \Vert^2 \leqslant \Vert \hat\bu(\omega,t_0) \Vert^2 \in \cL^1(\bR^3)$, então, pelo Teorema da Convergência Dominada, inferimos
     \[
-        \Vert e^{\nu \Delta (t-t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} \to 0
+        \Vert e^{\nu \Delta (t-t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} \to 0,
     \]
     quando $t \to \infty$. Dito isso, concluimos que
     \[
-        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant (1 +  \nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}) \,\varepsilon
+        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant (1 + c \nu^{-\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}) \,\varepsilon,
     \]
     para todo $t > 0$ suficientemente grande.
     Como $\varepsilon > 0$ é arbitrário, isso mostra que
     \[
-        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0
+        \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0,
     \]
+    quando $t \to \infty$.
 \end{prf}
 
 Note que os Teoremas \ref{thm:Duto0} e \ref{thm:problema-leray} juntos mostram que temos o decaimento de energia na norma do espaço de Sobolev $H^1(\bR^3)$, já que $\Vert \bu(\cdot,t) \Vert_{H^1(\bR^3)}^2 = \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 + \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2$. Mais precisamente
 \[
-    \Vert \bu(\cdot,t) \Vert_{H^1(\bR^3)}^2 = \Vert \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + t^{-\frac{1}{2}} \big[ t^{\frac{1}{4}} \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}\big]^2 \to 0 
+    \Vert \bu(\cdot,t) \Vert_{H^1(\bR^3)}^2 = \Vert \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 + t^{-1} \big[ t^{\frac{1}{2}} \Vert D\bu(\cdot,t) \Vert_{\cL^2(\bR^3)}\big]^2 \to 0,
 \]
 quando $t \to \infty$.
 
 A demonstração do lema abaixo é bastante extensa, porém é de extrema importância para o último teorema dessa seção.
 
-\begin{lbox}
-    Para cada $k \geqslant 0$, denotando $U_k(t) := t^{\frac{k}{2}} \Vert D^k \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$ tem-se
+\begin{lbox} \label{lm:uk}
+    Para cada $k \geqslant 0$, denotando $U_k(t) := t^{\frac{k}{2}} \Vert D^k \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$, tem-se
     \[
         U_k \in \cL^\infty([T_{**}, \infty)).
     \]
 \end{lbox}
 \begin{prf}
-    O caso $k = 0$ segue da desigualdade de energia pois esta nos diz que
+    O caso $k = 0$ segue da desigualdade de energia (\ref{eq:desigualdade-de-energia}), que
     \[
         U_0(t) =t^0 \Vert D^0\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} = \Vert \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \Vert \bu_0 \Vert_{\cL^2(\bR^3)},
     \]
-    para todo $t > 0$ (em particular para todo $t \geqslant T_{**}$). Logo, $U_0$ é limitada e $U_0 \in \cL^{\infty}([T_{**}, \infty))$.
+    para todo $t > 0$ (em particular, para todo $t \geqslant T_{**}$). Logo, $U_0 \in \cL^{\infty}([T_{**}, \infty))$.
 
     O caso $k = 1$ também já foi provado anteriormente. Com efeito
     pelo Teorema \ref{thm:Duto0}, temos que $U_1(t) \to 0$ quando $t \to \infty$. Isso é suficiente para mostrar que $U_1 \in \cL^\infty([T_{**}, \infty))$ pois $|U_1(t)| \leqslant 1$ para todo $t$ suficientemente grande.
@@ -6513,13 +6569,13 @@ A demonstração do lema abaixo é bastante extensa, porém é de extrema import
     para todo $t \geqslant t_0$.
     Dessa forma, para cada multi-índice $\alpha$, temos que
     \begin{equation} \label{eq:aaa}
-        \Vert D^\alpha \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \Vert D^\alpha [ e^{\nu \Delta(t-t_0)} \bu(\cdot,t_0)] \Vert_{\cL^2(\bR^3)} + \int_{t_0}^t \Vert D^\alpha [e^{\nu \Delta (t-s)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds
+        \Vert D^\alpha \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \Vert D^\alpha [ e^{\nu \Delta(t-t_0)} \bu(\cdot,t_0)] \Vert_{\cL^2(\bR^3)} + \int_{t_0}^t \Vert D^\alpha [e^{\nu \Delta (t-s)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds,
     \end{equation}
     para todo $t \geqslant t_0$
     Defina $U^\alpha(t) := t^{\frac{k}{2}} \Vert D^\alpha \bu(\cdot,t) \Vert$ com $k = |\alpha|$.
     De (\ref{eq:aaa}) segue que
     \[
-        U^\alpha(t) \leqslant I_1(\alpha,t) + I_2(\alpha,t) + J_\alpha(t)
+        U^\alpha(t) \leqslant I_1(\alpha,t) + I_2(\alpha,t) + J_\alpha(t),
     \]
     onde
     \[
@@ -6537,12 +6593,12 @@ A demonstração do lema abaixo é bastante extensa, porém é de extrema import
         |I_1(\alpha,t)| \leqslant c(k,\nu) \Vert \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)} (t - t_0)^{-\frac{k}{2}} t^{\frac{k}{2}} \leqslant c(k, \nu) \Vert \bu_0 \Vert_{\cL^2(\bR^3)} (t - t_0)^{-\frac{k}{2}} t^{\frac{k}{2}}.
     \]
     Porém, note que
-    \[
+    \begin{equation} \label{eq:xxxx}
         (t - t_0)^{-\frac{k}{2}} t^{\frac{k}{2}} = \left( \frac{t}{t - t_0} \right)^{\! \frac{k}{2}} = \left( 1 + \frac{t_0}{t - t_0} \right)^{\! \frac{k}{2}} \leqslant (1 + t_0)^{\frac{k}{2}}.
-    \]
+    \end{equation}
     pois $\frac{t_0}{t - t_0} \leqslant t_0$ para todo $t \geqslant t_0 + 1$. Dessa forma
     \begin{equation} \label{eq:W1}
-        |I_1(\alpha,t)| \leqslant c(k,\nu,t_0,\bu_0)
+        |I_1(\alpha,t)| \leqslant c(k,\nu,t_0,\bu_0),
     \end{equation}
     para todo $t \geqslant t_0 + 1$. Por outro lado utlizando a Proposição \ref{pr:DaQ}, deduzimos
     \[
@@ -6557,20 +6613,20 @@ A demonstração do lema abaixo é bastante extensa, porém é de extrema import
     \end{equation}
     Dessa forma, também utlizando a desigualdade de energia (\ref{eq:desigualdade-de-energia}) e o fato de $s \leqslant t'$ (o que implica em $t^{\frac{k}{2}}(t-s)^{-\left( \frac{k}{2} + \frac{3}{4} \right)} \leqslant c(k)(t-t_0)^{-\left( \frac{k}{2} + \frac{3}{4} \right)}$), concluimos que
     \[
-        |I_2(\alpha,t)|\leqslant c(k,\nu) M_1 \Vert \bu_0 \Vert_{\cL^2(\bR^3)} (t-t_0)^{-\left( \frac{k}{2} + \frac{3}{4} \right)} \int_{t_0}^{t'} s^{-\frac{1}{2}} \,ds.
+        |I_2(\alpha,t)|\leqslant c(k,\nu) M_1 \Vert \bu_0 \Vert_{\cL^2(\bR^3)} (t-t_0)^{-\frac{3}{4}} \int_{t_0}^{t'} s^{-\frac{1}{2}} \,ds.
     \]
-    Sendo assim, por (*), chegamos a
+    Sendo assim, por (\ref{eq:xxxx}), chegamos a
     \[
-        |I_2(\alpha,t)|\leqslant c(k,\nu) \Vert \bu_0 \Vert_{\cL^2(\bR^3)} (t-t_0)^{-\left( \frac{k}{2} + \frac{3}{4} \right)} (t + t_0)^{\frac{1}{2}}
+        |I_2(\alpha,t)|\leqslant c(k,\nu) \Vert \bu_0 \Vert_{\cL^2(\bR^3)} (t-t_0)^{-\left( \frac{k}{2} + \frac{3}{4} \right)} (t + t_0)^{\frac{1}{2}}.
     \]
     Por outro lado
     \[
-        (t - t_0)^{-\frac{3}{4}} (t + t_0)^{\frac{1}{2}} = (t - t_0)^{-\frac{1}{4}} (t - t_0)^{-\frac{1}{2}} (t + t_0)^{\frac{1}{2}} \leqslant \left( \frac{t + t_0}{t- t_0} \right)^{\frac{1}{2}} \leqslant (2t_0 + 1)^{\frac{1}{2}}
+        (t - t_0)^{-\frac{3}{4}} (t + t_0)^{\frac{1}{2}} = (t - t_0)^{-\frac{1}{4}} (t - t_0)^{-\frac{1}{2}} (t + t_0)^{\frac{1}{2}} \leqslant \left( \frac{t + t_0}{t- t_0} \right)^{\frac{1}{2}} \leqslant (2t_0 + 1)^{\frac{1}{2}}.
     \]
     para todo $t \geqslant t_0 + 1$.
     Por isso, podemos escrever
     \begin{equation} \label{eq:W2}
-        |I_2(\alpha,t)|\leqslant c(k,\nu, t_0, M_1, \bu_0)
+        |I_2(\alpha,t)|\leqslant c(k,\nu, t_0, M_1, \bu_0).
     \end{equation}
     para todo $t \geqslant t_0 + 1$.
     Assim, obtemos
@@ -6578,7 +6634,7 @@ A demonstração do lema abaixo é bastante extensa, porém é de extrema import
         U^\alpha(t) \leqslant c(k,\nu,t_0,M_1,\bu_0) + J_\alpha(t),
     \end{equation}
     para todo $t \geqslant t_0 + 1$
-    Logo, ainda resta estimar $J_\alpha$, porem não conseguimos estimar $J_\alpha$ de forma geral para todo $\alpha$, então faremos essa estimativa para o caso em que $|\alpha| = 2$ e depois utilizaremos indução para mostrar a estimativa de forma geral.
+    Logo, ainda resta estimar $J_\alpha(t)$, porem não conseguimos estimar $J_\alpha(t)$ de forma geral para todo $\alpha$, então faremos essa estimativa para o caso em que $|\alpha| = 2$ e depois utilizaremos indução para mostrar uma estimativa de forma geral.
     Com efeito, considerando $D^\alpha = D_iD_j$ (consequentemente denotando $J_\alpha(t)$ por $J_{ij}(t)$) temos por (\ref{eq:estimativa-util}) que
     \[
         J_{i\ell}(t) = t\int_{t'}^t \Vert D_i [ e^{\nu \Delta (t-t_0)} D_\ell \BQ (\cdot,s) ] \Vert_{\cL^2(\bR^3)} \leqslant c(\nu) \, t \int_{t'}^t (t - s)^{-\frac{7}{8}} \Vert D_\ell \BQ(\cdot,s) \Vert_{\cL^{\frac{4}{3}}(\bR^3)} \,ds.
@@ -6601,68 +6657,86 @@ A demonstração do lema abaixo é bastante extensa, porém é de extrema import
         \[
             \Vert D_\ell\BQ(\cdot,s) \Vert_{\cL^\frac{4}{3}(\bR^3)} \leqslant c \Vert D_{\ell} [\bu(\cdot,s) \cdot \nabla \bu(\cdot,s)] \Vert_{\cL^{\frac{4}{3}}(\bR^3)}
         \]
-    }\!Dito isso
+    }\!Dito isso, cheamos a
     \[
         \begin{aligned}
-            J_{i\ell}(t) &\leqslant c(\nu) \, t \int_{t'}^t (t - s)^{-\frac{7}{8}} \Vert D_\ell [\bu(\cdot,s) \cdot \nabla \bu(\cdot,s)] \Vert_{\cL^\frac{4}{3}(\bR^3)}\\
-            &\leqslant c(\nu) \, t \int_{t'}^t (t - s)^{-\frac{7}{8}} \left( \Vert D_{\ell} \bu(\cdot,s) \cdot \nabla \bu(\cdot,s) \Vert_{\cL^\frac{4}{3}(\bR^3)} + \Vert \bu(\cdot,s) \cdot \nabla D_\ell \bu(\cdot,s) \Vert_{\cL^\frac{4}{3}(\bR^3)} \right) \,ds 
+            J_{i\ell}(t) &\leqslant c(\nu) \, t \int_{t'}^t (t - s)^{-\frac{7}{8}} \Vert D_\ell [\bu(\cdot,s) \cdot \nabla \bu(\cdot,s)] \Vert_{\cL^\frac{4}{3}(\bR^3)} \,ds\\
+            &\leqslant c(\nu) \, t \int_{t'}^t (t - s)^{-\frac{7}{8}} \left( \Vert D_{\ell} \bu(\cdot,s) \cdot \nabla \bu(\cdot,s) \Vert_{\cL^\frac{4}{3}(\bR^3)} + \Vert \bu(\cdot,s) \cdot \nabla D_\ell \bu(\cdot,s) \Vert_{\cL^\frac{4}{3}(\bR^3)} \right) \,ds. 
         \end{aligned}
     \]
-    Utliizando a desigualdade de Hölder obtemos
+    Utilizando a desigualdade de Hölder, obtemos
     \[
-        J_{i\ell}(t) \leqslant c(\nu) \, t \! \int_{t'}^t \! (t - s)^{-\frac{7}{8}} \Big( \Vert D\bu(\cdot,s) \Vert_{\cL^4(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}+ \Vert \bu(\cdot,s) \Vert_{\cL^4(\bR^3)} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Big) ds
+        J_{i\ell}(t) \leqslant c(\nu) \, t \! \int_{t'}^t \! (t - s)^{-\frac{7}{8}} \Big( \Vert D\bu(\cdot,s) \Vert_{\cL^4(\bR^3)} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}+ \Vert \bu(\cdot,s) \Vert_{\cL^4(\bR^3)} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Big) ds,
     \]
-    e pela desigualdade de Gagliardo-Nirenberg (\ref{eq:gagliardoL4})
+    e pela desigualdade de Gagliardo-Nirenberg (\ref{eq:gagliardoL4}), podemos escrever
     \[
         \begin{aligned}
             J_{i\ell}(t) \leqslant c(\nu) \, t \int_{t'}^t  (t - s)^{-\frac{7}{8}} \Big( \Vert D\bu(\cdot,s) &\Vert_{\cL^2(\bR^3)}^{\frac{5}{4}} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{3}{4}} +\\ \Vert \bu(\cdot,s) &\Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{3}{4}} \Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \Big) \, ds.
         \end{aligned}
     \]
-    Reescrevendo a equação acima como
+    Reescrevendo a desigualdade acima, concluimos que
     \[
         \begin{aligned}
             J_{i\ell}(t) \leqslant c(\nu) \, t \int_{t'}^t s^{-\frac{11}{8}} &(t - s)^{-\frac{7}{8}} \Big( \big(s^{\frac{1}{2}}\Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \big)^{\frac{5}{4}} \big( s\Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}\big)^{\frac{3}{4}}\\ &+ \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \big( s^{\frac{1}{2}}\Vert D\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}\big)^{\frac{3}{4}} \big(s\Vert D^2\bu(\cdot,s) \Vert_{\cL^2(\bR^3)}\big) \Big) \, ds.
         \end{aligned}
     \]
-    Fazendo as substituições adequadas, temos que o lado direito da equação acima é menor que
+    Fazendo as substituições adequadas, por (\ref{eq:C1}), segue que
     \[
-        c(\nu) \,t M_1^{\frac{5}{4}} (t + t_0)^{-\frac{11}{8}} \int_{t'}^t (t - s)^{-\frac{7}{8}} U_2(s)^{\frac{3}{4}} \,ds + c(\nu) \, t M_1^{\frac{3}{4}} \Vert \bu_0 \Vert^{\frac{1}{4}}_{\cL^2(\bR^3)} (t + t_0)^{-\frac{11}{8}} \int_{t'}^{t} (t - s)^{-\frac{7}{8}} U_2(s) \,ds.
+        \begin{aligned}
+            J_{i\ell}(t) \leqslant c(\nu) \,t M_1^{\frac{5}{4}} (t + t_0)^{-\frac{11}{8}} \int_{t'}^t &(t - s)^{-\frac{7}{8}} U_2(s)^{\frac{3}{4}} \,ds\\ 
+            &+ c(\nu) \, t M_1^{\frac{3}{4}} \Vert \bu_0 \Vert^{\frac{1}{4}}_{\cL^2(\bR^3)} (t + t_0)^{-\frac{11}{8}} \int_{t'}^{t} (t - s)^{-\frac{7}{8}} U_2(s) \,ds.
+        \end{aligned}
     \]
-    Utilizando a desigualdade de Young ($ab \leqslant a^pp^{-1} + b^q q^{-1}$ onde $p^{-1} + q^{-1} = 1$) com $a = 1$, $b = U_2(s)^{\frac{3}{4}}$, $p = 4$ e $q = \frac{4}{3}$, temos que $U_2(s)^{\frac{3}{4}} \leqslant 1 + U_2(s)$.
+    Utilizando a desigualdade de Young ($ab \leqslant a^pp^{-1} + b^q q^{-1}$ onde $p^{-1} + q^{-1} = 1$ com $a = 1$, $b = U_2(s)^{\frac{3}{4}}$, $p = 4$ e $q = \frac{4}{3}$), temos que
+    \begin{equation} \label{eq:youngu2}
+        U_2(s)^{\frac{3}{4}} \leqslant 1 + U_2(s).
+    \end{equation}
     Dessa forma
     \[
         \begin{aligned}
-            c(\nu, M_1) \,t (t + t_0)^{-\frac{11}{8}} \int_{t'}^t (t - s)^{-\frac{7}{8}} \,ds + \Big( &c(\nu, M_1) \,t (t + t_0)^{-\frac{11}{8}}\\ 
+            J_{i\ell}(t) \leqslant c(\nu, M_1) \,t (t + t_0)^{-\frac{11}{8}} \int_{t'}^t &(t - s)^{-\frac{7}{8}} \,ds + \Big( c(\nu, M_1) \,t (t + t_0)^{-\frac{11}{8}}\\ 
             &+ c(\nu, M_1, \bu_0) \, t (t + t_0)^{-\frac{11}{8}} \Big) \int_{t'}^t (t - s)^{-\frac{7}{8}} U_2(s) \,ds.
         \end{aligned}
     \]
-    Para simplificar a expressão acima, note que \textcolor{red}{vamos precisar olhar essa passagem}. Dito isso
+    Para simplificar a expressão acima, note que
     \[
-        J_{i\ell}(t) \leqslant c(\nu, M_1) (t + t_0)^{-\frac{1}{4}} + c(\nu,M_1, \bu_0) (t+t_0)^{-\frac{3}{8}} \int_{t'}^t (t - s)^{-\frac{7}{8}} U_2(s)\,ds
+        t(t + t_0)^{-\frac{11}{8}} = t(t + t_0)^{-1} (t+t_0)^{-\frac{3}{8}} = \frac{t}{t + t_0} (t + t_0)^{-\frac{3}{8}} \leqslant (t + t_0)^{-\frac{3}{8}}
     \]
-    para todo $i, \ell$ e $t \geqslant t_0 + 1$. Dessa forma
+    e também
+    \[
+        (t + t_0)^{-\frac{3}{8}} (t - t_0)^{\frac{1}{8}} = (t + t_0)^{-\frac{1}{4}} (t + t_0)^{-\frac{1}{8}} (t - t_0)^{\frac{1}{8}} = (t + t_0)^{-\frac{1}{4}} \left( \frac{t - t_0}{t+t_0} \right)^{-\frac{1}{4}} \leqslant (t + t_0)^{-\frac{1}{4}}.
+    \]
+    Dito isso
+    \begin{equation} \label{eq:W3}
+        J_{i\ell}(t) \leqslant c(\nu, M_1) (t + t_0)^{-\frac{1}{4}} + c(\nu,M_1, \bu_0) (t+t_0)^{-\frac{3}{8}} \int_{t'}^t (t - s)^{-\frac{7}{8}} U_2(s)\,ds,
+    \end{equation}
+    para todo $i, \ell$ e $t \geqslant t_0 + 1$. Dessa forma, por (\ref{eq:W1}), (\ref{eq:W2}) e (\ref{eq:W3}), inferimos
     \begin{equation} \label{eq:4.13}
-        U_2(t) \leqslant c_* (k, \nu, t_0, M_1, \bu_0) + c_{**} (\nu, M_1, \bu_0)(t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t-s)^{-\frac{7}{8}} U_2(s) \,ds
+        U_2(t) \leqslant c_* (k, \nu, t_0, M_1, \bu_0) + c_{**} (\nu, M_1, \bu_0)(t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t-s)^{-\frac{7}{8}} U_2(s) \,ds,
     \end{equation}
     para todo $ t \geqslant t_0 + 1$.
     Considere agora, $t_2, \mathbf{M}_2$ dados por
     \[
-        t_2 := 1 + t_0 + 2^{16}c_{**}^4 \qquad \mathbf{M}_2 := \sup \{ U_2(s) : t_0 \leqslant  s \leqslant t_2\}.
+        t_2 := 1 + t_0 + 2^{16}c_{**}^4 \;\text{ e }\; \mathbf{M}_2 := \sup \{ U_2(s) : t_0 \leqslant  s \leqslant t_2\}.
     \]
     Afirmamos que
-    \[
+    \begin{equation} \label{eq:W5}
         U_2(t) \leqslant 2 c_* (k,\nu,t_0,M_1,\bu_0) + 16 c_{**}(\nu,M_1,\bu_0) \, \mathbf{M}_2
-    \]
+    \end{equation}
     para todo $t\geqslant t_2$.
     De fato, definindo $\mathbf{U}_2(t) := \sup\{ U_2(s): t_2 \leqslant s \leqslant t\}$.
-    Se $t' \geqslant t_2$, então por (\ref{eq:4.13}) temos
+    Se $t' \geqslant t_2$, então por (\ref{eq:4.13}) deduzimos que
     \[
         \begin{aligned}
-            U_2(t) &\leqslant c_* (k, \nu, t_0, M_1, \bu_0) + c_{**} (\nu,M_1, \bu_0) \, \mathbf{U}_2(t) \int_{t'}^t (t -s)^{-\frac{7}{8}} \,ds\\
-            &\leqslant c_* (k, \nu, t_0, M_1, \bu_0) + 8c_{**} (\nu,M_1, \bu_0) (t + t_0)^{-\frac{1}{4}}\mathbf{U}_2(t) 
+            U_2(t) &\leqslant c_* (k, \nu, t_0, M_1, \bu_0) + c_{**} (\nu,M_1, \bu_0) \, \mathbf{U}_2(t) (t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t -s)^{-\frac{7}{8}} \,ds\\
+            &\leqslant c_* (k, \nu, t_0, M_1, \bu_0) + 8c_{**} (\nu,M_1, \bu_0) (t + t_0)^{-\frac{1}{4}}\mathbf{U}_2(t). 
         \end{aligned}
     \]
-    porém, como $t \geqslant t_2$ temos que, pela definição de $t_2$, $t + t_0 > t_2 > 2^{16} c_{**}^4$, isso implica em $2^{16} c_{**}^4 < t + t_0$ e elevando ambos os lados por $1/4$ obtemos $16 c_{**} < (t + t_0)^{\frac{1}{4}}$ que podemos reescrever como $8c_{**} (t + t_0)^{-\frac{1}{4}} < 1/2$. Dito isso, obtemos
+    Porém, como $t \geqslant t_2$, temos, pela definição de $t_2$ que,
+    \[
+        t + t_0 > t_2 > 2^{16} c_{**}^4.
+    \]
+    Isso implica em $2^{16} c_{**}^4 < t + t_0$ e elevando ambos os lados a $1/4$ obtemos $16 c_{**} < (t + t_0)^{\frac{1}{4}}$ que podemos reescrever como $8c_{**} (t + t_0)^{-\frac{1}{4}} < 1/2$. Dito isso, podemos escrever
     \[
         U_2(t) < c_*(k,\nu,t_0,M_1, \bu_0) + \frac{1}{2} \mathbf{U}_2(t).
     \]
@@ -6670,163 +6744,242 @@ A demonstração do lema abaixo é bastante extensa, porém é de extrema import
     \[
         U_2(t) \leqslant c_* + c_{**} (t + t_0)^{-\frac{3}{8}} \left( \int_{t'}^{t_2} (t - s)^{-\frac{7}{8}} U_2(s) \,ds + \int_{t_2}^t (t - s)^{-\frac{7}{8}}U_2(s) \,ds \right).
     \]
-    Observe que em $[t',t_2]$ $U_2(s) \leqslant \mathbf{M}_2 \leqslant \mathbf{M}_2 + \mathbf{U}_2(s)$ e em $[t_2, t]$, $U_2(s) \leqslant \mathbf{U}_2(s) \leqslant \mathbf{M}_2 + \mathbf{U}_2(s)$.
+    Observe que em $[t',t_2]$, é verdade que $U_2(s) \leqslant \mathbf{M}_2 \leqslant \mathbf{M}_2 + \mathbf{U}_2(s)$, por outro lado em $[t_2, t]$, temos que $U_2(s) \leqslant \mathbf{U}_2(s) \leqslant \mathbf{M}_2 + \mathbf{U}_2(s)$.
     Dessa forma
     \[
         \begin{aligned}
             U_2(t) &\leqslant c_* + c_{**} (t + t_0)^{-\frac{3}{8}} \, \mathbf{M}_2\int_{t'}^{t} (t - s)^{-\frac{7}{8}}\,ds + c_{**} (t + t_0)^{-\frac{3}{8}}\,\mathbf{U}_2(t)\int_{t'}^{t} (t - s)^{-\frac{7}{8}}\,ds\\
-            &\leqslant c_* + c_{**} (t+ t_0)^{-\frac{1}{4}}\, \mathbf{M}_2 + \frac{1}{2} \mathbf{U}_2(t)
+            &\leqslant c_* + 8c_{**} (t+ t_0)^{-\frac{1}{4}}\, \mathbf{M}_2 + 8 c_{**}(t+t_0)^{-\frac{1}{4}}\mathbf{U}_2(t).
         \end{aligned}
     \]
-    mas $(t + t_0)^{-\frac{1}{4}} \leqslant 1$. Sendo assim
+    Como $(t + t_0)^{-\frac{1}{4}} \leqslant 1$ e $8c_{**} (t+t_0)^{-\frac{1}{4}} < \frac{1}{2}$, segue que
     \[
         U_2(t) \leqslant c_* + c_{**} \mathbf{M}_2 + \frac{1}{2} \mathbf{U}_2(t).
     \]
-    Logo, $\frac{1}{2}\mathbf{U}_2(t) \leqslant c_{*} + 8 c_{**}$, que é equivalente à
+    para todo $t \geqslant t_2$.
+    Com isso,
     \[
-        U_2(t) \leqslant 2c_{*}(k,\nu,t_0, M_1, \bu_0) + 16c_{**}(\nu,M_1, \bu_0) \mathbf{M}_2
+        U_2(s) \leqslant c_* + 8c_{**} \mathbf{M}_2 + \frac{1}{2} \mathbf{U}_2(s) \leqslant c_* + 8c_{**}\mathbf{M}_2 + \mathbf{U}_2(t)
     \]
-    ou seja, mostramos que $U_2(t)$ é limitado por uma constante que não depende de $t$ em $[t_2, \infty)$. Portanto $U_2 \in \cL^\infty([t_2, \infty])$. Porém, sabemos que em $[T_{**}, \infty)$ em particular em $[T_{**}, t_2]$ $\bu(\cdot,t)$ é suave, o que implica em $U_2$ ser suave em um compacto, consequentemente limitada.
-    Portanto $U_2 \in \cL^\infty([T_{**},\infty))$ como era desejado. Assim mostrado o caso $k = 2$.
+    para todo $s \in [t_2,t]$.
+    Pasando ao supremo em $[t_0,t]$, inferimos
+    \[
+        \mathbf{U}_2(t) \leqslant c_* + 8c_{**} \mathbf{M}_2 + \frac{1}{2} \mathbf{U}_2(t)
+    \]
+    para todo $t \geqslant t_2$. Isto prova (\ref{eq:W5}).
+    Ou seja, mostramos que $U_2(t)$ é limitado por uma constante que não depende de $t$ em $[t_2, \infty)$. Portanto $U_2 \in \cL^\infty([t_2, \infty])$. Porém, sabemos que em $[T_{**}, \infty)$. Em particular em $[T_{**}, t_2]$, $\bu(\cdot,t)$ é suave (ver \cite{leray-fluid}), o que implica em $U_2$ ser suave em um compacto, consequentemente limitada.
+    Portanto $U_2 \in \cL^\infty([T_{**},\infty))$ como era desejado. Assim, mostrado o caso $k = 2$.
 
-    Suponha que $U_{\ell} \in \cL^\infty([T_{**},\infty))$ para todo $\ell < k$. Dito isso seja $\alpha$ um multi-índice de ordem $k$.
-    Denotando $D^\alpha$ por $D_i D^{\gamma}$ (onde $\gamma$ é um multi-índice de ordem $k-1$), temos, de forma análoga ao que foi feito no caso $k = 2$
+    Suponha que $U_{\ell} \in \cL^\infty([T_{**},\infty))$ para todo $\ell < k$. Vamos mostrar que $U_k \in \cL^\infty([T_{**},\infty))$.amos mostrar que $U_k \in \cL^\infty([T_{**},\infty))$. Dito isso seja $\alpha$ um multi-índice de ordem $k$.
+    Denotando $D^\alpha$ por $D_i D^{\gamma}$ (onde $\gamma$ é um multi-índice de ordem $k-1$), temos, de forma análoga ao que foi feito no caso $k = 2$, que
     \[
         J_\alpha(t) = t^{\frac{k}{2}} \int_{t'}^t \Vert D^\alpha [ e^{\nu \Delta (t - s)}\BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds \leqslant c(\nu) \, t^{\frac{k}{2}} \int_{t'}^t (t - s)^{-\frac{7}{8}} \Vert D^{\gamma} \BQ(\cdot,s) \Vert_{\cL^\frac{4}{3}(\bR^3)} \,ds.
     \]
     \textcolor{red}{Além disso por Calderon-Zygmund
     \[
-        \Vert D^{\beta}\BQ(\cdot,t) \Vert_{\cL^r(\bR^n)} \leqslant c(r,n) \Vert D^{\beta} [ \bu(\cdot,t) \cdot \nabla \bu(\cdot,t) ] \Vert_{\cL^r(\bR^n)}
+        \Vert D^{\gamma}\BQ(\cdot,t) \Vert_{\cL^r(\bR^n)} \leqslant c(r,n) \Vert D^{\gamma} [ \bu(\cdot,t) \cdot \nabla \bu(\cdot,t) ] \Vert_{\cL^r(\bR^n)},
     \]
-    para cada $1 < r < \infty$ e qualquer multi-índice $\beta$}. Dessa forma
+    para cada $1 < r < \infty$ e qualquer multi-índice $\gamma$}. Dessa forma, encontramos
     \[
-        J_\alpha(t) \leqslant c(\nu)\, t^{\frac{k}{2}} \int_{t'}^t (t-s)^{-\frac{7}{8}} \Vert D^{\gamma} [\bu(\cdot,s) \cdot \nabla \bu(\cdot,s)] \Vert_{\cL^\frac{4}{3}(\bR^3)}\,ds
+        J_\alpha(t) \leqslant c(\nu)\, t^{\frac{k}{2}} \int_{t'}^t (t-s)^{-\frac{7}{8}} \Vert D^{\gamma} [\bu(\cdot,s) \cdot \nabla \bu(\cdot,s)] \Vert_{\cL^\frac{4}{3}(\bR^3)}\,ds.
     \]
-    Utilizando a regra de Leibniz, obtemos
+    Utilizando a regra de Leibniz (ver Teorema \ref{thm:propriedades-derivada-fraca}), obtemos
     \[
-        J_\alpha(t) \leqslant c(\nu) \sum_{\sigma \leqslant \gamma} \int_{t'}^t (t - s)^{-\frac{7}{8}} \Vert D^{\sigma} \bu(\cdot,s) \cdot \nabla D^{\gamma - \sigma} \bu(\cdot,s) \Vert_{\cL^{\frac{4}{3}}(\bR^3)},
+        J_\alpha(t) \leqslant c(\nu) t^{\frac{k}{2}} \sum_{\sigma \leqslant \gamma} \int_{t'}^t (t - s)^{-\frac{7}{8}} \Vert D^{\sigma} \bu(\cdot,s) \cdot \nabla D^{\gamma - \sigma} \bu(\cdot,s) \Vert_{\cL^{\frac{4}{3}}(\bR^3)},
     \]
-    e utlizando a Desigualdade de Hölder
+    e utlizando a Desigualdade de Hölder, concluimos que
     \[
-        J_\alpha(t) \leqslant c(\nu) \sum_{\ell = 0}^{k-1} t^{\frac{k}{2}} \int_{t'}^t (t- s)^{-\frac{7}{8}} \Vert D^\ell \bu(\cdot,s) \Vert_{\cL^4(\bR^3)} \Vert D^{k-\ell} \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}\,ds,
+        J_\alpha(t) \leqslant c(\nu) \sum_{\ell = 0}^{k-1} t^{\frac{k}{2}} \int_{t'}^t (t- s)^{-\frac{7}{8}} \Vert D^\ell \bu(\cdot,s) \Vert_{\cL^4(\bR^3)} \Vert D^{k-\ell} \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}\,ds.
     \]
-    além disso, pela desigualdade de Gagliardo-Nirenberg (\ref{eq:gagliardoL4}) segue que
+    Destoe modo, pela desigualdade de Gagliardo-Nirenberg (\ref{eq:gagliardoL4}), segue que
     \[
-        J_\alpha(t) \leqslant c(\nu) \sum_{\ell=0}^{k-1} t^{\frac{k}{2}} \int_{t'}^t ( t- s)^{-\frac{7}{8}} \Vert D^\ell \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D^{\ell + 1} \bu(\cdot,s) \Vert_{\cL^2}^{\frac{3}{4}} \Vert D^{k-\ell} \bu(\cdot,s) \Vert \,ds.
+        J_\alpha(t) \leqslant c(\nu) \sum_{\ell=0}^{k-1} t^{\frac{k}{2}} \int_{t'}^t ( t- s)^{-\frac{7}{8}} \Vert D^\ell \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D^{\ell + 1} \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{3}{4}} \Vert D^{k-\ell} \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds.
     \]
     Escrevendo $J_\alpha(t)$ como a soma $J_1(t) + J_2(t) + J_3(t)$ onde
     \[
-        J_1(t) = c(\nu) t^{\frac{k}{2}} \int_{t'}^t ( t- s)^{-\frac{7}{8}} \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D^ \bu(\cdot,s) \Vert_{\cL^2}^{\frac{3}{4}} \Vert D^{k} \bu(\cdot,s) \Vert \,ds.
+        J_1(t) = c(\nu) t^{\frac{k}{2}} \int_{t'}^t ( t- s)^{-\frac{7}{8}} \Vert \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{3}{4}} \Vert D^{k} \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds.
     \]
     \[
-        J_2(t) = c(\nu) \sum_{\ell=1}^{k-2} t^{\frac{k}{2}} \int_{t'}^t ( t- s)^{-\frac{7}{8}} \Vert D^\ell \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D^{\ell + 1} \bu(\cdot,s) \Vert_{\cL^2}^{\frac{3}{4}} \Vert D^{k-\ell} \bu(\cdot,s) \Vert \,ds.
+        J_2(t) = c(\nu) \sum_{\ell=1}^{k-2} t^{\frac{k}{2}} \int_{t'}^t ( t- s)^{-\frac{7}{8}} \Vert D^\ell \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D^{\ell + 1} \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{3}{4}} \Vert D^{k-\ell} \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds.
     \]
     \[
-        J_3(t) = c(\nu) t^{\frac{k}{2}} \int_{t'}^t ( t- s)^{-\frac{7}{8}} \Vert D^{k-1} \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D^{k} \bu(\cdot,s) \Vert_{\cL^2}^{\frac{3}{4}} \Vert D \bu(\cdot,s) \Vert \,ds.
+        J_3(t) = c(\nu) t^{\frac{k}{2}} \int_{t'}^t ( t- s)^{-\frac{7}{8}} \Vert D^{k-1} \bu(\cdot,s) \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \Vert D^{k} \bu(\cdot,s) \Vert_{\cL^2}^{\frac{3}{4}} \Vert D \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} \,ds.
     \]
-    Como sabemos que $\Vert D^q \bu(\cdot,s) \Vert = s^{-\frac{q}{2}} U_q(s) \leqslant M_q$ para $q < k$ e $\Vert D^k\bu(\cdot,s) \Vert = s^{-\frac{k}{2}} U_k(s)$, obtemos
-    \[
+    Como sabemos que $\Vert D^q \bu(\cdot,s) \Vert_{\cL^2(\bR^3)} = s^{-\frac{q}{2}} U_q(s) \leqslant s^{-\frac{q}{2}} M_q$, para todo $q < k$ (por hipótee de indução) e $\Vert D^k\bu(\cdot,s) \Vert_{\cL^2(\bR^3)} = s^{-\frac{k}{2}} U_k(s)$, obtemos
+    \begin{equation} \label{eq:t1}
         \begin{aligned}
             J_1(t) &\leqslant c(\nu) \, M_1^{\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} \, t^{\frac{k}{2}} \int_{t'}^t (t - s)^{-\frac{7}{8}} s^{-\left( \frac{3}{8} + \frac{k}{2} \right)} \,U_k(s) \,ds\\
-            &\leqslant c(\nu,k) M_1^{\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} (t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t- s)^{-\frac{7}{8}} U_k(s) \,ds 
+            &\leqslant c(\nu,k) M_1^{\frac{3}{4}} \Vert \bu_0 \Vert_{\cL^2(\bR^3)}^{\frac{1}{4}} (t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t- s)^{-\frac{7}{8}} U_k(s) \,ds, 
         \end{aligned}
-    \]
-    onde utilizamos o fato de $s^{-\frac{3}{8}} < ( t + t_0)^{-\frac{3}{8}}$ para a ultima desigualdade.
-    Análogamente para $J_2(t)$ temos
+    \end{equation}
+    onde utilizamos o fato de
     \[
         \begin{aligned}
-            J_2(t) &\leqslant c(\nu) \sum_{\ell=1}^{k-2} M_{\ell}^{\frac{1}{4}} M_{\ell + 1}^{\frac{3}{4}} M_{k-\ell} \, t^{\frac{k}{2}} \int_{t'}^t (t - s)^{-\frac{7}{8}} s^{-\left( \frac{3}{8} + \frac{k}{2} \right)} \,ds\\
-            &\leqslant c(\nu,k) \sum_{\ell=1}^{k-2} M_{\ell}^{\frac{1}{4}} M_{\ell + 1}^{\frac{3}{4}} M_{k-\ell} \, (t - t_0)^{-\frac{3}{8}} \int_{t'}^t (t - s)^{-\frac{7}{8}} \,ds\\
-            &\leqslant c(\nu,k) \sum_{\ell=1}^{k-2} M_{\ell}^{\frac{1}{4}} M_{\ell + 1}^{\frac{3}{4}} M_{k-\ell} \, (t - t_0)^{-\frac{1}{4}}
+            s^{-\left( \frac{3}{8} + \frac{k}{2} \right)} \leqslant c(k)( t + t_0)^{-\left( \frac{3}{8} + \frac{k}{2} \right)} &\leqslant c(k)\,t^{\frac{k}{2}} (t + t_0)^{-\left( \frac{3}{8} + \frac{k}{2} \right)} \\
+            &= c(k)\left( \frac{t}{t + t_0} \right)^{\frac{k}{2}} (t + t_0)^{-\frac{3}{8}} \leqslant c(k) (t + t_0)^{-\frac{3}{8}}
         \end{aligned}
     \]
+    para a última desigualdade.
+    Análogamente para $J_2(t)$, deduzimos que
+    \begin{equation} \label{eq:t2}
+        \begin{aligned}
+            J_2(t) &\leqslant c(\nu) \sum_{\ell=1}^{k-2} M_{\ell}^{\frac{1}{4}} M_{\ell + 1}^{\frac{3}{4}} M_{k-\ell} \, t^{\frac{k}{2}} \int_{t'}^t (t - s)^{-\frac{7}{8}} s^{-\left( \frac{3}{8} + \frac{k}{2} \right)} \,ds\\
+            &\leqslant c(\nu,k) \sum_{\ell=1}^{k-2} M_{\ell}^{\frac{1}{4}} M_{\ell + 1}^{\frac{3}{4}} M_{k-\ell} \, (t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t - s)^{-\frac{7}{8}} \,ds\\
+            &\leqslant c(\nu,k) \sum_{\ell=1}^{k-2} M_{\ell}^{\frac{1}{4}} M_{\ell + 1}^{\frac{3}{4}} M_{k-\ell} \, (t + t_0)^{-\frac{1}{4}},
+        \end{aligned}
+    \end{equation}
     e para $J_3(t)$
-    \[
+    \begin{equation} \label{eq:t3}
         \begin{aligned}
             J_3(t) &\leqslant c(\nu) M_1 M_{k-1}^{\frac{1}{4}} \, t^{\frac{k}{2}} \int_{t'}^{t} (t - s)^{-\frac{7}{8}} s^{-\left( \frac{3}{8} + \frac{k}{2} \right)} U_k(s)^{\frac{3}{4}} \,ds\\
             &\leqslant c(\nu,k) M_1 M_{k-1}^{\frac{1}{4}} (t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t - s)^{-\frac{7}{8}} U_k(s)^{\frac{3}{4}}\,ds.
         \end{aligned}
-    \]
-    Lembrando que $U_k(s)^{\frac{3}{4}} \leqslant 1 + U_k(s)$, segue por (\ref{eq:4.10}) e pelas estimativas acima que
+    \end{equation}
+    Lembrando que $U_k(s)^{\frac{3}{4}} \leqslant 1 + U_k(s)$ (análogo a \ref{eq:youngu2}), segue, por (\ref{eq:4.10}), (\ref{eq:t1}), (\ref{eq:t2}) e (\ref{eq:t3}), que
     \[
-        U^\alpha(t) \leqslant c(k,\nu, t_0, \bu_0, M_1,\dots,M_1) + c(k,\nu,\bu_0, M_1) (t + t_0) \int_{t'}^t (t-s)^{-\frac{7}{8}} U_k(s)\,ds
+        U^\alpha(t) \leqslant c(k,\nu, t_0, \bu_0, M_1,\dots,M_{k-1}) + c(k,\nu,\bu_0, M_1) (t + t_0) \int_{t'}^t (t-s)^{-\frac{7}{8}} U_k(s)\,ds,
     \]
     onde $U^\alpha(t) = t^{\frac{k}{2}} \Vert D^\alpha \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}$.
     Portanto
     \[
-        U_k(t) \leqslant c_*(k,\nu, t_0, \bu_0, M_1,\dots,M_1) + c_{**}(k,\nu,\bu_0, M_1) (t + t_0) \int_{t'}^t (t-s)^{-\frac{7}{8}} U_k(s)\,ds
+        U_k(t) \leqslant c_*(k,\nu, t_0, \bu_0, M_1,\dots,M_{k-1}) + c_{**}(k,\nu,\bu_0, M_1) (t + t_0)^{-\frac{3}{8}} \int_{t'}^t (t-s)^{-\frac{7}{8}} U_k(s)\,ds,
     \]
     para todo $t \geqslant t_0 + 1$.
-    De forma análoga ao caso $k = 2$, definimos $t_k, \mathbf{M}_k$ por
+    De forma análoga ao caso $k = 2$, definimos $t_k$ e $\mathbf{M}_k$ por
     \[
-        t_k := 1 + t_0 + 2^{16}c_{**}^4 \qquad \mathbf{M}_k := \sup \{U_k(s) \,; t_0 \leqslant s \leqslant t_k\}
+        t_k := 1 + t_0 + 2^{16}c_{**}^4 \;\text{ e }\; \mathbf{M}_k := \sup \{U_k(s) \,; t_0 \leqslant s \leqslant t_k\}.
     \]
     Sendo assim, afirmamos novamente que
     \[
-        U_k(t) = 2c_*(k,\nu,t_0,\bu_0,M_1,\dots,M_{k-1}) + 16 c_{**} (k,\nu,\bu_0,M_1) \mathbf{M}_k
+        U_k(t) \leqslant 2c_*(k,\nu,t_0,\bu_0,M_1,\dots,M_{k-1}) + 16 c_{**} (k,\nu,\bu_0,M_1) \mathbf{M}_k,
     \]
     para todo $t \geqslant t_k$.
     Essa demonstração é exatamente a mesma que foi feita para o caso $k = 2$.
     Ou seja, temos que $U_k$ é limitada por uma constante que não depende de $t$ em $[t_k,\infty)$, como $U_k$ é limitada em $[T_{**}, \infty)$, segue que $U_k \in \cL^\infty([T_{**}, \infty))$, como era desejado.
 \end{prf}
 
+O teorema abaixo é uma generalização dos Teoremas \ref{thm:Duto0} e \ref{thm:problema-leray}.
+
 \begin{tbox}
     Seja $\bu(\cdot,t)$ uma solução de Leray para (\ref{eq:navierstokes}), então para todo $k \geqslant 0$ tem-se
     \[
-        t^{\frac{k}{2}} \Vert D^k\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0
+        t^{\frac{k}{2}} \Vert D^k\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0,
     \]
-    quando $t \to \infty$
+    quando $t \to \infty$.
 \end{tbox}
 \begin{prf}
-    Os Teoremas \ref{thm:problema-leray} e \ref{thm:Duto0} mostram os casos $k = 0$ e $k = 1$. Sendo assim, considere $k \geqslant 2$ e $t_0 \geqslant T_{**}$.
+    Os Teoremas \ref{thm:problema-leray} e \ref{thm:Duto0} mostram os casos $k = 0$ e $k = 1$ respectivamente. Sendo assim, considere $k \geqslant 2$ e $t_0 \geqslant T_{**}$.
     Lembrando que
     \[
         \begin{aligned}
-            \Vert D^k \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \Vert D^k[e^{\nu \Delta(t-t_0)} \bu(\cdot,t_0)] \Vert_{\cL^2(\bR^3)} & + \int_{t_0}^{t'} \Vert D^k[e^{\nu \Delta (t-s)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds\\
-        &+ \int_{t'}^{t} \Vert D^k[e^{\nu \Delta (t-s)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds.
+            \Vert D^k \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \leqslant \Vert &D^k[e^{\nu \Delta(t-t_0)} \bu(\cdot,t_0)] \Vert_{\cL^2(\bR^3)}\\  &+ \int_{t_0}^{t'} \Vert D^k[e^{\nu \Delta (t-s)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds
+        + \int_{t'}^{t} \Vert D^k[e^{\nu \Delta (t-s)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds.
         \end{aligned}
     \]
-    Dado $\varepsilon > 0$, seja $t_\varepsilon > t_0$ suficientemente grande de forma que
+    Na demonstração do Lema \ref{lm:uk}, vimos que dado um multi-índice $\alpha$ com $|\alpha| = k$, podemos escrever
+    \begin{equation} \label{eq:T1}
+        |I_1(\alpha,t)| = t^{\frac{k}{2}}\Vert D^\alpha [e^{\nu\Delta(t-t_0)}\bu(\cdot,t_0)] \Vert_{\cL^2(\bR^3)} \leqslant c(k,\nu) \Vert \bu_0 \Vert_{\cL^2(\bR^3)} \left( 1 + \frac{t_0}{t - t_0} \right)^{\frac{k}{2}} \to 0,
+    \end{equation}
+    quando $t \to \infty$.
+    Por outro lado, vimos tambem que
     \[
-        t^{\frac{k}{2}} \Vert D^k [e^{\nu \Delta (t-t_0)} \bu(\cdot,t_0)] \Vert_{\cL^2(\bR^3)} \leqslant \frac{1}{3} \varepsilon
+        |I_2(\alpha,t)| = \int_{t_0}^{t'} \Vert D^\alpha [e^{\nu\Delta (t-s)}\BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds \leqslant c(k,\nu) \Vert \bu_0 \Vert_{\cL^2(\bR^3)} (t - t_0)^{-\left( \frac{k}{2} + \frac{3}{4} \right)} (t + t_0)^{\frac{1}{2}},
     \]
-    e
+    para todo multi-índice $\alpha$ com $|\alpha| = k$.
+    Note que, quando $t \to \infty$, o termo $(t - t_0)^{-\left(\frac{k}{2} + \frac{3}{4}\right)}$ decai na ordem de $t^{-\left(\frac{k}{2} + \frac{3}{4}\right)}$, enquanto $(t + t_0)^{\frac{1}{2}}$ cresce na ordem de $t^{\frac{1}{2}}$.
+    Logo inferimos que
     \[
-        t^{\frac{k}{2}} \int_{t_0}^{t'} \Vert D^k [e^{\nu \Delta (t-t_0)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds \leqslant \frac{1}{3} \varepsilon.
+        (t - t_0)^{-\left(\frac{k}{2} + \frac{3}{4}\right)} (t + t_0)^{\frac{1}{2}} \to 0
     \]
-    Pelo Lema anterior, também é possível obter $t_\varepsilon > t_0$ de forma que
+    quando $t \to \infty$, desde que
+    \begin{equation} \label{eq:k234}
+        \frac{k}{2} + \frac{3}{4} > \frac{1}{2},
+    \end{equation}
+    que é verdadeiro pois (\ref{eq:k234}) implica em $k > -\frac{1}{2}$ (que é válido pois $k \geqslant 2$).
+    Dessa forma, concluimos que
+    \begin{equation} \label{eq:T2}
+        \int_{t_0}^{t'} \Vert D^\alpha [e^{\nu\Delta (t-s)}\BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds  \to 0,
+    \end{equation}
+    quando $t \to \infty$. 
+    Por fim, temos que
+    \begin{equation} \label{eq:T3}
+        \begin{aligned}
+            J_\alpha(t) &= t^{\frac{k}{2}} \int_{t'}^t \Vert D^\alpha[e^{\nu\Delta(t-s)}\BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \\
+            &\leqslant c(k,\nu) \left( \sum_{\ell=1}^k M_\ell^{\frac{1}{4}} M_{\ell+1}^{\frac{3}{4}} M_{k-\ell} \right) (t + t_0)^{-\frac{1}{4}} \to 0
+        \end{aligned}
+    \end{equation}
+    quando $t \to \infty$. Logo, por (\ref{eq:T1}), (\ref{eq:T2}) e (\ref{eq:T3}), dado um multi-índice $\alpha$ com $|\alpha| = k$, temos que
     \[
-        t^{\frac{k}{2}} \int_{t'}^{t} \Vert D^k [e^{\nu \Delta (t-t_0)} \BQ(\cdot,s)] \Vert_{\cL^2(\bR^3)} \,ds \leqslant \frac{1}{3} \varepsilon.
+        t^{\frac{k}{2}} \Vert D^\alpha \bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0,
     \]
-    para todo $t \geqslant t_\varepsilon$. Ou seja, temos $t^{\frac{k}{2}} \Vert D^k\bu(\cdot,t) \Vert < \varepsilon$ para todo $t \geqslant t_\varepsilon$. Portanto
+    quando $t \to \infty$.
+    Portanto
     \[
-        t^{\frac{k}{2}} \Vert D^k\bu(\cdot,t) \Vert_{\cL^2(\bR^3)} \to 0
+        t^{\frac{k}{2}} \Vert D^k \bu(\cdot,t) \Vert_{\cL^2} = \left( \sum_{\ell_1=1}^{3} \cdots \sum_{\ell_k=1}^3 t^{\frac{k}{2}} \Vert D_{\ell_1} \cdots D_{\ell_k} \bu(\cdot,t) \Vert_{\cL^2(\bR^3)}^2 \right)^{\frac{1}{2}} \to 0,
     \]
-    como queriamos mostrar.
+    quando $t \to \infty$ pois, $D_{\ell_1} \cdots D_{\ell_k} = D^\alpha$ para algum multi-índice $\alpha$ com $|\alpha| = k$.
 \end{prf}
+
+
+O teorema acima mostra o decaimento de energia das soluções de Leray na norma do espaço $H^k(\bR^n) = \cW^{k,2}(\bR^n)$, já que
+\[
+    \Vert \bu(\cdot,t) \Vert_{H^k(\bR^n)}^2 = \sum_{\ell = 0}^k \Vert D^\ell\bu(\cdot,t) \Vert_{\cL^2(\bR^n)}^2.
+\]
+Mais precisamente
+\[
+    \Vert \bu(\cdot,t) \Vert_{H^k(\bR^n)} = \sum_{\ell = 0}^k \big[ t^{-\frac{\ell}{2}} t^{\frac{\ell}{2}} \Vert D^\ell \bu(\cdot,t) \Vert_{\cL^2(\bR^n)} \big]^2 = \sum_{\ell = 0}^k t^{-\ell} \big[ t^{\frac{\ell}{2}} \Vert D^\ell \bu(\cdot,t) \Vert_{\cL^2(\bR^n)} \big]^2 \to 0,
+\]
+quando $t \to \infty$.
 
 \section{Problema de Dirichlet} \label{sec:dirichlet}
 
-Nessa seção retornamos ao problema visto na motivação do capítulo anterior.
+Nessa seção, retornamos ao problema visto na motivação do capítulo anterior.
 
-O ponto principal dessa seção é o Teorema de Lax-Milgram que será utilizado para mostrar a existência de soluções fracas para o problema de Dirichet.
-Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para espaços de Hilbert, que será apresentado abaixo.
+O ponto principal dessa seção é o Teorema de Lax-Milgram, que será utilizado para mostrar a existência de soluções fracas para o problema de Dirichet.
+Para demonstrá-lo, será necessário apresentar alguns resultados de análise funcional
+\begin{tbox} \label{thm:hilbert1}
+    Seja $f$ um operador linear limitado, então,
+    \begin{enumerate}[leftmargin=*, label=\textbf{(\alph*)}]
+        \item $f$ é continuo;
+        \item $\ker f$ é fechado.
+    \end{enumerate}
+\end{tbox}
+\begin{prf}
+    Ver \cite{kreyszig-functional.analysis} p.p. 97, 98.
+\end{prf}
+
+\begin{tbox} \label{thm:hilbert2}
+    Se $E$ é um subespaço fechado de um espaço de Hilbert $H$, então
+    \[
+        H = E \oplus E^\perp.
+    \]
+\end{tbox}
+\begin{prf}
+    Ver \cite{cesar-analise.funcional} p.p. 129.
+\end{prf}
+
+O Teorema da representação de Hilbert é o resultado mais importante para a demonstração do Teorema de Lax-Milgram, esste será enunciado e demonstrado abaixo.
 
 \begin{tbox}[Teorema da representação de Riesz para espaços de Hilbert] \label{thm:representacao-riesz}
     Sejam $H$ um espaço de Hilbert e $f : H \to \bR$ um funcional linear limitado.
     Então existe um único $v \in H$ tal que
     \[
-        f(u) = \left\langle u, v\right\rangle
+        f(u) = \left\langle u, v\right\rangle,
     \]
     para todo $u \in H$.
     Além disso $\Vert f \Vert = \Vert v \Vert$.
 \end{tbox}
 \begin{prf}
-    Seja $f : H \to \bR$ um funcional linear limitado não nulo, então existe $z \in H$ tal que $f(z) \neq 0$. 
-    Como $f$ é linear $z$ deve ser não nulo. Ou seja, $\ker f \neq H$.
-    Como $f$ é limitado segue que $\ker f$ é fechado, sendo assim (por \cite{cesar-analise.funcional} p.p. 129), $H = \ker f \oplus \ker f ^\perp$.
+    Primeiramente, mostremos a existencia de $v \in H$ tal que
+    \[
+        f(u) = \left\langle u,v \right\rangle,
+    \]
+    para todo $u \in H$.
+    Seja $f : H \to \bR$ um funcional linear limitado não nulo (se $f \equiv 0$, basta escolher $v = 0$), então existe $z \in H$ tal que $f(z) \neq 0$. 
+    Como $f$ é linear, $z$ deve ser não nulo. Ou seja, $\ker f \neq H$.
+    Como $f$ é limitado segue, pelo Teorema \ref{thm:hilbert1} \textbf{(b)}, que $\ker f$ é fechado, sendo assim pelo Teorema \ref{thm:hilbert2}, $H = \ker f \oplus \ker f ^\perp$.
     Portanto, $\ker f ^\perp \neq \{0\}$ (pois caso contrário $\ker f = H$).
-    Dito isso, seja $w \in \ker f ^\perp$ não nulo, então, para cada $u \in H$, $f(u) w - f(w)u \in \ker f$ já que
+    Dito isso, seja $w \in \ker f ^\perp$ não nulo, então, para cada $u \in H$, $f(u) w - f(w)u \in \ker f$ já que,
     \[
         f(f(u)w - f(w)u) = f(u) f(w) - f(w)f(u) = 0.
     \]
@@ -6843,21 +6996,21 @@ Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para
     Para mostrar que $v$ é único, suponha que exista $\tilde v \in H$ tal que $f(u) = \left\langle u, \tilde v \right\rangle$ para todo $u \in H$.
     Dito isso
     \[
-        \left\langle u, v \right\rangle = f(u) = \left\langle u,\tilde v \right\rangle
+        \left\langle u, v \right\rangle = f(u) = \left\langle u,\tilde v \right\rangle,
     \] 
     para todo $u \in H$. Logo é verdade que
     \[
-        \left\langle u , v - \tilde v \right\rangle = 0
+        \left\langle u , v - \tilde v \right\rangle = 0,
     \]
-    para todo $u \in H$, Em particular se $u = v - \tilde v \in H$, temos $\Vert v - \tilde v \Vert = 0$, ou seja, $v = \tilde v$. Portanto $v$ é único.
+    para todo $u \in H$, Em particular se $u = v - \tilde v \in H$, temos $\Vert v - \tilde v \Vert^2 = 0$, ou seja, $v = \tilde v$. Portanto $v$ é único.
 
     Por fim, resta mostrar que $\Vert f \Vert = \Vert v \Vert$.
-    De fato, note que $f(v) = \left\langle v, v \right\rangle = \Vert v \Vert^2$. Ou seja
+    Com efeito, note que $f(v) = \left\langle v, v \right\rangle = \Vert v \Vert^2$. Ou seja
     \[
         \Vert v \Vert^2 = f(v) \leqslant |f(v)| \leqslant \Vert f \Vert \Vert v \Vert.
     \]
     Como $v$ é não nulo, temos $\Vert v \Vert \leqslant \Vert f \Vert$.
-    Por outro lado, pela desigualdade de Cauchy-Schawarz
+    Por outro lado, pela desigualdade de Cauchy-Schawarz, inferimos
     \[
         |f(u)| = |\left\langle u,v \right\rangle| \leqslant \Vert u \Vert \Vert v \Vert,
     \]
@@ -6883,25 +7036,25 @@ Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para
 \begin{prf}
     Essa demonstração sera dividida em seis passos
 
-    \underline{Passo 1:} Mostremos que existe uma aplicação $A : H \to H$ tal que $B(u,v) = \left\langle u, Av \right\rangle$ para todo $u,v \in H$.
+    \underline{Passo 1:} Mostremos que existe uma aplicação $A : H \to H$ tal que $B(u,v) = \left\langle u, Av \right\rangle$, para todo $u,v \in H$.
 
     Para cada $v \in H$ defina $g_v : H \to \bR$ por
     \[
         g_v(u) = B(u,v).
     \]
-    para todo $u \in H$
+    para todo $u \in H$.
     Claramente $g_v$ é linear (pois $B$ é uma forma bilinear).
     Além disso, $g_v$ é limitada, já que
     \[
         |g_v(u)| = |B(u,v)| \leqslant \alpha \Vert u \Vert \Vert v \Vert,
     \]
-    para todo $u \in H$, onde utilizamos o fato de $B$ ser limitada (ver ítem 1).
+    para todo $u \in H$, onde utilizamos o fato de $B$ ser limitada (ver item 1).
     Sendo assim,
     \[
         \Vert g_v \Vert \leqslant \alpha \Vert v \Vert.
     \]
-    Logo $g_v$ é limitada.
-    Dito isso, pelo Teorema da Representação de Riesz (ver Teorema ??), existe um único $w_v \in H$ tal que
+    Logo, $g_v$ é limitada.
+    Dessa forma, pelo Teorema da Representação de Riesz (ver Teorema \ref{thm:representacao-riesz}), existe um único $w_v \in H$ tal que
     \[
         B(u,v) = g_v(u) = \left\langle u, w_v \right\rangle,
     \]
@@ -6911,9 +7064,9 @@ Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para
     \begin{equation} \label{eq:anmm}
         B(u,v) = g_v(u) = \left\langle u,w_v \right\rangle = \left\langle u, Av \right\rangle.
     \end{equation}
-    para todo $u,v \in H$
+    para todo $u,v \in H$.
 
-    \underline{Passo 2:} Afirmamos que $A$ é um operador linear e limitado
+    \underline{Passo 2:} Afirmamos que $A$ é um operador linear e limitado.
 
     Sejam $x, y \in H$ e $\lambda \in \bR$.
     Sendo assim, por (\ref{eq:anmm}), obtemos
@@ -6922,22 +7075,22 @@ Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para
     \]
     para tudo $u \in H$,
     pois $B$ é uma forma bilinear.
-    Com isso $A(\lambda x + y) = \lambda Ax + Ay$, para todo $x,y \in H$ e $\lambda \in \bR$
+    Com isso $A(\lambda x + y) = \lambda Ax + Ay$, para todo $x,y \in H$ e $\lambda \in \bR$.
     Logo, $A$ é linear.
     Além disso, dado $v \in H$, inferimos por (\ref{eq:anmm}) que
     \[
-        \Vert Av \Vert^2 = \left\langle Av, Av \right\rangle = B(Av, v) \leqslant |B(Av, v)| \leqslant \alpha \Vert Av \Vert \Vert v \Vert
+        \Vert Av \Vert^2 = \left\langle Av, Av \right\rangle = B(Av, v) \leqslant |B(Av, v)| \leqslant \alpha \Vert Av \Vert \Vert v \Vert,
     \]
-    pelo item 1. Deste modo, a seguinte desigualdade é válida:
+    onde utlizamos o fato de $B$ ser uma forma bilinear limitada (ver item 1). Deste modo, a seguinte desigualdade é válida:
     \[
         \Vert Av \Vert \leqslant \alpha \Vert v \Vert.
     \]
     para todo $v \in H$.
-    Portanto $A$ é limitado
+    Portanto $A$ é limitado.
 
-    \underline{Passo 3:} É verdade que $A$ é injetivo e $\mathrm{Im}A$ é fechado
+    \underline{Passo 3:} É verdade que $A$ é injetivo e $\mathrm{Im}A$ é fechado.
 
-    Sabemos que existe $\beta > 0$ tal que $\beta \Vert u \Vert^2 \leqslant |B(u,u)|$ para todo $u \in H$. Dessa forma, por (\ref{eq:anmm}), concluimos que
+    Sabemos que existe $\beta > 0$ tal que $\beta \Vert u \Vert^2 \leqslant |B(u,u)|$ para todo $u \in H$ (ver item 2). Dessa forma, por (\ref{eq:anmm}), concluimos que
     \[
         \beta \Vert u \Vert^2 \leqslant |B(u,u)| = | \left\langle u, Au \right\rangle | \leqslant \Vert u \Vert \Vert Au \Vert,
     \]
@@ -6960,11 +7113,11 @@ Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para
         \beta \Vert u_k - u_\ell \Vert \leqslant \Vert Au_k - Au_\ell \Vert \to 0.
     \]
     Ou seja, $(u_k) \subseteq H$ é de Cauchy.
-    Como $H$ é completo, existe $u_0 \in H$ tal que $u_n \to u_0$. Como $A$ é limitado (o que implica em $A$ ser contínuo) temos que $Au_k \to Au_0$, quando $k \to \infty$.
+    Como $H$ é completo, existe $u_0 \in H$ tal que $u_n \to u_0$. Como $A$ é limitado, consequentemente, é continuo (ver Teorema \ref{thm:hilbert1} \textbf{(a)}), temos que $Au_k \to Au_0$, quando $k \to \infty$.
     Pela unicidade do limite, deduzimos que $v = Av_0 \in \mathrm{Im}A$.
-    Portanto Vamos mostrar que $\mathrm{Im}A$ é fechado.
+    Portanto, $\mathrm{Im}A$ é fechado.
 
-    \underline{Passo 4:} Vamos mostrar que $A$ é sobrejetivo
+    \underline{Passo 4:} Vamos mostrar que $A$ é sobrejetivo.
 
     Sabemos que $H = \mathrm{Im}A \oplus \mathrm{Im}A^\perp$ (pois $\mathrm{Im}A$ é fechado). Mostremos que $\mathrm{Im}A^\perp = \{0\}$.
     Com efeito, se $w \in \mathrm{Im}A^\perp$, temos pelo item 2, e por (\ref{eq:anmm}) que
@@ -6977,7 +7130,7 @@ Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para
 
     \underline{Passo 5:} É verdade que existe $v \in H$ tal que $f(u) = B(u,v)$ para todo $u \in H$.
 
-    Como $f$ é um funcional linear limitado em $H$, pelo Teorema da Representação de Riesz (ver Teorema \ref{thm:representacao-riesz}), existe $z \in H$ tal que $f(u) = \left\langle u, z \right\rangle$ para todo $u \in H$.
+    Como $f$ é um funcional linear limitado em $H$, temos, pelo Teorema da Representação de Riesz (ver Teorema \ref{thm:representacao-riesz}), que existe $z \in H$, tal que $f(u) = \left\langle u, z \right\rangle$, para todo $u \in H$.
     Como $A$ é uma bijeção, existe um único $v \in H$ tal que $z = Av$. Dessa forma, podemos escrever
     \begin{equation} \label{eq:annn}
         f(u) = \left\langle u,z \right\rangle = \left\langle u, Av \right\rangle = B(u,v),
@@ -7005,16 +7158,16 @@ Para demonstrá-lo, será necessário o Teorema da Representação de Riesz para
 \begin{equation} \label{eq:problema-de-dirichlet}
     \begin{aligned}
         -\Delta u + u = f &\text{ em } \Omega\\
-        u = 0 &\text{ sobre } \partial\Omega
+        u = 0 &\text{ sobre } \partial\Omega,
     \end{aligned}
 \end{equation}
 onde $\Omega \subseteq \bR^n$ é um aberto limitado.
-Na motivação vimos que $u$ é uma solução fraca para o problema de Dirichlet se satisfaz
+Na motivação, vimos que $u$ é uma solução fraca para o problema de Dirichlet se satisfaz
 \[
     \int_\Omega Du \cdot D\phi \,dx + \int_\Omega u\phi \,dx = \int_\Omega f\phi \,dx,
 \]
 para todo $\phi \in \cC^{\infty}_c(\Omega)$.
-Porem, pela densidade das funções teste em $H^{1}_0(\Omega)$ (ver Teorema ??), podemos dizer que $u$ é uma solução fraca do problema de Dirichlet se esta satisfaz a igualdade
+Porem, pela densidade das funções teste em $H^{1}_0(\Omega)$ (pois $H_0^1(\Omega)$ é o fecho de $\cC^{\infty}_c(\Omega)$ em $H^1(\Omega)$), podemos dizer que $u$ é uma solução fraca do problema de Dirichlet, se esta satisfaz a igualdade:
 \[
     \int_\Omega Du \cdot Dv \,dx + \int_\Omega uv \,dx = \int_\Omega fv \,dx,
 \]
@@ -7060,14 +7213,14 @@ Por outro lado,
 \[
     |\varphi(v)| \leqslant \int_\Omega |f| |v| \,dx \leqslant \Vert f \Vert_{\cL^2(\Omega)} \Vert v \Vert_{\cL^2(\Omega)} \leqslant \Vert f \Vert_{\cL^2(\Omega)} \Vert v \Vert_{H^1_0(\Omega)},
 \]
-para todo $v \in H^1_0(\Omega)$, onde $\Vert f \Vert_{\cL^2(\Omega)} < \infty$ pois, por hípotese, $f \in \cL^2(\Omega)$.
+para todo $v \in H^1_0(\Omega)$, onde $\Vert f \Vert_{\cL^2(\Omega)} < \infty$, pois por hípotese, $f \in \cL^2(\Omega)$.
 
 Dessa forma, pelo Teorema de Lax-Milgram (ver Teorema \ref{thm:lax-milgram}), existe um único $u \in H^1_0(\Omega)$ tal que
 \[
     B(u,v) = \varphi(v),
 \]
 para todo $v \in H^1_0(\Omega)$.
-Portanto, existe $u$ é a única solução fraca para o problema de Dirichlet.
+Portanto, $u$ é a única solução fraca para o problema de Dirichlet.
 
 \nocite{*}
 \printbibliography

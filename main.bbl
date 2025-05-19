@@ -267,6 +267,40 @@
       \field{year}{2011}
       \true{nocite}
     \endentry
+    \entry{kato-navier.stokes}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=de2df565ad24725681a931fe6bd95efd}{%
+           family={Kato},
+           familyi={K\bibinitperiod},
+           given={Tosio},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{de2df565ad24725681a931fe6bd95efd}
+      \strng{fullhash}{de2df565ad24725681a931fe6bd95efd}
+      \strng{fullhashraw}{de2df565ad24725681a931fe6bd95efd}
+      \strng{bibnamehash}{de2df565ad24725681a931fe6bd95efd}
+      \strng{authorbibnamehash}{de2df565ad24725681a931fe6bd95efd}
+      \strng{authornamehash}{de2df565ad24725681a931fe6bd95efd}
+      \strng{authorfullhash}{de2df565ad24725681a931fe6bd95efd}
+      \strng{authorfullhashraw}{de2df565ad24725681a931fe6bd95efd}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematische Zeitschrift}
+      \field{number}{4}
+      \field{title}{Strong {$L^p$}-solutions of the Navier-Stokes equation in $\mathbb{R}^m$, with applications to weak solutions}
+      \field{volume}{187}
+      \field{year}{1984}
+      \field{pages}{471\bibrangedash 480}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1007/BF01174182
+      \endverb
+    \endentry
     \entry{irina-holder.spaces}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=7293035f6e19a897ed3dd6a34066bf63}{%
@@ -295,6 +329,36 @@
       \verb{url}
       \verb https://www.math.kit.edu/iana1/lehre/pdeclassical2021w/media/hoelderspaces.pdf
       \endverb
+    \endentry
+    \entry{kreyszig-functional.analysis}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=c4141ad87d07f41e44c31cc3b342bb04}{%
+           family={Kreyszig},
+           familyi={K\bibinitperiod},
+           given={Erwin},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{c4141ad87d07f41e44c31cc3b342bb04}
+      \strng{fullhash}{c4141ad87d07f41e44c31cc3b342bb04}
+      \strng{fullhashraw}{c4141ad87d07f41e44c31cc3b342bb04}
+      \strng{bibnamehash}{c4141ad87d07f41e44c31cc3b342bb04}
+      \strng{authorbibnamehash}{c4141ad87d07f41e44c31cc3b342bb04}
+      \strng{authornamehash}{c4141ad87d07f41e44c31cc3b342bb04}
+      \strng{authorfullhash}{c4141ad87d07f41e44c31cc3b342bb04}
+      \strng{authorfullhashraw}{c4141ad87d07f41e44c31cc3b342bb04}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0471504597}
+      \field{title}{Introductory Functional Analysis with Applications}
+      \field{year}{1989}
     \endentry
     \entry{leray-fluid}{article}{}{}
       \name{author}{1}{}{%
