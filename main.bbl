@@ -19,6 +19,36 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{artin-gamma}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=d5b16e394ff832b1cc37fbe2cab40240}{%
+           family={Artin},
+           familyi={A\bibinitperiod},
+           given={Emil},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{2}{%
+        {Holt, Rinehart}%
+        {Winston}%
+      }
+      \strng{namehash}{d5b16e394ff832b1cc37fbe2cab40240}
+      \strng{fullhash}{d5b16e394ff832b1cc37fbe2cab40240}
+      \strng{fullhashraw}{d5b16e394ff832b1cc37fbe2cab40240}
+      \strng{bibnamehash}{d5b16e394ff832b1cc37fbe2cab40240}
+      \strng{authorbibnamehash}{d5b16e394ff832b1cc37fbe2cab40240}
+      \strng{authornamehash}{d5b16e394ff832b1cc37fbe2cab40240}
+      \strng{authorfullhash}{d5b16e394ff832b1cc37fbe2cab40240}
+      \strng{authorfullhashraw}{d5b16e394ff832b1cc37fbe2cab40240}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Gamma Function}
+      \field{year}{1964}
+    \endentry
     \entry{axler-measure.theory}{book}{}{}
       \name{author}{1}{}{%
         {{hash=71493eec7caacea528ad39dbfb52773a}{%
@@ -44,7 +74,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Measure, Integration and Real Analysis}
       \field{year}{2024}
-      \true{nocite}
     \endentry
     \entry{bartle-measure.theory}{book}{}{}
       \name{author}{1}{}{%
