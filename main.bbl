@@ -19,6 +19,43 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{adams-sobolev}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=7a1d45e895aec3674e2d1ee0c8e193fe}{%
+           family={Adams},
+           familyi={A\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=8c6fd505a07e6a400bc55513d6de87a9}{%
+           family={Fournier},
+           familyi={F\bibinitperiod},
+           given={John\bibnamedelimb J.\bibnamedelimi F.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Amsterdam}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{fullhash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{fullhashraw}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{bibnamehash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{authorbibnamehash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{authornamehash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{authorfullhash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{authorfullhashraw}{f04513d99eb5c05a5309eb430e88548a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{9780120441433}
+      \field{series}{Pure and Applied Mathematics}
+      \field{title}{Sobolev Spaces}
+      \field{year}{2003}
+    \endentry
     \entry{artin-gamma}{book}{}{}
       \name{author}{1}{}{%
         {{hash=d5b16e394ff832b1cc37fbe2cab40240}{%
