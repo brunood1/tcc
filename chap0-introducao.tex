@@ -1,0 +1,79 @@
+\chapter*{Introdução}
+
+Neste trabalho, estamos interessados em dissertar sobre os famosos Espaços de Sobolev e suas utilidades nos estudos de um problema de Dirichlet e das Equações de Navier-Stokes. Sendo assim, antes de começarmos a introduzir o que
+% precisamente 
+pretendemos expor nesta monografia, permita-nos descrever brevemente algumas informações sobre os matemáticos mais relevantes que são frequentemente homenageados nestas teorias.
+
+Sergei Lvovich Sobolev (1908--1989) foi um matemático soviético que contribuiu em diversas áreas da Matemática e ciências afins. Mais especificamente, foi pioneiro no estudo de soluções fracas para algumas equações diferenciais. Além disso, é importante destacar que  Sobolev também orientou Olga Ladyzhenskaya (1922--2004),  a qual foi a matemática russa responsável por obter uma solução global no tempo para as equações de Navier-Stokes em espaços Euclidianos bidimensionais. Vale enfatizar, por fim, que o conhecimento adquirido através da pesquisa de Sobolev eventualmente se tornou uma área própria da Análise Funcional e que apresentamos neste texto uma introdução aos Espaços de Sobolev com a meta de aplicá-la a um problema de Dirichlet e às Equações de Navier-Stokes. (Ver \cite{sobolev} para mais detalhes sobre Sobolev).
+
+Claude Louis Marie Henri Navier (1785--1836) foi um matemático e engenheiro francês com contribuições extremamente importantes na dinâmica de fluidos. Em seu artigo ``Sur les lois des mouvements des fluides, en ayant égard à l’adhésion des molecules'', Navier mostrou as primeiras derivações das equações que futuramente carregariam seu nome. Mais precisamente, em $1820$, na École des Ponts et Chaussées, Navier iniciou a pesquisar a matemática envolvida no movimento de um fluido viscoso, e já nos dois anos decorrentes descreveu as, hoje denominadas, Equações de Navier-Stokes. Porém, o trabalho de Navier tinha um raciocínio imperfeito do ponto de vista matemático; mas, as equações encontradas descreviam corretamente tal movimento. Essa imprecisão na derivação do modelo inspirou Stokes a escrever de forma precisa como encontrar as famosas Equações de Navier-Stokes. (Para mais detalhes, ver \cite{navier}).
+
+George Gabriel Stokes (1819--1903) foi um físico e matemático irlandês que trabalhou em diversas áreas; mais  especificamente, na dinâmica de fluidos, onde, com base na pesquisa de Navier, Stokes desenvolveu equações que modelam o movimento de fluidos, conhecidas nos dias atuais como Equações de Navier-Stokes. É importante lembrar que a existência de  soluções clássicas e globais no tempo para este sistema em espaços Euclidianos tridimensionais ainda é um problema em aberto e é considerado um dos questionamentos mais relevantes da Análise Não-linear. (Citamos \cite{stokes} para mais informações).
+
+Jean Leray (1906--1998) foi um matemático francês que trabalhou em diversas áreas da Matemática como, por exemplo, Topologia e Álgebra Homológica.
+Gostaríamos de ressaltar que seu principal trabalho foi em Equações Diferenciais Parciais, é intitulado ``Sur le mouvement d'un liquide visqueux emplassement l'espace'' e prova a existência de soluções fracas (ou turbulentas), denominadas hoje soluções de Leray, para as Equações de Navier-Stokes  (ver \cite{leray-fluid}). Deste modo, neste trabalho, apresentamos algumas estimativas de decaimento  para estas mesmas soluções em Espaços de Sobolev, quando o tempo de existência é arbitrariamente grande. (Para mais informações, ver \cite{leray}).
+
+Johann Peter Gustav Lejeune Dirichlet (1805--1859) foi um matemático alemão e um dos pesquisadores mais importantes em diversas áreas da Matemática como, por exemplo, Teoria dos Números e Análise Matemática. Em Equações Diferencias Parciais, Dirichlet estudou diversos problemas de fronteira. Esta é a razão pela qual decidimos estudar um certo sistema de Equações Diferenciais Parciais, através da aplicação do Teorema de Lax-Milgram (em Espaços de Hilbert), com o intuito de comprovar a existência de soluções fracas para o problema apresentado em Espaços de Sobolev. (Para mais detalhes, ver \cite{dirichlet}).
+
+Agora, permita-nos estabelecer, com um pouco mais de detalhes, o que vai ser estudado nos dois capítulos desta monografia. No primeiro capítulo, apresentamos um estudo básico para os Espaços de Sobolev. Mais precisamente, determinamos suas definições, juntamente com o conceito de derivada fraca, e suas propriedades elementares. Além disso, para poder demonstrar algumas desigualdades, conhecidas como Desigualdades de Sobolev, Morrey e Gagliardo-Nirenberg-Sobolev, adicionamos ao nosso texto o significado de Extensões e Traços de operadores lineares limitados. Com o objetivo de concluir uma teoria introdutória para os Espaços de Sobolev, determinamos alguns mergulhos contínuos e compactos, envolvendo alguns destes espaços e Espaços de Lebesgue. Para facilitar a compreensão do leitor, vamos listar alguns resultados que representam nosso estudo neste primeira parte do trabalho.
+\begin{itemize}[label={\small$\bullet$}]
+  \item Sejam $\Omega$ um aberto limitado, com fronteira de classe $\cC^1$ e $\Omega'$ um aberto tal que $\Omega \Subset \Omega'$. Então, existe um operador linear limitado $E : \mathcal{W}^{1,p}(\Omega) \to \mathcal{W}^{1,p}(\mathbb{R} ^n)$, com $1 \leq p < \infty$, tal que, para cada $u \in \mathcal{W}^{k,p}(\Omega)$, tem-se que
+    \begin{enumerate}
+        \item $Eu = u$ qtp em $\Omega$;
+        \item $\supp Eu \subseteq \Omega'$;
+        \item $\Vert Eu \Vert_{\mathcal{W}^{1,p}(\mathbb{R}^n)} \leqslant c \Vert u \Vert_{\mathcal{W}^{1,p}(\Omega)}$.
+    \end{enumerate}
+  \item Seja $\Omega$ um aberto limitado, com fronteira de classe $C^1$. Então, existe um operador linear limitado $T : \mathcal{W}^{1,p}(\Omega) \to \mathcal{L}^p(\partial \Omega)$, com $1 \leq p < \infty$, tal que
+    \begin{enumerate}
+        \item $Tu = u \big|_{\partial \Omega}$, se $u \in \mathcal{W}^{1,p}(\Omega) \cap C(\Omega)$;
+        \item $\Vert Tu \Vert_{\mathcal{L}^p(\partial\Omega)} \leq c \Vert u \Vert_{\mathcal{W}^{1,p}(\Omega)}$.
+    \end{enumerate}
+  \item Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \mathcal{W}^{k,p}(\Omega)$.
+    Se $kp < n$, então $u \in \mathcal{L}^q(\Omega)$, onde
+    \[
+        \frac{1}{q} = \frac{1}{p} - \frac{k}{n}.
+    \]
+    Além disso, a desigualdade
+    \[
+        \Vert u \Vert_{\mathcal{L}^q(\Omega)} \leqslant c \Vert u \Vert_{\mathcal{W}^{k,p}(\Omega)}
+    \]
+    é valida.
+  \item Seja $\Omega \subseteq \mathbb{R}^n$ um aberto limitado com fronteira de classe $\cC^1$.
+  Então, $\mathcal{W}^{1,p}(\Omega)$ está mergulhado compactamente em  $\mathcal{L}^q(\Omega)$,
+        com $1 \leq p < n$ e $1 \leq q < p^*$.
+\end{itemize}
+
+\textbf{Gostaríamos de enfatizar que a referência bibliográfica principal que foi usada neste primeiro capítulo é a seguinte: \cite{evans-pde}.}
+
+O segundo capítulo é destinado a duas aplicações dos Espaços de Sobolev:
+a primeira delas, visa estudar o decaimento de soluções fracas  de Leray para as Equações de Navier-Stokes nos Espaços de Sobolev $H^k(\mathbb{R}^3)$. Para este fim, é necessário obter algumas formas de estimar as normas de Lebesgue-$L^2(\mathbb{R}^3)$ destas mesmas soluções. Já a segunda aplicação diz respeito a mostrar a existência de uma única solução fraca no Espaço de Sobolev $H^1_0(\mathbb{R}^3)$ para um específico problema de Dirichlet, onde utilizamos como ferramenta o Teorema de Lax-Milgram. Vale lembrar que este resultado pode ser visto em um curso introdutório de Análise Funcional  (ver \cite{kreyszig-functional.analysis} para mais detalhes). Com a meta de facilitar o entendimento do leitor, vamos listar alguns resultados que representam as informações descritas logo acima.
+\begin{itemize}[label={\small$\bullet$}]
+\item Seja $\mathbf{u}(\cdot,t)$ uma solução fraca de Leray para as Equações de Navier-Stokes, então
+    \[
+        \Vert \mathbf{u}(\cdot,t) \Vert_{\mathcal{L}^2(\mathbb{R}^3)} \to 0,
+    \]
+    quando $t \to \infty$.
+    É importante lembrar que este resultado foi conjecturado por Leray em seu artigo \cite{leray-fluid} e foi provado somente cinquenta anos depois por Kato \cite{kato-navier.stokes}.
+\item Seja $\mathbf{u}(\cdot,t)$ uma solução fraca de Leray para as Equações de Navier-Stokes, então
+    \[
+        t^{\frac{k}{2}} \Vert D^k\mathbf{u}(\cdot,t) \Vert_{\mathcal{L}^2(\mathbb{R}^3)} = 0,
+    \]
+    quando $t \to \infty$,
+    para todo $k \geq 0$ inteiro.
+\item Considere o problema de Dirichlet
+\begin{equation}\label{w1}
+    \left\{
+    \begin{aligned}
+        -\Delta u + u = f, &\text{ em } \Omega;\\
+        u = 0, &\text{ sobre } \partial\Omega,
+    \end{aligned}
+    \right.
+\end{equation}
+onde $\Omega \subseteq \mathbb{R}^n$ é um aberto limitado e $f \in \mathcal{L}^2(\Omega)$. Então,
+existe uma única solução fraca $u\in H_0^1(\mathbb{R}^3)$ para o sistema (\ref{w1}).
+\end{itemize}
+\textbf{É relevante informar que as referências bibliográficas principais que foram usadas neste segundo capítulo são as seguintes: \cite{kreyszig-functional.analysis,zingano-edp}}
+
+Permita-nos notificar o leitor que alguns preliminares são considerados conhecidos para o desenvolvimento deste trabalho. Mais especificamente, algumas definições e resultados importantes sobre cursos introdutórios de Teoria da Medida e Integração, Análise Funcional e Análise Matemática podem ser encontrados no decorrer do nosso texto ou nas referências \cite{axler-measure.theory, bartle-measure.theory, brezis-functional.analysis, folland-real.analysis,kreyszig-functional.analysis, elon-analise.rn, elon-espacos.metricos, munkres-analysis.on.manifolds}. Em adição, como já foi relatado anteriormente, as referêncais principais para este estudo são os textos \cite{adams-sobolev, evans-pde,zingano-edp}.
+
+Por fim, é relevante ressaltar que, em toda a monografia, mesmo se o valores das constantes, que aparecem nas desigualdades ou igualdades, mudarem linha a linha, ainda continuamos denotando-as pelos mesmos símbolos.

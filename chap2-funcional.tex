@@ -1,0 +1,71 @@
+\chapter{Introdução à análise funcional}
+
+\textcolor{red}{(introdução)}
+
+\section{Espaços de Banach}
+
+\textcolor{red}{(introdução)}
+
+\begin{dbox}
+    Seja $X$ um espaço vetorial sobre um corpo $\bK$. Uma função $\Vert \cdot \Vert : X \to \bR$ é dita ser uma norma se satisfaz
+    \begin{itemize}[leftmargin=*]
+        \item $\Vert x \Vert \geqslant 0$ para todo $x \in X$
+        \item $\Vert x \Vert = 0 \iff x = 0$
+        \item $\Vert \lambda x \Vert = |\lambda| \Vert x \Vert$ para todo $x \in X$ e $\lambda \in \bK$
+        \item $\Vert x + y \Vert \leqslant \Vert x \Vert + \Vert y \Vert$ para todo $x,y \in X$
+    \end{itemize}
+\end{dbox}
+
+\textcolor{red}{(definições iniciais)}
+
+\begin{ex}
+    O espaço euclidiano $\bR^n$ munido da norma
+    \[
+        \Vert x \Vert = \sqrt{x_1^2 + \cdots + x_n^2}
+    \]
+    onde $x = (x_1,\dots,x_n)$ é um espaço de Banach
+\end{ex}
+
+\begin{ex}
+    O espaço
+    \[
+        \ell^p \equiv \ell^p(\bR) = \left\{ x = (x_n) \,; \sum_{i=1}^{\infty} |x_i|^p < \infty \right\}
+    \]
+    com $1 \leqslant p < \infty$ munido da norma
+    \[
+        \Vert x \Vert_p = \left( \sum_{i=1}^{\infty} |x_i|^p \right)^{\frac{1}{p}}
+    \]
+    é um espaço de Banach.
+\end{ex}
+
+\begin{ex}
+    O espaço
+    \[
+        \ell^\infty \equiv \ell^\infty(\bR) = \left\{ x = (x_n) \,; \sup_{n \in \bN} |x_n| < \infty \right\}
+    \]
+    munido da norma
+    \[
+        \Vert x \Vert_\infty = \sup_{n \in \bN} |x_n|
+    \]
+    é um espaço de Banach.
+\end{ex}
+
+\begin{ex}
+    O espaço
+    \[
+        \cC([a,b], \bK) = \{f : [a,b] \to \bK \,; f \text{ é contínua}\}
+    \]
+    munido da norma
+    \[
+        \Vert f \Vert_{\max} = \max_{t \in [a,b]} \{|f(t)|\}
+    \]
+    é um espaço de Banach
+\end{ex}
+
+\begin{ex}
+    O espaço $\cC([0,1], \bR)$ munido da métrica
+    \[
+        d(f,g) = \int_0^1 |f(t) - g(t)| \, dt
+    \]
+    não é um espaço completo
+\end{ex}

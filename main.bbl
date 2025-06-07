@@ -523,7 +523,6 @@
       \field{edition}{12}
       \field{title}{Curso de Análise vol. 2}
       \field{year}{2020}
-      \true{nocite}
     \endentry
     \entry{elon-espacos.metricos}{book}{}{}
       \name{author}{1}{}{%
@@ -552,7 +551,6 @@
       \field{edition}{6\textsuperscript{a} edição}
       \field{title}{Espaços Métricos}
       \field{year}{2020}
-      \true{nocite}
     \endentry
     \entry{lorenz-navier.stokes}{misc}{}{}
       \name{author}{2}{}{%
@@ -614,6 +612,206 @@
       \field{isbn}{978-0201510355}
       \field{title}{Analysis on Manifolds}
       \field{year}{1991}
+    \endentry
+    \entry{navier}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=0b2e614b681eed1504fdf8548db5e78a}{%
+           family={O'Connor},
+           familyi={O\bibinitperiod},
+           given={J.\bibnamedelimi J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=38d8d75893cbc96955e1d383533a42e3}{%
+           family={Robertson},
+           familyi={R\bibinitperiod},
+           given={E.\bibnamedelimi F.},
+           giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \strng{bibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorbibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authornamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \field{extraname}{1}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{MacTutor History of Mathematics Archive, University of St Andrews}
+      \field{title}{Claude-Louis Navier}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{1999}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Navier/
+      \endverb
+      \verb{url}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Navier/
+      \endverb
+    \endentry
+    \entry{stokes}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=0b2e614b681eed1504fdf8548db5e78a}{%
+           family={O'Connor},
+           familyi={O\bibinitperiod},
+           given={J.\bibnamedelimi J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=38d8d75893cbc96955e1d383533a42e3}{%
+           family={Robertson},
+           familyi={R\bibinitperiod},
+           given={E.\bibnamedelimi F.},
+           giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \strng{bibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorbibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authornamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \field{extraname}{2}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{MacTutor History of Mathematics Archive, University of St Andrews}
+      \field{title}{George Gabriel Stokes}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{1998}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Stokes/
+      \endverb
+      \verb{url}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Stokes/
+      \endverb
+    \endentry
+    \entry{leray}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=0b2e614b681eed1504fdf8548db5e78a}{%
+           family={O'Connor},
+           familyi={O\bibinitperiod},
+           given={J.\bibnamedelimi J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=38d8d75893cbc96955e1d383533a42e3}{%
+           family={Robertson},
+           familyi={R\bibinitperiod},
+           given={E.\bibnamedelimi F.},
+           giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \strng{bibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorbibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authornamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \field{extraname}{3}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{MacTutor History of Mathematics Archive, University of St Andrews}
+      \field{title}{Jean Leray}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Leray/
+      \endverb
+      \verb{url}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Leray/
+      \endverb
+    \endentry
+    \entry{dirichlet}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=0b2e614b681eed1504fdf8548db5e78a}{%
+           family={O'Connor},
+           familyi={O\bibinitperiod},
+           given={J.\bibnamedelimi J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=38d8d75893cbc96955e1d383533a42e3}{%
+           family={Robertson},
+           familyi={R\bibinitperiod},
+           given={E.\bibnamedelimi F.},
+           giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \strng{bibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorbibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authornamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \field{extraname}{4}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{MacTutor History of Mathematics Archive, University of St Andrews}
+      \field{title}{Johann Peter Gustav Lejeune Dirichlet}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{1998}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Dirichlet/
+      \endverb
+      \verb{url}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Dirichlet/
+      \endverb
+    \endentry
+    \entry{sobolev}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=0b2e614b681eed1504fdf8548db5e78a}{%
+           family={O'Connor},
+           familyi={O\bibinitperiod},
+           given={J.\bibnamedelimi J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=38d8d75893cbc96955e1d383533a42e3}{%
+           family={Robertson},
+           familyi={R\bibinitperiod},
+           given={E.\bibnamedelimi F.},
+           giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{fullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \strng{bibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorbibnamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authornamehash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhash}{62b358362fa3de4ac01ad294231353cf}
+      \strng{authorfullhashraw}{62b358362fa3de4ac01ad294231353cf}
+      \field{extraname}{5}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{MacTutor History of Mathematics Archive, University of St Andrews}
+      \field{title}{Sergei Lvovich Sobolev}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2000}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Sobolev/
+      \endverb
+      \verb{url}
+      \verb https://mathshistory.st-andrews.ac.uk/Biographies/Sobolev/
+      \endverb
     \endentry
     \entry{cesar-analise.funcional}{book}{}{}
       \name{author}{1}{}{%
@@ -730,7 +928,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Two problems in Partial Differential Equations (in Portuguese)}
       \field{year}{2018}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/1801.04361
       \endverb
