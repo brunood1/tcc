@@ -873,6 +873,35 @@
       \field{year}{1927}
       \true{nocite}
     \endentry
+    \entry{stein-calderon.zygmund}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=1e432a4cd42a48f08962229276035a77}{%
+           family={Stein},
+           familyi={S\bibinitperiod},
+           given={Elias\bibnamedelima M.},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Princeton}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{1e432a4cd42a48f08962229276035a77}
+      \strng{fullhash}{1e432a4cd42a48f08962229276035a77}
+      \strng{fullhashraw}{1e432a4cd42a48f08962229276035a77}
+      \strng{bibnamehash}{1e432a4cd42a48f08962229276035a77}
+      \strng{authorbibnamehash}{1e432a4cd42a48f08962229276035a77}
+      \strng{authornamehash}{1e432a4cd42a48f08962229276035a77}
+      \strng{authorfullhash}{1e432a4cd42a48f08962229276035a77}
+      \strng{authorfullhashraw}{1e432a4cd42a48f08962229276035a77}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Singular Integrals and Differentiability Properties of Functions}
+      \field{year}{1970}
+    \endentry
     \entry{wiegner-decay}{article}{}{}
       \name{author}{1}{}{%
         {{hash=3c8c660116801c02dc2037d440ddc0fd}{%

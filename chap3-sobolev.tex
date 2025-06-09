@@ -99,7 +99,7 @@ Os resultados abaixos são de extrema importância no estudo de espaços de Sobo
 
 \footnotetext{$p$ e $q$ são ditos expoentes conjugados se $\frac{1}{p} + \frac{1}{q} = 1$.}
 
-Uma generalização desse resultado será apresentada abaixo.e
+Uma generalização desse resultado será apresentada abaixo.
 
 \begin{tbox}[Desigualdade de Hölder Generalizada] \label{thm:pre-desigualdade-de-holder-gen}
     Sejam $0 < p_1,\dots,p_N \leqslant \infty$ tais que $\frac{1}{p} = \frac{1}{p_1} + \cdots + \frac{1}{p_N}$ e $f = f_1 f_2 \cdots f_N$ onde $f_j \in \cL^{p_j}(\Omega)$, para todo $j = 1,\dots,N$. 
@@ -133,6 +133,9 @@ Uma generalização desse resultado será apresentada abaixo.e
         \Vert f * g \Vert_{\cL^r(\Omega)} \leqslant \Vert f \Vert_{\cL^p(\Omega)} \Vert g \Vert_{\cL^q(\Omega)}.
     \]
 \end{tbox}
+\begin{prf}
+    Ver \cite{brezis-functional.analysis}, p.p. 104.
+\end{prf}
 
 \begin{tbox} \label{thm:omega-limitado}
     Se $\Omega$ é limitado e, $1 \leqslant p < q \leqslant \infty$.
@@ -344,7 +347,7 @@ Essa pergunta motiva a definição abaixo.
     para toda função $\phi \in \cC ^\infty_c(\Omega)$.
 \end{dbox}
 
-Isto é, se dado uma função $u$ e existe uma função $v$ que satisfaz (\ref{eq:derivada-fraca}) para toda $\phi$ função teste, dizemos que $D^\alpha u = v$ no sentido fraco.
+Isto é, se dada uma função $u$ e existe uma função $v$ que satisfaz (\ref{eq:derivada-fraca}) para toda $\phi$ função teste, dizemos que $D^\alpha u = v$ no sentido fraco.
 Caso contrário, se não existir uma função $v$ que satisfaz (\ref{eq:derivada-fraca}), então $u$ não possui a $\alpha$-ésima derivada parcial fraca.
 
 \obs Aqui, utlizamos a notação $dx$ ao invés de $d\mu$ na integral de Lebesgue como convenção para dar ênfase que estamos utilizando a medida de Lebesgue (e não uma medida qualquer).
@@ -738,7 +741,7 @@ Agora, vamos explorar as propriedades elementares das derivadas fracas.
     \[
         \supp(\eta\phi) \subseteq \supp \eta \cap \supp \phi.
     \]
-    Portanto $\supp(\eta\phi)$ é comapcto, desde que $\supp \eta$ e $\supp \eta$ tambem sejam.
+    Portanto $\supp(\eta\phi)$ é comapcto, desde que $\supp \eta$ e $\supp \phi$ tambem sejam.
     Dito isso, utilizando a definição de derivada fraca apenas na primeira integral do lado direito da igualdade acima, chegamos a
     \[
         \int_\Omega \eta u D^{\alpha} \phi \, dx = -\int_\Omega \eta \phi D^{\alpha} u \, dx - \int_\Omega u\phi D^{\alpha} \eta \, dx = -\int_\Omega (\eta D^{\alpha}u + uD^{\alpha}\eta) \phi \,dx.
@@ -810,7 +813,7 @@ Agora, vamos explorar as propriedades elementares das derivadas fracas.
     como queriamos mostrar.
 \end{prf}
 
-Com os resultados obtidos, agora é possível verificar que os espaços de Sobolev $W^{k,p}(\Omega)$ são espaços de Banach. Comecemos verificando que $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ é uma norma em $\cW^{k,p}(\Omega)$.
+Com os resultados obtidos, agora é possível verificar que os espaços de Sobolev $W^{k,p}(\Omega)$ são espaços de Banach. Inicialmente, verificamos que $\Vert \cdot \Vert_{\cW^{k,p}(\Omega)}$ é uma norma em $\cW^{k,p}(\Omega)$.
 
 \begin{tbox}
     $(\cW^{k,p}(\Omega), \Vert \cdot \Vert_{\cW^{k,p}(\Omega)})$, com $1 \leqslant p \leqslant \infty$ é um espaço vetorial normado.
@@ -1011,13 +1014,10 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
     ~
 
     \textbf{(a)} Seja $g(x) = (x-y)/\varepsilon $. Logo, pela regra da cadeia, chegamos a
-    \begin{equation} \label{eq:l}
-        \begin{aligned}
-            \dfrac{\partial}{\partial x_i} \big[\eta_\varepsilon(x-y)\big] &= \frac{1}{\varepsilon^n}\dfrac{\partial }{\partial x_i}\left[\eta\left( \frac{x - y}{\varepsilon} \right) \right] \\
-            &=\frac{1}{\varepsilon^n} \frac{\partial}{\partial x_i} \big[ \eta \circ g(x) \big]
-            = \frac{1}{\varepsilon^n} \sum_{k =1}^n \dfrac{\partial \eta}{\partial x_k}\left( \frac{x - y}{\varepsilon} \right) \dfrac{\partial g_k}{\partial x_i}(x) = \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right),
-        \end{aligned}
-    \end{equation}
+    \begin{align}
+        \dfrac{\partial}{\partial x_i} \big[\eta_\varepsilon(x-y)\big] &= \frac{1}{\varepsilon^n}\dfrac{\partial }{\partial x_i}\left[\eta\left( \frac{x - y}{\varepsilon} \right) \right]\label{eq:l} \\
+        &=\frac{1}{\varepsilon^n} \frac{\partial}{\partial x_i} \big[ \eta \circ g(x) \big] = \frac{1}{\varepsilon^n} \sum_{k =1}^n \dfrac{\partial \eta}{\partial x_k}\left( \frac{x - y}{\varepsilon} \right) \dfrac{\partial g_k}{\partial x_i}(x) = \frac{1}{\varepsilon^{n+1}} \dfrac{\partial \eta}{\partial x_i}\left( \frac{x - y}{\varepsilon} \right), \nonumber
+    \end{align}
     para todo $i = 1,\dots,n$. Por outro lado, sejam $x \in \Omega_\varepsilon$, $i = 1,\dots,n$ e $h$ de forma que $x + he_i \in \Omega_\varepsilon$. Deste modo,
     \begin{equation} \label{eq:m}
         \frac{u^\varepsilon(x + he_i) - u^\varepsilon(x)}{h} 
@@ -1111,7 +1111,7 @@ O primeiro teorema que vamos estudar demonstra algumas propriedades importantes 
             \int_{B[x,\varepsilon]} \left| \eta_\varepsilon^{1 - \frac{1}{p}} (x-y) \eta_\varepsilon^{\frac{1}{p}} (x-y) v(y) \right| \,dy \leqslant \left( \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) dy \right)^{1 - \frac{1}{p}} \left( \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)|^p \,dy \right)^{\frac{1}{p}}.
         \end{equation}
     }\!\!
-    Lembrando que, $\int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dy = 1$ (ver \ref{eq:integral1}), integrando  as desigualdades (\ref{eq:nn1}) e (\ref{eq:nn2}) sobre $V$ e utilizando o Teorema de Fubini (ver Teorema \ref{thm:fubini}), obtemos
+    Lembrando que, $\int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) \,dy = 1$ (ver (\ref{eq:integral1})), integrando  as desigualdades (\ref{eq:nn1}) e (\ref{eq:nn2}) sobre $V$ e utilizando o Teorema de Fubini (ver Teorema \ref{thm:fubini}), obtemos
     \[
         \int_V |v^\varepsilon(x)|^p \,dx \leqslant \int_V \int_{B[x,\varepsilon]} \eta_\varepsilon(x-y) |v(y)|^p \,dy dx \leqslant \int_W |v(y)|^p \int_{B[y,\varepsilon]} \eta_\varepsilon(x-y) \,dxdy.
     \]
@@ -1241,18 +1241,18 @@ Agora, apresentaremos dois exemplos em que podemos visualizar essas aproximaçõ
                 \draw[black!30] (-4,-4) grid (4,4);
                 \draw[thick, black!60, -stealth] (-4,0) to (4,0); 
                 \draw[thick, black!60, -stealth] (0,-4) to (0,4); 
-                \draw[domain=-0.9999:0.9999, variable=\x, samples=50, smooth, very thick, ForestGreen!90!black] plot ({\x}, {2.257 * exp(-1 / (1 - (\x * \x)))});
-                \draw[very thick, ForestGreen!90!black] (-1,0) -- (-3,0);
-                \draw[very thick, ForestGreen!90!black] (1,0) -- (3,0);
+                \draw[domain=-0.9999:0.9999, variable=\x, samples=50, smooth, ultra thick, tangerine!90!black] plot ({\x}, {2.257 * exp(-1 / (1 - (\x * \x)))});
+                \draw[ultra thick, tangerine!90!black] (-1,0) -- (-3,0);
+                \draw[ultra thick, tangerine!90!black] (1,0) -- (3,0);
             \end{scope}
 
             \begin{scope}[shift={(4,0)}, scale=0.8]
                 \draw[black!30] (-4,-4) grid (4,4);
                 \draw[thick, black!60, -stealth] (-4,0) to (4,0); 
                 \draw[thick, black!60, -stealth] (0,-4) to (0,4); 
-                \draw[domain=-0.299:0.299, variable=\x, samples=50, smooth, very thick, ForestGreen!90!black] plot ({\x}, {(1/0.3) * 2.257 * exp(-1 / (1 - ((\x / 0.3) * (\x / 0.3))))});
-                \draw[very thick, ForestGreen!90!black] (-0.3,0) -- (-3,0);
-                \draw[very thick, ForestGreen!90!black] (0.3,0) -- (3,0);
+                \draw[domain=-0.299:0.299, variable=\x, samples=50, smooth, ultra thick, tangerine!90!black] plot ({\x}, {(1/0.3) * 2.257 * exp(-1 / (1 - ((\x / 0.3) * (\x / 0.3))))});
+                \draw[ultra thick, tangerine!90!black] (-0.3,0) -- (-3,0);
+                \draw[ultra thick, tangerine!90!black] (0.3,0) -- (3,0);
             \end{scope}
         \end{tikzpicture}
         \caption{Funções $\eta$ e $\eta_{\varepsilon}$ com $\varepsilon = 0.3$.\\ Fonte: Autoral.}
@@ -1280,10 +1280,10 @@ Agora, apresentaremos dois exemplos em que podemos visualizar essas aproximaçõ
     \begin{figure}[H]
         \centering
         \begin{tikzpicture}
-            \filldraw[ForestGreen!30] (2,2) rectangle (0,0);
-            \filldraw[ForestGreen!30] (-2,-2) rectangle (0,0);
-            \filldraw[ForestGreen!40] (-2,2) rectangle (0,0);
-            \filldraw[ForestGreen!40] (2,-2) rectangle (0,0);
+            \filldraw[tangerine!30] (2,2) rectangle (0,0);
+            \filldraw[tangerine!30] (-2,-2) rectangle (0,0);
+            \filldraw[tangerine!40] (-2,2) rectangle (0,0);
+            \filldraw[tangerine!40] (2,-2) rectangle (0,0);
             
             \draw[thick] (2,2) rectangle (-2,-2);
             \draw[very thick, -stealth] (-3,0) to (3,0) node [right] {$x_1$};
@@ -1536,17 +1536,17 @@ A definição abaixo é necessária para o próximo resultado de densidade.
 \begin{figure}
     \centering
     \begin{tikzpicture}[scale=1.5]
-        \draw[thick, dashed, ForestGreen!30!black, fill=ForestGreen!30] (-2.076,1.929) .. controls (-1.374,-0.882) and (-0.462,2.304) .. (0.81,1.5) .. controls (2.112,0.549) and (2.121,1.836) .. (2.136,1.941) to (2.136,1.929);
+        \draw[thick, dashed, tangerine!30!black, fill=tangerine!40] (-2.076,1.929) .. controls (-1.374,-0.882) and (-0.462,2.304) .. (0.81,1.5) .. controls (2.112,0.549) and (2.121,1.836) .. (2.136,1.941) to (2.136,1.929);
     
         \draw[thick, -stealth, draw=black!70] (-2.2,0) to (2.2,0) node[right] {$\mathbb R^{n-1}$};
         \draw[thick, -stealth, draw=black!70] (0,-1) to (0,2.1) node[above] {$x_n$};
     
-        \draw[stealth-stealth, thick, OliveGreen!50!black, font=\small] (0.5616,0) to node[right] {$\gamma(x_1,\dots,x_{n-1})$} (0.5616,1.6102);
+        \draw[stealth-stealth, thick, tangerine!50!black, font=\small] (0.5616,0) to node[right] {$\gamma(x_1,\dots,x_{n-1})$} (0.5616,1.6102);
         \node[below=2pt,font=\footnotesize, fill=white] at (0.5616,0) {$(x_1,\dots,x_{n-1})$};
         \filldraw (0.5616,0) circle (0.03);
 
-        \node[OliveGreen] at (-1.419,1.524) {$\Omega$};
-        \node[ForestGreen!30!black] at (-0.5,0.8) {$\partial\Omega$};
+        \node[tangerine!50!black] at (-1.419,1.524) {$\Omega$};
+        \node[tangerine!50!black] at (-0.5,0.8) {$\partial\Omega$};
     \end{tikzpicture}
     \caption{Função $\gamma$ da Definição \ref{def:fronteira-ck}.\\
     Fonte: Autoral. Baseada em \cite{evans-pde} p.p. 626.}
@@ -1863,8 +1863,8 @@ Nessa seção, veremos uma forma de estender funções em $\cW^{1,p}(\Omega)$ pa
     Por outro lado, se $x \in B^-$
     \[
         \begin{aligned}
-            \bar E(u + \lambda v)(x) = (\overline{u + \lambda v})(x) &= -3(u + \lambda v)(x_1,\dots,x_{n-1},-x_n) + 4(u + \lambda v)(x_1,\dots,x_{n-1},-\frac{x_n}{2})\\
-            &= -3 u(x_1,\dots,x_{n-1},-x_n) + 4 u(x_1,\dots,x_{n-1},-\frac{x_n}{2})\\ &\quad\;+ \lambda\big[-\!3 v(x_1,\dots,x_{n-1},-x_n) + 4v(x_1,\dots,x_{n-1},-\frac{x_2}{2}) \big]\\[5pt]
+            \bar E(u + \lambda v)(x) = (\overline{u + \lambda v})(x) &= -3(u + \lambda v)(x_1,\dots,x_{n-1},-x_n) + 4(u + \lambda v)(x_1,\dots,x_{n-1},-\tfrac{x_n}{2})\\
+            &= -3 u(x_1,\dots,x_{n-1},-x_n) + 4 u(x_1,\dots,x_{n-1},-\tfrac{x_n}{2})\\ &\quad\;+ \lambda\big[-\!3 v(x_1,\dots,x_{n-1},-x_n) + 4v(x_1,\dots,x_{n-1},-\tfrac{x_2}{2}) \big]\\[5pt]
             &= \bar u(x) + \lambda \bar v(x).
         \end{aligned}
     \]
@@ -1954,14 +1954,14 @@ Em alguns casos, no estudo de equações diferenciais parciais, é necessário i
         \centering
         \begin{tikzpicture}[scale=1.75]
         
-            \draw[thick, dashed, fill=YellowGreen, fill opacity=0.2, draw=black!70] (1.5,0) circle (1.25);
-            \draw[thick, dashed, fill=YellowGreen, fill opacity=0.3, draw=black!70] (1.5,0) circle (0.625);
+            \draw[thick, dashed, fill=tangerine, fill opacity=0.2, draw=black!70] (1.5,0) circle (1.25);
+            \draw[thick, dashed, fill=tangerine, fill opacity=0.3, draw=black!70] (1.5,0) circle (0.625);
         
             \draw[Blue, thick] (0.25,0) to (2.75,0);
             \node[above=-1pt, Blue] at (2.4,0) {$\partial \Omega$};
         
-            \draw[LimeGreen!80!black, thick, dash pattern=on 4.5pt off 2pt] (0.875,0) to (2.125,0);
-            \node[above=-1pt, LimeGreen!80!black] at (1.1875,0) {$\Gamma_{\tilde x}$};
+            \draw[tangerine!50!BrickRed, thick, dash pattern=on 4.5pt off 2pt] (0.875,0) to (2.125,0);
+            \node[above=-1pt, tangerine!50!BrickRed] at (1.1875,0) {$\Gamma_{\tilde x}$};
         
             \filldraw (1.5,0) circle (0.03) node[below=1pt] {$\tilde x$};
         
@@ -2195,7 +2195,7 @@ O teorema a seguir é uma caracterização do espaço de Sobolev $\cW^{1,p}_0(\O
     \[
         \Vert u_k - u \Vert_{\cW^{1,p}(\bR^n_+)} \leqslant \Vert u_k - v_k \Vert_{\cW^{1,p}(\bR^n_+)} + \Vert v_k - u \Vert_{\cW^{1,p}(\bR^n_+)} \to 0,
     \]
-    quando $k \to \infty$ (ver \ref{eq:plus3}).
+    quando $k \to \infty$ (ver (\ref{eq:plus3})).
     Portanto, $u \in \cW^{1,p}_0(\bR^n_+)$.
 \end{prf}
 
@@ -2227,7 +2227,7 @@ Aplicando (\ref{eq:quase-gns}) a $u_\lambda$, obtemos
 \begin{equation} \label{eq:ulgns}
     \Vert u_\lambda \Vert_{\cL^q(\bR^n)} \leqslant c \Vert Du_\lambda \Vert_{\cL^p(\bR^n)}.
 \end{equation}
-Note que, pelo Teorema de Mudança de Variáveis (\ref{thm:mudanca-de-variaveis}), podemos escrever
+Note que, pelo Teorema de Mudança de Variáveis (ver Teorema \ref{thm:mudanca-de-variaveis}), podemos escrever
 \[
     \Vert u_\lambda \Vert_{\cL^q(\bR^n)}^q = \int_{\bR^n} |u_\lambda|^q \,dx = \int_{\bR^n} |u(\lambda x)|^p \,dx = \frac{1}{\lambda^n} \int_{\bR^n} |u(y)|^q \,dy = \frac{1}{\lambda^n}\Vert u \Vert_{\cL^q(\bR^n)}^q
 \]
@@ -2667,15 +2667,15 @@ Com essas definições, estamos prontos para enunciar e demonstrar a Desigualdad
             \draw[dashed, thick, black!45] \CA \CB;
             \begin{scope}
                 \clip \CA;
-                \fill[ForestGreen!25] \CB;
+                \fill[tangerine!40] \CB;
             \end{scope}     
             \begin{scope}
                 \clip \CA;
-                \draw[ForestGreen, dashed, very thick] \CB;
+                \draw[tangerine, dashed, very thick] \CB;
             \end{scope}
             \begin{scope}
                 \clip \CB;
-                \draw[ForestGreen, dashed, very thick] \CA;
+                \draw[tangerine, dashed, very thick] \CA;
             \end{scope}    
     
             \node[above=2pt] at (0,2) {$B(x,r)$};
@@ -2889,7 +2889,7 @@ O próximo resultado estabelece uma relação entre os espaços de Hölder defin
             &\leqslant \sum_{|\alpha| \leqslant k - \ell - 1} \!\!\!2 \Vert D^\alpha u  \Vert_{\cC^{0,\gamma}(\overline\Omega)} \leqslant \sum_{|\alpha| \leqslant k - \ell - 1} \!\!\!c \Vert u  \Vert_{\cW^{k-\ell,r}(\Omega)} \leqslant c \Vert u \Vert_{\cW^{k-\ell,r} (\Omega)} \leqslant c \Vert u \Vert_{\cW^{k,p}(\Omega)},
         \end{aligned}
     \]
-    (ver demonstração do Teorema \ref{thm:geral-1}). Isto prova (\ref{eq:geral2}.)
+    (ver demonstração do Teorema \ref{thm:geral-1}). Isto prova (\ref{eq:geral2}).
 
     Por fim, suponha que $\frac{n}{p}$ é um inteiro. Seja $\ell = \left\lfloor \frac{n}{p} \right\rfloor - 1 = \frac{n}{p} - 1$.
     Como anteriormente, temos que $u \in \cW^{k-\ell,r}(\Omega)$ (pois $\Omega$ é limitado), desde que (\ref{eq:111}) seja satisfeito, onde
