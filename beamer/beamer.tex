@@ -18,6 +18,8 @@
 \usepackage{tabularray}
 \usepackage{animate}
 
+\usepackage[portuguese]{babel}
+
 \usepackage{tikz}
 \usetikzlibrary{intersections, angles, calc, positioning}
 
@@ -39,7 +41,7 @@
 
 \usepackage{csquotes}
 \usepackage[backend=biber, doi=false]{biblatex}
-\addbibresource{bibliography.bib}
+\addbibresource{../bibliography.bib}
 
 \newcommand{\medcup}{\mathsf{U}}
 \newcommand{\m}{\text{-}}
@@ -105,7 +107,9 @@ Dirichlet via Espaços de Sobolev}
 
 \begin{frame}
     \begin{center}
-        \includegraphics[height=4cm]{../sobolev.jpg} \hspace{5mm} \includegraphics[height=4cm]{../Claude-Louis_Navier.jpg} \hspace{5mm} \includegraphics[height=4cm]{../SS-stokes.jpg}
+        \includegraphics[height=3cm]{../sobolev.jpg} \hspace{5mm} \pause \includegraphics[height=3cm]{../Claude-Louis_Navier.jpg} \hspace{5mm} \includegraphics[height=3cm]{../SS-stokes.jpg} \hspace{5mm} \pause
+        \includegraphics[height=3cm]{../leray.jpg} \hspace{5mm} \pause
+        \includegraphics[height=3cm]{../Dirichlet.jpg} 
     \end{center}
 \end{frame}
 \begin{frame}
@@ -126,7 +130,7 @@ Dirichlet via Espaços de Sobolev}
     Uma solução clássica para o problema acima é uma função $u \in \cC^2(\Omega)$ satisfazendo (\ref{eq:dirichlet}). \pause
     Por outro lado, multiplicando ambos os lados da primeira equação em (\ref{eq:dirichlet}) por uma função $\phi \in \cC^{\infty}_C(\Omega)$ e integrando sobre $\Omega$, obtemos
     \[
-        \int_{\mathcal U} - \phi \Delta u \,dx + \int_{\mathcal U} u \phi \,dx = \int_{\mathcal U} f \phi \,dx. \pause
+        \int_{\Omega} - \phi \Delta u \,dx + \int_{\Omega} u \phi \,dx = \int_{\Omega} f \phi \,dx. \pause
     \]
     Note que, utlizando integração por partes, a primeira integral acima pode ser reescrita como
     \[
@@ -172,14 +176,14 @@ Dirichlet via Espaços de Sobolev}
     e podemos aplicar (\ref{eq:derivada-fraca-xi}) $|\alpha|$ vezes.
 \end{frame}
 \begin{frame}
-    Queremos descobrir se existe uma classe de funções tal que (\ref{eq:derivada-fraca}) ainda é válida, mesmo se $u$ não for de classe de $\cC^k$. \pause
-    Note que, o lado esquerdo de (\ref{eq:derivada-fraca}) está bem definido se $u \in \cL^1_{\loc}(\Omega)$. \pause
-    O problema é que se $u$ não for necessáriamente de classe $\cC^k$, não existe garantia de que o lado direito de (\ref{eq:derivada-fraca}) está bem definido.
-    Para contornar isso, nos perguntamos se existe uma função $v \in \cL^1_{\loc}(\Omega)$ tal que (\ref{eq:derivada-fraca}) é válida quando substituimos $D^{\alpha} u$ por $v$. \pause
+    % Queremos descobrir se existe uma classe de funções tal que (\ref{eq:derivada-fraca}) ainda é válida, mesmo se $u$ não for de classe de $\cC^k$. \pause
+    % Note que, o lado esquerdo de (\ref{eq:derivada-fraca}) está bem definido se $u \in \cL^1_{\loc}(\Omega)$. \pause
+    % O problema é que se $u$ não for necessáriamente de classe $\cC^k$, não existe garantia de que o lado direito de (\ref{eq:derivada-fraca}) está bem definido.
+    % Para contornar isso, nos perguntamos se existe uma função $v \in \cL^1_{\loc}(\Omega)$ tal que (\ref{eq:derivada-fraca}) é válida quando substituimos $D^{\alpha} u$ por $v$. \pause
 
-    Sendo assim, definimos a $\alpha$-ésima derivada fraca de uma função $u \in \cL^1_{\loc}(\Omega)$ como a função $v \in \cL^1_{\loc}(\Omega)$ (que denotamos por $D^\alpha u$) tal que
+    Definimos a $\alpha$-ésima derivada fraca de uma função $u \in \cL^1_{\loc}(\Omega)$ como a função $v \in \cL^1_{\loc}(\Omega)$ (que denotaremos por $D^\alpha u$) tal que
     \[
-        \int_{\Omega} u D^\alpha \phi \,dx = (-1)^{|\alpha|} \int_{\Omega} \phi D^\alpha u\,dx,
+        \int_{\Omega} u D^\alpha \phi \,dx = (-1)^{|\alpha|} \int_{\Omega} \phi v\,dx,
     \]
     para toda função $\phi \in \cC^{\infty}_c(\Omega)$.
 \end{frame}
@@ -330,8 +334,7 @@ Dirichlet via Espaços de Sobolev}
 \begin{frame}
     \frametitle{Exemplos}
     \begin{center}
-        \input{../mollifiers/abs(x)-mollifiers.tex}\\
-        Aproximações suaves da função $|x|$
+        \animategraphics[autoplay,loop,width=0.85\linewidth]{200}{frames/frame-}{0001}{0660}\\
     \end{center}
 \end{frame}
 \begin{frame}
@@ -450,7 +453,7 @@ Dirichlet via Espaços de Sobolev}
         \Vert u \Vert_{\cL^{p^*}(\bR^n)} \leqslant c \Vert Du \Vert_{\cL^p(\bR^n)},
     \end{equation}
     para toda função $u \in \cC^1_c(\bR^n)$.
-    \end{block} \pause
+    \end{block}
 \end{frame}
 \begin{frame}
     \frametitle{Demonstração da desigualdade de GNS}
@@ -585,7 +588,7 @@ Dirichlet via Espaços de Sobolev}
     \end{block}
 \end{frame}
 \begin{frame}
-    \frametitle{Desigualde de Morrey}
+    \frametitle{Desigualdade de Morrey}
     \begin{block}{Teorema}
          Sejam $u \in \cC^1(\bR^n)$, $n < p \leqslant \infty$ e $\gamma = 1 - \frac{n}{p}$. Então,
         \[
@@ -606,7 +609,7 @@ Dirichlet via Espaços de Sobolev}
     \end{block}
 \end{frame}
 \begin{frame}
-    \frametitle{Desigualdads gerais de Sobolev}
+    \frametitle{Desigualdades gerais de Sobolev}
     \only<1>{
     \begin{block}{Teorema}
         Sejam $\Omega$ um aberto limitado com fronteira de classe $\cC^1$ e $u \in \cW^{k,p}(\Omega)$.
@@ -642,7 +645,7 @@ Dirichlet via Espaços de Sobolev}
     \frametitle{Resumo dos mergulhos}
     \begin{enumerate}[label=\arabic*.]
     \item $\cW^{1,p}_0(\Omega) \hookrightarrow \cL^q(\Omega)$, com $1 \leqslant q \leqslant p^*$ e $1 \leqslant p < n$;
-    \item $\cW^{1,p}_0(\Omega) \hookrightarrow \cL^{p^*}(\Omega)$, com $1 \leqslant s \leqslant \infty$;
+    \item $\cW^{1,p}_0(\Omega) \hookrightarrow \cL^{p}(\Omega)$, com $1 \leqslant p \leqslant \infty$;
     \item $\cW^{k,p}(\Omega) \hookrightarrow \cL^q(\Omega)$, com $kp < n$ e $\frac{1}{q} = \frac{1}{p} + \frac{k}{n}$;
     \item $\cW^{k,p}(\Omega) \hookrightarrow \cC^{k-\ell-1\gamma}(\overline\Omega)$, com $kp > n$ e $\ell = \left\lfloor \frac{n}{p} \right\rfloor$.
 \end{enumerate}
@@ -717,7 +720,7 @@ com $t \geqslant t_0 \geqslant 0$. Aqui,
 \[
     \bv(\cdot,t) = e^{\nu \Delta (t-t_0)} \bu(\cdot,t_0),
 \]
-onde $e^{\nu \Delta (t-t_0)}$ é o semigrupo do calor visto nos preliminares.
+onde $e^{\nu \Delta (t-t_0)}$ é o semigrupo do calor.
 Com essas soluções, é possível estudar algumas estimativas de decaimento como
 \[
     \Vert \bv(\cdot,t) \Vert_{\cL^2(\bR^n)} \to 0,
@@ -857,7 +860,7 @@ A seguir, estudaremos algumas estimativas para $\BQ(\cdot,t)$.
     \]
 \end{frame}
 \begin{frame}
-    Por outro lado, pela identidade de Plancharel, sabemos que
+    Por outro lado, pela identidade de Plancherel, sabemos que
     \[
         \begin{aligned}
             \Vert e^{\nu \Delta (t-t_0)} \bu(\cdot,t_0) \Vert_{\cL^2(\bR^3)}^2 &= \Vert \cF [ e^{\nu \Delta (t-t_0) }\bu(\cdot,t_0)] \Vert_{\cL^2(\bR^3)}^2\\ &= \int_{\bR^3} \Vert \cF[ e^{\nu \Delta (t-t_0)} \bu(\omega,t_0)]\Vert^2 \,d\omega = \int_{\bR^3} e^{-2\nu (t-t_0) \Vert \omega \Vert^2} \Vert \hat{\bu} (\omega,t_0) \Vert^2 \,d\omega.
@@ -1032,6 +1035,11 @@ para todo $v \in H^1_0(\Omega)$, onde $\Vert f \Vert_{\cL^2(\Omega)} < \infty$, 
 \]
 para todo $v \in H^1_0(\Omega)$.
 Portanto, $u$ é a única solução fraca para o problema de Dirichlet.
+\end{frame}
+\begin{frame}
+    \frametitle{Referências}
+    \nocite{evans-pde,zingano-edp,kreyszig-functional.analysis,brezis-functional.analysis,folland-real.analysis,leray-fluid,bartle-measure.theory}
+    \printbibliography
 \end{frame}
 \begin{frame}
     \begin{center}
